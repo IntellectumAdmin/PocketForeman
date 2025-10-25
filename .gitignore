@@ -1,0 +1,8 @@
+﻿.venv/
+__pycache__/
+*.pyc
+structure_cache.json
+.env
+.cloudinary_cache/
+# редакторы/IDE
+.vscode/
