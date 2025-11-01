@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Камера Pocket Foreman</title>
   <style>
-    body { margin:0; font-family: system-ui, sans-serif; background:#f6f7f9; }
+    :root { color-scheme: light dark; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#f6f7f9; }
     .wrap { max-width: 720px; margin: 48px auto; padding: 16px; }
     h1 { text-align:center; margin: 0 0 16px; }
     .card { background:#fff; border-radius:16px; padding:16px; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
@@ -15,6 +16,7 @@
     .primary { background:#1976d2; color:#fff; }
     .ghost   { background:#eef3f7; }
     #status { margin-top:10px; font-size:14px; color:#333; min-height:1.2em; }
+    .hint { margin-top:6px; font-size:13px; opacity:.7; text-align:center; }
   </style>
 </head>
 <body>
@@ -29,52 +31,69 @@
         <button id="btnShot" class="primary">📸 Сделать фото</button>
       </div>
 
-      <img id="preview" alt="" style="display:none; margin-top:12px;" />
+      <img id="preview" alt="preview" style="display:none; margin-top:12px;" />
+
+      <div class="row" id="sendRow" style="display:none;">
+        <button id="btnSend" class="primary">📤 Отправить</button>
+      </div>
+
       <div id="status"></div>
+      <div class="hint" id="where"></div>
     </div>
   </div>
 
   <script>
   (function () {
-    const q = new URLSearchParams(location.search);
-    const camParam = (q.get('cam') || '').toLowerCase();
-    let useBack = camParam ? (camParam === 'back') : true;
+    // ===== Параметры из URL =====
+    const qs = new URLSearchParams(location.search);
+    const CLOUD   = qs.get('cloud')   || '';     // cloud name
+    const PRESET  = qs.get('preset')  || '';     // unsigned upload preset
+    const FOLDER  = qs.get('folder')  || '';     // куда класть в Cloudinary
+    const SECTION = qs.get('section') || '';     // красивое имя раздела для Notion
+    const CAM     = (qs.get('cam') || 'back').toLowerCase();
 
+    const tg = window.Telegram?.WebApp;
+    if (tg) tg.expand(); // чуть расширим web-app в телеграме
+
+    // ===== UI =====
     const vid = document.getElementById('vid');
     const cnv = document.getElementById('cnv');
     const preview = document.getElementById('preview');
     const btnFlip = document.getElementById('btnFlip');
     const btnShot = document.getElementById('btnShot');
+    const btnSend = document.getElementById('btnSend');
+    const sendRow = document.getElementById('sendRow');
     const statusEl = document.getElementById('status');
+    const whereEl  = document.getElementById('where');
 
+    whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
+
+    let useBack = CAM === 'back';
     let stream = null;
+    let lastDataUrl = null;
 
     const setStatus = (t) => statusEl.textContent = t || '';
 
     async function startCamera() {
-      if (stream) {
-        stream.getTracks().forEach(t => t.stop());
-        stream = null;
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setStatus('Браузер не поддерживает камеру');
+        return;
       }
-      setStatus('Запуск камеры…');
+      // Остановим предыдущий стрим
+      if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
+      setStatus('Запуск камеры…');
       const primaryFacing = useBack ? { exact: 'environment' } : 'user';
       try {
         stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: primaryFacing },
-          audio: false
+          video: { facingMode: primaryFacing }, audio: false
         });
       } catch (e) {
-        if (useBack) {
-          stream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: 'environment' },
-            audio: false
-          });
-        } else {
-          throw e;
-        }
+        // Фолбэк без exact
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: useBack ? 'environment' : 'user' }, audio: false
+        });
       }
-
       vid.srcObject = stream;
       await vid.play().catch(()=>{});
       setStatus(useBack ? 'Задняя камера' : 'Фронтальная камера');
@@ -90,19 +109,71 @@
       if (!w || !h) return;
       cnv.width = w; cnv.height = h;
       cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
-      const dataUrl = cnv.toDataURL('image/jpeg', 0.92);
-      preview.src = dataUrl;
+      lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
+      preview.src = lastDataUrl;
       preview.style.display = 'block';
+      sendRow.style.display = 'flex';
       setStatus('Снимок готов');
     });
 
-    if (!navigator.mediaDevices?.getUserMedia) {
-      setStatus('Браузер не поддерживает камеру');
-      return;
+    // ===== Загрузка в Cloudinary (unsigned) =====
+    async function uploadToCloudinary(dataUrl) {
+      // dataUrl -> Blob
+      const resp = await fetch(dataUrl);
+      const blob = await resp.blob();
+
+      const form = new FormData();
+      form.append('file', blob, 'pocket_foreman.jpg');
+      form.append('upload_preset', PRESET);
+      if (FOLDER) form.append('folder', FOLDER);
+
+      const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
+
+      const r = await fetch(url, { method: 'POST', body: form });
+      if (!r.ok) {
+        const txt = await r.text();
+        throw new Error(`Cloudinary: ${r.status} ${txt}`);
+      }
+      return r.json(); // { secure_url, public_id, ... }
     }
+
+    btnSend.addEventListener('click', async () => {
+      if (!CLOUD || !PRESET) {
+        setStatus('Не хватает настроек загрузки (cloud/preset).');
+        return;
+      }
+      if (!lastDataUrl) {
+        setStatus('Сделайте фото перед отправкой.');
+        return;
+      }
+
+      btnSend.disabled = true;
+      setStatus('Загрузка в облако…');
+
+      try {
+        const data = await uploadToCloudinary(lastDataUrl);
+        const secureUrl = data.secure_url;
+
+        setStatus('Готово. Ссылка получена.');
+        // Отправим обратно в Telegram бота
+        if (tg && secureUrl) {
+          tg.sendData(JSON.stringify({
+            type: 'photo_uploaded',
+            url: secureUrl,
+            section: SECTION || ''
+          }));
+        } else {
+          alert('Ссылка: ' + secureUrl);
+        }
+      } catch (e) {
+        console.error(e);
+        setStatus('Ошибка загрузки: ' + e.message);
+        btnSend.disabled = false;
+      }
+    });
+
     startCamera();
   })();
   </script>
 </body>
 </html>
-
