@@ -3,8 +3,8 @@
 Pocket Foreman: Cloudinary -> Notion
 - SafeSync структуры
 - Главное меню и /photo
-- «Из галереи»
-- «📷 Сделать фото» через WebApp (camera.html)
+- Ветка «Из галереи»
+- Ветка «📷 Сделать фото» через WebApp (camera.html)
 """
 
 import os
@@ -62,6 +62,7 @@ CLOUD_NAME        = os.getenv("CLOUD_NAME", "")
 CLOUD_API_KEY     = os.getenv("CLOUD_API_KEY", "")
 CLOUD_API_SECRET  = os.getenv("CLOUD_API_SECRET", "")
 CLOUD_ROOT        = os.getenv("CLOUD_ROOT", "Project")
+# Пресет для НЕподписанных загрузок (создай в Cloudinary, allow unsigned)
 CLOUD_UNSIGNED_PRESET = os.getenv("CLOUD_UNSIGNED_PRESET", "pf_unsigned")
 
 # === Telegram ===
@@ -70,7 +71,7 @@ BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 # === Колонки в Notion ===
 PROP_SECTION = os.getenv("PROP_SECTION", "Раздел")
 PROP_FILE    = os.getenv("PROP_FILE", "Файл / Фото")
-PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")
+PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")  # сюда кладём Cloudinary URL
 PROP_DATE    = os.getenv("PROP_DATE", "Дата")
 PROP_COMMENT = os.getenv("PROP_COMMENT", "Комментарий")
 
@@ -141,7 +142,7 @@ def format_path_for_notion(path_str: str) -> str:
     parts = [s for s in path_str.split("/") if s]
     return " / ".join(parts)
 
-# ===== Короткие id путей =====
+# ===== Короткие id =====
 PATH2ID: Dict[str, str] = {}
 ID2PATH: Dict[str, str] = {}
 ID_SEQ = 1
@@ -159,6 +160,7 @@ def _path_by_id(pid: str) -> str:
 
 # ===== Notion =====
 def _notion_create_row(section: str, file_name: str, url: str, comment: Optional[str]) -> Tuple[bool, str]:
+    """Создать строку в базе Notion, вернуть (ok, info_or_error)."""
     today_iso = datetime.now().strftime("%Y-%m-%d")
     props: Dict[str, Any] = {
         PROP_SECTION: {"select": {"name": section}},
@@ -170,11 +172,14 @@ def _notion_create_row(section: str, file_name: str, url: str, comment: Optional
         props[PROP_COMMENT] = {"rich_text": [{"text": {"content": comment}}]}
 
     payload = {"parent": {"database_id": DATABASE_ID}, "properties": props}
-    r = requests.post("https://api.notion.com/v1/pages", headers=NOTION_HEADERS, json=payload)
+    r = requests.post("https://api.notion.com/v1/pages", headers=NOTION_HEADERS, json=payload, timeout=30)
     if r.status_code in (200, 201):
         return True, "ok"
     try:
-        return False, r.json().get("message", r.text)
+        j = r.json()
+        # разные поля у ошибок; возьмём всё, что есть
+        msg = j.get("message") or j.get("error") or j
+        return False, str(msg)
     except Exception:
         return False, r.text
 
@@ -300,12 +305,10 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"&section={quote(nice)}"
             f"&cam=back"
         )
-        kb = InlineKeyboardMarkup([
-            [
-                InlineKeyboardButton("📷 Сделать фото", web_app=WebAppInfo(cam_url)),
-                InlineKeyboardButton("📎 Из галереи", callback_data="ask_gallery"),
-            ]
-        ])
+        kb = InlineKeyboardMarkup([[
+            InlineKeyboardButton("📷 Сделать фото", web_app=WebAppInfo(cam_url)),
+            InlineKeyboardButton("📎 Из галереи", callback_data="ask_gallery"),
+        ]])
         await query.edit_message_text(
             f"✅ Раздел выбран:\n{nice}\n\nВыбери способ:",
             reply_markup=kb
@@ -364,10 +367,7 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     section_for_notion = format_path_for_notion(section_path)
     ok, info = _notion_create_row(
-        section=section_for_notion,
-        file_name="Фото со стройки",
-        url=url,
-        comment=comment,
+        section=section_for_notion, file_name="Фото со стройки", url=url, comment=comment,
     )
     if ok:
         await update.message.reply_text("✓ Фото загружено в Cloudinary и добавлено в Notion.")
@@ -378,21 +378,28 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data.clear()
     return ConversationHandler.END
 
-# ===== Приём данных из WebApp =====
+# ===== Приём данных из WebApp (camera.html) =====
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    wad = update.effective_message.web_app_data
+    msg = update.effective_message
+    print("[DEBUG] on_webapp_data: effective_message type =", type(msg).__name__)
+    print("[DEBUG] on_webapp_data: raw web_app_data =", getattr(msg, "web_app_data", None))
+
+    wad = msg.web_app_data
     if not wad:
-        return
-    try:
-        raw = wad.data
-        log.info("[WEB_APP_DATA] raw: %s", raw)
-        payload = json.loads(raw)
-        log.info("[WEB_APP_DATA] parsed: %s", payload)
-    except Exception:
-        await update.effective_message.reply_text("Не могу прочитать данные камеры.")
+        print("[DEBUG] on_webapp_data: wad is None -> return")
         return
 
+    try:
+        payload = json.loads(wad.data)
+    except Exception as e:
+        print("[DEBUG] on_webapp_data: JSON decode error:", e, "raw=", getattr(wad, "data", None))
+        await msg.reply_text("Не могу прочитать данные камеры.")
+        return
+
+    print("[DEBUG] on_webapp_data: payload =", payload)
+
     if payload.get("type") != "photo_uploaded":
+        print("[DEBUG] on_webapp_data: unknown type ->", payload.get("type"))
         return
 
     url     = payload.get("url")
@@ -400,25 +407,48 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     comment = payload.get("comment") or None
 
     if not url:
-        await update.effective_message.reply_text("Не получил ссылку на фото из камеры.")
+        await msg.reply_text("Не получил ссылку на фото из камеры.")
         return
 
-    ok, info = _notion_create_row(
-        section=section or "—",
-        file_name="Фото (камера)",
-        url=url,
-        comment=comment,
-    )
+    try:
+        ok, info = _notion_create_row(
+            section=section or "—",
+            file_name="Фото (камера)",
+            url=url,
+            comment=comment,
+        )
+    except Exception as e:
+        print("[DEBUG] Notion request exception:", repr(e))
+        ok, info = False, repr(e)
+
     if ok:
-        await update.effective_message.reply_photo(
+        await msg.reply_photo(
             photo=url,
             caption=f"✅ Фото загружено в облако и добавлено в Notion.\nРаздел: {section or '—'}"
         )
     else:
-        await update.effective_message.reply_photo(
+        print("[DEBUG] Notion said:", info)
+        await msg.reply_photo(
             photo=url,
-            caption=f"⚠️ Загрузка ок, но Notion ответил ошибкой: {info}"
+            caption=f"⚠️ Загрузка ок, но Notion ответил: {info}"
         )
+
+# ===== Универсальный лог всех апдейтов (временно для отладки) =====
+async def debug_all_updates(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    kind = (
+        "message" if update.message else
+        "edited_message" if update.edited_message else
+        "callback_query" if update.callback_query else
+        "channel_post" if update.channel_post else
+        "unknown"
+    )
+    has_wad = bool(getattr(update.effective_message, "web_app_data", None)) if update.effective_message else False
+    print(f"[DEBUG] update kind={kind}; has_web_app_data={has_wad}")
+
+# ===== Быстрый self-test Notion =====
+async def cmd_notionselftest(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    ok, info = _notion_create_row(section="Тест", file_name="Проверка", url="https://example.com", comment="selftest")
+    await update.message.reply_text(f"Notion selftest: {'OK' if ok else 'FAIL'} — {info}")
 
 # ===== Отмена =====
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -436,9 +466,9 @@ def main():
     # Синхронизация структуры при старте
     try:
         info = sync_structure()
-        log.info("✓ Структура синхронизирована при старте. Корень: %s, разделов: %d", info['root'], len(info['paths']))
+        log.info(f"✓ Структура синхронизирована при старте. Корень: {info['root']}, разделов: {len(info['paths'])}")
     except Exception as e:
-        log.warning("⚠️ Не удалось автоматически синхронизировать структуру: %s", e)
+        log.warning(f"⚠️ Не удалось автоматически синхронизировать структуру: {e}")
 
     root, _ = structure_load_index()
 
@@ -447,25 +477,24 @@ def main():
     print(f"Notion DB: {DATABASE_ID[:8]}...{DATABASE_ID[-5:]}")
     print(f"Cloudinary: {cloudinary.config().cloud_name}")
     print(f"Корень Cloudinary: {root}")
-    print(f"Camera page: {os.getenv('GHPAGES_CAMERA_URL', 'https://intellectumadmin.github.io/PocketForeman/camera.html')}")
+    print("Camera page:", os.getenv("GHPAGES_CAMERA_URL"))
+    print("Using filter for web_app_data: filters.StatusUpdate.WEB_APP_DATA")
     print("=======================================")
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     admin_chat_id = int(os.getenv("ADMIN_CHAT_ID", "0"))
 
-    # SafeSync watcher (async callback OK)
+    # SafeSync watcher (async callback)
     async def _start_safe_sync_once(context):
         safe_sync = start_safe_sync(app, admin_chat_id=admin_chat_id)
-        context.application.bot_data["safe_sync"] = safe_sync
+        app.bot_data["safe_sync"] = safe_sync
         print("[SafeSync] ✅ Запущен наблюдатель за structure.txt")
-
     app.job_queue.run_once(_start_safe_sync_once, 1.0)
 
     async def _on_safe_sync_callback(update, context):
         ss = context.application.bot_data.get("safe_sync")
         if ss:
             await ss.on_callback(update, context)
-
     app.add_handler(CallbackQueryHandler(_on_safe_sync_callback, pattern=r"^safesync:(apply|cancel)\|\d+$"))
 
     # /photo диалог
@@ -476,32 +505,34 @@ def main():
             MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start),
         ],
         states={
-            PH1_WAIT_SECTION: [
-                CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"),
-            ],
+            PH1_WAIT_SECTION: [CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|")],
             PH2_WAIT_PHOTO: [
                 CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
                 MessageHandler(filters.PHOTO, ph2_photo),
-                MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data),
             ],
-            PH3_WAIT_COMMENT: [
-                MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment),
-            ],
+            PH3_WAIT_COMMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment)],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
         name="photo_conv",
         persistent=False,
     )
 
+    # Команды
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("sync", cmd_sync))
+    app.add_handler(CommandHandler("notionselftest", cmd_notionselftest))
+
+    # Диалог
     app.add_handler(photo_conv)
     app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))
 
-    # Страховочный хендлер на случай, если web_app_data прилетит вне диалога
+    # 1) Приём данных от WebApp (должен стоять ПЕРЕД общей обработкой)
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
-    # Меню по умолчанию
+    # 2) Универсальный дебаг всех апдейтов (временно)
+    app.add_handler(MessageHandler(filters.ALL, debug_all_updates))
+
+    # 3) Меню по умолчанию (ставим после дебага)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, ensure_menu))
 
     log.info("Pocket Foreman (Cloudinary -> Notion) is starting...")
