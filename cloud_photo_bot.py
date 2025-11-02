@@ -70,7 +70,7 @@ BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 # === Колонки в Notion ===
 PROP_SECTION = os.getenv("PROP_SECTION", "Раздел")
 PROP_FILE    = os.getenv("PROP_FILE", "Файл / Фото")
-PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")
+PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")  # сюда кладём ссылку Cloudinary
 PROP_DATE    = os.getenv("PROP_DATE", "Дата")
 PROP_COMMENT = os.getenv("PROP_COMMENT", "Комментарий")
 
@@ -168,12 +168,21 @@ def _notion_create_row(section: str, file_name: str, url: str, comment: Optional
     }
     if comment:
         props[PROP_COMMENT] = {"rich_text": [{"text": {"content": comment}}]}
+
     payload = {"parent": {"database_id": DATABASE_ID}, "properties": props}
     r = requests.post("https://api.notion.com/v1/pages", headers=NOTION_HEADERS, json=payload)
+
     if r.status_code in (200, 201):
         return True, "ok"
+
+    # расширенный лог ошибки
     try:
-        return False, r.json().get("message", r.text)
+        data = r.json()
+    except Exception:
+        data = {"text": r.text}
+    log.warning(f"Notion error {r.status_code}: {data}")
+    try:
+        return False, data.get("message", str(data))
     except Exception:
         return False, r.text
 
@@ -375,11 +384,14 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ===== Приём данных из WebApp =====
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     wad = update.effective_message.web_app_data
+    print("[WEB_APP_DATA] raw:", wad.data if wad else None)
     if not wad:
         return
     try:
         payload = json.loads(wad.data)
-    except Exception:
+        print("[WEB_APP_DATA] parsed:", payload)
+    except Exception as e:
+        print("[WEB_APP_DATA] json error:", e)
         await update.effective_message.reply_text("Не могу прочитать данные камеры.")
         return
 
@@ -438,12 +450,13 @@ def main():
     print(f"Notion DB: {DATABASE_ID[:8]}...{DATABASE_ID[-5:]}")
     print(f"Cloudinary: {cloudinary.config().cloud_name}")
     print(f"Корень Cloudinary: {root}")
+    print(f"Camera page: {os.getenv('GHPAGES_CAMERA_URL')}")
     print("=======================================")
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     admin_chat_id = int(os.getenv("ADMIN_CHAT_ID", "0"))
 
-    # SafeSync watcher — ДЕЛАЕМ async callback
+    # SafeSync watcher — async callback
     async def _start_safe_sync_once(context):
         safe_sync = start_safe_sync(app, admin_chat_id=admin_chat_id)
         app.bot_data["safe_sync"] = safe_sync
@@ -474,11 +487,14 @@ def main():
             PH2_WAIT_PHOTO: [
                 CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
                 MessageHandler(filters.PHOTO, ph2_photo),
+
+                # ВАЖНО: ловим данные мини-приложения внутри состояния
+                MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data),
             ],
             PH3_WAIT_COMMENT: [
                 MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment)
             ],
-        },
+        ],
         fallbacks=[CommandHandler("cancel", cancel)],
         name="photo_conv",
         persistent=False,
@@ -490,7 +506,7 @@ def main():
     app.add_handler(photo_conv)
     app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))
 
-    # Приём данных от WebApp
+    # (Можно оставить и глобальный — на всякий случай)
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
     # Меню по умолчанию
