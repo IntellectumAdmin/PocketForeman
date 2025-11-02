@@ -48,12 +48,12 @@
     const qs = new URLSearchParams(location.search);
     const CLOUD   = qs.get('cloud')   || '';     // cloud name
     const PRESET  = qs.get('preset')  || '';     // unsigned upload preset
-    const FOLDER  = qs.get('folder')  || '';     // куда класть в Cloudinary
-    const SECTION = qs.get('section') || '';     // красивое имя раздела для Notion
+    const FOLDER  = qs.get('folder')  || '';     // Cloudinary folder
+    const SECTION = qs.get('section') || '';     // красивое имя раздела
     const CAM     = (qs.get('cam') || 'back').toLowerCase();
 
     const tg = window.Telegram?.WebApp;
-    if (tg) tg.expand(); // чуть расширим web-app в телеграме
+    if (tg) tg.expand();
 
     // ===== UI =====
     const vid = document.getElementById('vid');
@@ -79,7 +79,6 @@
         setStatus('Браузер не поддерживает камеру');
         return;
       }
-      // Остановим предыдущий стрим
       if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
       setStatus('Запуск камеры…');
@@ -89,7 +88,6 @@
           video: { facingMode: primaryFacing }, audio: false
         });
       } catch (e) {
-        // Фолбэк без exact
         stream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: useBack ? 'environment' : 'user' }, audio: false
         });
@@ -118,7 +116,6 @@
 
     // ===== Загрузка в Cloudinary (unsigned) =====
     async function uploadToCloudinary(dataUrl) {
-      // dataUrl -> Blob
       const resp = await fetch(dataUrl);
       const blob = await resp.blob();
 
@@ -128,24 +125,14 @@
       if (FOLDER) form.append('folder', FOLDER);
 
       const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
-
       const r = await fetch(url, { method: 'POST', body: form });
-      if (!r.ok) {
-        const txt = await r.text();
-        throw new Error(`Cloudinary: ${r.status} ${txt}`);
-      }
-      return r.json(); // { secure_url, public_id, ... }
+      if (!r.ok) throw new Error(`Cloudinary: ${r.status} ${await r.text()}`);
+      return r.json(); // { secure_url, ... }
     }
 
     btnSend.addEventListener('click', async () => {
-      if (!CLOUD || !PRESET) {
-        setStatus('Не хватает настроек загрузки (cloud/preset).');
-        return;
-      }
-      if (!lastDataUrl) {
-        setStatus('Сделайте фото перед отправкой.');
-        return;
-      }
+      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
+      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
 
       btnSend.disabled = true;
       setStatus('Загрузка в облако…');
@@ -155,7 +142,6 @@
         const secureUrl = data.secure_url;
 
         setStatus('Готово. Ссылка получена.');
-        // Отправим обратно в Telegram бота
         if (tg && secureUrl) {
           tg.sendData(JSON.stringify({
             type: 'photo_uploaded',
