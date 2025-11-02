@@ -3,8 +3,8 @@
 Pocket Foreman: Cloudinary -> Notion
 - SafeSync структуры
 - Главное меню и /photo
-- Ветка «Из галереи»
-- Ветка «📷 Сделать фото» через WebApp (camera.html)
+- «Из галереи»
+- «📷 Сделать фото» через WebApp (camera.html)
 """
 
 import os
@@ -70,7 +70,7 @@ BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 # === Колонки в Notion ===
 PROP_SECTION = os.getenv("PROP_SECTION", "Раздел")
 PROP_FILE    = os.getenv("PROP_FILE", "Файл / Фото")
-PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")  # сюда кладём ссылку Cloudinary
+PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")
 PROP_DATE    = os.getenv("PROP_DATE", "Дата")
 PROP_COMMENT = os.getenv("PROP_COMMENT", "Комментарий")
 
@@ -141,7 +141,7 @@ def format_path_for_notion(path_str: str) -> str:
     parts = [s for s in path_str.split("/") if s]
     return " / ".join(parts)
 
-# ===== Короткие id =====
+# ===== Короткие id путей =====
 PATH2ID: Dict[str, str] = {}
 ID2PATH: Dict[str, str] = {}
 ID_SEQ = 1
@@ -171,18 +171,10 @@ def _notion_create_row(section: str, file_name: str, url: str, comment: Optional
 
     payload = {"parent": {"database_id": DATABASE_ID}, "properties": props}
     r = requests.post("https://api.notion.com/v1/pages", headers=NOTION_HEADERS, json=payload)
-
     if r.status_code in (200, 201):
         return True, "ok"
-
-    # расширенный лог ошибки
     try:
-        data = r.json()
-    except Exception:
-        data = {"text": r.text}
-    log.warning(f"Notion error {r.status_code}: {data}")
-    try:
-        return False, data.get("message", str(data))
+        return False, r.json().get("message", r.text)
     except Exception:
         return False, r.text
 
@@ -230,8 +222,10 @@ def _kb_for_parent(parent_path: str) -> InlineKeyboardMarkup:
         pid = _id_for_path(full)
         row.append(InlineKeyboardButton(f"📂 {name}", callback_data=f"p|{pid}"))
         if len(row) == 2:
-            rows.append(row); row = []
-    if row: rows.append(row)
+            rows.append(row)
+            row = []
+    if row:
+        rows.append(row)
     ctrl: List[InlineKeyboardButton] = []
     if parent_path:
         parent_parent = "/".join(parent_path.split("/")[:-1])
@@ -277,11 +271,11 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
     act, _, pid = data.partition("|")
     path = _path_by_id(pid)
 
-    if act in ("p","b","c") and path is None:
+    if act in ("p", "b", "c") and path is None:
         await query.answer("Меню устарело, начните заново: /photo", show_alert=True)
         return PH1_WAIT_SECTION
 
-    if act in ("p","b"):
+    if act in ("p", "b"):
         context.user_data["cursor_path"] = path
         text = f"Раздел: {format_path_for_notion(path) if path else 'Корень'}\nВыбери подраздел:"
         await query.edit_message_text(text=text, reply_markup=_kb_for_parent(path))
@@ -370,7 +364,10 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     section_for_notion = format_path_for_notion(section_path)
     ok, info = _notion_create_row(
-        section=section_for_notion, file_name="Фото со стройки", url=url, comment=comment,
+        section=section_for_notion,
+        file_name="Фото со стройки",
+        url=url,
+        comment=comment,
     )
     if ok:
         await update.message.reply_text("✓ Фото загружено в Cloudinary и добавлено в Notion.")
@@ -384,14 +381,14 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ===== Приём данных из WebApp =====
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     wad = update.effective_message.web_app_data
-    print("[WEB_APP_DATA] raw:", wad.data if wad else None)
     if not wad:
         return
     try:
-        payload = json.loads(wad.data)
-        print("[WEB_APP_DATA] parsed:", payload)
-    except Exception as e:
-        print("[WEB_APP_DATA] json error:", e)
+        raw = wad.data
+        log.info("[WEB_APP_DATA] raw: %s", raw)
+        payload = json.loads(raw)
+        log.info("[WEB_APP_DATA] parsed: %s", payload)
+    except Exception:
         await update.effective_message.reply_text("Не могу прочитать данные камеры.")
         return
 
@@ -439,9 +436,9 @@ def main():
     # Синхронизация структуры при старте
     try:
         info = sync_structure()
-        log.info(f"✓ Структура синхронизирована при старте. Корень: {info['root']}, разделов: {len(info['paths'])}")
+        log.info("✓ Структура синхронизирована при старте. Корень: %s, разделов: %d", info['root'], len(info['paths']))
     except Exception as e:
-        log.warning(f"⚠️ Не удалось автоматически синхронизировать структуру: {e}")
+        log.warning("⚠️ Не удалось автоматически синхронизировать структуру: %s", e)
 
     root, _ = structure_load_index()
 
@@ -450,16 +447,16 @@ def main():
     print(f"Notion DB: {DATABASE_ID[:8]}...{DATABASE_ID[-5:]}")
     print(f"Cloudinary: {cloudinary.config().cloud_name}")
     print(f"Корень Cloudinary: {root}")
-    print(f"Camera page: {os.getenv('GHPAGES_CAMERA_URL')}")
+    print(f"Camera page: {os.getenv('GHPAGES_CAMERA_URL', 'https://intellectumadmin.github.io/PocketForeman/camera.html')}")
     print("=======================================")
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     admin_chat_id = int(os.getenv("ADMIN_CHAT_ID", "0"))
 
-    # SafeSync watcher — async callback
+    # SafeSync watcher (async callback OK)
     async def _start_safe_sync_once(context):
         safe_sync = start_safe_sync(app, admin_chat_id=admin_chat_id)
-        app.bot_data["safe_sync"] = safe_sync
+        context.application.bot_data["safe_sync"] = safe_sync
         print("[SafeSync] ✅ Запущен наблюдатель за structure.txt")
 
     app.job_queue.run_once(_start_safe_sync_once, 1.0)
@@ -469,9 +466,7 @@ def main():
         if ss:
             await ss.on_callback(update, context)
 
-    app.add_handler(CallbackQueryHandler(
-        _on_safe_sync_callback, pattern=r"^safesync:(apply|cancel)\|\d+$"
-    ))
+    app.add_handler(CallbackQueryHandler(_on_safe_sync_callback, pattern=r"^safesync:(apply|cancel)\|\d+$"))
 
     # /photo диалог
     ADD_PHOTO_PATTERN = r"(?i)(?:^|\s)добавить фото$"
@@ -482,19 +477,17 @@ def main():
         ],
         states={
             PH1_WAIT_SECTION: [
-                CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|")
+                CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"),
             ],
             PH2_WAIT_PHOTO: [
                 CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
                 MessageHandler(filters.PHOTO, ph2_photo),
-
-                # ВАЖНО: ловим данные мини-приложения внутри состояния
                 MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data),
             ],
             PH3_WAIT_COMMENT: [
-                MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment)
+                MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment),
             ],
-        ],
+        },
         fallbacks=[CommandHandler("cancel", cancel)],
         name="photo_conv",
         persistent=False,
@@ -502,11 +495,10 @@ def main():
 
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("sync", cmd_sync))
-
     app.add_handler(photo_conv)
     app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))
 
-    # (Можно оставить и глобальный — на всякий случай)
+    # Страховочный хендлер на случай, если web_app_data прилетит вне диалога
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
     # Меню по умолчанию
