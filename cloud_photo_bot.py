@@ -10,6 +10,8 @@ Pocket Foreman: Cloudinary -> Notion
 import os
 import io
 import re
+CLOUD_URL_RE = re.compile(r"https://res\.cloudinary\.com/[^ \n]+", re.IGNORECASE)
+CAMERA_WAIT_TTL_SEC = 60
 import json
 import time
 import logging
@@ -190,14 +192,33 @@ def _build_props(section: str, file_name: str, url: str, comment: Optional[str])
     return props
 
 def _notion_create_row_once(section: str, file_name: str, url: str, comment: Optional[str]) -> Tuple[bool, str]:
-    payload = {"parent": {"database_id": DATABASE_ID}, "properties": _build_props(section, file_name, url, comment)}
+    today_iso = datetime.now().strftime("%Y-%m-%d")
+
+    props: Dict[str, Any] = {
+        PROP_SECTION: {"select": {"name": section}},
+        # ⚠️ Колонка Files & media: внешний файл c превью
+        PROP_FILE: {
+            "files": [
+                {
+                    "name": file_name,
+                    "type": "external",
+                    "external": {"url": url}
+                }
+            ]
+        },
+        PROP_URL: {"url": url},   # можно оставить как резервное «просто ссылка»
+        PROP_DATE: {"date": {"start": today_iso}},
+    }
+    if comment:
+        props[PROP_COMMENT] = {"rich_text": [{"text": {"content": comment}}]}
+
+    payload = {"parent": {"database_id": DATABASE_ID}, "properties": props}
     r = requests.post("https://api.notion.com/v1/pages", headers=NOTION_HEADERS, json=payload, timeout=30)
     if r.status_code in (200, 201):
         return True, "ok"
     try:
         j = r.json()
-        msg = j.get("message") or j.get("error") or j
-        return False, str(msg)
+        return False, str(j.get("message") or j.get("error") or j)
     except Exception:
         return False, r.text
 
@@ -333,10 +354,7 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         await query.message.reply_text("Или прикрепи фото из галереи (можно сразу несколько):", reply_markup=kb_inline)
 
-        # Подсказка про резервный путь
-        await query.message.reply_text(
-            "Если после камеры бот не ответил за ~5 сек, просто пришли сюда ссылку Cloudinary — я сам добавлю в Notion."
-        )
+        
         return PH2_WAIT_PHOTO
 
     await query.answer("Неизвестная команда.", show_alert=True)
@@ -438,8 +456,8 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     try:
         payload = json.loads(wad.data)
-    except Exception as e:
-        await msg.reply_text("Не могу прочитать данные камеры.")
+    except Exception:
+        await msg.reply_text("Не могу прочитать данные камеры.", reply_markup=main_menu())
         return
 
     if payload.get("type") != "photo_uploaded":
@@ -450,10 +468,9 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     comment = payload.get("comment") or None
 
     if not url:
-        await msg.reply_text("Не получил ссылку на фото из камеры.")
+        await msg.reply_text("Не получил ссылку на фото из камеры.", reply_markup=main_menu())
         return
 
-    # Пишем и превью (Files & media), и URL
     ok, info = _notion_create_row(
         section=section,
         file_name="Фото (камера)",
@@ -462,28 +479,14 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     if ok:
-        await msg.reply_photo(photo=url, caption=f"✅ Фото загружено в облако и добавлено в Notion.\nРаздел: {section}")
+        await msg.reply_photo(photo=url,
+                              caption=f"✅ Фото загружено в облако и добавлено в Notion.\nРаздел: {section}")
     else:
-        await msg.reply_photo(photo=url, caption=f"⚠️ Загрузка ок, но Notion ответил: {info}")
+        await msg.reply_photo(photo=url,
+                              caption=f"⚠️ Загрузка ок, но Notion ответил: {info}")
 
-# ===== РЕЗЕРВ: ловим ссылку Cloudinary из обычного текста =====
-CLOUD_URL_RE = re.compile(r"https?://res\.cloudinary\.com/\S+", re.IGNORECASE)
-
-async def on_text_cloud_url(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = (update.message.text or "").strip()
-    m = CLOUD_URL_RE.search(text)
-    if not m:
-        return
-
-    url = m.group(0)
-    section_path = context.user_data.get("section_path", "")
-    section_for_notion = format_path_for_notion(section_path) if section_path else "—"
-
-    ok, info = _notion_create_row(section=section_for_notion, file_name="Фото (камера, фолбэк)", url=url, comment=None)
-    if ok:
-        await update.message.reply_text("✅ Получил ссылку. Добавил запись в Notion.", reply_markup=main_menu())
-    else:
-        await update.message.reply_text(f"⚠️ Ссылку получил, но Notion ответил: {info}", reply_markup=main_menu())
+    # всегда возвращаем главное меню снизу
+    await msg.reply_text("Готово. Что дальше?", reply_markup=main_menu())
 
 # ===== Кнопки нижней клавиатуры вне диалога =====
 async def on_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
