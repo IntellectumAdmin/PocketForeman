@@ -130,34 +130,42 @@
       return r.json(); // { secure_url, ... }
     }
 
-    btnSend.addEventListener('click', async () => {
-      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
-      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-      btnSend.disabled = true;
-      setStatus('Загрузка в облако…');
+  btnSend.addEventListener('click', async () => {
+    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
+    if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
 
-      try {
-        const data = await uploadToCloudinary(lastDataUrl);
-        const secureUrl = data.secure_url;
+    btnSend.disabled = true;
+    setStatus('Загрузка в облако…');
 
-        setStatus('Готово. Ссылка получена.');
-        if (tg && secureUrl) {
-          tg.sendData(JSON.stringify({
-            type: 'photo_uploaded',
-            url: secureUrl,
-            section: SECTION || ''
-          }));
-          tg.close();
-        } else {
-          alert('Ссылка: ' + secureUrl);
-        }
-      } catch (e) {
-        console.error(e);
-        setStatus('Ошибка загрузки: ' + e.message);
-        btnSend.disabled = false;
+    try {
+      const data = await uploadToCloudinary(lastDataUrl);
+      const secureUrl = data.secure_url;
+
+      setStatus('Готово. Отправка в бота…');
+
+      if (tg && secureUrl) {
+        tg.sendData(JSON.stringify({
+          type: 'photo_uploaded',
+          url: secureUrl,
+          section: SECTION || ''
+        }));
+
+        // КРИТИЧЕСКОЕ МЕСТО: подождать, прежде чем закрыть WebApp
+        await sleep(1000); // можно 1200–1500мс, если телефон «тяжёлый»
+
+        setStatus('Отправлено! Закрываем…');
+        tg.close();
+      } else {
+        alert('Ссылка: ' + secureUrl);
       }
-    });
+    } catch (e) {
+      console.error(e);
+      setStatus('Ошибка загрузки: ' + e.message);
+      btnSend.disabled = false;
+    }
+  });
 
     startCamera();
   })();
