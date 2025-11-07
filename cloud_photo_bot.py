@@ -331,6 +331,7 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
         cam_base = os.getenv("GHPAGES_CAMERA_URL",
                              "https://intellectumadmin.github.io/PocketForeman/camera.html")
         folder = f"{STRUCT_ROOT}/{path}" if STRUCT_ROOT else path
+        ts = int(time.time())  # <<< ДЛЯ АНТИ-КЭША
         cam_url = (
             f"{cam_base}"
             f"?cloud={quote(CLOUD_NAME)}"
@@ -338,6 +339,7 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"&folder={quote(folder)}"
             f"&section={quote(nice)}"
             f"&cam=back"
+            f"&v={ts}"                     # <<< ВОТ ЭТО ДОБАВЬ
         )
 
         await query.edit_message_text(f"✅ Раздел выбран:\n{nice}\n\nВыбери способ:")
@@ -558,8 +560,7 @@ def main():
             PH2_WAIT_PHOTO: [
                 CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
                 MessageHandler(filters.PHOTO, ph2_photo),
-                # резервный канал: если камера вернула ссылку текстом
-                MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_cloud_url),
+                
             ],
             PH3_WAIT_COMMENT: [
                 MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment),
