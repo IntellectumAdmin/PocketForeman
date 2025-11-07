@@ -6,10 +6,10 @@
   <title>Камера Pocket Foreman</title>
   <style>
     :root { color-scheme: light dark; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#f6f7f9; }
-    .wrap { max-width: 720px; margin: 48px auto; padding: 16px; }
-    h1 { text-align:center; margin: 0 0 16px; }
-    .card { background:#fff; border-radius:16px; padding:16px; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#f6f7f9; }
+    .wrap { max-width:720px; margin:48px auto; padding:16px; }
+    h1 { text-align:center; margin:0 0 16px; }
+    .card { background:#fff; border-radius:16px; padding:16px; box-shadow:0 6px 20px rgba(0,0,0,.08); }
     video, canvas, img { width:100%; border-radius:12px; background:#000; }
     .row { display:flex; gap:10px; margin-top:14px; }
     button { flex:1; padding:12px; border:0; border-radius:10px; font-size:16px; cursor:pointer; }
@@ -17,6 +17,8 @@
     .ghost   { background:#eef3f7; }
     #status { margin-top:10px; font-size:14px; color:#333; min-height:1.2em; }
     .hint { margin-top:6px; font-size:13px; opacity:.7; text-align:center; }
+    .hidden { display:none !important; }
+    .ok { color:#1b5e20; }
   </style>
 </head>
 <body>
@@ -24,47 +26,54 @@
     <h1>📷 Камера Pocket Foreman</h1>
     <div class="card">
       <video id="vid" autoplay playsinline></video>
-      <canvas id="cnv" style="display:none;"></canvas>
+      <canvas id="cnv" class="hidden"></canvas>
 
-      <div class="row">
+      <div class="row" id="shotRow">
         <button id="btnFlip" class="ghost">🔁 Повернуть камеру</button>
         <button id="btnShot" class="primary">📸 Сделать фото</button>
       </div>
 
-      <img id="preview" alt="preview" style="display:none; margin-top:12px;" />
+      <img id="preview" alt="preview" class="hidden" style="margin-top:12px;" />
 
-      <div class="row" id="sendRow" style="display:none;">
+      <div class="row hidden" id="sendRow">
+        <button id="btnRetake" class="ghost">🔁 Переснять</button>
         <button id="btnSend" class="primary">📤 Отправить</button>
       </div>
 
       <div id="status"></div>
       <div class="hint" id="where"></div>
+
+      <!-- Появляется только в режиме ?debug=1 -->
+      <div id="fallback" class="hidden" style="margin-top:10px;font-size:13px;color:#1976d2;"></div>
     </div>
   </div>
 
   <script>
   (function () {
-    // ===== Параметры из URL =====
     const qs = new URLSearchParams(location.search);
-    const CLOUD   = qs.get('cloud')   || '';     // cloud name
-    const PRESET  = qs.get('preset')  || '';     // unsigned upload preset
-    const FOLDER  = qs.get('folder')  || '';     // Cloudinary folder
-    const SECTION = qs.get('section') || '';     // красивое имя раздела
+    const CLOUD   = qs.get('cloud')   || '';
+    const PRESET  = qs.get('preset')  || '';
+    const FOLDER  = qs.get('folder')  || '';
+    const SECTION = qs.get('section') || '';
     const CAM     = (qs.get('cam') || 'back').toLowerCase();
+    const DEBUG   = qs.get('debug') === '1';
 
     const tg = window.Telegram?.WebApp;
     if (tg) tg.expand();
 
-    // ===== UI =====
+    // UI
     const vid = document.getElementById('vid');
     const cnv = document.getElementById('cnv');
     const preview = document.getElementById('preview');
     const btnFlip = document.getElementById('btnFlip');
     const btnShot = document.getElementById('btnShot');
     const btnSend = document.getElementById('btnSend');
+    const btnRetake = document.getElementById('btnRetake');
     const sendRow = document.getElementById('sendRow');
+    const shotRow = document.getElementById('shotRow');
     const statusEl = document.getElementById('status');
     const whereEl  = document.getElementById('where');
+    const fallbackEl = document.getElementById('fallback');
 
     whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
 
@@ -72,25 +81,23 @@
     let stream = null;
     let lastDataUrl = null;
 
-    const setStatus = (t) => statusEl.textContent = t || '';
+    const setStatus = (t, ok=false) => {
+      statusEl.textContent = t || '';
+      statusEl.className = ok ? 'ok' : '';
+    };
 
     async function startCamera() {
       if (!navigator.mediaDevices?.getUserMedia) {
-        setStatus('Браузер не поддерживает камеру');
-        return;
+        setStatus('Браузер не поддерживает камеру'); return;
       }
       if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
       setStatus('Запуск камеры…');
-      const primaryFacing = useBack ? { exact: 'environment' } : 'user';
+      const primaryFacing = useBack ? { exact:'environment' } : 'user';
       try {
-        stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: primaryFacing }, audio: false
-        });
-      } catch (e) {
-        stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: useBack ? 'environment' : 'user' }, audio: false
-        });
+        stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: primaryFacing }, audio:false });
+      } catch {
+        stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: useBack ? 'environment' : 'user' }, audio:false });
       }
       vid.srcObject = stream;
       await vid.play().catch(()=>{});
@@ -108,64 +115,74 @@
       cnv.width = w; cnv.height = h;
       cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
       lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
+
       preview.src = lastDataUrl;
-      preview.style.display = 'block';
-      sendRow.style.display = 'flex';
+      preview.classList.remove('hidden');
+      sendRow.classList.remove('hidden');
       setStatus('Снимок готов');
     });
 
-    // ===== Загрузка в Cloudinary (unsigned) =====
+    btnRetake.addEventListener('click', () => {
+      // Сброс превью и возврат к съёмке
+      lastDataUrl = null;
+      preview.classList.add('hidden');
+      sendRow.classList.add('hidden');
+      setStatus('Сделайте новый снимок');
+    });
+
     async function uploadToCloudinary(dataUrl) {
       const resp = await fetch(dataUrl);
       const blob = await resp.blob();
-
       const form = new FormData();
       form.append('file', blob, 'pocket_foreman.jpg');
       form.append('upload_preset', PRESET);
       if (FOLDER) form.append('folder', FOLDER);
-
       const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
-      const r = await fetch(url, { method: 'POST', body: form });
+      const r = await fetch(url, { method:'POST', body: form });
       if (!r.ok) throw new Error(`Cloudinary: ${r.status} ${await r.text()}`);
       return r.json(); // { secure_url, ... }
     }
 
-  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    btnSend.addEventListener('click', async () => {
+      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
+      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
 
-  btnSend.addEventListener('click', async () => {
-    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
-    if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
+      btnSend.disabled = true;
+      btnRetake.disabled = true;
+      setStatus('Загрузка в облако…');
 
-    btnSend.disabled = true;
-    setStatus('Загрузка в облако…');
+      try {
+        const data = await uploadToCloudinary(lastDataUrl);
+        const secureUrl = data.secure_url;
 
-    try {
-      const data = await uploadToCloudinary(lastDataUrl);
-      const secureUrl = data.secure_url;
+        // debug-подсказка (в обычном режиме скрыта)
+        if (DEBUG && secureUrl) {
+          fallbackEl.classList.remove('hidden');
+          fallbackEl.innerHTML = `Ссылка (debug):<br><span style="word-break:break-all;">${secureUrl}</span>`;
+        }
 
-      setStatus('Готово. Отправка в бота…');
-
-      if (tg && secureUrl) {
-        tg.sendData(JSON.stringify({
-          type: 'photo_uploaded',
-          url: secureUrl,
-          section: SECTION || ''
-        }));
-
-        // КРИТИЧЕСКОЕ МЕСТО: подождать, прежде чем закрыть WebApp
-        await sleep(1000); // можно 1200–1500мс, если телефон «тяжёлый»
-
-        setStatus('Отправлено! Закрываем…');
-        tg.close();
-      } else {
-        alert('Ссылка: ' + secureUrl);
+        setStatus('Готово. Отправка…');
+        if (tg && secureUrl) {
+          tg.sendData(JSON.stringify({
+            type: 'photo_uploaded',
+            url: secureUrl,
+            section: SECTION || ''
+          }));
+          // даём Телеграму время принять web_app_data
+          setTimeout(() => tg.close(), 1000);
+          setStatus('Отправлено! Можно закрывать.', true);
+        } else {
+          // Если WebApp API недоступен (крайний случай)
+          setStatus('Отправьте ссылку в чат вручную (режим без WebApp).');
+          if (DEBUG) alert('Ссылка: ' + secureUrl);
+        }
+      } catch (e) {
+        console.error(e);
+        setStatus('Ошибка загрузки: ' + e.message);
+        btnSend.disabled = false;
+        btnRetake.disabled = false;
       }
-    } catch (e) {
-      console.error(e);
-      setStatus('Ошибка загрузки: ' + e.message);
-      btnSend.disabled = false;
-    }
-  });
+    });
 
     startCamera();
   })();
