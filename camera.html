@@ -181,7 +181,7 @@
 
       // даём Telegram время принять web_app_data
       setTimeout(() => { try { tg?.close(); } catch (_) {} }, SEND_DELAY_MS);
-      setStatus('Отправлено. Закрываю…');
+      setStatus('Отправлено.');
     } catch (e) {
       console.error(e);
       setStatus('Ошибка загрузки: ' + e.message);
