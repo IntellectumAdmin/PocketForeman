@@ -143,46 +143,54 @@
       return r.json(); // { secure_url, ... }
     }
 
-    btnSend.addEventListener('click', async () => {
-      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
-      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
+  
+  // ... остальной код без изменений выше
 
-      btnSend.disabled = true;
-      btnRetake.disabled = true;
-      setStatus('Загрузка в облако…');
+  const SEND_DELAY_MS = 1800;   // 1.8 c — надёжная задержка
 
+  btnSend.addEventListener('click', async () => {
+    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
+    if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
+
+    btnSend.disabled = true;
+    setStatus('Загрузка в облако…');
+
+    try {
+      const data = await uploadToCloudinary(lastDataUrl);
+      const secureUrl = data.secure_url;
+
+      setStatus('Готово. Отправляю в бот…');
+
+      // надёжная отправка данных в Telegram с повтором
+      const payload = JSON.stringify({
+        type: 'photo_uploaded',
+        url: secureUrl,
+        section: SECTION || ''
+      });
+
+      let sent = false;
       try {
-        const data = await uploadToCloudinary(lastDataUrl);
-        const secureUrl = data.secure_url;
+        tg?.sendData(payload);
+        sent = true;
+      } catch (_) { /* повтор ниже */ }
 
-        // debug-подсказка (в обычном режиме скрыта)
-        if (DEBUG && secureUrl) {
-          fallbackEl.classList.remove('hidden');
-          fallbackEl.innerHTML = `Ссылка (debug):<br><span style="word-break:break-all;">${secureUrl}</span>`;
-        }
-
-        setStatus('Готово. Отправка…');
-        if (tg && secureUrl) {
-          tg.sendData(JSON.stringify({
-            type: 'photo_uploaded',
-            url: secureUrl,
-            section: SECTION || ''
-          }));
-          // даём Телеграму время принять web_app_data
-          setTimeout(() => tg.close(), 1000);
-          setStatus('Отправлено! Можно закрывать.', true);
-        } else {
-          // Если WebApp API недоступен (крайний случай)
-          setStatus('Отправьте ссылку в чат вручную (режим без WebApp).');
-          if (DEBUG) alert('Ссылка: ' + secureUrl);
-        }
-      } catch (e) {
-        console.error(e);
-        setStatus('Ошибка загрузки: ' + e.message);
-        btnSend.disabled = false;
-        btnRetake.disabled = false;
+      if (!sent) {
+        await new Promise(r => setTimeout(r, 200));
+        try { tg?.sendData(payload); } catch (_) {}
       }
-    });
+
+      // даём Telegram время принять web_app_data
+      setTimeout(() => { try { tg?.close(); } catch (_) {} }, SEND_DELAY_MS);
+      setStatus('Отправлено. Закрываю…');
+    } catch (e) {
+      console.error(e);
+      setStatus('Ошибка загрузки: ' + e.message);
+      btnSend.disabled = false;
+    }
+  });
+
+  // ... остальной код без изменений ниже
+
 
     startCamera();
   })();
