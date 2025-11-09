@@ -584,9 +584,9 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_buttons))
 
     # Отладка (всегда в самом конце списка хендлеров)
-    app.add_error_handler(_dbg_errors)
+    
     app.add_handler(MessageHandler(filters.ALL, _dbg_all))
-
+    app.add_error_handler(_dbg_errors)
     print("Pocket Foreman (Cloudinary -> Notion) is starting...")
     app.run_polling()
 
