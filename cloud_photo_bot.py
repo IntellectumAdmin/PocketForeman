@@ -53,6 +53,7 @@ CAMERA_WAIT_TTL_SEC = 60
 RECENT_URLS: Dict[str, float] = {}  # url -> ts
 def _seen_recent(url: str) -> bool:
     now = time.time()
+    # чистим просрочку
     for k in list(RECENT_URLS.keys()):
         if now - RECENT_URLS[k] > 120:
             RECENT_URLS.pop(k, None)
@@ -79,10 +80,10 @@ NOTION_TOKEN = os.getenv("NOTION_TOKEN_SCHOOL65", "")
 DATABASE_ID  = os.getenv("NOTION_DATABASE_ID_SCHOOL65", "")
 
 # === Cloudinary ===
-CLOUD_NAME        = os.getenv("CLOUD_NAME", "")
-CLOUD_API_KEY     = os.getenv("CLOUD_API_KEY", "")
-CLOUD_API_SECRET  = os.getenv("CLOUD_API_SECRET", "")
-CLOUD_ROOT        = os.getenv("CLOUD_ROOT", "Project")
+CLOUD_NAME            = os.getenv("CLOUD_NAME", "")
+CLOUD_API_KEY         = os.getenv("CLOUD_API_KEY", "")
+CLOUD_API_SECRET      = os.getenv("CLOUD_API_SECRET", "")
+CLOUD_ROOT            = os.getenv("CLOUD_ROOT", "Project")
 CLOUD_UNSIGNED_PRESET = os.getenv("CLOUD_UNSIGNED_PRESET", "pf_unsigned")
 
 # === Telegram ===
@@ -175,6 +176,7 @@ def format_path_for_notion(path_str: str) -> str:
 PATH2ID: Dict[str, str] = {}
 ID2PATH: Dict[str, str] = {}
 ID_SEQ = 1
+
 def _id_for_path(path: str) -> str:
     global ID_SEQ
     if path not in PATH2ID:
@@ -182,6 +184,7 @@ def _id_for_path(path: str) -> str:
         ID2PATH[str(ID_SEQ)] = path
         ID_SEQ += 1
     return PATH2ID[path]
+
 def _path_by_id(pid: str) -> str:
     return ID2PATH.get(pid, "")
 
@@ -195,7 +198,7 @@ def _notion_create_row_once(section: str, file_name: str, url: str, comment: Opt
                 {"name": file_name, "type": "external", "external": {"url": url}}
             ]
         },
-        PROP_URL: {"url": url},
+        PROP_URL:  {"url": url},
         PROP_DATE: {"date": {"start": today_iso}},
     }
     if comment:
@@ -433,6 +436,7 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     wad = getattr(msg, "web_app_data", None)
     if not wad:
         return
+
     # Отладка
     print("[DBG] web_app_data RAW:", wad.data[:200])
     try:
@@ -450,7 +454,7 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     section = (payload.get("section") or "—")
     comment = payload.get("comment") or None
 
-    # мгновенный мини-лог
+    # мини-лог
     await msg.reply_chat_action("typing")
 
     if not url:
@@ -492,7 +496,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Операция отменена.", reply_markup=main_menu())
     return ConversationHandler.END
 
-# ===== Отладочные хендлеры =====
+# ===== Отладка =====
 async def _dbg_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = getattr(update, "message", None) or getattr(update, "effective_message", None)
     wad = getattr(msg, "web_app_data", None) if msg else None
@@ -572,6 +576,8 @@ def main():
         fallbacks=[CommandHandler("cancel", cancel)],
         name="photo_conv",
         persistent=False,
+        per_message=True,          # <<< ВАЖНО: ловим callback'и вне зависимости от сообщения
+        allow_reentry=True,        # можно снова зайти в диалог
     )
     app.add_handler(photo_conv)
     app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))
@@ -583,10 +589,10 @@ def main():
     # 4) Прочие тексты/кнопки (последним)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_buttons))
 
-    # Отладка (всегда в самом конце списка хендлеров)
-    
+    # Отладка — в самом конце
     app.add_handler(MessageHandler(filters.ALL, _dbg_all))
     app.add_error_handler(_dbg_errors)
+
     print("Pocket Foreman (Cloudinary -> Notion) is starting...")
     app.run_polling()
 
