@@ -185,7 +185,7 @@ setTimeout(() => { try { tg.close(); } catch(e){} }, 2000);
         setTimeout(() => tg.sendData(payload), 300);
 
         // держим WebApp открытым ещё 2000 мс, чтобы Telegram гарантированно принял данные
-        setTimeout(() => { try { tg.close(); } catch(e) {} }, 2000);
+        setTimeout(() => { try { tg.close(); } catch(e) {} }, 3000);
       }
     } catch (e) {
       console.error(e);
