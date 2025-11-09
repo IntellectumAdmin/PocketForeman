@@ -12,6 +12,22 @@ import io
 import re
 CLOUD_URL_RE = re.compile(r"https://res\.cloudinary\.com/[^ \n]+", re.IGNORECASE)
 CAMERA_WAIT_TTL_SEC = 60
+# Анти-дубль для web_app_data (2 минуты)
+RECENT_URLS = {}  # url -> ts
+
+def _seen_recent(url: str) -> bool:
+    now = time.time()
+    # чистим старые записи
+    for k in list(RECENT_URLS.keys()):
+        if now - RECENT_URLS[k] > 120:
+            RECENT_URLS.pop(k, None)
+    if not url:
+        return False
+    if url in RECENT_URLS:
+        return True
+    RECENT_URLS[url] = now
+    return False
+
 import json
 import time
 import logging
@@ -453,8 +469,10 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.effective_message
     wad = getattr(msg, "web_app_data", None)
+    print("[on_webapp_data] wad =", bool(wad))
     if not wad:
         return
+    print("[on_webapp_data] data =", wad.data[:200])
 
     try:
         payload = json.loads(wad.data)
@@ -468,6 +486,11 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     url     = payload.get("url")
     section = payload.get("section", "") or "—"
     comment = payload.get("comment") or None
+    if _seen_recent(url):
+        await msg.reply_text("✓ Принято (повтор игнорирован).")
+        await msg.reply_text("Готово.", reply_markup=main_menu())
+        return
+
 
     # мгновенный мини-лог пользователю (можно потом убрать)
     await msg.reply_chat_action("typing")
@@ -475,7 +498,11 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not url:
         await msg.reply_text("Не получил ссылку на фото из камеры.", reply_markup=main_menu())
         return
-
+    if _seen_recent(url):
+        await msg.reply_text("✔ Принято (повтор игнорирован).")
+        await msg.reply_text("Готово.", reply_markup=main_menu())
+        return
+    
     ok, info = _notion_create_row(
         section=section,
         file_name="Фото (камера)",
@@ -572,7 +599,7 @@ def main():
         name="photo_conv",
         persistent=False,
     )
-    
+
     # 1) WEB_APP_DATA — первым!
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
@@ -589,6 +616,25 @@ def main():
 
 
     print("Pocket Foreman (Cloudinary -> Notion) is starting...")
+async def _dbg_all(update, context):
+    msg = getattr(update, "message", None) or getattr(update, "effective_message", None)
+    wad = getattr(msg, "web_app_data", None) if msg else None
+    if wad:
+        print("[DBG] web_app_data RAW:", wad.data[:200])
+        try:
+            j = json.loads(wad.data)
+            print("[DBG] web_app_data JSON:", j)
+        except Exception as e:
+            print("[DBG] web_app_data JSON parse error:", e)
+        # ВАЖНО: визуально подтвердим в чате
+        await msg.reply_text("🔎 Получил web_app_data. Обрабатываю…")
+
+async def _dbg_errors(update, context):
+    print("[ERR] exception in handler:", context.error)
+
+    app.add_error_handler(_dbg_errors)
+    app.add_handler(MessageHandler(filters.ALL, _dbg_all))
+
     app.run_polling()
 
 if __name__ == "__main__":
