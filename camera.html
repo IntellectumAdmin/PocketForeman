@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Камера Pocket Foreman</title>
+  <meta name="theme-color" content="#1976d2" />
   <style>
     :root { color-scheme: light dark; }
     body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#f6f7f9; }
@@ -19,13 +20,14 @@
     .hint { margin-top:6px; font-size:13px; opacity:.7; text-align:center; }
     .hidden { display:none !important; }
     .ok { color:#1b5e20; }
+    .dbg { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; opacity:.75; white-space:pre-wrap; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>📷 Камера Pocket Foreman</h1>
     <div class="card">
-      <video id="vid" autoplay playsinline></video>
+      <video id="vid" autoplay playsinline muted></video>
       <canvas id="cnv" class="hidden"></canvas>
 
       <div class="row" id="shotRow">
@@ -43,116 +45,137 @@
       <div id="status"></div>
       <div class="hint" id="where"></div>
 
-      <!-- Появляется только в режиме ?debug=1 -->
-      <div id="fallback" class="hidden" style="margin-top:10px;font-size:13px;color:#1976d2;"></div>
+      <!-- Показывается только при ?debug=1 -->
+      <div id="debug" class="hidden dbg" style="margin-top:10px;"></div>
     </div>
   </div>
 
-  <script>
-  (function () {
-    const qs = new URLSearchParams(location.search);
-    const CLOUD   = qs.get('cloud')   || '';
-    const PRESET  = qs.get('preset')  || '';
-    const FOLDER  = qs.get('folder')  || '';
-    const SECTION = qs.get('section') || '';
-    const CAM     = (qs.get('cam') || 'back').toLowerCase();
-    const DEBUG   = qs.get('debug') === '1';
+<script>
+(function () {
+  // ===== Параметры из URL =====
+  const qs = new URLSearchParams(location.search);
+  const CLOUD   = qs.get('cloud')   || '';
+  const PRESET  = qs.get('preset')  || '';
+  const FOLDER  = qs.get('folder')  || '';
+  const SECTION = qs.get('section') || '';
+  const CAM     = (qs.get('cam') || 'back').toLowerCase();
+  const DEBUG   = qs.get('debug') === '1';
 
-    const tg = window.Telegram?.WebApp;
-    if (tg) tg.expand();
+  // ===== Telegram WebApp =====
+  const tg = window.Telegram?.WebApp;
+  if (tg) {
+    try {
+      tg.ready();
+      tg.expand();                // развернуть максимум
+      tg.enableClosingConfirmation();
+    } catch(e) {}
+  }
 
-    // UI
-    const vid = document.getElementById('vid');
-    const cnv = document.getElementById('cnv');
-    const preview = document.getElementById('preview');
-    const btnFlip = document.getElementById('btnFlip');
-    const btnShot = document.getElementById('btnShot');
-    const btnSend = document.getElementById('btnSend');
-    const btnRetake = document.getElementById('btnRetake');
-    const sendRow = document.getElementById('sendRow');
-    const shotRow = document.getElementById('shotRow');
-    const statusEl = document.getElementById('status');
-    const whereEl  = document.getElementById('where');
-    const fallbackEl = document.getElementById('fallback');
+  // ===== UI =====
+  const vid = document.getElementById('vid');
+  const cnv = document.getElementById('cnv');
+  const preview = document.getElementById('preview');
+  const btnFlip = document.getElementById('btnFlip');
+  const btnShot = document.getElementById('btnShot');
+  const btnSend = document.getElementById('btnSend');
+  const btnRetake = document.getElementById('btnRetake');
+  const sendRow = document.getElementById('sendRow');
+  const shotRow = document.getElementById('shotRow');
+  const statusEl = document.getElementById('status');
+  const whereEl  = document.getElementById('where');
+  const dbgEl    = document.getElementById('debug');
 
-    whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
+  if (DEBUG) dbgEl.classList.remove('hidden');
+  whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
 
-    let useBack = CAM === 'back';
-    let stream = null;
-    let lastDataUrl = null;
+  let useBack = CAM === 'back';
+  let stream = null;
+  let lastDataUrl = null;
 
-    const setStatus = (t, ok=false) => {
-      statusEl.textContent = t || '';
-      statusEl.className = ok ? 'ok' : '';
-    };
+  function logDbg(...a){
+    if (!DEBUG) return;
+    try { dbgEl.textContent += a.join(' ') + '\n'; } catch {}
+    try { console.log('[PF CAMERA]', ...a); } catch {}
+  }
 
-    async function startCamera() {
-      if (!navigator.mediaDevices?.getUserMedia) {
-        setStatus('Браузер не поддерживает камеру'); return;
-      }
-      if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+  function setStatus(t, ok=false){
+    statusEl.textContent = t || '';
+    statusEl.className = ok ? 'ok' : '';
+    logDbg('STATUS:', t);
+  }
 
-      setStatus('Запуск камеры…');
-      const primaryFacing = useBack ? { exact:'environment' } : 'user';
-      try {
-        stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: primaryFacing }, audio:false });
-      } catch {
-        stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: useBack ? 'environment' : 'user' }, audio:false });
-      }
-      vid.srcObject = stream;
-      await vid.play().catch(()=>{});
-      setStatus(useBack ? 'Задняя камера' : 'Фронтальная камера');
+  // ===== Камера =====
+  async function startCamera() {
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setStatus('Браузер не поддерживает камеру'); return;
     }
+    if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
-    btnFlip.addEventListener('click', async () => {
-      useBack = !useBack;
-      await startCamera();
-    });
-
-    btnShot.addEventListener('click', () => {
-      const w = vid.videoWidth, h = vid.videoHeight;
-      if (!w || !h) return;
-      cnv.width = w; cnv.height = h;
-      cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
-      lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
-
-      preview.src = lastDataUrl;
-      preview.classList.remove('hidden');
-      sendRow.classList.remove('hidden');
-      setStatus('Снимок готов');
-    });
-
-    btnRetake.addEventListener('click', () => {
-      // Сброс превью и возврат к съёмке
-      lastDataUrl = null;
-      preview.classList.add('hidden');
-      sendRow.classList.add('hidden');
-      setStatus('Сделайте новый снимок');
-    });
-
-    async function uploadToCloudinary(dataUrl) {
-      const resp = await fetch(dataUrl);
-      const blob = await resp.blob();
-      const form = new FormData();
-      form.append('file', blob, 'pocket_foreman.jpg');
-      form.append('upload_preset', PRESET);
-      if (FOLDER) form.append('folder', FOLDER);
-      const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
-      const r = await fetch(url, { method:'POST', body: form });
-      if (!r.ok) throw new Error(`Cloudinary: ${r.status} ${await r.text()}`);
-      return r.json(); // { secure_url, ... }
+    setStatus('Запуск камеры…');
+    const primary = useBack ? { exact:'environment' } : 'user';
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: primary }, audio:false });
+    } catch {
+      stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: useBack ? 'environment' : 'user' }, audio:false });
     }
+    vid.srcObject = stream;
+    await vid.play().catch(()=>{});
+    setStatus(useBack ? 'Задняя камера' : 'Фронтальная камера', true);
+  }
 
-  
-  // ... остальной код без изменений выше
+  btnFlip.addEventListener('click', async () => {
+    useBack = !useBack;
+    await startCamera();
+  });
 
-  const SEND_DELAY_MS = 1800;   // 1.8 c — надёжная задержка
+  btnShot.addEventListener('click', () => {
+    const w = vid.videoWidth, h = vid.videoHeight;
+    if (!w || !h) return;
+    cnv.width = w; cnv.height = h;
+    cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
+    lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
 
-  
-  // ... остальной код без изменений
+    preview.src = lastDataUrl;
+    preview.classList.remove('hidden');
+    sendRow.classList.remove('hidden');
+    setStatus('Снимок готов', true);
+  });
+
+  btnRetake.addEventListener('click', () => {
+    lastDataUrl = null;
+    preview.classList.add('hidden');
+    sendRow.classList.add('hidden');
+    setStatus('Сделайте новый снимок');
+  });
+
+  // ===== Загрузка в Cloudinary =====
+  async function uploadToCloudinary(dataUrl) {
+    const resp = await fetch(dataUrl);
+    const blob = await resp.blob();
+    const form = new FormData();
+    form.append('file', blob, 'pocket_foreman.jpg');
+    form.append('upload_preset', PRESET);
+    if (FOLDER) form.append('folder', FOLDER);
+    const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
+    const r = await fetch(url, { method:'POST', body: form });
+    if (!r.ok) throw new Error(`Cloudinary: ${r.status} ${await r.text()}`);
+    return r.json(); // { secure_url, ... }
+  }
+
+  // Надёжная отправка в Telegram WebApp
+  const SEND_DELAY_MS = 2500; // держим окно открытым не меньше 2.5с (можно 3000–4000 на слабых телефонах)
+  function safeSendToTG(payload){
+    if (!tg) { logDbg('TG not available'); return; }
+    logDbg('SEND payload:', payload);
+    try { tg.sendData(payload); } catch(e){ logDbg('sendData err 1:', e?.message); }
+    setTimeout(()=>{ try{ tg.sendData(payload); }catch(e){ logDbg('sendData err 2:', e?.message); } }, 200);
+    setTimeout(()=>{ try{ tg.sendData(payload); }catch(e){ logDbg('sendData err 3:', e?.message); } }, 600);
+    // закрываем через задержку
+    setTimeout(()=>{ try{ tg.close(); }catch(e){} }, SEND_DELAY_MS);
+  }
 
   btnSend.addEventListener('click', async () => {
-    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек.'); return; }
+    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
     if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.'); return; }
 
     btnSend.disabled = true;
@@ -161,31 +184,21 @@
     try {
       const data = await uploadToCloudinary(lastDataUrl);
       const secureUrl = data.secure_url;
+      logDbg('Uploaded URL:', secureUrl);
 
-      // сообщаем пользователю
-      setStatus('Отправлено.');   // <- кратко и по делу
+      setStatus('Отправляю в Telegram…', true);
 
-      // ДВОЙНАЯ отправка + задержка закрытия — самый надёжный путь
-      if (window.Telegram && window.Telegram.WebApp && secureUrl) {
-        const tg = window.Telegram.WebApp;
+      if (tg && secureUrl) {
         const payload = JSON.stringify({
           type: 'photo_uploaded',
           url: secureUrl,
-          section: SECTION || ''
+          section: SECTION || '',
+          ts: Date.now()
         });
-
-        // первая посылка
-        tg.sendData(payload);
-        // сразу после первого tg.sendData(payload)
-setTimeout(() => tg.sendData(payload), 150);  // быстростраховка
-setTimeout(() => tg.sendData(payload), 350);  // ещё одна
-setTimeout(() => { try { tg.close(); } catch(e){} }, 4000);
-
-        // страховочная посылка через 300 мс (бывает, теряется на некоторых девайсах)
-        setTimeout(() => tg.sendData(payload), 300);
-
-        // держим WebApp открытым ещё 2000 мс, чтобы Telegram гарантированно принял данные
-        setTimeout(() => { try { tg.close(); } catch(e) {} }, 4000);
+        safeSendToTG(payload);
+      } else {
+        setStatus('Нет Telegram WebApp — откройте через кнопку бота.', false);
+        btnSend.disabled = false;
       }
     } catch (e) {
       console.error(e);
@@ -194,20 +207,16 @@ setTimeout(() => { try { tg.close(); } catch(e){} }, 4000);
     }
   });
 
-  // Дополнительно: если юзер случайно сворачивает окно до закрытия — ещё один страховочный send
+  // На случай сворачивания до закрытия — пробуем дослать ещё раз
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden && window.Telegram?.WebApp && lastDataUrl) {
-      // ничего не показываем — просто дублируем посылку тихо
-      // (payload соберётся заново при необходимости)
+    if (document.hidden) {
+      logDbg('visibilitychange -> hidden');
     }
   });
 
-
-  // ... остальной код без изменений ниже
-
-
-    startCamera();
-  })();
-  </script>
+  // Старт
+  startCamera();
+})();
+</script>
 </body>
 </html>
