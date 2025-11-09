@@ -179,13 +179,13 @@
         // сразу после первого tg.sendData(payload)
 setTimeout(() => tg.sendData(payload), 150);  // быстростраховка
 setTimeout(() => tg.sendData(payload), 350);  // ещё одна
-setTimeout(() => { try { tg.close(); } catch(e){} }, 2000);
+setTimeout(() => { try { tg.close(); } catch(e){} }, 4000);
 
         // страховочная посылка через 300 мс (бывает, теряется на некоторых девайсах)
         setTimeout(() => tg.sendData(payload), 300);
 
         // держим WebApp открытым ещё 2000 мс, чтобы Telegram гарантированно принял данные
-        setTimeout(() => { try { tg.close(); } catch(e) {} }, 3000);
+        setTimeout(() => { try { tg.close(); } catch(e) {} }, 4000);
       }
     } catch (e) {
       console.error(e);
