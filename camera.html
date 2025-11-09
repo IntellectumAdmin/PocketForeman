@@ -6,7 +6,7 @@
   <title>Камера Pocket Foreman</title>
   <style>
     :root { color-scheme: light dark; }
-    body { margin:0; font-family: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:#f6f7f9; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#f6f7f9; }
     .wrap { max-width:720px; margin:48px auto; padding:16px; }
     h1 { text-align:center; margin:0 0 16px; }
     .card { background:#fff; border-radius:16px; padding:16px; box-shadow:0 6px 20px rgba(0,0,0,.08); }
@@ -16,15 +16,16 @@
     .primary { background:#1976d2; color:#fff; }
     .ghost   { background:#eef3f7; }
     #status { margin-top:10px; font-size:14px; color:#333; min-height:1.2em; }
-    .hint { margin-top:6px; font-size:13px; opacity:.75; text-align:center; }
+    .hint { margin-top:6px; font-size:13px; opacity:.7; text-align:center; }
     .hidden { display:none !important; }
     .ok { color:#1b5e20; }
-    .err { color:#b00020; }
+    .warn { color:#b00020; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; margin-left:8px; background:#eef3f7; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>📷 Камера Pocket Foreman</h1>
+    <h1>📷 Камера Pocket Foreman <span id="webappBadge" class="badge">проверка…</span></h1>
     <div class="card">
       <video id="vid" autoplay playsinline></video>
       <canvas id="cnv" class="hidden"></canvas>
@@ -43,13 +44,19 @@
 
       <div id="status"></div>
       <div class="hint" id="where"></div>
-      <div id="fallback" class="hidden" style="margin-top:10px;font-size:13px;"></div>
+
+      <!-- Виден только когда нет WebApp-контекста -->
+      <div id="noWebApp" class="hidden" style="margin-top:12px; font-size:14px;" >
+        <div class="warn" style="margin-bottom:6px;"><b>Нет Telegram WebApp.</b></div>
+        Открой эту страницу <b>только</b> через кнопку бота «📷 Открыть камеру».<br/>
+        <small>Если не помогает: в BotFather проверь домен <code>intellectumadmin.github.io</code> (команда <code>/setdomain</code>), а также не открывай ссылку вручную через «Открыть в браузере».</small>
+      </div>
     </div>
   </div>
 
   <script>
   (function () {
-    // --- Параметры из URL ---
+    // ---- Параметры из URL ----
     const qs = new URLSearchParams(location.search);
     const CLOUD   = qs.get('cloud')   || '';
     const PRESET  = qs.get('preset')  || '';
@@ -57,7 +64,10 @@
     const SECTION = qs.get('section') || '';
     const CAM     = (qs.get('cam') || 'back').toLowerCase();
 
-    // --- UI ---
+    // ---- Telegram WebApp ----
+    const tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
+
+    // UI
     const vid = document.getElementById('vid');
     const cnv = document.getElementById('cnv');
     const preview = document.getElementById('preview');
@@ -69,43 +79,38 @@
     const shotRow = document.getElementById('shotRow');
     const statusEl = document.getElementById('status');
     const whereEl  = document.getElementById('where');
-    const fallbackEl = document.getElementById('fallback');
+    const webappBadge = document.getElementById('webappBadge');
+    const noWebAppBox = document.getElementById('noWebApp');
 
     whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
 
-    // --- Детект Telegram WebApp ---
-    const tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
-    const inWebApp = !!tg && typeof tg.sendData === 'function';
-
-    if (inWebApp) {
-      try { tg.ready(); tg.expand(); } catch(e) {}
+    // Показ статуса WebApp
+    if (tg) {
+      webappBadge.textContent = 'WebApp OK';
+      tg.ready();
+      tg.expand();
+      // маленький "пинг" — чтобы ты видел в консоли бота, что WebApp открылся
+      try {
+        tg.sendData(JSON.stringify({type:'webapp_opened', ts: Date.now()}));
+      } catch {}
     } else {
-      // Если открыли НЕ кнопкой web_app — честно объясняем, что делать
-      fallbackEl.classList.remove('hidden');
-      fallbackEl.innerHTML = `
-        <div class="err">Нет Telegram WebApp.</div>
-        Открой эту страницу <b>только через кнопку</b> в боте:
-        <br>«<i>📷 Открыть камеру</i>».<br><br>
-        Если всё равно видишь это сообщение:
-        <ul style="margin:6px 0 0 20px;padding:0;">
-          <li>проверь, что в BotFather задан домен <code>intellectumadmin.github.io</code> (команда <code>/setdomain</code>);</li>
-          <li>не открывай ссылку вручную через «Открыть в браузере».</li>
-        </ul>`;
+      webappBadge.textContent = 'нет WebApp';
+      noWebAppBox.classList.remove('hidden');
     }
 
-    // --- Съёмка ---
+    // ---- Камера ----
     let useBack = CAM === 'back';
     let stream = null;
     let lastDataUrl = null;
 
-    const setStatus = (t, ok=false, err=false) => {
+    const setStatus = (t, ok=false) => {
       statusEl.textContent = t || '';
-      statusEl.className = ok ? 'ok' : (err ? 'err' : '');
+      statusEl.className = ok ? 'ok' : '';
     };
 
     async function startCamera() {
       if (!navigator.mediaDevices?.getUserMedia) {
-        setStatus('Браузер не поддерживает камеру', false, true); return;
+        setStatus('Браузер не поддерживает камеру'); return;
       }
       if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
@@ -136,7 +141,7 @@
       preview.src = lastDataUrl;
       preview.classList.remove('hidden');
       sendRow.classList.remove('hidden');
-      setStatus('Снимок готов');
+      setStatus('Снимок готов', true);
     });
 
     btnRetake.addEventListener('click', () => {
@@ -146,7 +151,7 @@
       setStatus('Сделайте новый снимок');
     });
 
-    // --- Отправка в Cloudinary ---
+    // ---- Upload в Cloudinary ----
     async function uploadToCloudinary(dataUrl) {
       const resp = await fetch(dataUrl);
       const blob = await resp.blob();
@@ -160,14 +165,10 @@
       return r.json(); // { secure_url, ... }
     }
 
-    // --- Задержки ---
-    const CLOSE_DELAY_MS = 3500; // держим WebApp открытым подольше
-    const DUP_1 = 150, DUP_2 = 350, DUP_3 = 700, DUP_4 = 1200; // дубли sendData
-
-    // --- Отправка в бота ---
+    // ---- Отправка в бота ----
     btnSend.addEventListener('click', async () => {
-      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек.', false, true); return; }
-      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.', false, true); return; }
+      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек.'); return; }
+      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.'); return; }
 
       btnSend.disabled = true;
       setStatus('Загрузка в облако…');
@@ -175,41 +176,30 @@
       try {
         const data = await uploadToCloudinary(lastDataUrl);
         const secureUrl = data.secure_url;
-        setStatus('Отправляю в бота…');
+        setStatus('Отправляю в бота…', true);
 
-        if (inWebApp && secureUrl) {
-          const payload = JSON.stringify({
-            type: 'photo_uploaded',
-            url: secureUrl,
-            section: SECTION || ''
-          });
+        if (tg && secureUrl) {
+          const payload = JSON.stringify({ type:'photo_uploaded', url:secureUrl, section: SECTION || '' });
 
-          // надёжная серия посылок
-          try { tg.sendData(payload); } catch(e) {}
-          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, DUP_1);
-          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, DUP_2);
-          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, DUP_3);
-          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, DUP_4);
+          // тройная отправка + пауза на закрытие (надёжно на «тяжёлых» телефонах)
+          tg.sendData(payload);
+          setTimeout(()=>tg.sendData(payload), 180);
+          setTimeout(()=>tg.sendData(payload), 360);
 
-          // закрываем поздно
-          setTimeout(()=>{ try { tg.close(); } catch(e){} }, CLOSE_DELAY_MS);
-
-          setStatus('Отправлено.', true);
+          setTimeout(()=>{ try { tg.close(); } catch(e){} }, 2600);
+          setTimeout(()=>{ try { tg.close(); } catch(e){} }, 4000);
+          setStatus('Отправлено. Можно закрывать.', true);
         } else {
-          setStatus('Нет WebApp — открой через кнопку бота.', false, true);
-          fallbackEl.classList.remove('hidden');
-          fallbackEl.innerHTML = `<div class="err">Окно открыто не как WebApp.</div>
-            Нажми в боте кнопку «<i>📷 Открыть камеру</i>».`;
-          btnSend.disabled = false;
+          // нет WebApp — сообщаем ссылку пользователю (fallback)
+          setStatus('Ссылка получена, но WebApp не активен. Открой через кнопку бота.', false);
         }
       } catch (e) {
         console.error(e);
-        setStatus('Ошибка загрузки: ' + e.message, false, true);
+        setStatus('Ошибка загрузки: ' + e.message, false);
         btnSend.disabled = false;
       }
     });
 
-    // Старт
     startCamera();
   })();
   </script>
