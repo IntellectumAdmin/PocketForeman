@@ -469,6 +469,9 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     section = payload.get("section", "") or "—"
     comment = payload.get("comment") or None
 
+    # мгновенный мини-лог пользователю (можно потом убрать)
+    await msg.reply_chat_action("typing")
+
     if not url:
         await msg.reply_text("Не получил ссылку на фото из камеры.", reply_markup=main_menu())
         return
@@ -484,11 +487,10 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await msg.reply_photo(photo=url,
                               caption=f"✅ Фото загружено в облако и добавлено в Notion.\nРаздел: {section}")
     else:
-        await msg.reply_photo(photo=url,
-                              caption=f"⚠️ Загрузка ок, но Notion ответил: {info}")
-
+        await msg.reply_text(f"⚠️ Notion ответил ошибкой: {info}")
+        
     # всегда возвращаем главное меню снизу
-    await msg.reply_text("Готово. Что дальше?", reply_markup=main_menu())
+    await msg.reply_text("Готово.", reply_markup=main_menu())
 
 # ===== Кнопки нижней клавиатуры вне диалога =====
 async def on_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -570,20 +572,21 @@ def main():
         name="photo_conv",
         persistent=False,
     )
+    
+    # 1) WEB_APP_DATA — первым!
+    app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
-    # Команды
-    app.add_handler(CommandHandler("start", cmd_start))
-    app.add_handler(CommandHandler("sync", cmd_sync))
-
-    # Диалог
+    # 2) Диалог /photo
     app.add_handler(photo_conv)
     app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))
 
-    # 1) Приём данных от WebApp
-    app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
+    # 3) Команды
+    app.add_handler(CommandHandler("start", cmd_start))
+    app.add_handler(CommandHandler("sync", cmd_sync))
 
-    # 2) Кнопки вне диалога
+    # 4) Прочие тексты/кнопки (последним)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_buttons))
+
 
     print("Pocket Foreman (Cloudinary -> Notion) is starting...")
     app.run_polling()
