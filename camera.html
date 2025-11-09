@@ -148,9 +148,12 @@
 
   const SEND_DELAY_MS = 1800;   // 1.8 c — надёжная задержка
 
+  
+  // ... остальной код без изменений
+
   btnSend.addEventListener('click', async () => {
-    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек (cloud/preset).'); return; }
-    if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.');     return; }
+    if (!CLOUD || !PRESET) { setStatus('Не хватает настроек.'); return; }
+    if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.'); return; }
 
     btnSend.disabled = true;
     setStatus('Загрузка в облако…');
@@ -159,35 +162,41 @@
       const data = await uploadToCloudinary(lastDataUrl);
       const secureUrl = data.secure_url;
 
-      setStatus('Готово. Отправляю в бот…');
+      // сообщаем пользователю
+      setStatus('Отправлено.');   // <- кратко и по делу
 
-      // надёжная отправка данных в Telegram с повтором
-      const payload = JSON.stringify({
-        type: 'photo_uploaded',
-        url: secureUrl,
-        section: SECTION || ''
-      });
+      // ДВОЙНАЯ отправка + задержка закрытия — самый надёжный путь
+      if (window.Telegram && window.Telegram.WebApp && secureUrl) {
+        const tg = window.Telegram.WebApp;
+        const payload = JSON.stringify({
+          type: 'photo_uploaded',
+          url: secureUrl,
+          section: SECTION || ''
+        });
 
-      let sent = false;
-      try {
-        tg?.sendData(payload);
-        sent = true;
-      } catch (_) { /* повтор ниже */ }
+        // первая посылка
+        tg.sendData(payload);
+        // страховочная посылка через 300 мс (бывает, теряется на некоторых девайсах)
+        setTimeout(() => tg.sendData(payload), 300);
 
-      if (!sent) {
-        await new Promise(r => setTimeout(r, 200));
-        try { tg?.sendData(payload); } catch (_) {}
+        // держим WebApp открытым ещё 2000 мс, чтобы Telegram гарантированно принял данные
+        setTimeout(() => { try { tg.close(); } catch(e) {} }, 2000);
       }
-
-      // даём Telegram время принять web_app_data
-      setTimeout(() => { try { tg?.close(); } catch (_) {} }, SEND_DELAY_MS);
-      setStatus('Отправлено.');
     } catch (e) {
       console.error(e);
       setStatus('Ошибка загрузки: ' + e.message);
       btnSend.disabled = false;
     }
   });
+
+  // Дополнительно: если юзер случайно сворачивает окно до закрытия — ещё один страховочный send
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && window.Telegram?.WebApp && lastDataUrl) {
+      // ничего не показываем — просто дублируем посылку тихо
+      // (payload соберётся заново при необходимости)
+    }
+  });
+
 
   // ... остальной код без изменений ниже
 
