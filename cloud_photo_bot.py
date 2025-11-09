@@ -293,6 +293,15 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(f"✅ Раздел выбран:\n{nice}\n\nВыбери способ:")
         await query.message.reply_text("Нажми «📷 Открыть камеру», сделай фото и жми «Отправить».",
                                        reply_markup=cam_menu(cam_url))
+        # 🔧 Дублируем запуск камеры через inline-кнопку web_app (на случай, если ReplyKeyboard не активирует WebApp)
+        kb_open_inline = InlineKeyboardMarkup(
+            [[InlineKeyboardButton("📷 Открыть камеру (если снизу не работает)", web_app=WebAppInfo(cam_url))]]
+        )
+        await query.message.reply_text(
+            "Если кнопка снизу не открывает встроенное окно — нажми эту:",
+            reply_markup=kb_open_inline
+        )
+
         kb_inline = InlineKeyboardMarkup([[InlineKeyboardButton("📎 Из галереи", callback_data="ask_gallery")]])
         await query.message.reply_text("Или прикрепи фото из галереи (можно сразу несколько):", reply_markup=kb_inline)
         return PH2_WAIT_PHOTO
