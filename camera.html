@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Камера Pocket Foreman</title>
 
-  <!-- Официальный SDK Telegram WebApp -->
+  <!-- Официальный SDK Telegram WebApp (обязательно) -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
@@ -21,8 +21,8 @@
     .ghost   { background:#eef3f7; }
     #status { margin-top:10px; font-size:14px; min-height:1.2em; }
     .ok { color:#1b5e20; }
-    .hint { margin-top:6px; font-size:13px; opacity:.8; text-align:center; }
     .warn { color:#c62828; }
+    .hint { margin-top:6px; font-size:13px; opacity:.75; text-align:center; }
     .hidden { display:none !important; }
   </style>
 </head>
@@ -47,7 +47,7 @@
 
       <div id="status"></div>
       <div class="hint" id="where"></div>
-      <div class="hint" id="webappHint"></div>
+      <div class="hint" id="webappWarn"></div>
     </div>
   </div>
 
@@ -60,6 +60,7 @@
     const FOLDER  = qs.get('folder')  || '';
     const SECTION = qs.get('section') || '';
     const CAM     = (qs.get('cam') || 'back').toLowerCase();
+    const AUTOSAVE = (qs.get('save') || '1') === '1'; // автосохранение фото в телефон при отправке
 
     // --- UI ---
     const vid = document.getElementById('vid');
@@ -72,17 +73,18 @@
     const sendRow = document.getElementById('sendRow');
     const statusEl = document.getElementById('status');
     const whereEl  = document.getElementById('where');
-    const webappHint = document.getElementById('webappHint');
+    const warnEl   = document.getElementById('webappWarn');
 
     whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
 
     // --- Telegram WebApp ---
     const tg = window.Telegram?.WebApp || null;
-    if (tg) { try { tg.ready(); tg.expand(); } catch(e) {} }
-    webappHint.textContent = tg
-      ? '🟢 WebApp готов.'
-      : '🔴 Открой через кнопку бота «📷 Открыть камеру».';
-    webappHint.className = 'hint ' + (tg ? '' : 'warn');
+    if (tg) { try { tg.ready(); tg.expand(); } catch(e){} }
+
+    warnEl.textContent = tg
+      ? '🟢 WebApp готов. Можно фотографировать.'
+      : '🔴 Нет Telegram WebApp. Открой через кнопку бота «📷 Открыть камеру».';
+    warnEl.className = 'hint' + (tg ? '' : ' warn');
 
     function setStatus(t, ok=false) {
       statusEl.textContent = t || '';
@@ -95,9 +97,7 @@
     let lastDataUrl = null;
 
     async function startCamera() {
-      if (!navigator.mediaDevices?.getUserMedia) {
-        setStatus('Браузер не поддерживает камеру'); return;
-      }
+      if (!navigator.mediaDevices?.getUserMedia) { setStatus('Браузер не поддерживает камеру'); return; }
       if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
       setStatus('Запуск камеры…');
@@ -112,10 +112,7 @@
       setStatus(useBack ? 'Задняя камера' : 'Фронтальная камера', true);
     }
 
-    btnFlip.addEventListener('click', async () => {
-      useBack = !useBack;
-      await startCamera();
-    });
+    btnFlip.addEventListener('click', async () => { useBack = !useBack; await startCamera(); });
 
     btnShot.addEventListener('click', () => {
       const w = vid.videoWidth, h = vid.videoHeight;
@@ -123,7 +120,6 @@
       cnv.width = w; cnv.height = h;
       cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
       lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
-
       preview.src = lastDataUrl;
       preview.classList.remove('hidden');
       sendRow.classList.remove('hidden');
@@ -136,6 +132,21 @@
       sendRow.classList.add('hidden');
       setStatus('Сделайте новый снимок');
     });
+
+    // локальное сохранение в телефон
+    function saveToPhone(dataUrl) {
+      try {
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        const ts = new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+        a.download = `PocketForeman_${ts}.jpg`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } catch(e) {
+        try { window.open(dataUrl, '_blank'); } catch(_) {}
+      }
+    }
 
     async function uploadToCloudinary(dataUrl) {
       const resp = await fetch(dataUrl);
@@ -150,8 +161,7 @@
       return r.json(); // { secure_url, ... }
     }
 
-    // --- Отправка в Telegram WebApp ---
-    const CLOSE_DELAY_MS = 3000;
+    const CLOSE_DELAY_MS = 3500; // оптимальная задержка закрытия
 
     btnSend.addEventListener('click', async () => {
       if (!CLOUD || !PRESET) { setStatus('Не хватает настроек.'); return; }
@@ -161,18 +171,23 @@
       setStatus('Загрузка в облако…');
 
       try {
+        // 1) локальная копия — по желанию
+        if (AUTOSAVE) saveToPhone(lastDataUrl);
+
+        // 2) облако
         const data = await uploadToCloudinary(lastDataUrl);
         const secureUrl = data.secure_url;
-        setStatus('Ссылка получена. Отправляю…', true);
+        setStatus('Ссылка получена. Отправляю в бота…', true);
 
+        // 3) sendData в бота
         if (tg && secureUrl) {
-          const payload = JSON.stringify({ type:'photo_uploaded', url:secureUrl, section: SECTION || '' });
+          const payload = JSON.stringify({ type:'photo_uploaded', url:secureUrl, section:SECTION || '' });
           try { tg.sendData(payload); } catch(e){}
           setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, 150);
           setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, 350);
-          setTimeout(()=>{ try { tg.close(); } catch(e){} }, CLOSE_DELAY_MS);
+          setTimeout(()=>{ try { tg.close();     } catch(e){} }, CLOSE_DELAY_MS);
         } else {
-          setStatus('Ссылка есть, но WebApp не активен. Открой через кнопку бота.');
+          setStatus('Ссылка получена, но WebApp не активен. Открой через кнопку бота «📷 Открыть камеру».');
           btnSend.disabled = false;
         }
       } catch (e) {
