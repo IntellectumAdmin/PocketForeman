@@ -327,38 +327,56 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ===== Приём данных из WebApp (камера) =====
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Принимаем payload из camera.html -> tg.sendData(...)."""
     msg = update.effective_message
     wad = getattr(msg, "web_app_data", None)
-    if not wad: return
+    if not wad:
+        return
 
+    # Пытаемся распарсить JSON
     try:
         payload = json.loads(wad.data)
     except Exception:
         await msg.reply_text("Не могу прочитать данные камеры.", reply_markup=main_menu())
         return
 
+    # Фильтруем только наш тип события
     if payload.get("type") != "photo_uploaded":
         return
 
-    url     = payload.get("url")
-    section = (payload.get("section") or "—")
-    comment = payload.get("comment") or None
+    url     = (payload.get("url") or "").strip()
+    section = (payload.get("section") or "—").strip()
+    comment = (payload.get("comment") or None)
 
     if not url:
         await msg.reply_text("Не получил ссылку на фото из камеры.", reply_markup=main_menu())
         return
 
+    # Анти-дубль (камере мы посылаем tg.sendData несколько раз)
     if _seen_recent(url):
         await msg.reply_text("✓ Принято (повтор игнорирован).", reply_markup=main_menu())
         return
 
-    ok, info = _notion_create_row(section=section, file_name="Фото (камера)", url=url, comment=comment)
+    # Пишем строку в Notion
+    ok, info = _notion_create_row(
+        section=section,
+        file_name="Фото (камера)",
+        url=url,
+        comment=comment
+    )
+
     if ok:
-        await msg.reply_photo(photo=url, caption=f"✅ Фото загружено и добавлено в Notion.\nРаздел: {section}")
+        # Показать миниатюру, но не падать, если Telegram вдруг не скачал картинку по внешнему URL
+        try:
+            await msg.reply_photo(photo=url,
+                                  caption=f"✅ Фото загружено и добавлено в Notion.\nРаздел: {section}")
+        except Exception:
+            await msg.reply_text("✅ Ссылка получена и добавлена в Notion.", reply_markup=main_menu())
     else:
-        await msg.reply_text(f"⚠️ Notion ответил ошибкой: {info}")
+        await msg.reply_text(f"⚠️ Notion ответил ошибкой: {info}", reply_markup=main_menu())
 
     await msg.reply_text("Готово.", reply_markup=main_menu())
+
 
 # ===== Кнопки вне диалога =====
 async def on_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -388,30 +406,35 @@ def main():
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    # 1) WEB_APP_DATA — первым!
+        # 1) Сначала ловим WEB_APP_DATA (очень важно, чтобы стоял ПЕРВЫМ)
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
-    # 2) Диалог /photo
+    # 2) Диалог /photo (кнопка «📸 Добавить фото»)
     ADD_PHOTO_PATTERN = r"(?i)(?:^|\s)добавить фото$"
     photo_conv = ConversationHandler(
-        entry_points=[CommandHandler("photo", photo_start),
-                      MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start)],
+        entry_points=[
+            CommandHandler("photo", photo_start),
+            MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start),
+        ],
         states={
             PH1_WAIT_SECTION: [CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|")],
             PH2_WAIT_PHOTO:   [MessageHandler(filters.PHOTO, ph2_photo)],
             PH3_WAIT_COMMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment)],
         },
-        fallbacks=[CommandHandler("cancel", lambda u,c: None)],
+        fallbacks=[CommandHandler("cancel", cancel)],
         name="photo_conv",
         persistent=False,
     )
     app.add_handler(photo_conv)
 
+    # Подстраховка: если пользователь кликнул p|b|c вне состояния диалога
+    app.add_handler(CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"))
+
     # Команды
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("sync", cmd_sync))
 
-    # Прочие тексты
+    # Прочие текстовые кнопки («Сменить раздел», «Отмена» и т.п.)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_buttons))
 
     print("Pocket Foreman (Cloudinary -> Notion) — running…")
