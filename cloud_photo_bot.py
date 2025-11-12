@@ -257,6 +257,38 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return PH2_WAIT_PHOTO
 
     return PH1_WAIT_SECTION
+# ===== Быстрый старт из inline-кнопки "go" (если будем её показывать) =====
+async def photo_quick_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Открывает выбор раздела так же, как /photo."""
+    query = update.callback_query
+    if query:
+        await query.answer()
+        # просто переиспользуем то, что делает /photo
+        fake_update = Update(update.update_id, message=update.effective_message)
+        await photo_start(fake_update, context)
+    else:
+        await photo_start(update, context)
+    return PH1_WAIT_SECTION
+
+
+# ===== Попросить прислать фото из галереи =====
+async def on_ask_gallery(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Сообщение перед приёмом фото (если нажали 'Из галереи')."""
+    q = update.callback_query
+    if q:
+        await q.answer()
+    await update.effective_message.reply_text(
+        "Пришли фото одним сообщением (можно альбомом). Если придёт альбом — возьму первый кадр.",
+        reply_markup=ReplyKeyboardRemove()
+    )
+    return PH2_WAIT_PHOTO
+
+
+# ===== Отмена диалога =====
+async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    context.user_data.clear()
+    await update.message.reply_text("Операция отменена.", reply_markup=main_menu())
+    return ConversationHandler.END
 
 # ===== Галерея (одно фото) =====
 async def ph2_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -327,7 +359,6 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ===== Приём данных из WebApp (камера) =====
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Принимаем payload из camera.html -> tg.sendData(...)."""
     msg = update.effective_message
     wad = getattr(msg, "web_app_data", None)
     if not wad:
@@ -340,19 +371,19 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await msg.reply_text("Не могу прочитать данные камеры.", reply_markup=main_menu())
         return
 
-    # Фильтруем только наш тип события
+    # Принимаем только события нашего типа
     if payload.get("type") != "photo_uploaded":
         return
 
     url     = (payload.get("url") or "").strip()
-    section = (payload.get("section") or "—").strip()
-    comment = (payload.get("comment") or None)
+    section = (payload.get("section") or "—")
+    comment = payload.get("comment") or None
 
     if not url:
         await msg.reply_text("Не получил ссылку на фото из камеры.", reply_markup=main_menu())
         return
 
-    # Анти-дубль (камере мы посылаем tg.sendData несколько раз)
+    # Защита от дублей (если WebApp прислал 2-3 раза)
     if _seen_recent(url):
         await msg.reply_text("✓ Принято (повтор игнорирован).", reply_markup=main_menu())
         return
@@ -366,15 +397,15 @@ async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     if ok:
-        # Показать миниатюру, но не падать, если Telegram вдруг не скачал картинку по внешнему URL
+        # Отправляем миниатюру в чат и подтверждение
         try:
-            await msg.reply_photo(photo=url,
-                                  caption=f"✅ Фото загружено и добавлено в Notion.\nРаздел: {section}")
+            await msg.reply_photo(photo=url, caption=f"✅ Фото загружено и добавлено в Notion.\nРаздел: {section}")
         except Exception:
-            await msg.reply_text("✅ Ссылка получена и добавлена в Notion.", reply_markup=main_menu())
+            await msg.reply_text("✅ Ссылка сохранена в Notion (миниатюру не получилось показать).")
     else:
-        await msg.reply_text(f"⚠️ Notion ответил ошибкой: {info}", reply_markup=main_menu())
+        await msg.reply_text(f"⚠️ Notion ответил ошибкой: {info}")
 
+    # Возврат к главному меню
     await msg.reply_text("Готово.", reply_markup=main_menu())
 
 
@@ -406,10 +437,10 @@ def main():
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-        # 1) Сначала ловим WEB_APP_DATA (очень важно, чтобы стоял ПЕРВЫМ)
+        # 1) WEB_APP_DATA — обязательно РАНЬШЕ всего остального
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
-    # 2) Диалог /photo (кнопка «📸 Добавить фото»)
+    # 2) Диалог /photo (выбор раздела → фото → комментарий)
     ADD_PHOTO_PATTERN = r"(?i)(?:^|\s)добавить фото$"
     photo_conv = ConversationHandler(
         entry_points=[
@@ -418,7 +449,10 @@ def main():
         ],
         states={
             PH1_WAIT_SECTION: [CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|")],
-            PH2_WAIT_PHOTO:   [MessageHandler(filters.PHOTO, ph2_photo)],
+            PH2_WAIT_PHOTO:   [
+                CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
+                MessageHandler(filters.PHOTO, ph2_photo),
+            ],
             PH3_WAIT_COMMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment)],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
@@ -427,18 +461,17 @@ def main():
     )
     app.add_handler(photo_conv)
 
-    # Подстраховка: если пользователь кликнул p|b|c вне состояния диалога
-    app.add_handler(CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"))
-
-    # Команды
+    # 3) Быстрые действия и команды
+    app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))          # опционально
+    app.add_handler(CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"))        # запасной ловец
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("sync", cmd_sync))
 
-    # Прочие текстовые кнопки («Сменить раздел», «Отмена» и т.п.)
+    # 4) Кнопки вне диалога
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_buttons))
-
+    
     print("Pocket Foreman (Cloudinary -> Notion) — running…")
     app.run_polling(allowed_updates=_RawUpdate.ALL_TYPES)
-
+        
 if __name__ == "__main__":
     main()
