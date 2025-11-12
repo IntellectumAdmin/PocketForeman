@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Камера Pocket Foreman</title>
 
-  <!-- ОБЯЗАТЕЛЬНО: официальный SDK -->
+  <!-- Официальный SDK Telegram -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
@@ -24,9 +24,6 @@
     .warn { color:#c62828; }
     .hint { margin-top:6px; font-size:13px; opacity:.7; text-align:center; }
     .hidden { display:none !important; }
-
-    .opts { display:flex; gap:10px; align-items:center; justify-content:center; margin-top:10px; font-size:14px; }
-    .opts input { width:18px; height:18px; }
   </style>
 </head>
 <body>
@@ -37,8 +34,8 @@
       <canvas id="cnv" class="hidden"></canvas>
 
       <div class="row" id="shotRow">
-        <button id="btnFlip" class="ghost">🔁 Повернуть камеру</button>
-        <button id="btnShot" class="primary">📸 Сделать фото</button>
+        <button id="btnFlip" class="ghost">🔁 Повернуть</button>
+        <button id="btnShot" class="primary">📸 Снять</button>
       </div>
 
       <img id="preview" alt="preview" class="hidden" style="margin-top:12px;" />
@@ -46,14 +43,6 @@
       <div class="row hidden" id="sendRow">
         <button id="btnRetake" class="ghost">🔁 Переснять</button>
         <button id="btnSend" class="primary">📤 Отправить</button>
-      </div>
-
-      <div class="opts hidden" id="saveRow">
-        <label style="display:flex;align-items:center;gap:8px;">
-          <input type="checkbox" id="chkLocal" checked />
-          <span>Сохранять на телефон</span>
-        </label>
-        <button id="btnSave" class="ghost hidden" style="flex:0 0 auto;">💾 Сохранить вручную</button>
       </div>
 
       <div id="status"></div>
@@ -64,7 +53,7 @@
 
   <script>
   (function () {
-    // --- Параметры из query ---
+    // --- Query params ---
     const qs = new URLSearchParams(location.search);
     const CLOUD   = qs.get('cloud')   || '';
     const PRESET  = qs.get('preset')  || '';
@@ -81,9 +70,6 @@
     const btnSend = document.getElementById('btnSend');
     const btnRetake = document.getElementById('btnRetake');
     const sendRow = document.getElementById('sendRow');
-    const saveRow = document.getElementById('saveRow');
-    const chkLocal = document.getElementById('chkLocal');
-    const btnSave = document.getElementById('btnSave');
     const statusEl = document.getElementById('status');
     const whereEl  = document.getElementById('where');
     const warnEl   = document.getElementById('webappWarn');
@@ -94,10 +80,10 @@
     const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
     if (tg) {
       try { tg.ready(); tg.expand(); } catch(e) {}
-      warnEl.textContent = '🟢 WebApp готов. Можно фотографировать.';
+      warnEl.textContent = '🟢 WebApp готов.';
       warnEl.className = 'hint';
     } else {
-      warnEl.innerHTML = '🔴 Нет Telegram WebApp. Открой эту страницу <b>только кнопкой</b> «📷 Открыть камеру» в боте.';
+      warnEl.innerHTML = '🔴 Открой эту страницу <b>только кнопкой</b> «📷 Открыть камеру» в боте.';
       warnEl.className = 'hint warn';
     }
 
@@ -110,13 +96,11 @@
     let useBack = CAM === 'back';
     let stream = null;
     let lastDataUrl = null;
-    let lastBlob = null;       // ⬅ будем переиспользовать для сохранения
-    let lastFileName = null;   // ⬅ имя файла для сохранения/шеринга
+    let lastBlob = null;
+    let lastFileName = null;
 
     async function startCamera() {
-      if (!navigator.mediaDevices?.getUserMedia) {
-        setStatus('Браузер не поддерживает камеру'); return;
-      }
+      if (!navigator.mediaDevices?.getUserMedia) { setStatus('Нет доступа к камере'); return; }
       if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
       setStatus('Запуск камеры…');
@@ -131,10 +115,7 @@
       setStatus(useBack ? 'Задняя камера' : 'Фронтальная камера', true);
     }
 
-    btnFlip.addEventListener('click', async () => {
-      useBack = !useBack;
-      await startCamera();
-    });
+    btnFlip.addEventListener('click', async () => { useBack = !useBack; await startCamera(); });
 
     btnShot.addEventListener('click', () => {
       const w = vid.videoWidth, h = vid.videoHeight;
@@ -143,77 +124,61 @@
       cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
       lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
 
-      // подготовим blob и имя файла для локального сохранения
       lastBlob = dataURLtoBlob(lastDataUrl);
       lastFileName = buildFileName();
 
       preview.src = lastDataUrl;
       preview.classList.remove('hidden');
       sendRow.classList.remove('hidden');
-      saveRow.classList.remove('hidden');
       setStatus('Снимок готов', true);
     });
 
     btnRetake.addEventListener('click', () => {
-      lastDataUrl = null;
-      lastBlob = null;
-      lastFileName = null;
+      lastDataUrl = null; lastBlob = null; lastFileName = null;
       preview.classList.add('hidden');
       sendRow.classList.add('hidden');
-      saveRow.classList.add('hidden');
       setStatus('Сделайте новый снимок');
     });
 
-    // --- Вспомогательные: blob, имя, сохранение ---
+    // --- Вспомогательные: blob, имя, лок.сохранение ---
     function dataURLtoBlob(dataUrl) {
-      const arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1];
-      const bstr = atob(arr[1]); let n = bstr.length; const u8arr = new Uint8Array(n);
-      while(n--) u8arr[n] = bstr.charCodeAt(n);
-      return new Blob([u8arr], {type:mime});
+      const [h, b64] = dataUrl.split(',');
+      const mime = h.match(/:(.*?);/)[1];
+      const bin = atob(b64);
+      const u8 = new Uint8Array(bin.length);
+      for (let i=0;i<bin.length;i++) u8[i] = bin.charCodeAt(i);
+      return new Blob([u8], {type:mime});
     }
 
     function buildFileName() {
-      const d = new Date();
-      const pad = x => String(x).padStart(2,'0');
-      return `PF_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}.jpg`;
+      const d = new Date(), p = x => String(x).padStart(2,'0');
+      return `PF_${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}.jpg`;
     }
 
     async function saveLocally(blob, filename) {
-      // 1) Пытаемся через Web Share API (часто сразу уходит в «Фото»/галерею)
-      if (navigator.canShare && navigator.canShare({ files: [new File([blob], filename, {type:'image/jpeg'})] })) {
-        try {
-          await navigator.share({ files: [new File([blob], filename, {type:'image/jpeg'})], title: 'Pocket Foreman' });
-          return true;
-        } catch (e) { /* отменили — пробуем загрузку */ }
+      // A) Web Share API (часто уходит в «Фото»/Галерею на Android/iOS)
+      const file = new File([blob], filename, { type:'image/jpeg' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try { await navigator.share({ files: [file], title: 'Pocket Foreman' }); return true; } catch(e){}
       }
-      // 2) Пытаемся «скачать» (уйдёт в «Загрузки»)
+      // B) Фолбэк: автоскачивание в «Загрузки»
       try {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url; a.download = filename;
         document.body.appendChild(a);
         a.click();
-        setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
+        setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 1000);
         return true;
-      } catch (e) {
+      } catch {
         return false;
       }
     }
 
-    btnSave.addEventListener('click', async () => {
-      if (!lastBlob || !lastFileName) return;
-      const ok = await saveLocally(lastBlob, lastFileName);
-      setStatus(ok ? 'Сохранено на телефон' : 'Не удалось сохранить, попробуйте через «Поделиться…»');
-    });
-
     async function uploadToCloudinary(dataUrl) {
-      const blob = dataURLtoBlob(dataUrl); // возьмём свежий blob (или lastBlob)
-      // сохраним ссылку на него для локального сохранения
-      lastBlob = blob;
-      if (!lastFileName) lastFileName = buildFileName();
-
+      // берём готовый blob/имя (уже подготовлены на “Снять”)
       const form = new FormData();
-      form.append('file', blob, 'pocket_foreman.jpg');
+      form.append('file', lastBlob || dataURLtoBlob(dataUrl), 'pocket_foreman.jpg');
       form.append('upload_preset', PRESET);
       if (FOLDER) form.append('folder', FOLDER);
       const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
@@ -222,7 +187,6 @@
       return r.json(); // { secure_url, ... }
     }
 
-    // --- Отправка в Telegram WebApp ---
     const CLOSE_DELAY_MS = 3500;
 
     btnSend.addEventListener('click', async () => {
@@ -235,40 +199,29 @@
       try {
         const data = await uploadToCloudinary(lastDataUrl);
         const secureUrl = data.secure_url;
-        setStatus('Ссылка получена. Отправляю в бота…', true);
+        setStatus('Ссылка получена. Отправляю…', true);
 
-        // 1) Отправляем в бота
+        // 1) Отправляем ссылку в бота (Notion обрабатывает там)
         if (tg && secureUrl) {
-          const payload = JSON.stringify({ type: 'photo_uploaded', url: secureUrl, section: SECTION || '' });
+          const payload = JSON.stringify({ type:'photo_uploaded', url:secureUrl, section:SECTION||'' });
           try { tg.sendData(payload); } catch(e){}
-          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, 150);
-          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, 350);
+          setTimeout(()=>{ try{ tg.sendData(payload); }catch(e){} }, 150);
+          setTimeout(()=>{ try{ tg.sendData(payload); }catch(e){} }, 350);
         }
 
-        // 2) Сохраняем локально (если включено)
-        if (chkLocal.checked && lastBlob && lastFileName) {
-          const saved = await saveLocally(lastBlob, lastFileName);
-          // если автоматом не вышло — покажем кнопку ручного сохранения
-          if (!saved) {
-            btnSave.classList.remove('hidden');
-            setStatus('Ссылка отправлена. Для сохранения нажмите «Сохранить вручную».', true);
-          } else {
-            setStatus('Отправлено и сохранено на телефон.', true);
-          }
-        } else {
-          setStatus('Отправлено.', true);
-        }
+        // 2) Автосохранение локально (без лишних действий)
+        const saved = await saveLocally(lastBlob, lastFileName);
+        setStatus(saved ? 'Отправлено и сохранено на телефон.' : 'Отправлено. (Сохранение ограничено настройками устройства) ', true);
 
-        // Закрываем через паузу (даём телеге принять данные)
-        setTimeout(()=>{ try { tg && tg.close(); } catch(e){} }, CLOSE_DELAY_MS);
+        // 3) Закрываем окно после паузы, чтобы sendData гарантированно дошёл
+        setTimeout(()=>{ try{ tg && tg.close(); }catch(e){} }, CLOSE_DELAY_MS);
       } catch (e) {
         console.error(e);
-        setStatus('Ошибка загрузки: ' + e.message);
+        setStatus('Ошибка: ' + e.message);
         btnSend.disabled = false;
       }
     });
 
-    // Старт
     startCamera();
   })();
   </script>
