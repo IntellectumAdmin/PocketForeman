@@ -34,7 +34,10 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("pf-bot")
 for noisy in ("httpx", "urllib3", "cloudinary"):
     logging.getLogger(noisy).setLevel(logging.WARNING)
-
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("urllib3").setLevel(logging.WARNING)
+logging.getLogger("telegram.ext._application").setLevel(logging.WARNING)
+    
 # ===== .env =====
 load_dotenv()
 
