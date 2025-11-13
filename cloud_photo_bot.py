@@ -259,20 +259,23 @@ async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"&v={ts}"
         )
 
+        # Сообщение о выбранном разделе
         await query.edit_message_text(f"✅ Раздел выбран:\n{nice}\n\nСделайте фото:")
-        # нижняя основная кнопка
-        await query.message.reply_text("Откройте камеру, снимите и нажмите «Отправить».",
-                                       reply_markup=cam_menu(cam_url))
-        # один fallback (не «Добавить фото»!)
-        kb_open_inline = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("📷 Открыть камеру (если снизу не работает)", web_app=WebAppInfo(cam_url))]]
-        )
-        await query.message.reply_text("Если нижняя кнопка не открывает окно — нажмите эту:",
-                                       reply_markup=kb_open_inline)
 
-        # возможность взять из галереи
-        kb_inline = InlineKeyboardMarkup([[InlineKeyboardButton("📎 Из галереи", callback_data="ask_gallery")]])
-        await query.message.reply_text("Или прикрепите фото из галереи:", reply_markup=kb_inline)
+        # ТОЛЬКО нижняя клавиатура с WebApp-кнопкой
+        await query.message.reply_text(
+            "Откройте камеру, снимите и нажмите «Отправить».",
+            reply_markup=cam_menu(cam_url)
+        )
+
+        # Оставляем кнопку «Из галереи» (если нужна), она компактная
+        kb_inline = InlineKeyboardMarkup(
+            [[InlineKeyboardButton("📎 Из галереи", callback_data="ask_gallery")]]
+        )
+        await query.message.reply_text(
+            "Или прикрепите фото из галереи (можно сразу несколько):",
+            reply_markup=kb_inline
+        )
         return PH2_WAIT_PHOTO
 
     return PH1_WAIT_SECTION
