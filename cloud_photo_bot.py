@@ -76,13 +76,18 @@ def _seen_recent(url: str) -> bool:
     return False
 
 # ==== Главное меню (только нижняя кнопка) ====
+BTN_START     = "▶️ Старт"
 BTN_ADD_PHOTO = "📸 Добавить фото"
 BTN_OPEN_CAM  = "📷 Открыть камеру"
 BTN_CHANGE    = "🔄 Сменить раздел"
 BTN_CANCEL    = "❌ Отмена"
 
 def main_menu() -> ReplyKeyboardMarkup:
-    return ReplyKeyboardMarkup([[KeyboardButton(BTN_ADD_PHOTO)]], resize_keyboard=True)
+    # Две нижние кнопки. Никаких дублей в чате.
+    return ReplyKeyboardMarkup(
+        [[KeyboardButton(BTN_START)], [KeyboardButton(BTN_ADD_PHOTO)]],
+        resize_keyboard=True
+    )
 
 def cam_menu(cam_url: str) -> ReplyKeyboardMarkup:
     return ReplyKeyboardMarkup(
@@ -180,6 +185,10 @@ def _notion_create_row(section: str, file_name: str, url: str, comment: Optional
     return False, last
 
 # ===== Команды =====
+async def btn_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Нажал "Старт" → сразу в поток добавления фото
+    return await photo_start(update, context)
+
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "👷 Привет! Я Карманный Прораб.\nНажми кнопку ниже, чтобы добавить фото к нужному разделу проекта:",
@@ -428,6 +437,13 @@ def main():
 
     # резерв ловец навигации (вдруг вышли из состояния)
     app.add_handler(CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"))
+
+    # Кнопка "Старт" внизу — запускает добавление фото без /start
+    app.add_handler(MessageHandler(
+        filters.Regex(r"^(▶️ Старт|Старт|start|Start)$"),
+        btn_start
+    ))
+
 
     # команды и общие кнопки
     app.add_handler(CommandHandler("start", cmd_start))
