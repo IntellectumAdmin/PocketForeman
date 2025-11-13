@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Pocket Foreman: Cloudinary -> Notion
-- Главное меню и /photo
-- Навигация по структуре
-- Камера через WebApp (приём web_app_data)
-- Галерея (одно фото)
+- SafeSync структуры
+- Главное меню и /photo (через WebApp-камеру или из галереи)
+- Приём web_app_data (камера)
 """
 
 import os, io, re, json, time, logging
@@ -17,27 +16,32 @@ from dotenv import load_dotenv
 import requests
 import cloudinary, cloudinary.uploader
 
-from structure_sync import sync_structure  # структура берётся из кэша/файла
+from structure_safe_sync import start_safe_sync
+from structure_sync import sync_structure
 
 from telegram import (
-    InlineKeyboardButton, InlineKeyboardMarkup,
-    Update, KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, WebAppInfo
+    InlineKeyboardButton, InlineKeyboardMarkup, Update,
+    KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, WebAppInfo
 )
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, MessageHandler, ConversationHandler,
     CallbackQueryHandler, ContextTypes, filters
 )
-from telegram._update import Update as _RawUpdate
 
-# ===== Анти-дубль web_app_data =====
-RECENT_URLS: Dict[str, float] = {}  # url -> ts
+# ===== Регулярки/константы =====
+CLOUD_URL_RE = re.compile(r"https://res\.cloudinary\.com/[^ \n]+", re.IGNORECASE)
+
+# Анти-дубль web_app_data (2 минуты)
+RECENT_URLS: Dict[str, float] = {}
 def _seen_recent(url: str) -> bool:
     now = time.time()
     for k in list(RECENT_URLS.keys()):
         if now - RECENT_URLS[k] > 120:
             RECENT_URLS.pop(k, None)
-    if not url: return False
-    if url in RECENT_URLS: return True
+    if not url:
+        return False
+    if url in RECENT_URLS:
+        return True
     RECENT_URLS[url] = now
     return False
 
@@ -45,63 +49,74 @@ def _seen_recent(url: str) -> bool:
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("pf-bot")
 log.setLevel(logging.INFO)
+for noisy in ("httpx", "urllib3", "cloudinary"):
+    logging.getLogger(noisy).setLevel(logging.WARNING)
 
 # ===== .env =====
 load_dotenv()
+
+# === Notion ===
 NOTION_TOKEN = os.getenv("NOTION_TOKEN_SCHOOL65", "")
 DATABASE_ID  = os.getenv("NOTION_DATABASE_ID_SCHOOL65", "")
 
-CLOUD_NAME   = os.getenv("CLOUD_NAME", "")
-CLOUD_API_KEY= os.getenv("CLOUD_API_KEY", "")
-CLOUD_API_SECRET = os.getenv("CLOUD_API_SECRET", "")
+# === Cloudinary ===
+CLOUD_NAME        = os.getenv("CLOUD_NAME", "")
+CLOUD_API_KEY     = os.getenv("CLOUD_API_KEY", "")
+CLOUD_API_SECRET  = os.getenv("CLOUD_API_SECRET", "")
+CLOUD_ROOT        = os.getenv("CLOUD_ROOT", "Project")
 CLOUD_UNSIGNED_PRESET = os.getenv("CLOUD_UNSIGNED_PRESET", "pf_unsigned")
 
+# === Telegram ===
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 
-# Колонки Notion
+# === Колонки в Notion ===
 PROP_SECTION = os.getenv("PROP_SECTION", "Раздел")
 PROP_FILE    = os.getenv("PROP_FILE", "Файл / Фото")
 PROP_URL     = os.getenv("PROP_URL", "Ссылка OneDrive")
 PROP_DATE    = os.getenv("PROP_DATE", "Дата")
 PROP_COMMENT = os.getenv("PROP_COMMENT", "Комментарий")
 
-# Структура
+# === Кэш структуры ===
 STRUCTURE_CACHE_PATH = Path("structure_cache.json")
 STRUCT_ROOT = "Школа_65"
 STRUCT_INDEX: Dict[str, List[str]] = {}
 
-# UI-тексты
+# ==== Главное меню ====
 BTN_ADD_PHOTO = "📸 Добавить фото"
 BTN_OPEN_CAM  = "📷 Открыть камеру"
 BTN_CHANGE    = "🔄 Сменить раздел"
 BTN_CANCEL    = "❌ Отмена"
 
 def main_menu() -> ReplyKeyboardMarkup:
+    # одна нижняя кнопка – без дублей
     return ReplyKeyboardMarkup([[KeyboardButton(BTN_ADD_PHOTO)]], resize_keyboard=True)
 
 def cam_menu(cam_url: str) -> ReplyKeyboardMarkup:
     return ReplyKeyboardMarkup(
-        [[KeyboardButton(text=BTN_OPEN_CAM, web_app=WebAppInfo(cam_url))],
-         [KeyboardButton(text=BTN_CHANGE), KeyboardButton(text=BTN_CANCEL)]],
-        resize_keyboard=True
+        [
+            [KeyboardButton(text=BTN_OPEN_CAM, web_app=WebAppInfo(cam_url))],
+            [KeyboardButton(text=BTN_CHANGE), KeyboardButton(text=BTN_CANCEL)],
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=False,
     )
 
-# Cloudinary
+# ===== Cloudinary config =====
 if not (CLOUD_NAME and CLOUD_API_KEY and CLOUD_API_SECRET):
     raise RuntimeError("Заполни CLOUD_NAME/CLOUD_API_KEY/CLOUD_API_SECRET в .env")
 cloudinary.config(cloud_name=CLOUD_NAME, api_key=CLOUD_API_KEY, api_secret=CLOUD_API_SECRET, secure=True)
 
-# Notion
+# ===== Notion headers =====
 NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
     "Notion-Version": "2022-06-28",
     "Content-Type": "application/json",
 }
 
-# Состояния
+# ===== Состояния разговора =====
 PH1_WAIT_SECTION, PH2_WAIT_PHOTO, PH3_WAIT_COMMENT = range(100, 103)
 
-# ===== Структура (кэш) =====
+# ===== Структура из кэша =====
 def _build_index(paths: List[str]) -> Dict[str, List[str]]:
     idx: Dict[str, set] = {}
     for p in paths:
@@ -129,9 +144,9 @@ def format_path_for_notion(path_str: str) -> str:
     parts = [s for s in path_str.split("/") if s]
     return " / ".join(parts)
 
-# id ↔ path
+# ===== Короткие id =====
 PATH2ID: Dict[str, str] = {}
-ID2PATH: Dict[str, str]  = {}
+ID2PATH: Dict[str, str] = {}
 ID_SEQ = 1
 def _id_for_path(path: str) -> str:
     global ID_SEQ
@@ -165,17 +180,17 @@ def _notion_create_row_once(section: str, file_name: str, url: str, comment: Opt
         return False, r.text
 
 def _notion_create_row(section: str, file_name: str, url: str, comment: Optional[str]) -> Tuple[bool, str]:
-    err = "unknown"
     for _ in range(3):
         ok, info = _notion_create_row_once(section, file_name, url, comment)
-        if ok: return True, info
-        err = info; time.sleep(1.0)
-    return False, err
+        if ok:
+            return True, info
+        time.sleep(1.0)
+    return False, info  # type: ignore
 
 # ===== Команды =====
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "👷 Привет! Я Карманный Прораб.\nНажми кнопку ниже, чтобы добавить фото к нужному разделу:",
+        "👷 Привет! Я Карманный Прораб.\nНажми кнопку ниже, чтобы добавить фото к нужному разделу проекта:",
         reply_markup=main_menu()
     )
 
@@ -183,31 +198,38 @@ async def cmd_sync(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("⏳ Синхронизация структуры…")
     try:
         info = sync_structure()
-        await update.message.reply_text(f"✓ Готово. Корень: {info['root']} | Разделов: {len(info['paths'])}",
-                                        reply_markup=main_menu())
+        await update.message.reply_text(
+            f"✓ Готово. Корень: {info['root']}\nРазделов: {len(info['paths'])}",
+            reply_markup=main_menu()
+        )
     except Exception as e:
         await update.message.reply_text(f"✗ Ошибка синхронизации: {e}")
 
-# ===== Навигация по разделам =====
+# ===== Выбор разделов =====
 def _kb_for_parent(parent_path: str) -> InlineKeyboardMarkup:
     children = structure_children(parent_path)
-    rows, row = [], []
+    rows: List[List[InlineKeyboardButton]] = []
+    row: List[InlineKeyboardButton] = []
     for name in children:
         full = f"{parent_path}/{name}" if parent_path else name
         pid = _id_for_path(full)
         row.append(InlineKeyboardButton(f"📂 {name}", callback_data=f"p|{pid}"))
-        if len(row) == 2: rows.append(row); row = []
+        if len(row) == 2:
+            rows.append(row); row = []
     if row: rows.append(row)
-    ctrl = []
+    ctrl: List[InlineKeyboardButton] = []
     if parent_path:
         parent_parent = "/".join(parent_path.split("/")[:-1])
-        ctrl.append(InlineKeyboardButton("⬅️ Назад", callback_data=f"b|{_id_for_path(parent_parent)}"))
-    ctrl.append(InlineKeyboardButton("✅ Выбрать здесь", callback_data=f"c|{_id_for_path(parent_path)}"))
+        bid = _id_for_path(parent_parent)
+        ctrl.append(InlineKeyboardButton("⬅️ Назад", callback_data=f"b|{bid}"))
+    cid = _id_for_path(parent_path)
+    ctrl.append(InlineKeyboardButton("✅ Выбрать здесь", callback_data=f"c|{cid}"))
     rows.append(ctrl)
     return InlineKeyboardMarkup(rows)
 
 async def photo_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data.clear()
+    context.user_data["cursor_path"] = ""
     root, _ = structure_load_index()
     if not STRUCT_INDEX:
         await update.message.reply_text("Похоже, список разделов пустой. Нажми /sync.")
@@ -216,92 +238,73 @@ async def photo_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return PH1_WAIT_SECTION
 
 async def photo_pick_cb(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    q = update.callback_query
-    await q.answer()
-    data = (q.data or "")
-    act, _, pid = data.partition("|")
+    query = update.callback_query
+    await query.answer()
+    act, _, pid = (query.data or "").partition("|")
     path = _path_by_id(pid)
 
     if act in ("p", "b"):
-        context.user_data["cursor_path"] = path
-        await q.edit_message_text(
-            text=f"Раздел: {format_path_for_notion(path) if path else 'Корень'}\nВыбери подраздел:",
-            reply_markup=_kb_for_parent(path)
-        )
+        text = f"Раздел: {format_path_for_notion(path) if path else 'Корень'}\nВыбери подраздел:"
+        await query.edit_message_text(text=text, reply_markup=_kb_for_parent(path))
         return PH1_WAIT_SECTION
 
     if act == "c":
         if not path:
-            await q.answer("Нужно выбрать раздел.", show_alert=True)
+            await query.answer("Нужно выбрать хоть какой-то раздел.", show_alert=True)
             return PH1_WAIT_SECTION
 
         context.user_data["section_path"] = path
         nice = format_path_for_notion(path)
 
-        cam_base = os.getenv("GHPAGES_CAMERA_URL", "https://intellectumadmin.github.io/PocketForeman/camera.html")
+        cam_base = os.getenv("GHPAGES_CAMERA_URL",
+                             "https://intellectumadmin.github.io/PocketForeman/camera.html")
         folder = f"{STRUCT_ROOT}/{path}" if STRUCT_ROOT else path
         ts = int(time.time())
-        cam_url = (f"{cam_base}?cloud={quote(CLOUD_NAME)}&preset={quote(CLOUD_UNSIGNED_PRESET)}"
-                   f"&folder={quote(folder)}&section={quote(nice)}&cam=back&v={ts}")
+        cam_url = (
+            f"{cam_base}"
+            f"?cloud={quote(CLOUD_NAME)}"
+            f"&preset={quote(CLOUD_UNSIGNED_PRESET)}"
+            f"&folder={quote(folder)}"
+            f"&section={quote(nice)}"
+            f"&cam=back"
+            f"&v={ts}"
+        )
 
-        await q.edit_message_text(f"✅ Раздел выбран:\n{nice}\n\nСделайте фото:")
-        await q.message.reply_text("Откройте камеру, снимите и жмите «Отправить».",
-                                   reply_markup=cam_menu(cam_url))
-
-        # На случай проблем с клавиатурной кнопкой — дублируем web_app inline:
+        await query.edit_message_text(f"✅ Раздел выбран:\n{nice}\n\nВыбери способ:")
+        # Нижняя клавиатура с WebApp-кнопкой (основной способ)
+        await query.message.reply_text(
+            "Нажми «📷 Открыть камеру», сделай фото и жми «Отправить».",
+            reply_markup=cam_menu(cam_url)
+        )
+        # Один аккуратный inline-fallback на случай глюков клавиатуры
         kb_open_inline = InlineKeyboardMarkup(
             [[InlineKeyboardButton("📷 Открыть камеру (если снизу не работает)", web_app=WebAppInfo(cam_url))]]
         )
-        await q.message.reply_text("Если кнопка снизу не открывает окно — нажмите эту:",
-                                   reply_markup=kb_open_inline)
+        await query.message.reply_text("Если кнопка снизу не открывает окно — нажми эту:", reply_markup=kb_open_inline)
+
+        kb_inline = InlineKeyboardMarkup([[InlineKeyboardButton("📎 Из галереи", callback_data="ask_gallery")]])
+        await query.message.reply_text("Или прикрепи фото из галереи (можно сразу несколько):", reply_markup=kb_inline)
         return PH2_WAIT_PHOTO
 
-    return PH1_WAIT_SECTION
-# ===== Быстрый старт из inline-кнопки "go" (если будем её показывать) =====
-async def photo_quick_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Открывает выбор раздела так же, как /photo."""
-    query = update.callback_query
-    if query:
-        await query.answer()
-        # просто переиспользуем то, что делает /photo
-        fake_update = Update(update.update_id, message=update.effective_message)
-        await photo_start(fake_update, context)
-    else:
-        await photo_start(update, context)
-    return PH1_WAIT_SECTION
+    return PH1_WAIT_SECTION  # safety
 
-
-# ===== Попросить прислать фото из галереи =====
+# ===== Галерея =====
 async def on_ask_gallery(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Сообщение перед приёмом фото (если нажали 'Из галереи')."""
-    q = update.callback_query
-    if q:
-        await q.answer()
+    await update.callback_query.answer()
     await update.effective_message.reply_text(
         "Пришли фото одним сообщением (можно альбомом). Если придёт альбом — возьму первый кадр.",
         reply_markup=ReplyKeyboardRemove()
     )
     return PH2_WAIT_PHOTO
 
-
-# ===== Отмена диалога =====
-async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.user_data.clear()
-    await update.message.reply_text("Операция отменена.", reply_markup=main_menu())
-    return ConversationHandler.END
-
-# ===== Галерея (одно фото) =====
 async def ph2_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not update.message or not update.message.photo:
-        await update.message.reply_text("Это не фото. Пришлите изображение.")
+        await update.message.reply_text("Это не фото. Пришли изображение.")
         return PH2_WAIT_PHOTO
-
-    photo = update.message.photo[-1]
-    file = await photo.get_file()
+    file = await update.message.photo[-1].get_file()
     bio = io.BytesIO()
     await file.download_to_memory(out=bio); bio.seek(0)
     context.user_data["photo_bytes"] = bio.read()
-
     await update.message.reply_text(
         "Комментарий (опционально) или «-»:",
         reply_markup=ReplyKeyboardMarkup([[KeyboardButton(BTN_CHANGE), KeyboardButton(BTN_CANCEL)]],
@@ -310,27 +313,22 @@ async def ph2_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return PH3_WAIT_COMMENT
 
 async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    txt = (update.message.text or "").strip()
-    if txt == BTN_CANCEL:
+    text_in = (update.message.text or "").strip()
+    if text_in == BTN_CANCEL:
         context.user_data.clear()
         await update.message.reply_text("Операция отменена.", reply_markup=main_menu())
         return ConversationHandler.END
-    if txt == BTN_CHANGE:
-        context.user_data.pop("section_path", None)
-        context.user_data.pop("photo_bytes", None)
+    if text_in == BTN_CHANGE:
+        context.user_data.clear()
         root, _ = structure_load_index()
         await update.message.reply_text(f"Выбери новый раздел (корень: {root}):", reply_markup=_kb_for_parent(""))
         return PH1_WAIT_SECTION
 
-    comment = None if txt in ("-", "—", "") else txt
+    comment = None if text_in in ("-", "—", "") else text_in
     section_path = context.user_data.get("section_path", "")
     photo_bytes  = context.user_data.get("photo_bytes")
-
-    if not photo_bytes:
-        await update.message.reply_text("Не нашёл фото. Начните заново: /photo", reply_markup=main_menu())
-        return ConversationHandler.END
-    if not section_path:
-        await update.message.reply_text("Раздел потерян. Попробуйте /photo заново.", reply_markup=main_menu())
+    if not photo_bytes or not section_path:
+        await update.message.reply_text("Сессия потеряна. Начни заново: /photo", reply_markup=main_menu())
         return ConversationHandler.END
 
     folder = f"{STRUCT_ROOT}/{section_path}" if STRUCT_ROOT else section_path
@@ -343,71 +341,47 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"✗ Ошибка загрузки в Cloudinary: {e}", reply_markup=main_menu())
         return ConversationHandler.END
 
-    ok, info = _notion_create_row(
-        section=format_path_for_notion(section_path), file_name="Фото со стройки", url=url, comment=comment
-    )
+    section_for_notion = format_path_for_notion(section_path)
+    ok, info = _notion_create_row(section=section_for_notion, file_name="Фото со стройки", url=url, comment=comment)
     if ok:
-        await update.message.reply_text("✓ Фото загружено в Cloudinary и добавлено в Notion.",
-                                        reply_markup=ReplyKeyboardRemove())
+        await update.message.reply_text("✓ Фото загружено и добавлено в Notion.", reply_markup=ReplyKeyboardRemove())
     else:
-        await update.message.reply_text(f"⚠️ Фото загружено, но Notion вернул ошибку: {info}",
-                                        reply_markup=ReplyKeyboardRemove())
-
+        await update.message.reply_text(f"⚠️ Фото загружено, но Notion вернул ошибку: {info}", reply_markup=ReplyKeyboardRemove())
     await update.message.reply_text("Готово. Что дальше?", reply_markup=main_menu())
     context.user_data.clear()
     return ConversationHandler.END
 
-# ===== Приём данных из WebApp (камера) =====
+# ===== Приём данных из WebApp =====
 async def on_webapp_data(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.effective_message
     wad = getattr(msg, "web_app_data", None)
     if not wad:
         return
-
-    # Пытаемся распарсить JSON
     try:
         payload = json.loads(wad.data)
     except Exception:
         await msg.reply_text("Не могу прочитать данные камеры.", reply_markup=main_menu())
         return
-
-    # Принимаем только события нашего типа
     if payload.get("type") != "photo_uploaded":
         return
 
-    url     = (payload.get("url") or "").strip()
+    url     = payload.get("url")
     section = (payload.get("section") or "—")
     comment = payload.get("comment") or None
 
     if not url:
         await msg.reply_text("Не получил ссылку на фото из камеры.", reply_markup=main_menu())
         return
-
-    # Защита от дублей (если WebApp прислал 2-3 раза)
     if _seen_recent(url):
-        await msg.reply_text("✓ Принято (повтор игнорирован).", reply_markup=main_menu())
+        await msg.reply_text("✓ Принято (повтор).", reply_markup=main_menu())
         return
 
-    # Пишем строку в Notion
-    ok, info = _notion_create_row(
-        section=section,
-        file_name="Фото (камера)",
-        url=url,
-        comment=comment
-    )
-
+    ok, info = _notion_create_row(section=section, file_name="Фото (камера)", url=url, comment=comment)
     if ok:
-        # Отправляем миниатюру в чат и подтверждение
-        try:
-            await msg.reply_photo(photo=url, caption=f"✅ Фото загружено и добавлено в Notion.\nРаздел: {section}")
-        except Exception:
-            await msg.reply_text("✅ Ссылка сохранена в Notion (миниатюру не получилось показать).")
+        await msg.reply_photo(photo=url, caption=f"✅ Фото загружено и добавлено в Notion.\nРаздел: {section}")
     else:
         await msg.reply_text(f"⚠️ Notion ответил ошибкой: {info}")
-
-    # Возврат к главному меню
     await msg.reply_text("Готово.", reply_markup=main_menu())
-
 
 # ===== Кнопки вне диалога =====
 async def on_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -415,63 +389,74 @@ async def on_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if txt == BTN_CHANGE:
         root, _ = structure_load_index()
         await update.message.reply_text(f"Выбери раздел проекта (корень: {root}):", reply_markup=_kb_for_parent(""))
-        return
-    if txt == BTN_CANCEL:
+    elif txt == BTN_CANCEL:
         await update.message.reply_text("Ок, отменил.", reply_markup=main_menu())
-        return
-    if txt == BTN_ADD_PHOTO:
-        # быстрый вход в выбор раздела
-        await photo_start(update, context)
-        return
 
 # ===== main =====
 def main():
-    if not BOT_TOKEN: raise RuntimeError("Нет TELEGRAM_BOT_TOKEN в .env")
-    if not NOTION_TOKEN or not DATABASE_ID: raise RuntimeError("Нет NOTION_* в .env")
+    if not BOT_TOKEN:
+        raise RuntimeError("Нет TELEGRAM_BOT_TOKEN в .env")
+    if not NOTION_TOKEN or not DATABASE_ID:
+        raise RuntimeError("Нет NOTION_TOKEN_SCHOOL65 / NOTION_DATABASE_ID_SCHOOL65 в .env")
 
-    # Синхронизация структуры при старте (молча в лог)
-    try: sync_structure()
-    except Exception as e: log.warning(f"Не удалось синхронизировать структуру: {e}")
+    # Синхронизация структуры при старте
+    try:
+        info = sync_structure()
+        log.info(f"✓ Структура синхронизирована при старте. Корень: {info['root']}, разделов: {len(info['paths'])}")
+    except Exception as e:
+        log.warning(f"⚠️ Не удалось автоматически синхронизировать структуру: {e}")
 
-    structure_load_index()
+    root, _ = structure_load_index()
+    print("=======================================")
+    print("INTELLECTUM — Pocket Foreman (Cloudinary → Notion)")
+    print(f"Notion DB: {DATABASE_ID[:8]}...{DATABASE_ID[-5:]}")
+    print(f"Cloudinary: {cloudinary.config().cloud_name}")
+    print(f"Корень Cloudinary: {root}")
+    print("Camera page:", os.getenv("GHPAGES_CAMERA_URL"))
+    print("=======================================")
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
+    admin_chat_id = int(os.getenv("ADMIN_CHAT_ID", "0"))
 
-        # 1) WEB_APP_DATA — обязательно РАНЬШЕ всего остального
+    # SafeSync watcher
+    async def _start_safe_sync_once(context):
+        safe_sync = start_safe_sync(app, admin_chat_id=admin_chat_id)
+        app.bot_data["safe_sync"] = safe_sync
+        print("[SafeSync] ✅ Запущен наблюдатель за structure.txt")
+    app.job_queue.run_once(_start_safe_sync_once, 1.0)
+
+    # WebApp data — первым
     app.add_handler(MessageHandler(filters.StatusUpdate.WEB_APP_DATA, on_webapp_data))
 
-    # 2) Диалог /photo (выбор раздела → фото → комментарий)
+    # Диалог /photo
     ADD_PHOTO_PATTERN = r"(?i)(?:^|\s)добавить фото$"
     photo_conv = ConversationHandler(
-        entry_points=[
-            CommandHandler("photo", photo_start),
-            MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start),
-        ],
+        entry_points=[CommandHandler("photo", photo_start),
+                      MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start)],
         states={
             PH1_WAIT_SECTION: [CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|")],
-            PH2_WAIT_PHOTO:   [
-                CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
-                MessageHandler(filters.PHOTO, ph2_photo),
-            ],
+            PH2_WAIT_PHOTO:   [CallbackQueryHandler(on_ask_gallery, pattern=r"^ask_gallery$"),
+                               MessageHandler(filters.PHOTO, ph2_photo)],
             PH3_WAIT_COMMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, ph3_comment)],
         },
-        fallbacks=[CommandHandler("cancel", cancel)],
+        fallbacks=[CommandHandler("cancel", lambda u, c: u.message.reply_text("Отменено.", reply_markup=main_menu()))],
         name="photo_conv",
         persistent=False,
     )
     app.add_handler(photo_conv)
 
-    # 3) Быстрые действия и команды
-    app.add_handler(CallbackQueryHandler(photo_quick_start, pattern=r"^go$"))          # опционально
-    app.add_handler(CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"))        # запасной ловец
+    # Резерв на случай выхода из состояния
+    app.add_handler(CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|"))
+
+    # Команды
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("sync", cmd_sync))
 
-    # 4) Кнопки вне диалога
+    # Кнопки текста
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text_buttons))
-    
-    print("Pocket Foreman (Cloudinary -> Notion) — running…")
-    app.run_polling(allowed_updates=_RawUpdate.ALL_TYPES)
-        
+
+    print("Pocket Foreman (Cloudinary -> Notion) is starting...")
+    app.run_polling()
+
 if __name__ == "__main__":
     main()
