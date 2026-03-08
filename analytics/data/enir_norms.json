@@ -1,0 +1,30 @@
+{
+  "earth_excavation": {
+    "name": "Разработка грунта экскаватором",
+    "unit": "м³",
+    "workers": 2,
+    "hours_per_unit": 0.05,
+    "equipment": ["Экскаватор"]
+  },
+  "earth_backfill": {
+    "name": "Обратная засыпка",
+    "unit": "м³",
+    "workers": 4,
+    "hours_per_unit": 0.08,
+    "equipment": ["Бульдозер"]
+  },
+  "concrete_foundation": {
+    "name": "Бетонирование фундаментов",
+    "unit": "м³",
+    "workers": 8,
+    "hours_per_unit": 1.2,
+    "equipment": ["Кран", "Бетононасос"]
+  },
+  "brickwork": {
+    "name": "Кладка кирпича",
+    "unit": "м³",
+    "workers": 4,
+    "hours_per_unit": 8.0,
+    "equipment": []
+  }
+}

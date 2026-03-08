@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Камера Pocket Foreman</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#f6f7f9; }
+    .wrap { max-width:720px; margin:48px auto; padding:16px; }
+    h1 { text-align:center; margin:0 0 16px; }
+    .card { background:#fff; border-radius:16px; padding:16px; box-shadow:0 6px 20px rgba(0,0,0,.08); }
+    video, canvas, img { width:100%; border-radius:12px; background:#000; }
+    .row { display:flex; gap:10px; margin-top:14px; }
+    button { flex:1; padding:12px; border:0; border-radius:10px; font-size:16px; cursor:pointer; }
+    .primary { background:#1976d2; color:#fff; }
+    .ghost   { background:#eef3f7; }
+    #status { margin-top:10px; font-size:14px; min-height:1.2em; }
+    .ok { color:#1b5e20; }
+    .hint { margin-top:6px; font-size:13px; opacity:.8; text-align:center; }
+    .warn { color:#c62828; }
+    .hidden { display:none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>📷 Камера Pocket Foreman</h1>
+    <div class="card">
+      <video id="vid" autoplay playsinline></video>
+      <canvas id="cnv" class="hidden"></canvas>
+
+      <div class="row" id="shotRow">
+        <button id="btnFlip" class="ghost">🔁 Повернуть камеру</button>
+        <button id="btnShot" class="primary">📸 Сделать фото</button>
+      </div>
+
+      <img id="preview" alt="preview" class="hidden" style="margin-top:12px;" />
+
+      <div class="row hidden" id="sendRow">
+        <button id="btnRetake" class="ghost">🔁 Переснять</button>
+        <button id="btnSend" class="primary">📤 Отправить</button>
+      </div>
+
+      <div id="status"></div>
+      <div class="hint" id="where"></div>
+      <div class="hint" id="webappHint"></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    const qs = new URLSearchParams(location.search);
+    const CLOUD   = qs.get('cloud')   || '';
+    const PRESET  = qs.get('preset')  || '';
+    const FOLDER  = qs.get('folder')  || '';
+    const SECTION = qs.get('section') || '';
+    const CAM     = (qs.get('cam') || 'back').toLowerCase();
+
+    const vid = document.getElementById('vid');
+    const cnv = document.getElementById('cnv');
+    const preview = document.getElementById('preview');
+    const btnFlip = document.getElementById('btnFlip');
+    const btnShot = document.getElementById('btnShot');
+    const btnSend = document.getElementById('btnSend');
+    const btnRetake = document.getElementById('btnRetake');
+    const sendRow = document.getElementById('sendRow');
+    const statusEl = document.getElementById('status');
+    const whereEl  = document.getElementById('where');
+    const webappHint = document.getElementById('webappHint');
+    whereEl.textContent = SECTION ? `Раздел: ${SECTION}` : '';
+
+    const tg = window.Telegram?.WebApp || null;
+    if (tg) { try { tg.ready(); tg.expand(); } catch(e) {} }
+    webappHint.textContent = tg ? '🟢 WebApp готов.' : '🔴 Открой через кнопку бота «📷 Открыть камеру».';
+    webappHint.className = 'hint ' + (tg ? '' : 'warn');
+
+    function setStatus(t, ok=false) {
+      statusEl.textContent = t || '';
+      statusEl.className = ok ? 'ok' : '';
+    }
+
+    let useBack = CAM === 'back';
+    let stream = null;
+    let lastDataUrl = null;
+    let lastBlob = null;
+    let lastFileName = null;
+
+    async function startCamera() {
+      if (!navigator.mediaDevices?.getUserMedia) { setStatus('Браузер не поддерживает камеру'); return; }
+      if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+      setStatus('Запуск камеры…');
+      const primaryFacing = useBack ? { exact:'environment' } : 'user';
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: primaryFacing }, audio:false });
+      } catch {
+        stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode: useBack ? 'environment' : 'user' }, audio:false });
+      }
+      vid.srcObject = stream; await vid.play().catch(()=>{});
+      setStatus(useBack ? 'Задняя камера' : 'Фронтальная камера', true);
+    }
+
+    btnFlip.addEventListener('click', async () => { useBack = !useBack; await startCamera(); });
+
+    btnShot.addEventListener('click', () => {
+      const w = vid.videoWidth, h = vid.videoHeight; if (!w || !h) return;
+      cnv.width = w; cnv.height = h;
+      cnv.getContext('2d').drawImage(vid, 0, 0, w, h);
+      lastDataUrl = cnv.toDataURL('image/jpeg', 0.92);
+      lastBlob = dataURLtoBlob(lastDataUrl);
+      lastFileName = buildFileName();
+      preview.src = lastDataUrl;
+      preview.classList.remove('hidden');
+      sendRow.classList.remove('hidden');
+      setStatus('Снимок готов', true);
+    });
+
+    btnRetake.addEventListener('click', () => {
+      lastDataUrl = null; lastBlob = null; lastFileName = null;
+      preview.classList.add('hidden'); sendRow.classList.add('hidden');
+      setStatus('Сделайте новый снимок');
+    });
+
+    function dataURLtoBlob(dataUrl) {
+      const arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]); let n = bstr.length; const u8 = new Uint8Array(n);
+      while(n--) u8[n] = bstr.charCodeAt(n);
+      return new Blob([u8], {type:mime});
+    }
+    function buildFileName() {
+      const d = new Date(); const p=x=>String(x).padStart(2,'0');
+      return `PF_${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}.jpg`;
+    }
+    async function saveLocally(blob, filename) {
+      try {
+        const file = new File([blob], filename, {type:'image/jpeg'});
+        if (navigator.canShare && navigator.canShare({ files:[file] })) {
+          await navigator.share({ files:[file], title:'Pocket Foreman' });
+          return true;
+        }
+      } catch(e) { /* continue */ }
+      try {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = filename;
+        document.body.appendChild(a); a.click();
+        setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 800);
+        return true;
+      } catch(e) { return false; }
+    }
+
+    async function uploadToCloudinary(dataUrl) {
+      // берём уже подготовленный blob (в рамках жеста клика)
+      const blob = lastBlob || dataURLtoBlob(dataUrl);
+      const form = new FormData();
+      form.append('file', blob, 'pocket_foreman.jpg');
+      form.append('upload_preset', PRESET);
+      if (FOLDER) form.append('folder', FOLDER);
+      const url = `https://api.cloudinary.com/v1_1/${encodeURIComponent(CLOUD)}/image/upload`;
+      const r = await fetch(url, { method:'POST', body: form });
+      if (!r.ok) throw new Error(`Cloudinary: ${r.status} ${await r.text()}`);
+      return r.json();
+    }
+
+    // задержку немного увеличим, чтобы успело сохраниться
+    const CLOSE_DELAY_MS = 3500;
+
+    btnSend.addEventListener('click', async () => {
+      if (!CLOUD || !PRESET) { setStatus('Не хватает настроек.'); return; }
+      if (!lastDataUrl)      { setStatus('Сделайте фото перед отправкой.'); return; }
+      btnSend.disabled = true;
+      setStatus('Загрузка в облако…');
+      try {
+        const data = await uploadToCloudinary(lastDataUrl);
+        const secureUrl = data.secure_url;
+        setStatus('Ссылка получена. Отправляю…', true);
+
+        // 1) отправка в бота
+        if (tg && secureUrl) {
+          const payload = JSON.stringify({ type:'photo_uploaded', url:secureUrl, section: SECTION || '' });
+          try { tg.sendData(payload); } catch(e){}
+          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, 160);
+          setTimeout(()=>{ try { tg.sendData(payload); } catch(e){} }, 360);
+        }
+
+        // 2) попытка автосохранения на телефон
+        let saved = false;
+        try { saved = await saveLocally(lastBlob, lastFileName || buildFileName()); } catch(e){}
+        if (saved) setStatus('Отправлено и сохранено на телефон.', true);
+        else setStatus('Отправлено. Если фото не появилось — проверьте «Загрузки».', true);
+
+        // 3) закрыть через паузу
+        setTimeout(()=>{ try { tg && tg.close(); } catch(e){} }, CLOSE_DELAY_MS);
+      } catch (e) {
+        console.error(e); setStatus('Ошибка: ' + e.message);
+        btnSend.disabled = false;
+      }
+    });
+
+    startCamera();
+  })();
+  </script>
+</body>
+</html>
