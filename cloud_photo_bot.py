@@ -37,7 +37,6 @@ for noisy in ("httpx", "urllib3", "cloudinary"):
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 logging.getLogger("telegram.ext._application").setLevel(logging.WARNING)
-
 # ===== .env =====
 load_dotenv()
 
@@ -106,12 +105,7 @@ def cam_menu(cam_url: str) -> ReplyKeyboardMarkup:
 # ===== Cloudinary config =====
 if not (CLOUD_NAME and CLOUD_API_KEY and CLOUD_API_SECRET):
     raise RuntimeError("Заполни CLOUD_NAME/CLOUD_API_KEY/CLOUD_API_SECRET в .env")
-cloudinary.config(
-    cloud_name=CLOUD_NAME,
-    api_key=CLOUD_API_KEY,
-    api_secret=CLOUD_API_SECRET,
-    secure=True,
-)
+cloudinary.config(cloud_name=CLOUD_NAME, api_key=CLOUD_API_KEY, api_secret=CLOUD_API_SECRET, secure=True)
 
 # ===== Notion headers =====
 NOTION_HEADERS = {
@@ -156,7 +150,6 @@ def format_path_for_notion(path_str: str) -> str:
 PATH2ID: Dict[str, str] = {}
 ID2PATH: Dict[str, str] = {}
 ID_SEQ = 1
-
 def _id_for_path(path: str) -> str:
     global ID_SEQ
     if path not in PATH2ID:
@@ -164,7 +157,6 @@ def _id_for_path(path: str) -> str:
         ID2PATH[str(ID_SEQ)] = path
         ID_SEQ += 1
     return PATH2ID[path]
-
 def _path_by_id(pid: str) -> str:
     return ID2PATH.get(pid, "")
 
@@ -400,12 +392,7 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     leaf = section_path.split("/")[-1]
     public_id = f"{leaf}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     try:
-        up = cloudinary.uploader.upload(
-            photo_bytes,
-            folder=folder,
-            public_id=public_id,
-            resource_type="image",
-        )
+        up = cloudinary.uploader.upload(photo_bytes, folder=folder, public_id=public_id, resource_type="image")
         url = up["secure_url"]
     except Exception as e:
         await update.message.reply_text(
@@ -415,12 +402,7 @@ async def ph3_comment(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return ConversationHandler.END
 
     section_for_notion = format_path_for_notion(section_path)
-    ok, info = _notion_create_row(
-        section=section_for_notion,
-        file_name="Фото со стройки",
-        url=url,
-        comment=comment,
-    )
+    ok, info = _notion_create_row(section=section_for_notion, file_name="Фото со стройки", url=url, comment=comment)
     if ok:
         await update.message.reply_text(
             "✓ Фото загружено и добавлено в Notion.",
@@ -506,10 +488,8 @@ async def on_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ===== main =====
 def main():
-    if not BOT_TOKEN:
-        raise RuntimeError("Нет TELEGRAM_BOT_TOKEN в .env")
-    if not NOTION_TOKEN or not DATABASE_ID:
-        raise RuntimeError("Нет NOTION_TOKEN_SCHOOL65 / NOTION_DATABASE_ID_SCHOOL65 в .env")
+    if not BOT_TOKEN: raise RuntimeError("Нет TELEGRAM_BOT_TOKEN в .env")
+    if not NOTION_TOKEN or not DATABASE_ID: raise RuntimeError("Нет NOTION_TOKEN_SCHOOL65 / NOTION_DATABASE_ID_SCHOOL65 в .env")
 
     try:
         info = sync_structure()
@@ -529,7 +509,6 @@ def main():
         safe_sync = start_safe_sync(app, admin_chat_id=admin_chat_id)
         app.bot_data["safe_sync"] = safe_sync
         print("[SafeSync] ✅ Запущен наблюдатель за structure.txt")
-
     app.job_queue.run_once(_start_safe_sync_once, 1.0)
 
     # 1) WEB_APP_DATA — ПЕРВЫМ
@@ -538,10 +517,8 @@ def main():
     # 2) Диалог /photo
     ADD_PHOTO_PATTERN = r"(?i)(?:^|\s)добавить фото$"
     photo_conv = ConversationHandler(
-        entry_points=[
-            CommandHandler("photo", photo_start),
-            MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start),
-        ],
+        entry_points=[CommandHandler("photo", photo_start),
+                      MessageHandler(filters.Regex(ADD_PHOTO_PATTERN), photo_start)],
         states={
             PH1_WAIT_SECTION: [
                 CallbackQueryHandler(photo_pick_cb, pattern=r"^(p|b|c)\|")
