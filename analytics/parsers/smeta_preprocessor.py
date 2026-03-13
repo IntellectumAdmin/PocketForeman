@@ -861,7 +861,7 @@ if __name__ == "__main__":
     starts_with_s = sum(1 for c in chunks if c and c[0].get("t") in ("s", "cs"))
     print(f"  {len(result['ai_records'])} записей → {len(chunks)} чанков")
     print(f"  Чанков начинающихся с section: {starts_with_s}/{len(chunks)}")
-    preprocessor.save_chunks(chunks, "smeta_chunk")
+    preprocessor.save_chunks(chunks, "smeta")
 
     # Unknown анализ (постоянный диагностический слой)
     print()
@@ -897,4 +897,3 @@ if __name__ == "__main__":
     print("🚀 Следующий шаг: LLM Chunk Analyzer → Section Hierarchy Builder")
     print()
     print("🤖 Отправляй smeta_chunk_*.json в AI по одному!")
-    
