@@ -1,0 +1,254 @@
+{
+  "project": "8._локальные",
+  "preprocessor_version": "4.7_final",
+  "pipeline": "AINTELLECTUM",
+  "summary": {
+    "raw_rows": 40835,
+    "total_records": 13412,
+    "ai_payload_records": 9952,
+    "total_chunks": 28,
+    "chunk_size": 400
+  },
+  "composition": {
+    "section_candidates": 2221,
+    "section_unique_norms": 1554,
+    "section_in_ai": 1677,
+    "work_items": 8277,
+    "work_with_volume": 8277,
+    "volume_coverage": "100.0%",
+    "work_in_ai": 8275,
+    "unknown": 408
+  },
+  "chunk_index": [
+    {
+      "chunk": 1,
+      "file": "smeta_chunk_001.json",
+      "records": 325,
+      "sections": 38,
+      "works": 287,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 2,
+      "file": "smeta_chunk_002.json",
+      "records": 323,
+      "sections": 14,
+      "works": 309,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 3,
+      "file": "smeta_chunk_003.json",
+      "records": 337,
+      "sections": 12,
+      "works": 325,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 4,
+      "file": "smeta_chunk_004.json",
+      "records": 343,
+      "sections": 11,
+      "works": 332,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 5,
+      "file": "smeta_chunk_005.json",
+      "records": 343,
+      "sections": 9,
+      "works": 334,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 6,
+      "file": "smeta_chunk_006.json",
+      "records": 400,
+      "sections": 14,
+      "works": 386,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 7,
+      "file": "smeta_chunk_007.json",
+      "records": 401,
+      "sections": 0,
+      "works": 400,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 8,
+      "file": "smeta_chunk_008.json",
+      "records": 367,
+      "sections": 123,
+      "works": 243,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 9,
+      "file": "smeta_chunk_009.json",
+      "records": 400,
+      "sections": 14,
+      "works": 386,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 10,
+      "file": "smeta_chunk_010.json",
+      "records": 395,
+      "sections": 3,
+      "works": 391,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 11,
+      "file": "smeta_chunk_011.json",
+      "records": 400,
+      "sections": 6,
+      "works": 394,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 12,
+      "file": "smeta_chunk_012.json",
+      "records": 401,
+      "sections": 0,
+      "works": 400,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 13,
+      "file": "smeta_chunk_013.json",
+      "records": 325,
+      "sections": 0,
+      "works": 324,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 14,
+      "file": "smeta_chunk_014.json",
+      "records": 320,
+      "sections": 71,
+      "works": 249,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 15,
+      "file": "smeta_chunk_015.json",
+      "records": 400,
+      "sections": 33,
+      "works": 367,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 16,
+      "file": "smeta_chunk_016.json",
+      "records": 401,
+      "sections": 28,
+      "works": 372,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 17,
+      "file": "smeta_chunk_017.json",
+      "records": 401,
+      "sections": 12,
+      "works": 388,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 18,
+      "file": "smeta_chunk_018.json",
+      "records": 401,
+      "sections": 0,
+      "works": 400,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 19,
+      "file": "smeta_chunk_019.json",
+      "records": 321,
+      "sections": 46,
+      "works": 274,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 20,
+      "file": "smeta_chunk_020.json",
+      "records": 346,
+      "sections": 48,
+      "works": 298,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 21,
+      "file": "smeta_chunk_021.json",
+      "records": 323,
+      "sections": 76,
+      "works": 247,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 22,
+      "file": "smeta_chunk_022.json",
+      "records": 324,
+      "sections": 178,
+      "works": 146,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 23,
+      "file": "smeta_chunk_023.json",
+      "records": 320,
+      "sections": 124,
+      "works": 196,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 24,
+      "file": "smeta_chunk_024.json",
+      "records": 320,
+      "sections": 311,
+      "works": 9,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 25,
+      "file": "smeta_chunk_025.json",
+      "records": 320,
+      "sections": 320,
+      "works": 0,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 26,
+      "file": "smeta_chunk_026.json",
+      "records": 328,
+      "sections": 110,
+      "works": 218,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 27,
+      "file": "smeta_chunk_027.json",
+      "records": 400,
+      "sections": 25,
+      "works": 375,
+      "starts_with_section": true
+    },
+    {
+      "chunk": 28,
+      "file": "smeta_chunk_028.json",
+      "records": 277,
+      "sections": 51,
+      "works": 225,
+      "starts_with_section": true
+    }
+  ],
+  "data_format": {
+    "section": "{\"t\":\"s\", \"raw\":\"оригинал\", \"norm\":\"нормализованный\"}",
+    "context_section": "{\"t\":\"cs\", ...} — первый section чанка если chunk начался без section",
+    "work": "{\"t\":\"w\", \"n\":\"название\", \"norm\":\"норм.\", \"u\":\"ед\", \"v\":объём}"
+  },
+  "next_step": "LLM Chunk Analyzer → Section Hierarchy Builder"
+}
