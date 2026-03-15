@@ -1,0 +1,77 @@
+{
+  "project": "8._локальные",
+  "unmapped_count": 4,
+  "note": "Несопоставленные → добавь keywords в production_rates.json",
+  "unmapped_items": [
+    {
+      "phase": "Лестницы",
+      "subsection_name": "unassigned",
+      "normalized_name": "unassigned",
+      "phase_lower": "лестницы",
+      "available_units": [
+        "м³",
+        "т",
+        "кг",
+        "м²"
+      ],
+      "all_volumes": {
+        "м³": 0.1154367,
+        "т": 0.0022134999999999998,
+        "кг": 0.3765534,
+        "м²": 990.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Проемы и заполнение",
+      "subsection_name": "Витражи наружные",
+      "normalized_name": "витражи наружные",
+      "phase_lower": "проемы и заполнение",
+      "available_units": [
+        "м",
+        "м²",
+        "кг",
+        "т"
+      ],
+      "all_volumes": {
+        "м": 17359.936589000004,
+        "м²": 3625.0,
+        "кг": 2.6283,
+        "т": 0.2732719
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Проемы и заполнение",
+      "subsection_name": "Витражи внутренние",
+      "normalized_name": "витражи внутренние",
+      "phase_lower": "проемы и заполнение",
+      "available_units": [
+        "м²"
+      ],
+      "all_volumes": {
+        "м²": 1488.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Крыльца и козырьки",
+      "subsection_name": "Крыльцо КР-1",
+      "normalized_name": "крыльцо кр-1",
+      "phase_lower": "крыльца и козырьки",
+      "available_units": [
+        "м",
+        "м³",
+        "кг",
+        "т"
+      ],
+      "all_volumes": {
+        "м": 1.8,
+        "м³": 1.847499,
+        "кг": 1.5509,
+        "т": 0.0014544
+      },
+      "reason": "no_matching_profile"
+    }
+  ]
+}
