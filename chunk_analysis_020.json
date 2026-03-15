@@ -1,0 +1,248 @@
+{
+  "chunk_id": 20,
+  "sections": [
+    {
+      "title_raw": "F(49)'construction=\"Строительство школы №65 по улице Жангирхана за медколледжем на 600 обучающихся в городе Уральск Западно-Казахстанской области\"",
+      "title_norm": "строительство школы №65 по улице жангирхана на 600 обучающихся в городе уральск",
+      "level": 1,
+      "t": "cs",
+      "children": [
+        {
+          "title_raw": "П2 ЩАО-П*",
+          "title_norm": "щао-п",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩО-П*",
+          "title_norm": "що-п",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩАО-1*",
+          "title_norm": "щао-1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩАО-1.2*",
+          "title_norm": "щао-1.2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩО-1*",
+          "title_norm": "що-1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩО-1.2*",
+          "title_norm": "що-1.2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩО-2*",
+          "title_norm": "що-2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩО-3*",
+          "title_norm": "що-3",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Ящик*",
+          "title_norm": "ящик",
+          "level": 2
+        },
+        {
+          "title_raw": "ПР Светотехническое оборудование*",
+          "title_norm": "светотехническое оборудование",
+          "level": 2
+        },
+        {
+          "title_raw": "ПР Электроустановочные изделия*",
+          "title_norm": "электроустановочные изделия",
+          "level": 2
+        },
+        {
+          "title_raw": "ПР Кабельные изделия*",
+          "title_norm": "кабельные изделия",
+          "level": 2
+        },
+        {
+          "title_raw": "К'Эрих Н.*",
+          "title_norm": "эрих н.",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "ПР СИЛОВОЕ ЭЛЕКТРООБОРУДОВАНИЕ*",
+      "title_norm": "силовое электрооборудование",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 ВЩ*",
+          "title_norm": "вщ",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 РЩ2, РЩ1, АВР, ЩСП*",
+          "title_norm": "рщ2, рщ1, авр, щсп",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС1.1*",
+          "title_norm": "щс1.1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС1.2*",
+          "title_norm": "щс1.2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС1.3*",
+          "title_norm": "щс1.3",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС1.4*",
+          "title_norm": "щс1.4",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС1.5*",
+          "title_norm": "щс1.5",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС1.6*",
+          "title_norm": "щс1.6",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС2.1*",
+          "title_norm": "щс2.1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС2.2*",
+          "title_norm": "щс2.2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС2.3*",
+          "title_norm": "щс2.3",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС2.4*",
+          "title_norm": "щс2.4",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС2.5*",
+          "title_norm": "щс2.5",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС3.1*",
+          "title_norm": "щс3.1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС3.2*",
+          "title_norm": "щс3.2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС3.3*",
+          "title_norm": "щс3.3",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩС3.4*",
+          "title_norm": "щс3.4",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩСС*",
+          "title_norm": "щсс",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩСН*",
+          "title_norm": "щсн",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЩСВ1*",
+          "title_norm": "щсв1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩСВ2*",
+          "title_norm": "щсв2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ЩСД*",
+          "title_norm": "щсд",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 У1*",
+          "title_norm": "у1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ПМЛ*",
+          "title_norm": "пмл",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "ПР ЭЛЕКТРОУСТАНОВОЧНЫЕ ИЗДЕЛИЯ*",
+      "title_norm": "электроустановочные изделия",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2КАБЕЛЬНЫЕ ИЗДЕЛИЯ*",
+          "title_norm": "кабельные изделия",
+          "level": 2
+        },
+        {
+          "title_raw": "###*",
+          "title_norm": "прочее",
+          "level": 2
+        },
+        {
+          "title_raw": "П2ЗАЗЕМЛЕНИЕ*",
+          "title_norm": "заземление",
+          "level": 2
+        },
+        {
+          "title_raw": "П2МОЛНИЕЗАЩИТА*",
+          "title_norm": "молниезащита",
+          "level": 2
+        },
+        {
+          "title_raw": "П2СИСТЕМА ТЕПЛОСКАТ*",
+          "title_norm": "система теплоскат",
+          "level": 2
+        },
+        {
+          "title_raw": "П2КАБЕЛЕНЕСУЩИЕ СИСТЕМЫ*",
+          "title_norm": "кабеленесущие системы",
+          "level": 2
+        },
+        {
+          "title_raw": "К'Эрих Н.*",
+          "title_norm": "эрих н.",
+          "level": 2
+        }
+      ]
+    }
+  ],
+  "source_file": "smeta_chunk_020.json"
+}

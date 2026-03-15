@@ -47,7 +47,7 @@ import anthropic
 # КОНФИГУРАЦИЯ
 # ═══════════════════════════════════════════════════════════════
 MODEL = "claude-opus-4-5"
-MAX_TOKENS = 4096
+MAX_TOKENS = 16000
 DELAY_BETWEEN_CHUNKS = 2  # секунды между запросами (rate limit)
 MAX_RETRIES = 3            # повторных попыток при ошибке
 
@@ -67,87 +67,31 @@ SUMMARY_FILE            = "section_hierarchy_summary.json"
 # ═══════════════════════════════════════════════════════════════
 
 CHUNK_ANALYSIS_PROMPT = """Ты анализируешь фрагмент строительной сметы.
-Твоя задача: построить локальную иерархию разделов и подразделов для этого фрагмента.
+Определи ТОЛЬКО структуру разделов. Работы перечислять НЕ НУЖНО.
 
 ДАННЫЕ ФРАГМЕНТА:
 {chunk_data}
 
 ПРАВИЛА:
-1. Нельзя придумывать новые работы — только те, что в данных
-2. Нельзя терять work_item — если не знаешь куда привязать, помести в unassigned_work_items
-3. Различай уровни: раздел (level:1) → подраздел (level:2)
-4. Группируй work_item по смыслу и порядку следования, не по коду
-5. Если сомневаешься в принадлежности — создай отдельный подраздел
-6. section с t="cs" — это контекстный заголовок начала чанка, используй для ориентации
+1. Определи разделы (level:1) и подразделы (level:2) по смыслу
+2. Строки [РАБОТА] в ответ НЕ включай — только структуру разделов!
+3. section с t="cs" — контекстный заголовок для ориентации
+4. Если сомневаешься — создай отдельный подраздел
+5. Отвечай ТОЛЬКО JSON без markdown, без ```, без пояснений
 
-ВЕРНИ СТРОГО JSON (без пояснений, без markdown):
-{{
-  "chunk_id": {chunk_id},
-  "sections": [
-    {{
-      "title_raw": "оригинальный текст раздела",
-      "title_norm": "нормализованный текст",
-      "level": 1,
-      "children": [
-        {{
-          "title_raw": "оригинальный текст подраздела",
-          "title_norm": "нормализованный текст",
-          "level": 2,
-          "work_items": [
-            {{"name": "...", "norm": "...", "unit": "...", "volume": 0}}
-          ]
-        }}
-      ]
-    }}
-  ],
-  "unassigned_work_items": []
-}}"""
+ФОРМАТ (строго):
+{{"chunk_id": {chunk_id}, "sections": [{{"title_raw": "текст из данных", "title_norm": "норм текст", "level": 1, "children": [{{"title_raw": "текст", "title_norm": "норм", "level": 2}}]}}]}}"""
 
 
-FINAL_HIERARCHY_PROMPT = """Ты строишь общую иерархию строительной сметы.
-У тебя есть результаты анализа {total_chunks} фрагментов сметы.
+FINAL_HIERARCHY_PROMPT = """Проект: {project_name}. Строительная смета.
+Ниже список разделов из {total_chunks} фрагментов сметы (формат: "raw" norm: "норм" подразделы: ...):
 
-ЗАДАЧА:
-1. Объедини одинаковые разделы из разных фрагментов
-2. Построй общую иерархию всей сметы
-3. Укрупни смысловые блоки в финальные фазы
-
-ДАННЫЕ ПО ВСЕМ ФРАГМЕНТАМ:
 {merged_sections}
 
-ПРАВИЛА:
-1. Не теряй work_item — все должны войти в иерархию или в unassigned
-2. Объединяй разделы только если уверен в смысловом совпадении
-3. Если сомневаешься — оставь как отдельный подраздел
-4. Порядок разделов должен соответствовать логике строительства
-5. НЕ строй ГПР и не рассчитывай длительности — только структура
-
-ВЕРНИ СТРОГО JSON (без пояснений, без markdown):
-{{
-  "project": "{project_name}",
-  "phases": [
-    {{
-      "phase": "Название фазы/раздела",
-      "norm": "нормализованное название",
-      "subsections": [
-        {{
-          "name": "Название подраздела",
-          "norm": "нормализованный",
-          "work_items": [
-            {{"name": "...", "norm": "...", "unit": "...", "volume": 0}}
-          ]
-        }}
-      ]
-    }}
-  ],
-  "unassigned_work_items": [],
-  "stats": {{
-    "total_phases": 0,
-    "total_subsections": 0,
-    "total_work_items": 0,
-    "unassigned_count": 0
-  }}
-}}"""
+Объедини одинаковые разделы и построй иерархию строительных работ.
+Порядок: логика строительства (земля→фундамент→каркас→стены→кровля→инженерия→отделка).
+Только JSON, без markdown, без пояснений:
+{{"project":"{project_name}","phases":[{{"phase":"название","norm":"норм","subsections":[{{"name":"подраздел","norm":"норм"}}]}}],"stats":{{"total_phases":0,"total_subsections":0}}}}"""
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -183,26 +127,23 @@ def find_chunks(pattern: str = CHUNKS_PATTERN) -> List[str]:
 
 
 def extract_json_from_response(text: str) -> Optional[Dict]:
-    """
-    Извлекает JSON из ответа ИИ.
-    ИИ иногда добавляет markdown или пояснения — чистим.
-    """
     # Убираем markdown блоки
-    text = re.sub(r'```json\s*', '', text)
+    text = re.sub(r'```json\s*', '', text, flags=re.IGNORECASE)
     text = re.sub(r'```\s*', '', text)
     text = text.strip()
 
-    # Пробуем распарсить напрямую
+    # Пробуем напрямую
     try:
         return json.loads(text)
     except json.JSONDecodeError:
         pass
 
-    # Ищем JSON объект в тексте
-    match = re.search(r'\{.*\}', text, re.DOTALL)
-    if match:
+    # Ищем от { до }
+    start = text.find('{')
+    end = text.rfind('}')
+    if start != -1 and end != -1 and end > start:
         try:
-            return json.loads(match.group())
+            return json.loads(text[start:end+1])
         except json.JSONDecodeError:
             pass
 
@@ -310,10 +251,16 @@ def step_a_analyze_chunks(
 
         # Проверяем — уже обработан?
         output_file = CHUNK_ANALYSIS_PATTERN.format(chunk_num)
-        if os.path.exists(output_file) and only_chunk is None:
-            print(f"  [{chunk_num:2d}/{total}] ⏭️ Пропускаю (уже есть): {output_file}")
-            result_files.append(output_file)
-            continue
+        if os.path.exists(output_file):
+            if only_chunk is None:
+                # Полный прогон — пропускаем уже обработанные
+                print(f"  [{chunk_num:2d}/{total}] ⏭️ Пропускаю (уже есть): {output_file}")
+                result_files.append(output_file)
+                continue
+            else:
+                # --chunk N — всегда перезаписываем принудительно
+                os.remove(output_file)
+                print(f"  [{chunk_num:2d}/{total}] 🔄 Перезаписываю: {output_file}")
 
         print(f"  [{chunk_num:2d}/{total}] Анализирую: {chunk_file}")
 
@@ -529,42 +476,31 @@ def step_c_build_final_hierarchy(
     print("ЭТАП C: ФИНАЛЬНАЯ ИЕРАРХИЯ")
     print("="*60)
 
-    # Готовим компактное представление для промпта
-    # Не отправляем ВСЕ работы — только уникальные разделы и подразделы
-    # + примеры работ по 3 штуки на подраздел
-    compact_sections = []
-
+    # ОПТИМИЗАЦИЯ v5.0: отправляем ТОЛЬКО уникальные norm разделов
+    # Вместо 86КБ → ~5КБ промпт
+    seen_norms = {}
     for chunk_result in merged.get("chunk_results", []):
         chunk_id = chunk_result.get("chunk_id")
         for section in chunk_result.get("sections", []):
-            section_entry = {
-                "chunk": chunk_id,
-                "raw": section.get("title_raw", ""),
-                "norm": section.get("title_norm", ""),
-                "subsections": []
-            }
+            norm = section.get("title_norm", "").strip()
+            raw = section.get("title_raw", "").strip()
+            if norm not in seen_norms:
+                seen_norms[norm] = {"raw": raw, "chunks": [chunk_id], "children": []}
+            else:
+                seen_norms[norm]["chunks"].append(chunk_id)
             for child in section.get("children", []):
-                works = child.get("work_items", [])
-                child_entry = {
-                    "name": child.get("title_norm", ""),
-                    "work_count": len(works),
-                    "work_examples": [w.get("norm", w.get("name", "")) for w in works[:3]]
-                }
-                section_entry["subsections"].append(child_entry)
-            compact_sections.append(section_entry)
+                child_norm = child.get("title_norm", "").strip()
+                if child_norm and child_norm not in seen_norms[norm]["children"]:
+                    seen_norms[norm]["children"].append(child_norm)
 
-        # Unassigned тоже передаём
-        unassigned = chunk_result.get("unassigned_work_items", [])
-        if unassigned:
-            compact_sections.append({
-                "chunk": chunk_id,
-                "raw": "[НЕРАСПРЕДЕЛЁННЫЕ РАБОТЫ]",
-                "norm": "unassigned",
-                "work_count": len(unassigned),
-                "works": [w.get("norm", w.get("name", "")) for w in unassigned[:5]]
-            })
+    # Строим компактный список для промпта
+    compact_lines = []
+    for norm, info in seen_norms.items():
+        chunks_str = f"чанки {info['chunks'][:3]}"
+        children_str = ", ".join(info["children"][:5]) if info["children"] else "—"
+        compact_lines.append(f'- "{info["raw"]}" (norm: "{norm}", {chunks_str}, подразделы: {children_str})')
 
-    merged_sections_str = json.dumps(compact_sections, ensure_ascii=False, indent=2)
+    merged_sections_str = "\n".join(compact_lines)
 
     # Строим промпт
     prompt = FINAL_HIERARCHY_PROMPT.format(

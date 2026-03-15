@@ -1,0 +1,305 @@
+{
+  "chunk_id": 14,
+  "sections": [
+    {
+      "title_raw": "Стеновой протектор Большой и малый спортзал",
+      "title_norm": "стеновой протектор большой и малый спортзал",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Армирование стен",
+      "title_norm": "армирование стен",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Засыпка /лист2/",
+      "title_norm": "засыпка",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Перегородки неармированные толщиной в 1/2 кирпича",
+      "title_norm": "перегородки неармированные",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Костыли /лист 16/",
+          "title_norm": "костыли",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ТИП 1",
+          "title_norm": "тип 1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 ТИП 2",
+          "title_norm": "тип 2",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Подвал",
+          "title_norm": "подвал",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 3",
+          "title_norm": "тип 3",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 4",
+          "title_norm": "тип 4",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 1этаж",
+          "title_norm": "1 этаж",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 6",
+          "title_norm": "тип 6",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 6х",
+          "title_norm": "тип 6х",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 7",
+          "title_norm": "тип 7",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 8",
+          "title_norm": "тип 8",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 9",
+          "title_norm": "тип 9",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 10",
+          "title_norm": "тип 10",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 11х",
+          "title_norm": "тип 11х",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 11",
+          "title_norm": "тип 11",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 12",
+          "title_norm": "тип 12",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 13",
+          "title_norm": "тип 13",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 14",
+          "title_norm": "тип 14",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 15",
+          "title_norm": "тип 15",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 16х",
+          "title_norm": "тип 16х",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 9.1",
+          "title_norm": "тип 9.1",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 2 этаж",
+          "title_norm": "2 этаж",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 16",
+          "title_norm": "тип 16",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 17",
+          "title_norm": "тип 17",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 18",
+          "title_norm": "тип 18",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 19",
+          "title_norm": "тип 19",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 19х",
+          "title_norm": "тип 19х",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 19хх",
+          "title_norm": "тип 19хх",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 20",
+          "title_norm": "тип 20",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 21",
+          "title_norm": "тип 21",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 22",
+          "title_norm": "тип 22",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 23",
+          "title_norm": "тип 23",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 3этаж",
+          "title_norm": "3 этаж",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 24",
+          "title_norm": "тип 24",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 25",
+          "title_norm": "тип 25",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 26",
+          "title_norm": "тип 26",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Тип 27",
+          "title_norm": "тип 27",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Аэраторы",
+      "title_norm": "аэраторы",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Перемычки",
+      "title_norm": "перемычки",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Перемычки 1-го этажа /лист 30/",
+          "title_norm": "перемычки 1-го этажа",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Перемычки 2-го этажа /лист 31/",
+          "title_norm": "перемычки 2-го этажа",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Перемычки 3-го этажа /лист 32/",
+          "title_norm": "перемычки 3-го этажа",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Потолок",
+      "title_norm": "потолок",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Потолок 1этаж лист 40",
+          "title_norm": "потолок 1 этаж",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Потолок 2этаж лист 41",
+          "title_norm": "потолок 2 этаж",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Потолок 3этаж лист 41",
+          "title_norm": "потолок 3 этаж",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Проемы /лист 43/",
+      "title_norm": "проемы",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Витражи наружные /лист 44/",
+          "title_norm": "витражи наружные",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Витражи внутренние",
+          "title_norm": "витражи внутренние",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Двери наружные /лист 46/",
+          "title_norm": "двери наружные",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Двери внутренние",
+          "title_norm": "двери внутренние",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Лестницы ограждение ОГ1...ОГ5",
+      "title_norm": "лестницы ограждение",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-1",
+      "title_norm": "крыльцо",
+      "level": 1,
+      "children": []
+    }
+  ],
+  "source_file": "smeta_chunk_014.json"
+}

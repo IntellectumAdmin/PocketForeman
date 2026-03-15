@@ -1,0 +1,1348 @@
+{
+  "project": "8._локальные",
+  "hierarchy_version": "5.0",
+  "top_sections": [
+    "Земляные работы",
+    "Фундаменты",
+    "Монолитный каркас",
+    "Плиты перекрытия и балки",
+    "Лестницы",
+    "Металлоконструкции",
+    "Стены и перегородки",
+    "Кровля и парапеты",
+    "Проемы и заполнение",
+    "Крыльца и козырьки",
+    "Водоснабжение и канализация",
+    "Отопление и теплоснабжение",
+    "Вентиляция и кондиционирование",
+    "Электроснабжение и электрооборудование",
+    "Котельная",
+    "Лифтовое оборудование",
+    "Полы",
+    "Внутренняя отделка",
+    "Оснащение учебных кабинетов",
+    "Административные помещения",
+    "Спортивные и актовые залы",
+    "Медицинские и специальные помещения",
+    "Пищеблок",
+    "Санитарные помещения",
+    "Прочее оборудование и мебель",
+    "Благоустройство территории",
+    "Малые архитектурные формы"
+  ],
+  "total_phases": 27,
+  "total_subsections": 273,
+  "total_work_items": 0,
+  "unassigned_work_items": 0,
+  "phases_detail": [
+    {
+      "phase": "Земляные работы",
+      "norm": "земляные работы",
+      "subsections_count": 3,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Разработка грунта подземных частей здания",
+          "work_items_count": 0
+        },
+        {
+          "name": "Засыпка",
+          "work_items_count": 0
+        },
+        {
+          "name": "Устройство плодородного грунта",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Фундаменты",
+      "norm": "фундаменты",
+      "subsections_count": 13,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Фундамент плита Фп-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент плита Фп-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент плита Фп-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент плита Фп-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент плита Фп-5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент плита Фп-6",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент плита Фп-7",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент монолитный Фм-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент монолитный Фм-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент монолитный Фм-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент монолитный Фм-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент монолитный ленточный Фмл-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Устройство плиты фундаментной железобетонной плоской",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Монолитный каркас",
+      "norm": "монолитный каркас",
+      "subsections_count": 24,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Колонна монолитная Км-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-1х",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-3х",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-6",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-7",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-8",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-9",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-9х",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-10",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-10х",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-11",
+          "work_items_count": 0
+        },
+        {
+          "name": "Колонна монолитная Км-12",
+          "work_items_count": 0
+        },
+        {
+          "name": "Монолитная стена См1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Диафрагма жесткости и стена монолитная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Диафрагма жесткости Джм-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Диафрагма жесткости Джм-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Диафрагма жесткости Джм-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Диафрагма жесткости Джм-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Диафрагма жесткости Джм-5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Надколонники",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Плиты перекрытия и балки",
+      "norm": "плиты перекрытия и балки",
+      "subsections_count": 45,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Плита перекрытия на отм.-0.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1 на отм.-0.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-2 на отм.-0.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-3 на отм.-0.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-4 на отм.-0.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-5 на отм.-0.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита перекрытия на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1.1 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1.2 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1.3 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-2 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-3 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-4 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-5 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-6 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-7 на отм.+3.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита перекрытия на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1 на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-2 на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-3 на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-4 на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-5 на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-6 на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-8 на отм.+7.900",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита перекрытия на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-1 на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-2 на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-3 на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-4 на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-5 на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита перекрытия на отм.+11.400",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-9 на отм.+11.400",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-9.1 на отм.+11.400",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-9.2 на отм.+11.400",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-9.3 на отм.+11.400",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-9.4 на отм.+11.400",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита перекрытия на отм.+13.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-10 на отм.+13.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-10.1 на отм.+13.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-10.2 на отм.+13.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-10.3 на отм.+13.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-10.4 на отм.+13.500",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плита монолитная Пм-10.5 на отм.+12.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Перекрытия безбалочные",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Лестницы",
+      "norm": "лестницы",
+      "subsections_count": 16,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Лестница монолитная Лм-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница монолитная Лм-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница монолитная Лм-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница монолитная Лм-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница монолитная Лм-5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница монолитная Лм-6",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестничный марш монолитный Млм-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестничный марш монолитный Млм-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестничный марш монолитный Млм-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестничный марш монолитный Млм-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестничная площадка монолитная Млп-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница ПЛ-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестница ПЛ-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Лестницы ограждение ОГ1-ОГ5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Пожарная лестница П-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Пожарная лестница П-2",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Металлоконструкции",
+      "norm": "металлоконструкции",
+      "subsections_count": 3,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Фермы",
+          "work_items_count": 0
+        },
+        {
+          "name": "Прогоны",
+          "work_items_count": 0
+        },
+        {
+          "name": "Связи",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Стены и перегородки",
+      "norm": "стены и перегородки",
+      "subsections_count": 14,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Стены подвал",
+          "work_items_count": 0
+        },
+        {
+          "name": "Стены 1 этаж",
+          "work_items_count": 0
+        },
+        {
+          "name": "Стены 2 этаж",
+          "work_items_count": 0
+        },
+        {
+          "name": "Стены 3 этаж",
+          "work_items_count": 0
+        },
+        {
+          "name": "Узлы крепления наружных стен",
+          "work_items_count": 0
+        },
+        {
+          "name": "Узлы крепления стен и перегородок",
+          "work_items_count": 0
+        },
+        {
+          "name": "Армирование стен",
+          "work_items_count": 0
+        },
+        {
+          "name": "Армирование перегородок",
+          "work_items_count": 0
+        },
+        {
+          "name": "Перегородки неармированные",
+          "work_items_count": 0
+        },
+        {
+          "name": "Сантехнические перегородки",
+          "work_items_count": 0
+        },
+        {
+          "name": "Перемычки 1-го этажа",
+          "work_items_count": 0
+        },
+        {
+          "name": "Перемычки 2-го этажа",
+          "work_items_count": 0
+        },
+        {
+          "name": "Перемычки 3-го этажа",
+          "work_items_count": 0
+        },
+        {
+          "name": "Вентканалы",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Кровля и парапеты",
+      "norm": "кровля и парапеты",
+      "subsections_count": 3,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Парапет на отм.+7.100",
+          "work_items_count": 0
+        },
+        {
+          "name": "Парапет на отм.+10.700",
+          "work_items_count": 0
+        },
+        {
+          "name": "Аэраторы",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Проемы и заполнение",
+      "norm": "проемы и заполнение",
+      "subsections_count": 4,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Витражи наружные",
+          "work_items_count": 0
+        },
+        {
+          "name": "Витражи внутренние",
+          "work_items_count": 0
+        },
+        {
+          "name": "Двери наружные",
+          "work_items_count": 0
+        },
+        {
+          "name": "Двери внутренние",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Крыльца и козырьки",
+      "norm": "крыльца и козырьки",
+      "subsections_count": 21,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Крыльцо КР-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-6",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-7",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-8",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-9",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-10",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-11",
+          "work_items_count": 0
+        },
+        {
+          "name": "Крыльцо КР-12",
+          "work_items_count": 0
+        },
+        {
+          "name": "Козырек крыльца КР-1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Козырек крыльца КР-3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Козырек крыльца КР-5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Козырек крыльца КР-8",
+          "work_items_count": 0
+        },
+        {
+          "name": "Козырек крыльца КР лист 48",
+          "work_items_count": 0
+        },
+        {
+          "name": "Козырек К1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Вход в подвал",
+          "work_items_count": 0
+        },
+        {
+          "name": "Приямок",
+          "work_items_count": 0
+        },
+        {
+          "name": "Решетка приямка",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "norm": "водоснабжение и канализация",
+      "subsections_count": 7,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Водопровод хозяйственно-питьевой В1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Водопровод противопожарный В2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Водоснабжение горячее Т3 Т4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Водоснабжение холодное В1.1 столовая",
+          "work_items_count": 0
+        },
+        {
+          "name": "Водоснабжение горячее Т3.1 столовая",
+          "work_items_count": 0
+        },
+        {
+          "name": "Наружный водопровод В1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Канализация К1",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "norm": "отопление и теплоснабжение",
+      "subsections_count": 9,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Тепловой узел",
+          "work_items_count": 0
+        },
+        {
+          "name": "Отопление",
+          "work_items_count": 0
+        },
+        {
+          "name": "Тепловые сети",
+          "work_items_count": 0
+        },
+        {
+          "name": "Тепломеханические решения",
+          "work_items_count": 0
+        },
+        {
+          "name": "Тепломеханическая часть",
+          "work_items_count": 0
+        },
+        {
+          "name": "Строительная часть теплосетей",
+          "work_items_count": 0
+        },
+        {
+          "name": "Канал",
+          "work_items_count": 0
+        },
+        {
+          "name": "Тепловая камера",
+          "work_items_count": 0
+        },
+        {
+          "name": "Система теплоскат",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "norm": "вентиляция и кондиционирование",
+      "subsections_count": 10,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Приточная система П1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Приточная система П2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Приточная система П3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Приточная система П4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Приточная система П5",
+          "work_items_count": 0
+        },
+        {
+          "name": "Прокладка воздуховодов класса Н",
+          "work_items_count": 0
+        },
+        {
+          "name": "Прокладка воздуховодов класса П",
+          "work_items_count": 0
+        },
+        {
+          "name": "Устройство изоляции поверхности рулонными материалами",
+          "work_items_count": 0
+        },
+        {
+          "name": "Монтаж компрессорно-конденсаторного блока",
+          "work_items_count": 0
+        },
+        {
+          "name": "Изоляция трубопровода изделиями из вспененного каучука",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Электроснабжение и электрооборудование",
+      "norm": "электроснабжение и электрооборудование",
+      "subsections_count": 18,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Силовое электрооборудование",
+          "work_items_count": 0
+        },
+        {
+          "name": "ВЩ",
+          "work_items_count": 0
+        },
+        {
+          "name": "РЩ1",
+          "work_items_count": 0
+        },
+        {
+          "name": "РЩ2",
+          "work_items_count": 0
+        },
+        {
+          "name": "АВР",
+          "work_items_count": 0
+        },
+        {
+          "name": "ЩСП",
+          "work_items_count": 0
+        },
+        {
+          "name": "ЩС1.1",
+          "work_items_count": 0
+        },
+        {
+          "name": "ЩС1.2",
+          "work_items_count": 0
+        },
+        {
+          "name": "ЩС1.3",
+          "work_items_count": 0
+        },
+        {
+          "name": "ЩАО-П",
+          "work_items_count": 0
+        },
+        {
+          "name": "ЩО-П",
+          "work_items_count": 0
+        },
+        {
+          "name": "Электроустановочные изделия",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабельные изделия",
+          "work_items_count": 0
+        },
+        {
+          "name": "Заземление",
+          "work_items_count": 0
+        },
+        {
+          "name": "Молниезащита",
+          "work_items_count": 0
+        },
+        {
+          "name": "Сети электроснабжения 0,4 кВ",
+          "work_items_count": 0
+        },
+        {
+          "name": "Наружное электроосвещение",
+          "work_items_count": 0
+        },
+        {
+          "name": "Щитовое электрооборудование",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Котельная",
+      "norm": "котельная",
+      "subsections_count": 4,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Котельная БМК",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент Фм-1 котельной",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент Фм-2 котельной",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фундамент Фм-3 котельной",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Лифтовое оборудование",
+      "norm": "лифтовое оборудование",
+      "subsections_count": 1,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Лифт",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Полы",
+      "norm": "полы",
+      "subsections_count": 3,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Полы",
+          "work_items_count": 0
+        },
+        {
+          "name": "Фальшпол",
+          "work_items_count": 0
+        },
+        {
+          "name": "Устройство покрытий из плит керамогранитных",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Внутренняя отделка",
+      "norm": "внутренняя отделка",
+      "subsections_count": 6,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Облицовка стены плитами гранитными",
+          "work_items_count": 0
+        },
+        {
+          "name": "Устройство подвесного потолка",
+          "work_items_count": 0
+        },
+        {
+          "name": "Потолок 1 этаж",
+          "work_items_count": 0
+        },
+        {
+          "name": "Потолок 2 этаж",
+          "work_items_count": 0
+        },
+        {
+          "name": "Потолок 3 этаж",
+          "work_items_count": 0
+        },
+        {
+          "name": "Стеновой протектор спортзал",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Оснащение учебных кабинетов",
+      "norm": "оснащение учебных кабинетов",
+      "subsections_count": 12,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Лаборантская кабинета информатики",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет информатики IT-класс",
+          "work_items_count": 0
+        },
+        {
+          "name": "STEM-лаборатория",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет робототехники",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет визуальное искусство и графика",
+          "work_items_count": 0
+        },
+        {
+          "name": "Мастерская культура дома и гончарная студия",
+          "work_items_count": 0
+        },
+        {
+          "name": "Мастерская культура питания",
+          "work_items_count": 0
+        },
+        {
+          "name": "Мастерская дизайн и технология",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет физики с лаборантской",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет биотехнологии и нанотехнологии",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет биологии с лаборантской",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет химии с лаборантской",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Административные помещения",
+      "norm": "административные помещения",
+      "subsections_count": 10,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Кабинет руководителя организации образования",
+          "work_items_count": 0
+        },
+        {
+          "name": "Приемная-кабинет делопроизводства",
+          "work_items_count": 0
+        },
+        {
+          "name": "Методический кабинет учительская",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет заместителя руководителя",
+          "work_items_count": 0
+        },
+        {
+          "name": "Бухгалтерия",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет преподавателей физической культуры",
+          "work_items_count": 0
+        },
+        {
+          "name": "Библиотека с книгохранилищем",
+          "work_items_count": 0
+        },
+        {
+          "name": "Серверная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Комната охраны",
+          "work_items_count": 0
+        },
+        {
+          "name": "Комната для технического персонала",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Спортивные и актовые залы",
+      "norm": "спортивные и актовые залы",
+      "subsections_count": 6,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Актовый зал кинолекторий",
+          "work_items_count": 0
+        },
+        {
+          "name": "Зал хореографии с раздевалками",
+          "work_items_count": 0
+        },
+        {
+          "name": "Спортивный зал для младшей школы",
+          "work_items_count": 0
+        },
+        {
+          "name": "Оборудование спортивного зала и секций",
+          "work_items_count": 0
+        },
+        {
+          "name": "Оборудование для занятий легкой атлетикой",
+          "work_items_count": 0
+        },
+        {
+          "name": "Помещение для хранения инвентаря",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Медицинские и специальные помещения",
+      "norm": "медицинские и специальные помещения",
+      "subsections_count": 8,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Кабинет врача процедурная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Изолятор",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет психолога",
+          "work_items_count": 0
+        },
+        {
+          "name": "Сенсорная комната",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет социального педагога",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет логопеда",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинет юриста профориентатора",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кабинеты поддержки инклюзивного образования",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Пищеблок",
+      "norm": "пищеблок",
+      "subsections_count": 8,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Загрузка",
+          "work_items_count": 0
+        },
+        {
+          "name": "Камера отходов",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кладовая сухих продуктов",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кладовая овощей",
+          "work_items_count": 0
+        },
+        {
+          "name": "Моечная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Раздаточная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Инвентарная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Горячий цех",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Санитарные помещения",
+      "norm": "санитарные помещения",
+      "subsections_count": 3,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Санузел",
+          "work_items_count": 0
+        },
+        {
+          "name": "Умывальная",
+          "work_items_count": 0
+        },
+        {
+          "name": "Оборудование санузла МГН",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Прочее оборудование и мебель",
+      "norm": "прочее оборудование и мебель",
+      "subsections_count": 7,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Коворкинг пуфики",
+          "work_items_count": 0
+        },
+        {
+          "name": "Плакаты и стенды",
+          "work_items_count": 0
+        },
+        {
+          "name": "Пособия стенды и таблицы",
+          "work_items_count": 0
+        },
+        {
+          "name": "Настенные стенды оформление",
+          "work_items_count": 0
+        },
+        {
+          "name": "Оборудование и оснащение",
+          "work_items_count": 0
+        },
+        {
+          "name": "Типовые комплекты поставки",
+          "work_items_count": 0
+        },
+        {
+          "name": "Дополнительные принадлежности",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Благоустройство территории",
+      "norm": "благоустройство территории",
+      "subsections_count": 9,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Покрытие асфальтобетонное проезды тип 1",
+          "work_items_count": 0
+        },
+        {
+          "name": "Тротуарная плитка пешеходный тротуар тип 2",
+          "work_items_count": 0
+        },
+        {
+          "name": "Покрытие тартановое тип 3",
+          "work_items_count": 0
+        },
+        {
+          "name": "Бетонное покрытие игровых площадок тип 3а",
+          "work_items_count": 0
+        },
+        {
+          "name": "Покрытие игровых площадок тип 4",
+          "work_items_count": 0
+        },
+        {
+          "name": "Газон",
+          "work_items_count": 0
+        },
+        {
+          "name": "Деревья",
+          "work_items_count": 0
+        },
+        {
+          "name": "Кустарники",
+          "work_items_count": 0
+        },
+        {
+          "name": "Предупредительный знак",
+          "work_items_count": 0
+        }
+      ]
+    },
+    {
+      "phase": "Малые архитектурные формы",
+      "norm": "малые архитектурные формы",
+      "subsections_count": 6,
+      "work_items_count": 0,
+      "subsections": [
+        {
+          "name": "Урны металлические",
+          "work_items_count": 0
+        },
+        {
+          "name": "Навесы для мусоросборников",
+          "work_items_count": 0
+        },
+        {
+          "name": "Контейнеры для ТБО",
+          "work_items_count": 0
+        },
+        {
+          "name": "Детские игровые комплексы",
+          "work_items_count": 0
+        },
+        {
+          "name": "Гимнастические и спортивные комплексы",
+          "work_items_count": 0
+        },
+        {
+          "name": "Защитные решетки",
+          "work_items_count": 0
+        }
+      ]
+    }
+  ],
+  "note": "Читаемая версия section_hierarchy.json для инженера"
+}

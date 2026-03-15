@@ -1,0 +1,294 @@
+{
+  "version": "1.0_universal_general_construction",
+  "note": "Базовый универсальный справочник производительности для Duration Engine. Использовать как стартовые ориентиры, далее калибровать по реальным объектам.",
+  "profiles": [
+    {
+      "profile": "earthworks_excavation",
+      "label": "Разработка грунта",
+      "match": ["разработка грунта", "котлован", "транше", "выемк", "экскаватор", "срезка грунта"],
+      "unit": "м3",
+      "rate_per_day": 200,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "earthworks_backfill",
+      "label": "Обратная засыпка",
+      "match": ["обратная засыпка", "засыпка", "планировка грунта", "уплотнение грунта"],
+      "unit": "м3",
+      "rate_per_day": 250,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "base_preparation",
+      "label": "Подготовка основания",
+      "match": ["подготовка основания", "подстилающий слой", "щебеночное основание", "песчаное основание", "бетонная подготовка"],
+      "unit": "м3",
+      "rate_per_day": 80,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "piling",
+      "label": "Свайные работы",
+      "match": ["сва", "буронабивн", "забивка свай", "устройство свай"],
+      "unit": "шт",
+      "rate_per_day": 20,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "reinforcement",
+      "label": "Армирование",
+      "match": ["армирование", "арматур", "каркас арматурный", "сетка арматурная"],
+      "unit": "т",
+      "rate_per_day": 5,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "concreting_foundations",
+      "label": "Бетонирование фундаментов",
+      "match": ["бетонирование фунда", "устройство фундаментов", "монолитный фундамент", "плита фундаментная", "ленточный фундамент"],
+      "unit": "м3",
+      "rate_per_day": 40,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "concreting_structural",
+      "label": "Бетонирование монолитных конструкций",
+      "match": ["бетонирование", "монолит", "колонн", "ригел", "плит перекрытия", "балок"],
+      "unit": "м3",
+      "rate_per_day": 35,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "formwork",
+      "label": "Опалубочные работы",
+      "match": ["опалубка", "установка опалубки", "разборка опалубки"],
+      "unit": "м2",
+      "rate_per_day": 120,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "masonry_block",
+      "label": "Кладка блоков",
+      "match": ["кладка блок", "газоблок", "пеноблок", "стеновые блоки", "перегородочные блоки"],
+      "unit": "м3",
+      "rate_per_day": 18,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "masonry_brick",
+      "label": "Кирпичная кладка",
+      "match": ["кирпичн", "кладка кирпича", "кладка стен", "кладка перегородок"],
+      "unit": "м3",
+      "rate_per_day": 12,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "metal_structures_installation",
+      "label": "Монтаж металлоконструкций",
+      "match": ["металлоконструкц", "монтаж металлоконструкц", "фермы", "прогоны", "стальные конструкции"],
+      "unit": "т",
+      "rate_per_day": 8,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "precast_installation",
+      "label": "Монтаж сборных ЖБ элементов",
+      "match": ["сборн", "монтаж плит", "монтаж лестничных маршей", "монтаж жб", "перемычки", "панели"],
+      "unit": "шт",
+      "rate_per_day": 25,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "roofing_soft",
+      "label": "Мягкая кровля",
+      "match": ["мягкая кровля", "рулонная кровля", "наплавляемая кровля", "гидроизоляция кровли"],
+      "unit": "м2",
+      "rate_per_day": 180,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "roofing_sheet",
+      "label": "Кровля из листовых материалов",
+      "match": ["профлист", "металлочерепиц", "листовая кровля", "кровельное покрытие"],
+      "unit": "м2",
+      "rate_per_day": 220,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "waterproofing_general",
+      "label": "Гидроизоляция",
+      "match": ["гидроизоляц", "обмазочная изоляция", "оклеечная изоляция", "битумная изоляция"],
+      "unit": "м2",
+      "rate_per_day": 200,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "thermal_insulation",
+      "label": "Теплоизоляция",
+      "match": ["теплоизоляц", "утепление", "минвата", "пенополистирол", "утеплитель"],
+      "unit": "м2",
+      "rate_per_day": 180,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "facade_system",
+      "label": "Фасадные работы",
+      "match": ["фасад", "вентилируемый фасад", "мокрый фасад", "облицовка фасада"],
+      "unit": "м2",
+      "rate_per_day": 120,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "plastering",
+      "label": "Штукатурка",
+      "match": ["штукатур", "выравнивание стен", "оштукатуривание"],
+      "unit": "м2",
+      "rate_per_day": 140,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "screed",
+      "label": "Стяжка",
+      "match": ["стяжка", "цементно-песчаная стяжка", "выравнивающая стяжка"],
+      "unit": "м2",
+      "rate_per_day": 160,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "tile_work",
+      "label": "Облицовка плиткой",
+      "match": ["плитка", "облицовка плиткой", "керамогранит", "кафель"],
+      "unit": "м2",
+      "rate_per_day": 60,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "painting",
+      "label": "Малярные работы",
+      "match": ["окраска", "покраска", "шпаклевка", "малярн"],
+      "unit": "м2",
+      "rate_per_day": 250,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "ceiling_system",
+      "label": "Потолочные системы",
+      "match": ["подвесной потолок", "армстронг", "гипсокартонный потолок", "потолок"],
+      "unit": "м2",
+      "rate_per_day": 100,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "floor_finish",
+      "label": "Чистые полы",
+      "match": ["линолеум", "ламинат", "наливной пол", "покрытие пола", "полы"],
+      "unit": "м2",
+      "rate_per_day": 180,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "doors_windows",
+      "label": "Двери и окна",
+      "match": ["окна", "двери", "оконные блоки", "дверные блоки", "заполнение проемов"],
+      "unit": "шт",
+      "rate_per_day": 25,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "water_supply_pipes",
+      "label": "Водоснабжение и водоотведение",
+      "match": ["водоснабжение", "канализац", "трубопровод", "трубы пвх", "трубы полипропилен", "стояк"],
+      "unit": "м",
+      "rate_per_day": 80,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "heating_system",
+      "label": "Отопление",
+      "match": ["отопление", "радиатор", "теплоснабжение", "трубопровод отопления", "узел отопления"],
+      "unit": "м",
+      "rate_per_day": 70,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "ventilation_system",
+      "label": "Вентиляция",
+      "match": ["вентиляц", "воздуховод", "венткамера", "вентилятор", "кондиционирование"],
+      "unit": "м",
+      "rate_per_day": 60,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "electrical_cable",
+      "label": "Кабельные линии",
+      "match": ["кабель", "провод", "электроснабжение", "кабельная линия", "электромонтаж"],
+      "unit": "м",
+      "rate_per_day": 150,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "electrical_devices",
+      "label": "Электрооборудование и приборы",
+      "match": ["светильник", "розетка", "выключатель", "щит", "электрооборудование", "пускатель"],
+      "unit": "шт",
+      "rate_per_day": 40,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "fire_alarm_low_current",
+      "label": "Слаботочные системы",
+      "match": ["пожарн", "сигнализац", "оповещение", "видеонаблюдение", "интернет", "телефон", "слаботоч"],
+      "unit": "м",
+      "rate_per_day": 120,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "equipment_installation",
+      "label": "Монтаж оборудования",
+      "match": ["оборудован", "монтаж оборудования", "установка оборудования", "насос", "котел", "шкаф"],
+      "unit": "шт",
+      "rate_per_day": 10,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "external_networks",
+      "label": "Наружные сети",
+      "match": ["наружные сети", "наружный водопровод", "наружная канализация", "ливневая канализация", "теплотрасса"],
+      "unit": "м",
+      "rate_per_day": 60,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "road_base",
+      "label": "Основания дорог и площадок",
+      "match": ["основание дороги", "основание площадки", "щебеночное покрытие", "подготовка под асфальт", "дорожная одежда"],
+      "unit": "м2",
+      "rate_per_day": 300,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "asphalt_paving",
+      "label": "Асфальтирование",
+      "match": ["асфальт", "асфальтобетон", "укладка асфальта"],
+      "unit": "м2",
+      "rate_per_day": 500,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "paving_stones",
+      "label": "Брусчатка и тротуарная плитка",
+      "match": ["брусчатка", "тротуарная плитка", "мощение"],
+      "unit": "м2",
+      "rate_per_day": 120,
+      "min_duration_days": 1
+    },
+    {
+      "profile": "landscaping",
+      "label": "Озеленение и малые формы",
+      "match": ["озеленение", "посев газона", "посадка", "малые архитектурные формы", "урны", "скамьи", "ограждение"],
+      "unit": "шт",
+      "rate_per_day": 20,
+      "min_duration_days": 1
+    }
+  ]
+}

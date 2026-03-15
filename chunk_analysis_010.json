@@ -1,0 +1,29 @@
+{
+  "chunk_id": 10,
+  "sections": [
+    {
+      "title_raw": "Раздел 5. Полы /лист 27/ 194344299",
+      "title_norm": "5. полы",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Раздел 6. Внутренняя отделка лист 29 132395886",
+      "title_norm": "6. внутренняя отделка",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "Стены. Подвал",
+          "title_norm": "стены. подвал",
+          "level": 2
+        },
+        {
+          "title_raw": "Стены. 1 этаж",
+          "title_norm": "стены. 1 этаж",
+          "level": 2
+        }
+      ]
+    }
+  ],
+  "source_file": "smeta_chunk_010.json"
+}

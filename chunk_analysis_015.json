@@ -1,0 +1,195 @@
+{
+  "chunk_id": 15,
+  "sections": [
+    {
+      "title_raw": "П2 Козырек крыльца Кр-1*",
+      "title_norm": "козырек крыльца кр-1",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "П2 ОГ1*",
+      "title_norm": "ог1",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-2*",
+      "title_norm": "крыльцо кр-2",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-4*",
+      "title_norm": "крыльцо кр-4",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "П2 Козырек крыльца Кр лист 48*",
+      "title_norm": "козырек крыльца кр лист 48",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-3*",
+      "title_norm": "крыльцо кр-3",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Козырек крыльца Кр 3*",
+          "title_norm": "козырек крыльца кр-3",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Крыльцо КР-5*",
+      "title_norm": "крыльцо кр-5",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Козырек крыльца Кр 5*",
+          "title_norm": "козырек крыльца кр-5",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Крыльцо КР-6*",
+      "title_norm": "крыльцо кр-6",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-7*",
+      "title_norm": "крыльцо кр-7",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "Н43=2*",
+          "title_norm": "н43=2",
+          "level": 2
+        },
+        {
+          "title_raw": "Н43=1*",
+          "title_norm": "н43=1",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Крыльцо КР-10*",
+      "title_norm": "крыльцо кр-10",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-8*",
+      "title_norm": "крыльцо кр-8",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Козырек крыльца Кр 8*",
+          "title_norm": "козырек крыльца кр-8",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Крыльцо КР-9*",
+      "title_norm": "крыльцо кр-9",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-11*",
+      "title_norm": "крыльцо кр-11",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Крыльцо КР-12*",
+      "title_norm": "крыльцо кр-12",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Козырек К1*",
+      "title_norm": "козырек к1",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Лифт*",
+      "title_norm": "лифт",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р лист 59, 59.1 сантехнические перегородки*",
+      "title_norm": "сантехнические перегородки лист 59, 59.1",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Вентканалы*",
+      "title_norm": "вентканалы",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Пожарная лестница П-2 /лист 66/*",
+      "title_norm": "пожарная лестница п-2",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Приямок лист 67*",
+      "title_norm": "приямок",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Решетка *",
+          "title_norm": "решетка",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "Р Пожарная лестница П-1 /лист 68/*",
+      "title_norm": "пожарная лестница п-1",
+      "level": 1,
+      "children": []
+    },
+    {
+      "title_raw": "Р Разное*",
+      "title_norm": "разное",
+      "level": 1,
+      "children": [
+        {
+          "title_raw": "П2 Вход в подвал*",
+          "title_norm": "вход в подвал",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Защитные решетки*",
+          "title_norm": "защитные решетки",
+          "level": 2
+        },
+        {
+          "title_raw": "П2 Оборудование санузла МГН учтено локальной сметой 2-1-4-20*",
+          "title_norm": "оборудование санузла мгн",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "title_raw": "К'Эрих Н.*",
+      "title_norm": "эрих н",
+      "level": 1,
+      "children": []
+    }
+  ],
+  "source_file": "smeta_chunk_015.json"
+}
