@@ -1,0 +1,25 @@
+{
+  "project": "8._локальные",
+  "version": "6.2",
+  "total_issues": 1,
+  "auto_corrected": 1,
+  "suspicious": 0,
+  "note": "Автоматически найденные аномалии единиц измерения",
+  "diagnostics": [
+    {
+      "phase": "Металлоконструкции",
+      "subsection": "Связи",
+      "profile_id": "metal_structures_installation",
+      "declared_unit": "т",
+      "declared_volume": 2348301.7314945073,
+      "auto_corrected": true,
+      "real_unit": "кг",
+      "corrected_unit": "т",
+      "corrected_volume": 2348.302,
+      "reason": "Объём металлоконструкций >5000 т нереалистичен для одного объекта. Вероятно кг.",
+      "rule": "volume > 5000 т",
+      "fix_type": "relabel_and_convert",
+      "formula": "2348301.7314945073 кг → 2348.302 т"
+    }
+  ]
+}

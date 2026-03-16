@@ -1,13 +1,12 @@
 {
   "project": "8._локальные",
   "unmapped_count": 4,
-  "note": "Несопоставленные → добавь keywords в production_rates.json",
+  "note": "Добавь keywords в production_rates.json для этих подразделов",
   "unmapped_items": [
     {
       "phase": "Лестницы",
       "subsection_name": "unassigned",
       "normalized_name": "unassigned",
-      "phase_lower": "лестницы",
       "available_units": [
         "м³",
         "т",
@@ -26,7 +25,6 @@
       "phase": "Проемы и заполнение",
       "subsection_name": "Витражи наружные",
       "normalized_name": "витражи наружные",
-      "phase_lower": "проемы и заполнение",
       "available_units": [
         "м",
         "м²",
@@ -45,7 +43,6 @@
       "phase": "Проемы и заполнение",
       "subsection_name": "Витражи внутренние",
       "normalized_name": "витражи внутренние",
-      "phase_lower": "проемы и заполнение",
       "available_units": [
         "м²"
       ],
@@ -58,7 +55,6 @@
       "phase": "Крыльца и козырьки",
       "subsection_name": "Крыльцо КР-1",
       "normalized_name": "крыльцо кр-1",
-      "phase_lower": "крыльца и козырьки",
       "available_units": [
         "м",
         "м³",

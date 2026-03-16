@@ -315,23 +315,37 @@ class DurationEngine:
                 likely_real = rule.get("likely_real")
 
                 if likely_real:
-                    # Автоматически конвертируем
-                    converted = self._convert_volume(volume, norm_unit, likely_real)
-                    if converted is not None:
-                        diag = {
-                            "phase":              phase_name,
-                            "subsection":         sub_name,
-                            "profile_id":         profile_id,
-                            "declared_unit":      unit,
-                            "declared_volume":    volume,
-                            "auto_corrected":     True,
-                            "corrected_unit":     likely_real,
-                            "corrected_volume":   round(converted, 3),
-                            "reason":             rule["reason"],
-                            "rule":               f"volume > {rule['max_realistic']} {rule['declared_unit']}"
-                        }
-                        self.diagnostics.append(diag)
-                        return converted, likely_real, "auto_corrected"
+                    # ПРАВИЛЬНАЯ ЛОГИКА:
+                    # volume = 2,348,301  (число в кг, ошибочно помечено как "т")
+                    # likely_real = "кг"  (реальная единица)
+                    # profile unit = "т"  (нужна для расчёта)
+                    #
+                    # Решение: конвертируем кг → т
+                    # 2,348,301 кг / 1000 = 2,348.3 т → 2348.3 / 8 = 294 дня ✅
+                    norm_real    = self._normalize_unit(likely_real)          # "кг"
+                    norm_declared = self._normalize_unit(rule["declared_unit"]) # "т" (profile unit)
+                    # конвертируем: volume (кг) → declared_unit (т)
+                    converted = self._convert_volume(volume, norm_real, norm_declared)
+                    if converted is None:
+                        converted = volume  # fallback если нет конвертации
+                    diag = {
+                        "phase":              phase_name,
+                        "subsection":         sub_name,
+                        "profile_id":         profile_id,
+                        "declared_unit":      unit,
+                        "declared_volume":    volume,
+                        "auto_corrected":     True,
+                        "real_unit":          likely_real,
+                        "corrected_unit":     norm_declared,
+                        "corrected_volume":   round(converted, 3),
+                        "reason":             rule["reason"],
+                        "rule":               f"volume > {rule['max_realistic']} {rule['declared_unit']}",
+                        "fix_type":           "relabel_and_convert",
+                        "formula":            f"{volume} {likely_real} → {round(converted,3)} {norm_declared}"
+                    }
+                    self.diagnostics.append(diag)
+                    # Возвращаем правильное значение в единицах профиля
+                    return converted, norm_declared, "auto_corrected"
                 else:
                     # Подозрительно, но не знаем как конвертировать
                     diag = {

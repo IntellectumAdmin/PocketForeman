@@ -1,0 +1,156 @@
+{
+  "project": "8._локальные",
+  "version": "6.2",
+  "stats": {
+    "total_subsections": 141,
+    "mapped_subsections": 137,
+    "unmapped_subsections": 4,
+    "coverage_pct": 97.2,
+    "auto_corrected_units": 1,
+    "suspicious_units": 0
+  },
+  "duration": {
+    "total_sequential_days": 4528,
+    "total_sequential_months": 150.9,
+    "critical_path_rough_days": 1267,
+    "parallel_rough_days": 1584,
+    "parallel_rough_months": 52.8,
+    "note": "Параллельный расчёт ~35% от последовательного. Уточнит GPR Builder."
+  },
+  "phases": [
+    {
+      "phase": "Электроснабжение и электрооборудование",
+      "duration_days": 1267,
+      "duration_months": 42.2,
+      "subsections": 7,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Плиты перекрытия и балки",
+      "duration_days": 874,
+      "duration_months": 29.1,
+      "subsections": 3,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "duration_days": 342,
+      "duration_months": 11.4,
+      "subsections": 7,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "duration_days": 326,
+      "duration_months": 10.9,
+      "subsections": 5,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Стены и перегородки",
+      "duration_days": 314,
+      "duration_months": 10.5,
+      "subsections": 11,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Металлоконструкции",
+      "duration_days": 296,
+      "duration_months": 9.9,
+      "subsections": 3,
+      "auto_corrected": 1
+    },
+    {
+      "phase": "Полы",
+      "duration_days": 264,
+      "duration_months": 8.8,
+      "subsections": 2,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Фундаменты",
+      "duration_days": 214,
+      "duration_months": 7.1,
+      "subsections": 9,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Внутренняя отделка",
+      "duration_days": 202,
+      "duration_months": 6.7,
+      "subsections": 4,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Монолитный каркас",
+      "duration_days": 150,
+      "duration_months": 5.0,
+      "subsections": 14,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Кровля и парапеты",
+      "duration_days": 109,
+      "duration_months": 3.6,
+      "subsections": 4,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "duration_days": 94,
+      "duration_months": 3.1,
+      "subsections": 7,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Лифтовое оборудование",
+      "duration_days": 30,
+      "duration_months": 1.0,
+      "subsections": 1,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Санитарные помещения",
+      "duration_days": 14,
+      "duration_months": 0.5,
+      "subsections": 1,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Земляные работы",
+      "duration_days": 9,
+      "duration_months": 0.3,
+      "subsections": 3,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Спортивные и актовые залы",
+      "duration_days": 8,
+      "duration_months": 0.3,
+      "subsections": 5,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Прочее оборудование и мебель",
+      "duration_days": 7,
+      "duration_months": 0.2,
+      "subsections": 6,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Благоустройство территории",
+      "duration_days": 6,
+      "duration_months": 0.2,
+      "subsections": 8,
+      "auto_corrected": 0
+    },
+    {
+      "phase": "Лестницы",
+      "duration_days": 2,
+      "duration_months": 0.1,
+      "subsections": 4,
+      "auto_corrected": 0
+    }
+  ],
+  "note": "Читаемый итог для инженера. Основа для GPR Builder."
+}
