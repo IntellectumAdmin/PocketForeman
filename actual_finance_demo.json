@@ -1,0 +1,55 @@
+{
+  "project": "Школа №65, Уральск",
+  "report_date": "2025-07-15",
+  "note": "DEMO данные — замените реальными платежами",
+  "periods": [
+    {
+      "month": "2024-12",
+      "actual_work_cost": 0,
+      "actual_material_cost": 13313640,
+      "actual_total": 13313640
+    },
+    {
+      "month": "2025-01",
+      "actual_work_cost": 689787935,
+      "actual_material_cost": 272815630,
+      "actual_total": 962603564
+    },
+    {
+      "month": "2025-02",
+      "actual_work_cost": 101719820,
+      "actual_material_cost": 222851560,
+      "actual_total": 324571380
+    },
+    {
+      "month": "2025-03",
+      "actual_work_cost": 80305121,
+      "actual_material_cost": 175935442,
+      "actual_total": 256240563
+    },
+    {
+      "month": "2025-04",
+      "actual_work_cost": 80305121,
+      "actual_material_cost": 175935442,
+      "actual_total": 256240563
+    },
+    {
+      "month": "2025-05",
+      "actual_work_cost": 80305121,
+      "actual_material_cost": 218813297,
+      "actual_total": 299118418
+    },
+    {
+      "month": "2025-06",
+      "actual_work_cost": 187488845,
+      "actual_material_cost": 175050638,
+      "actual_total": 362539483
+    },
+    {
+      "month": "2025-07",
+      "actual_work_cost": 5312255,
+      "actual_material_cost": 0,
+      "actual_total": 5312255
+    }
+  ]
+}

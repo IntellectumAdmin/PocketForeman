@@ -1,0 +1,1530 @@
+{
+  "project": "smeta_works_v2",
+  "version": "1.0",
+  "source": "smeta_works_v2.json",
+  "phases_count": 21,
+  "phases_summary": [
+    {
+      "phase": "Земляные работы",
+      "phase_order": 1,
+      "subsections_count": 10,
+      "subsections": [
+        {
+          "name": "Разработка грунта экскаватором (котлованы)",
+          "work_items_count": 3,
+          "main_unit": "м3",
+          "main_volume": 36041.62,
+          "all_volumes": {
+            "м3": 36041.62
+          }
+        },
+        {
+          "name": "Засыпка траншей и котлованов",
+          "work_items_count": 8,
+          "main_unit": "м3",
+          "main_volume": 14751.121,
+          "all_volumes": {
+            "м3": 14751.12085
+          }
+        },
+        {
+          "name": "Уплотнение грунта",
+          "work_items_count": 11,
+          "main_unit": "м3",
+          "main_volume": 68951.121,
+          "all_volumes": {
+            "м3": 68951.12084999999
+          }
+        },
+        {
+          "name": "Засыпка вручную",
+          "work_items_count": 4,
+          "main_unit": "м3",
+          "main_volume": 261.909,
+          "all_volumes": {
+            "м3": 261.90853250000004
+          }
+        },
+        {
+          "name": "Разработка грунта экскаватором (траншеи)",
+          "work_items_count": 5,
+          "main_unit": "м3",
+          "main_volume": 1067.476,
+          "all_volumes": {
+            "м3": 1067.47649
+          }
+        },
+        {
+          "name": "Разработка грунта вручную (траншеи)",
+          "work_items_count": 2,
+          "main_unit": "м3",
+          "main_volume": 16.624,
+          "all_volumes": {
+            "м3": 16.62401
+          }
+        },
+        {
+          "name": "Устройство оснований под фундаменты",
+          "work_items_count": 3,
+          "main_unit": "м3",
+          "main_volume": 154.142,
+          "all_volumes": {
+            "м3": 154.1424
+          }
+        },
+        {
+          "name": "Копание ям вручную",
+          "work_items_count": 1,
+          "main_unit": "м3",
+          "main_volume": 0.03,
+          "all_volumes": {
+            "м3": 0.03
+          }
+        },
+        {
+          "name": "Разработка грунта бульдозерами",
+          "work_items_count": 4,
+          "main_unit": "м3",
+          "main_volume": 60176.0,
+          "all_volumes": {
+            "м3": 60176.0
+          }
+        },
+        {
+          "name": "Разработка грунта в карьерах",
+          "work_items_count": 2,
+          "main_unit": "м3",
+          "main_volume": 6739.0,
+          "all_volumes": {
+            "м3": 6739.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Монолитный каркас",
+      "phase_order": 3,
+      "subsections_count": 8,
+      "subsections": [
+        {
+          "name": "Бетонная подготовка",
+          "work_items_count": 37,
+          "main_unit": "м2",
+          "main_volume": 5320.0,
+          "all_volumes": {
+            "м3": 345.18000000000006,
+            "т": 27.350780499999992,
+            "м2": 5320.0
+          }
+        },
+        {
+          "name": "Фундаментные плиты",
+          "work_items_count": 33,
+          "main_unit": "м3",
+          "main_volume": 2433.037,
+          "all_volumes": {
+            "м3": 2433.0369999999994
+          }
+        },
+        {
+          "name": "Опалубка и бетонирование колонн",
+          "work_items_count": 64,
+          "main_unit": "м2",
+          "main_volume": 6528.88,
+          "all_volumes": {
+            "м2": 6528.880000000001,
+            "т": 66.22524000000001,
+            "м3": 334.98
+          }
+        },
+        {
+          "name": "Опалубка и бетонирование стен",
+          "work_items_count": 48,
+          "main_unit": "м2",
+          "main_volume": 4799.3,
+          "all_volumes": {
+            "м2": 4799.3,
+            "т": 44.879070000000006,
+            "м3": 479.9300000000001
+          }
+        },
+        {
+          "name": "Опалубка и бетонирование перекрытий",
+          "work_items_count": 155,
+          "main_unit": "м2",
+          "main_volume": 19470.35,
+          "all_volumes": {
+            "м2": 19470.350000000028,
+            "т": 249.07133899999994,
+            "м3": 2154.23
+          }
+        },
+        {
+          "name": "Опалубка и бетонирование балок",
+          "work_items_count": 83,
+          "main_unit": "м2",
+          "main_volume": 2720.016,
+          "all_volumes": {
+            "м2": 2720.016,
+            "т": 59.43771,
+            "м3": 240.8
+          }
+        },
+        {
+          "name": "Лестничные площадки и марши",
+          "work_items_count": 105,
+          "main_unit": "м3",
+          "main_volume": 183.39,
+          "all_volumes": {
+            "м3": 183.39000000000001
+          }
+        },
+        {
+          "name": "Изготовление арматурных каркасов",
+          "work_items_count": 1,
+          "main_unit": "т",
+          "main_volume": 0.982,
+          "all_volumes": {
+            "т": 0.981757
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Каменные работы",
+      "phase_order": 4,
+      "subsections_count": 5,
+      "subsections": [
+        {
+          "name": "Кладка перемычек",
+          "work_items_count": 4,
+          "main_unit": "шт",
+          "main_volume": 194.0,
+          "all_volumes": {
+            "шт": 194.0
+          }
+        },
+        {
+          "name": "Установка опор из плит и колец",
+          "work_items_count": 2,
+          "main_unit": "м3",
+          "main_volume": 1.712,
+          "all_volumes": {
+            "м3": 1.712
+          }
+        },
+        {
+          "name": "Устройство непроходных каналов",
+          "work_items_count": 1,
+          "main_unit": "м3",
+          "main_volume": 74.32,
+          "all_volumes": {
+            "м3": 74.32
+          }
+        },
+        {
+          "name": "Устройство прослоек из раствора",
+          "work_items_count": 2,
+          "main_unit": "м2",
+          "main_volume": 4.44,
+          "all_volumes": {
+            "м2": 4.44
+          }
+        },
+        {
+          "name": "Установка блоков стен подвалов",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 26.0,
+          "all_volumes": {
+            "шт": 26.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Металлические конструкции",
+      "phase_order": 5,
+      "subsections_count": 3,
+      "subsections": [
+        {
+          "name": "Заполнение стен блоками из ячеистого бетона",
+          "work_items_count": 1,
+          "main_unit": "м3",
+          "main_volume": 761.25,
+          "all_volumes": {
+            "м3": 761.25
+          }
+        },
+        {
+          "name": "Установка и разборка лесов наружных",
+          "work_items_count": 4,
+          "main_unit": "м2",
+          "main_volume": 4945.25,
+          "all_volumes": {
+            "м2": 4945.25,
+            "т": 6.78984
+          }
+        },
+        {
+          "name": "Кладка стен примыкания и каналов",
+          "work_items_count": 2,
+          "main_unit": "м3",
+          "main_volume": 17.8,
+          "all_volumes": {
+            "м3": 17.8,
+            "м2": 7.5
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "phase_order": 6,
+      "subsections_count": 5,
+      "subsections": [
+        {
+          "name": "Монтаж опорной стойки для пролётов",
+          "work_items_count": 4,
+          "main_unit": "т",
+          "main_volume": 70.879,
+          "all_volumes": {
+            "т": 70.87901240000001
+          }
+        },
+        {
+          "name": "Монтаж конструкции стационарной сцены",
+          "work_items_count": 1,
+          "main_unit": "т",
+          "main_volume": 2.8,
+          "all_volumes": {
+            "т": 2.8
+          }
+        },
+        {
+          "name": "Монтаж лестниц прямолинейных и пожарных",
+          "work_items_count": 17,
+          "main_unit": "м",
+          "main_volume": 18.0,
+          "all_volumes": {
+            "т": 7.7807900000000005,
+            "м": 18.0
+          }
+        },
+        {
+          "name": "Монтаж покрытия кровельного из профлиста",
+          "work_items_count": 1,
+          "main_unit": "м2",
+          "main_volume": 2660.0,
+          "all_volumes": {
+            "м2": 2660.0
+          }
+        },
+        {
+          "name": "Монтаж перегородки стальной консольной",
+          "work_items_count": 1,
+          "main_unit": "м2",
+          "main_volume": 3.15,
+          "all_volumes": {
+            "м2": 3.15
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Кровля",
+      "phase_order": 7,
+      "subsections_count": 3,
+      "subsections": [
+        {
+          "name": "Обшивка плитами древесно-стружечными",
+          "work_items_count": 3,
+          "main_unit": "м2",
+          "main_volume": 548.224,
+          "all_volumes": {
+            "м2": 548.2239999999999,
+            "м3": 3.91365
+          }
+        },
+        {
+          "name": "Устройство остеклённой перегородки",
+          "work_items_count": 7,
+          "main_unit": "м2",
+          "main_volume": 1088.51,
+          "all_volumes": {
+            "м2": 1088.51
+          }
+        },
+        {
+          "name": "Устройство деревянных конструкций перегородок",
+          "work_items_count": 1,
+          "main_unit": "м2",
+          "main_volume": 401.115,
+          "all_volumes": {
+            "м2": 401.115
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Окна и двери",
+      "phase_order": 8,
+      "subsections_count": 3,
+      "subsections": [
+        {
+          "name": "Установка блоков оконных из ПВХ профилей",
+          "work_items_count": 3,
+          "main_unit": "м2",
+          "main_volume": 1032.39,
+          "all_volumes": {
+            "м2": 1032.39
+          }
+        },
+        {
+          "name": "Установка доски подоконной из ПВХ",
+          "work_items_count": 1,
+          "main_unit": "м",
+          "main_volume": 536.6,
+          "all_volumes": {
+            "м": 536.6
+          }
+        },
+        {
+          "name": "Установка блока дверного металлического",
+          "work_items_count": 3,
+          "main_unit": "м2",
+          "main_volume": 47.77,
+          "all_volumes": {
+            "м2": 47.769999999999996,
+            "шт": 27.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Полы",
+      "phase_order": 9,
+      "subsections_count": 9,
+      "subsections": [
+        {
+          "name": "Устройство стяжки цементной",
+          "work_items_count": 74,
+          "main_unit": "м2",
+          "main_volume": 19016.23,
+          "all_volumes": {
+            "м2": 19016.23
+          }
+        },
+        {
+          "name": "Устройство покрытий из плиток керамических",
+          "work_items_count": 28,
+          "main_unit": "м2",
+          "main_volume": 4451.35,
+          "all_volumes": {
+            "м2": 4451.350000000001
+          }
+        },
+        {
+          "name": "Устройство покрытий из линолеума на клее",
+          "work_items_count": 12,
+          "main_unit": "м2",
+          "main_volume": 3295.46,
+          "all_volumes": {
+            "м2": 3295.46,
+            "м": 34.38
+          }
+        },
+        {
+          "name": "Устройство подстилающих слоёв",
+          "work_items_count": 4,
+          "main_unit": "м3",
+          "main_volume": 240.955,
+          "all_volumes": {
+            "м3": 240.955
+          }
+        },
+        {
+          "name": "Устройство полов полимерных наливных",
+          "work_items_count": 2,
+          "main_unit": "м2",
+          "main_volume": 355.36,
+          "all_volumes": {
+            "м2": 355.36
+          }
+        },
+        {
+          "name": "Устройство покрытий из плит древесноволокнистых",
+          "work_items_count": 4,
+          "main_unit": "м2",
+          "main_volume": 145.82,
+          "all_volumes": {
+            "м2": 145.82
+          }
+        },
+        {
+          "name": "Устройство плинтуса из плиток керамических",
+          "work_items_count": 6,
+          "main_unit": "м",
+          "main_volume": 2635.41,
+          "all_volumes": {
+            "м": 2635.41
+          }
+        },
+        {
+          "name": "Уплотнение грунта щебнем",
+          "work_items_count": 13,
+          "main_unit": "м2",
+          "main_volume": 526.92,
+          "all_volumes": {
+            "м2": 526.9200002
+          }
+        },
+        {
+          "name": "Железнение покрытий цементных",
+          "work_items_count": 1,
+          "main_unit": "м2",
+          "main_volume": 0.79,
+          "all_volumes": {
+            "м2": 0.79
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Кровля наружная",
+      "phase_order": 10,
+      "subsections_count": 4,
+      "subsections": [
+        {
+          "name": "Устройство покрытий мелких (парапеты, свесы)",
+          "work_items_count": 2,
+          "main_unit": "м2",
+          "main_volume": 236.8,
+          "all_volumes": {
+            "м2": 236.8
+          }
+        },
+        {
+          "name": "Устройство кровли скатной из наплавляемых материалов",
+          "work_items_count": 8,
+          "main_unit": "м2",
+          "main_volume": 3155.81,
+          "all_volumes": {
+            "м2": 3155.8100000000004
+          }
+        },
+        {
+          "name": "Устройство аэраторов",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 96.0,
+          "all_volumes": {
+            "шт": 96.0
+          }
+        },
+        {
+          "name": "Устройство выравнивающих стяжек цементно-песчаных",
+          "work_items_count": 34,
+          "main_unit": "м2",
+          "main_volume": 4456.0,
+          "all_volumes": {
+            "м2": 4456.000000799999
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "phase_order": 11,
+      "subsections_count": 7,
+      "subsections": [
+        {
+          "name": "Гидроизоляция боковых стен и фундаментов обмазочная",
+          "work_items_count": 16,
+          "main_unit": "м2",
+          "main_volume": 1346.394,
+          "all_volumes": {
+            "м2": 1346.394
+          }
+        },
+        {
+          "name": "Огрунтовка поверхности бетонной и оштукатуренной",
+          "work_items_count": 36,
+          "main_unit": "м2",
+          "main_volume": 7589.293,
+          "all_volumes": {
+            "м2": 7589.293160000002
+          }
+        },
+        {
+          "name": "Устройство пароизоляции прокладной в один слой",
+          "work_items_count": 18,
+          "main_unit": "м2",
+          "main_volume": 8652.08,
+          "all_volumes": {
+            "м2": 8652.080000000002,
+            "м3": 158.06
+          }
+        },
+        {
+          "name": "Устройство гидроизоляции из полиэтиленовой плёнки",
+          "work_items_count": 36,
+          "main_unit": "м2",
+          "main_volume": 14826.98,
+          "all_volumes": {
+            "м2": 14826.979999999998
+          }
+        },
+        {
+          "name": "Установка плиты теплоизоляционного покрытия",
+          "work_items_count": 7,
+          "main_unit": "м2",
+          "main_volume": 498.69,
+          "all_volumes": {
+            "м2": 498.69000000000005
+          }
+        },
+        {
+          "name": "Изоляция трубопровода изделиями из вспененного каучука",
+          "work_items_count": 17,
+          "main_unit": "м",
+          "main_volume": 6807.0,
+          "all_volumes": {
+            "м": 6807.0,
+            "м3": 14.2
+          }
+        },
+        {
+          "name": "Устройство изоляции поверхности рулонными материалами",
+          "work_items_count": 7,
+          "main_unit": "м2",
+          "main_volume": 245.0,
+          "all_volumes": {
+            "м2": 245.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Отделочные работы",
+      "phase_order": 12,
+      "subsections_count": 9,
+      "subsections": [
+        {
+          "name": "Облицовка фасада металлосайдингом",
+          "work_items_count": 2,
+          "main_unit": "м2",
+          "main_volume": 4960.36,
+          "all_volumes": {
+            "м2": 4960.36
+          }
+        },
+        {
+          "name": "Штукатурка поверхности фасадов декоративная из сухих смесей",
+          "work_items_count": 3,
+          "main_unit": "м2",
+          "main_volume": 434.33,
+          "all_volumes": {
+            "м2": 434.33
+          }
+        },
+        {
+          "name": "Покраска улучшенная масляным составом по бетону",
+          "work_items_count": 20,
+          "main_unit": "м2",
+          "main_volume": 32568.666,
+          "all_volumes": {
+            "м2": 32568.665999999997
+          }
+        },
+        {
+          "name": "Штукатурка поверхности внутри зданий цементными растворами",
+          "work_items_count": 13,
+          "main_unit": "м2",
+          "main_volume": 14370.696,
+          "all_volumes": {
+            "м2": 14370.696
+          }
+        },
+        {
+          "name": "Подготовка внутренней поверхности раствором из сухих смесей",
+          "work_items_count": 14,
+          "main_unit": "м2",
+          "main_volume": 15251.886,
+          "all_volumes": {
+            "м2": 15251.886
+          }
+        },
+        {
+          "name": "Облицовка поверхности плитками на клее из сухих смесей",
+          "work_items_count": 5,
+          "main_unit": "м2",
+          "main_volume": 1659.087,
+          "all_volumes": {
+            "м2": 1659.087
+          }
+        },
+        {
+          "name": "Облицовка потолка плитами из минерального волокна",
+          "work_items_count": 12,
+          "main_unit": "м2",
+          "main_volume": 3813.6,
+          "all_volumes": {
+            "м2": 3813.6000000000004
+          }
+        },
+        {
+          "name": "Облицовка стены плитами гранитными полированными",
+          "work_items_count": 12,
+          "main_unit": "м2",
+          "main_volume": 118.9,
+          "all_volumes": {
+            "м2": 118.9
+          }
+        },
+        {
+          "name": "Покраска поверхности фасада с лесов",
+          "work_items_count": 2,
+          "main_unit": "м2",
+          "main_volume": 105.01,
+          "all_volumes": {
+            "м2": 105.01
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Благоустройство",
+      "phase_order": 13,
+      "subsections_count": 5,
+      "subsections": [
+        {
+          "name": "Устройство покрытия дорожек и тротуаров асфальтобетонных",
+          "work_items_count": 4,
+          "main_unit": "м2",
+          "main_volume": 2733.731,
+          "all_volumes": {
+            "м2": 2733.7311
+          }
+        },
+        {
+          "name": "Устройство спортивных покрытий на бетонное основание",
+          "work_items_count": 1,
+          "main_unit": "м2",
+          "main_volume": 1938.46,
+          "all_volumes": {
+            "м2": 1938.46
+          }
+        },
+        {
+          "name": "Подготовка почвы для газона партерного",
+          "work_items_count": 2,
+          "main_unit": "м2",
+          "main_volume": 13943.22,
+          "all_volumes": {
+            "м2": 13943.22
+          }
+        },
+        {
+          "name": "Подготовка стандартного посадочного места для дерева",
+          "work_items_count": 3,
+          "main_unit": "яма",
+          "main_volume": 425.0,
+          "all_volumes": {
+            "яма": 425.0
+          }
+        },
+        {
+          "name": "Посадка дерева и кустарника с комом земли",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 425.0,
+          "all_volumes": {
+            "шт": 425.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "phase_order": 14,
+      "subsections_count": 12,
+      "subsections": [
+        {
+          "name": "Установка вентилей, задвижек, затворов, клапанов обратных",
+          "work_items_count": 19,
+          "main_unit": "шт",
+          "main_volume": 84.0,
+          "all_volumes": {
+            "шт": 84.0
+          }
+        },
+        {
+          "name": "Установка кранов поливочных",
+          "work_items_count": 4,
+          "main_unit": "кран",
+          "main_volume": 36.0,
+          "all_volumes": {
+            "кран": 36.0,
+            "шт": 22.0
+          }
+        },
+        {
+          "name": "Монтаж гибких подводок к водоразборной арматуре",
+          "work_items_count": 34,
+          "main_unit": "м",
+          "main_volume": 6563.5,
+          "all_volumes": {
+            "м": 6563.5
+          }
+        },
+        {
+          "name": "Прокладка трубопроводов водоснабжения из стальных водогазопроводных",
+          "work_items_count": 24,
+          "main_unit": "м",
+          "main_volume": 3214.0,
+          "all_volumes": {
+            "м": 3214.0
+          }
+        },
+        {
+          "name": "Гидравлическое испытание трубопроводов систем отопления",
+          "work_items_count": 9,
+          "main_unit": "м",
+          "main_volume": 8141.7,
+          "all_volumes": {
+            "м": 8141.7
+          }
+        },
+        {
+          "name": "Установка счётчиков (водомеров)",
+          "work_items_count": 5,
+          "main_unit": "шт",
+          "main_volume": 4.0,
+          "all_volumes": {
+            "шт": 4.0,
+            "компл": 1.0
+          }
+        },
+        {
+          "name": "Прокладка по стенам зданий трубопроводов из чугуна",
+          "work_items_count": 3,
+          "main_unit": "м",
+          "main_volume": 130.0,
+          "all_volumes": {
+            "м": 130.0
+          }
+        },
+        {
+          "name": "Установка водосточных воронок чугунных",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 22.0,
+          "all_volumes": {
+            "шт": 22.0
+          }
+        },
+        {
+          "name": "Установка клапанов балансировочных",
+          "work_items_count": 8,
+          "main_unit": "шт",
+          "main_volume": 667.0,
+          "all_volumes": {
+            "шт": 667.0
+          }
+        },
+        {
+          "name": "Установка арматуры запорной муфтовой на трубопроводах",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 9.0,
+          "all_volumes": {
+            "шт": 9.0
+          }
+        },
+        {
+          "name": "Заделка сальников при проходе труб через фундаменты",
+          "work_items_count": 2,
+          "main_unit": "сальник",
+          "main_volume": 40.0,
+          "all_volumes": {
+            "сальник": 40.0
+          }
+        },
+        {
+          "name": "Установка чугунных напорных фасонных частей",
+          "work_items_count": 1,
+          "main_unit": "т",
+          "main_volume": 0.375,
+          "all_volumes": {
+            "т": 0.375
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Сантехника (санузлы)",
+      "phase_order": 15,
+      "subsections_count": 4,
+      "subsections": [
+        {
+          "name": "Установка фонтанчика питьевого напольного с педальным пуском",
+          "work_items_count": 3,
+          "main_unit": "компл",
+          "main_volume": 146.0,
+          "all_volumes": {
+            "компл": 146.0
+          }
+        },
+        {
+          "name": "Установка смесителей",
+          "work_items_count": 5,
+          "main_unit": "шт",
+          "main_volume": 47.0,
+          "all_volumes": {
+            "шт": 47.0
+          }
+        },
+        {
+          "name": "Установка унитаза с бачком непосредственно присоединённым",
+          "work_items_count": 3,
+          "main_unit": "компл",
+          "main_volume": 78.0,
+          "all_volumes": {
+            "компл": 78.0
+          }
+        },
+        {
+          "name": "Установка душевых поддонов глубоких",
+          "work_items_count": 3,
+          "main_unit": "компл",
+          "main_volume": 36.0,
+          "all_volumes": {
+            "компл": 36.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "phase_order": 16,
+      "subsections_count": 6,
+      "subsections": [
+        {
+          "name": "Установка баков расширительных круглых и прямоугольных",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 5.0,
+          "all_volumes": {
+            "шт": 5.0
+          }
+        },
+        {
+          "name": "Установка фильтров для очистки воды в трубопроводах",
+          "work_items_count": 11,
+          "main_unit": "шт",
+          "main_volume": 20.0,
+          "all_volumes": {
+            "шт": 20.0
+          }
+        },
+        {
+          "name": "Установка манометров с трёхходовым краном",
+          "work_items_count": 13,
+          "main_unit": "шт",
+          "main_volume": 82.0,
+          "all_volumes": {
+            "шт": 82.0
+          }
+        },
+        {
+          "name": "Установка насосов центробежных с электродвигателем",
+          "work_items_count": 4,
+          "main_unit": "шт",
+          "main_volume": 18.0,
+          "all_volumes": {
+            "шт": 18.0
+          }
+        },
+        {
+          "name": "Установка теплообменников пластинчатых в тепловом пункте",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 2.0,
+          "all_volumes": {
+            "шт": 2.0
+          }
+        },
+        {
+          "name": "Установка грязевиков наружный",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 26.0,
+          "all_volumes": {
+            "шт": 26.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "phase_order": 17,
+      "subsections_count": 9,
+      "subsections": [
+        {
+          "name": "Установка над шахтами зонтов из листовой стали",
+          "work_items_count": 11,
+          "main_unit": "шт",
+          "main_volume": 49.0,
+          "all_volumes": {
+            "шт": 49.0
+          }
+        },
+        {
+          "name": "Установка камер приточных типовых без секции орошения",
+          "work_items_count": 7,
+          "main_unit": "шт",
+          "main_volume": 7.0,
+          "all_volumes": {
+            "шт": 7.0
+          }
+        },
+        {
+          "name": "Установка решёток вентиляционных пластиковых (алюминиевых)",
+          "work_items_count": 20,
+          "main_unit": "шт",
+          "main_volume": 273.0,
+          "all_volumes": {
+            "шт": 273.0
+          }
+        },
+        {
+          "name": "Прокладка воздуховодов класса Н из оцинкованной стали",
+          "work_items_count": 62,
+          "main_unit": "м2",
+          "main_volume": 2444.329,
+          "all_volumes": {
+            "м2": 2444.3289999999997
+          }
+        },
+        {
+          "name": "Установка клапанов огнезадерживающих",
+          "work_items_count": 31,
+          "main_unit": "шт",
+          "main_volume": 106.0,
+          "all_volumes": {
+            "шт": 106.0
+          }
+        },
+        {
+          "name": "Установка блока присоединительного БП-1",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 3.0,
+          "all_volumes": {
+            "шт": 3.0
+          }
+        },
+        {
+          "name": "Установка вентиляторов радиальных масса до 0.05 т",
+          "work_items_count": 15,
+          "main_unit": "шт",
+          "main_volume": 16.0,
+          "all_volumes": {
+            "шт": 16.0
+          }
+        },
+        {
+          "name": "Установка узлов прохода вытяжных вентиляционных шахт",
+          "work_items_count": 4,
+          "main_unit": "шт",
+          "main_volume": 8.0,
+          "all_volumes": {
+            "шт": 8.0
+          }
+        },
+        {
+          "name": "Установка внутреннего блока системы мультизональной",
+          "work_items_count": 6,
+          "main_unit": "шт",
+          "main_volume": 10.0,
+          "all_volumes": {
+            "шт": 10.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Электроснабжение",
+      "phase_order": 18,
+      "subsections_count": 16,
+      "subsections": [
+        {
+          "name": "Установка щитка группового осветительного",
+          "work_items_count": 27,
+          "main_unit": "шт",
+          "main_volume": 27.0,
+          "all_volumes": {
+            "шт": 27.0
+          }
+        },
+        {
+          "name": "Установка прибора или аппарата",
+          "work_items_count": 36,
+          "main_unit": "шт",
+          "main_volume": 349.0,
+          "all_volumes": {
+            "шт": 349.0
+          }
+        },
+        {
+          "name": "Монтаж светильника с лампами светодиодными",
+          "work_items_count": 5,
+          "main_unit": "шт",
+          "main_volume": 1566.0,
+          "all_volumes": {
+            "шт": 1566.0
+          }
+        },
+        {
+          "name": "Монтаж прожектора мощностью до 3 кВт",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 12.0,
+          "all_volumes": {
+            "шт": 12.0
+          }
+        },
+        {
+          "name": "Установка выключателя одноклавишного или двухклавишного",
+          "work_items_count": 6,
+          "main_unit": "шт",
+          "main_volume": 632.0,
+          "all_volumes": {
+            "шт": 632.0
+          }
+        },
+        {
+          "name": "Прокладка установочного провода под штукатурку по стене",
+          "work_items_count": 9,
+          "main_unit": "м",
+          "main_volume": 39969.0,
+          "all_volumes": {
+            "м": 39969.0
+          }
+        },
+        {
+          "name": "Прокладка короба (кабель-канала) полимерного",
+          "work_items_count": 2,
+          "main_unit": "м",
+          "main_volume": 1791.0,
+          "all_volumes": {
+            "м": 1791.0
+          }
+        },
+        {
+          "name": "Монтаж устройства вводно-распределительного",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 7.0,
+          "all_volumes": {
+            "шт": 7.0
+          }
+        },
+        {
+          "name": "Монтаж установки (шкафа) комплектной конденсаторной на установленной",
+          "work_items_count": 2,
+          "main_unit": "шт",
+          "main_volume": 39.0,
+          "all_volumes": {
+            "шт": 39.0
+          }
+        },
+        {
+          "name": "Монтаж заземлителей горизонтальных из стали полосовой",
+          "work_items_count": 7,
+          "main_unit": "м",
+          "main_volume": 2985.0,
+          "all_volumes": {
+            "м": 2985.0,
+            "шт": 8.0
+          }
+        },
+        {
+          "name": "Прокладка линейная саморегулирующегося (нагревательного) греющего кабеля",
+          "work_items_count": 1,
+          "main_unit": "м",
+          "main_volume": 290.0,
+          "all_volumes": {
+            "м": 290.0
+          }
+        },
+        {
+          "name": "Прокладка в проложенных трубах, блоках или коробах кабеля до 35 кВ",
+          "work_items_count": 8,
+          "main_unit": "м",
+          "main_volume": 1307.0,
+          "all_volumes": {
+            "м": 1307.0,
+            "шт": 12.0
+          }
+        },
+        {
+          "name": "Прокладка в готовой борозде по основанию пола трубы полимерной",
+          "work_items_count": 2,
+          "main_unit": "м",
+          "main_volume": 271.0,
+          "all_volumes": {
+            "м": 271.0
+          }
+        },
+        {
+          "name": "Прокладка по стене на кронштейнах лотка металлического оцинкованного",
+          "work_items_count": 1,
+          "main_unit": "м",
+          "main_volume": 111.0,
+          "all_volumes": {
+            "м": 111.0
+          }
+        },
+        {
+          "name": "Прокладка в проложенном лотке провода",
+          "work_items_count": 1,
+          "main_unit": "м",
+          "main_volume": 4195.0,
+          "all_volumes": {
+            "м": 4195.0
+          }
+        },
+        {
+          "name": "Установка электрополотенцесушителя",
+          "work_items_count": 4,
+          "main_unit": "шт",
+          "main_volume": 24.0,
+          "all_volumes": {
+            "шт": 24.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Лифтовое оборудование",
+      "phase_order": 19,
+      "subsections_count": 1,
+      "subsections": [
+        {
+          "name": "Монтаж лифта грузопассажирского",
+          "work_items_count": 3,
+          "main_unit": "м",
+          "main_volume": 30.8,
+          "all_volumes": {
+            "шт": 2.0,
+            "м": 30.8
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "phase_order": 20,
+      "subsections_count": 9,
+      "subsections": [
+        {
+          "name": "Промывка трубопроводов с дезинфекцией",
+          "work_items_count": 2,
+          "main_unit": "м",
+          "main_volume": 488.0,
+          "all_volumes": {
+            "м": 488.0,
+            "км трубопровода": 0.448
+          }
+        },
+        {
+          "name": "Укладка трубопроводов из стальных водопроводных труб с гидравлическим",
+          "work_items_count": 2,
+          "main_unit": "м",
+          "main_volume": 60.0,
+          "all_volumes": {
+            "м": 60.0
+          }
+        },
+        {
+          "name": "Укладка трубопроводов в траншею из полимерных труб",
+          "work_items_count": 3,
+          "main_unit": "м",
+          "main_volume": 448.0,
+          "all_volumes": {
+            "м": 448.0
+          }
+        },
+        {
+          "name": "Задвижки или клапаны обратные чугунные диаметром 100 мм",
+          "work_items_count": 4,
+          "main_unit": "шт",
+          "main_volume": 9.0,
+          "all_volumes": {
+            "задвижка или\nклапан": 7.0,
+            "шт": 9.0
+          }
+        },
+        {
+          "name": "Установка фасонных частей стальных сварных",
+          "work_items_count": 2,
+          "main_unit": "т",
+          "main_volume": 0.069,
+          "all_volumes": {
+            "т": 0.06869
+          }
+        },
+        {
+          "name": "Приварка фланцев к стальным трубопроводам",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 2.0,
+          "all_volumes": {
+            "шт": 2.0
+          }
+        },
+        {
+          "name": "Установка гидрантов пожарных",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 3.0,
+          "all_volumes": {
+            "шт": 3.0
+          }
+        },
+        {
+          "name": "Установка вантузов одинарных",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 1.0,
+          "all_volumes": {
+            "шт": 1.0
+          }
+        },
+        {
+          "name": "Устройство круглых колодцев из сборного железобетона в грунте",
+          "work_items_count": 2,
+          "main_unit": "м3",
+          "main_volume": 14.925,
+          "all_volumes": {
+            "м3": 14.925
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Наружная канализация",
+      "phase_order": 21,
+      "subsections_count": 5,
+      "subsections": [
+        {
+          "name": "Устройство под трубопроводы основания бетонного",
+          "work_items_count": 4,
+          "main_unit": "м3",
+          "main_volume": 69.78,
+          "all_volumes": {
+            "м3": 69.78
+          }
+        },
+        {
+          "name": "Укладка трубопроводов из полипропиленовых двухслойных гофрированных",
+          "work_items_count": 1,
+          "main_unit": "м",
+          "main_volume": 265.0,
+          "all_volumes": {
+            "м": 265.0
+          }
+        },
+        {
+          "name": "Устройство канализационных круглых сборных железобетонных колодцев",
+          "work_items_count": 2,
+          "main_unit": "м3",
+          "main_volume": 14.35,
+          "all_volumes": {
+            "м3": 14.35
+          }
+        },
+        {
+          "name": "Установка люка",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 2.0,
+          "all_volumes": {
+            "шт": 2.0
+          }
+        },
+        {
+          "name": "Установка (песко)уловителя вертикального",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 1.0,
+          "all_volumes": {
+            "шт": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "Слаботочные системы",
+      "phase_order": 22,
+      "subsections_count": 17,
+      "subsections": [
+        {
+          "name": "Установка приборов на резьбовых соединениях масса до 1.5 кг",
+          "work_items_count": 4,
+          "main_unit": "шт",
+          "main_volume": 4.0,
+          "all_volumes": {
+            "шт": 4.0
+          }
+        },
+        {
+          "name": "Установка дополнительная на пультах и панелях: реле",
+          "work_items_count": 3,
+          "main_unit": "шт",
+          "main_volume": 34.0,
+          "all_volumes": {
+            "шт": 34.0
+          }
+        },
+        {
+          "name": "Монтаж в подпольном люке коробки подключения аппаратуры",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 164.0,
+          "all_volumes": {
+            "шт": 164.0
+          }
+        },
+        {
+          "name": "Монтаж оборудования часов первичных электрических показывающих",
+          "work_items_count": 2,
+          "main_unit": "шт",
+          "main_volume": 29.0,
+          "all_volumes": {
+            "шт": 29.0
+          }
+        },
+        {
+          "name": "Прокладка на провододержателях кабеля и провода питания",
+          "work_items_count": 6,
+          "main_unit": "м",
+          "main_volume": 7811.0,
+          "all_volumes": {
+            "м": 7811.0
+          }
+        },
+        {
+          "name": "Монтаж блоков съёмных и выдвижных (модули, ячейки, ТЭЗ)",
+          "work_items_count": 8,
+          "main_unit": "шт",
+          "main_volume": 82.0,
+          "all_volumes": {
+            "шт": 82.0
+          }
+        },
+        {
+          "name": "Монтаж оборудования (щит, пульт) масса до 50 кг",
+          "work_items_count": 2,
+          "main_unit": "шт",
+          "main_volume": 2.0,
+          "all_volumes": {
+            "шт": 2.0
+          }
+        },
+        {
+          "name": "Монтаж оборудования аппаратов телефонной системы ЦБ или АТС",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 12.0,
+          "all_volumes": {
+            "шт": 12.0
+          }
+        },
+        {
+          "name": "Установка на готовом месте стойки платы дополнительной",
+          "work_items_count": 8,
+          "main_unit": "шт",
+          "main_volume": 72.0,
+          "all_volumes": {
+            "шт": 72.0
+          }
+        },
+        {
+          "name": "Монтаж прибора приёмно-контрольного охранно-пожарного приёмника",
+          "work_items_count": 9,
+          "main_unit": "шт",
+          "main_volume": 706.0,
+          "all_volumes": {
+            "шт": 706.0
+          }
+        },
+        {
+          "name": "Монтаж в помещении громкоговорителя или звуковой колонки",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 135.0,
+          "all_volumes": {
+            "шт": 135.0
+          }
+        },
+        {
+          "name": "Монтаж оборудования отдельно устанавливаемого преобразователя",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 9.0,
+          "all_volumes": {
+            "шт": 9.0
+          }
+        },
+        {
+          "name": "Система управления доступом с автоматическим запирающим устройством",
+          "work_items_count": 6,
+          "main_unit": "шт",
+          "main_volume": 122.0,
+          "all_volumes": {
+            "шт": 122.0
+          }
+        },
+        {
+          "name": "Монтаж оборудования: устройство цифровой регистрации",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 1.0,
+          "all_volumes": {
+            "шт": 1.0
+          }
+        },
+        {
+          "name": "Установка маркера электронного с функцией самовыравнивания",
+          "work_items_count": 1,
+          "main_unit": "шт",
+          "main_volume": 7.0,
+          "all_volumes": {
+            "шт": 7.0
+          }
+        },
+        {
+          "name": "Прокладка трубопроводов в непроходном канале при условном давлении",
+          "work_items_count": 2,
+          "main_unit": "м",
+          "main_volume": 312.0,
+          "all_volumes": {
+            "м": 312.0
+          }
+        },
+        {
+          "name": "Прокладка бесканальная трубопроводов из стальных труб предварительно",
+          "work_items_count": 2,
+          "main_unit": "м",
+          "main_volume": 6.0,
+          "all_volumes": {
+            "м": 6.0
+          }
+        }
+      ]
+    }
+  ]
+}

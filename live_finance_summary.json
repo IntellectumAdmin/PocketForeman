@@ -1,0 +1,14 @@
+{
+  "engine_version": "1.0",
+  "project": "Школа №65, Уральск",
+  "baseline_total_mln": 5633.1,
+  "actual_total_mln": 2479.94,
+  "delta_total_mln": -584.21,
+  "delta_pct": -19.1,
+  "peak_cash_gap_mln": -584.21,
+  "peak_gap_month": "2025-07",
+  "status": "risk",
+  "risk_level": "high",
+  "periods_with_fact": 8,
+  "report_date": "2025-07-15"
+}

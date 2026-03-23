@@ -1,0 +1,1510 @@
+{
+  "extractor_version": "2.0",
+  "total_materials": 8625,
+  "with_volume": 8621,
+  "types_plan": [
+    {
+      "material_type": "Металлы и метизы",
+      "items_count": 3085,
+      "volume_by_unit": {
+        "кг": 128394.15,
+        "шт": 89630.525,
+        "м2": 15925.402,
+        "м3": 4575.817,
+        "т": 1628.791,
+        "м": 247.112,
+        "л": 194.68,
+        "квт/ч": 7.6,
+        "10 м": 3.9
+      },
+      "qa": {
+        "ok": 2815,
+        "suspicious": 269,
+        "no_volume": 1
+      },
+      "top_items": [
+        {
+          "code": "217-109-0106",
+          "name": "Тарельчатый держатель теплоизоляции полипропиленовый с пластмассовым стержнем из\nполиамида размерами",
+          "unit": "шт",
+          "volume": 41540.1,
+          "has_volume": true,
+          "material_type": "Металлы и метизы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 346,
+          "source_table_index": 0,
+          "row_index_in_table": 23
+        },
+        {
+          "code": "217-701-0306",
+          "name": "Крошка резиновая фракции 2-4 мм",
+          "unit": "кг",
+          "volume": 33829.08,
+          "has_volume": true,
+          "material_type": "Металлы и метизы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 1274,
+          "source_table_index": 0,
+          "row_index_in_table": 27
+        },
+        {
+          "code": "217-701-0306",
+          "name": "Крошка резиновая фракции 2-4 мм",
+          "unit": "кг",
+          "volume": 33829.08,
+          "has_volume": true,
+          "material_type": "Металлы и метизы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 1285,
+          "source_table_index": 1,
+          "row_index_in_table": 8
+        },
+        {
+          "code": "217-109-0102",
+          "name": "Тарельчатый держатель теплоизоляции полипропиленовый с пластмассовым стержнем из\nполиамида размерами",
+          "unit": "шт",
+          "volume": 16517.135,
+          "has_volume": true,
+          "material_type": "Металлы и метизы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 346,
+          "source_table_index": 0,
+          "row_index_in_table": 22
+        },
+        {
+          "code": "217-109-0102",
+          "name": "Тарельчатый держатель теплоизоляции полипропиленовый с пластмассовым стержнем из\nполиамида размерами",
+          "unit": "шт",
+          "volume": 16517.135,
+          "has_volume": true,
+          "material_type": "Металлы и метизы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 565,
+          "source_table_index": 0,
+          "row_index_in_table": 11
+        }
+      ]
+    },
+    {
+      "material_type": "Расходные материалы",
+      "items_count": 793,
+      "volume_by_unit": {
+        "шт": 76574.474,
+        "м": 24811.674,
+        "м2": 14463.178,
+        "кг": 6107.409,
+        "компл": 582.312,
+        "10 шт.": 398.738,
+        "м3": 58.308,
+        "100 шт.": 52.682,
+        "л": 37.348,
+        "1000 м": 12.127,
+        "1000 шт.": 8.988,
+        "т": 3.821,
+        "1000 м2": 0.6,
+        "100 м": 0.311
+      },
+      "qa": {
+        "ok": 694,
+        "suspicious": 99,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "261-107-0225",
+          "name": "Дюбели монтажные 10 мм х 130 мм (10х132, 10х150) мм ГОСТ 28456-90",
+          "unit": "шт",
+          "volume": 24726.25,
+          "has_volume": true,
+          "material_type": "Расходные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 346,
+          "source_table_index": 0,
+          "row_index_in_table": 16
+        },
+        {
+          "code": "261-107-0225",
+          "name": "Дюбели монтажные 10 мм х 130 мм (10х132, 10х150) мм ГОСТ 28456-90",
+          "unit": "шт",
+          "volume": 24726.25,
+          "has_volume": true,
+          "material_type": "Расходные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 564,
+          "source_table_index": 0,
+          "row_index_in_table": 4
+        },
+        {
+          "code": "261-107-0235",
+          "name": "Кронштейн крепежный из оцинкованной стали для навесных фасадов типа КК-180х50 мм\nтолщиной стенки 1,2",
+          "unit": "шт",
+          "volume": 12857.65,
+          "has_volume": true,
+          "material_type": "Расходные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 346,
+          "source_table_index": 0,
+          "row_index_in_table": 17
+        },
+        {
+          "code": "261-107-0235",
+          "name": "Кронштейн крепежный из оцинкованной стали для навесных фасадов типа КК-180х50 мм\nтолщиной стенки 1,2",
+          "unit": "шт",
+          "volume": 12857.65,
+          "has_volume": true,
+          "material_type": "Расходные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 563,
+          "source_table_index": 0,
+          "row_index_in_table": 13
+        },
+        {
+          "code": "261-102-0380",
+          "name": "Профили алюминиевые холодногнутые для ограждающих строительных конструкций СА16-\n122-0.6П",
+          "unit": "м",
+          "volume": 10879.55,
+          "has_volume": true,
+          "material_type": "Расходные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 346,
+          "source_table_index": 0,
+          "row_index_in_table": 21
+        }
+      ]
+    },
+    {
+      "material_type": "Прочие строительные",
+      "items_count": 778,
+      "volume_by_unit": {
+        "шт": 78331.228,
+        "м": 3691.254,
+        "м2": 1449.58,
+        "кг": 607.537,
+        "рулон": 450.513,
+        "10 м2": 326.885,
+        "комплект/м2\nопалубки": 239.498,
+        "м3": 12.388,
+        "т": 0.065
+      },
+      "qa": {
+        "ok": 750,
+        "suspicious": 26,
+        "no_volume": 2
+      },
+      "top_items": [
+        {
+          "code": "218-101-0403",
+          "name": "Фиксатор арматуры для защитного слоя бетона вертикальных поверхностей",
+          "unit": "шт",
+          "volume": 16766.21385,
+          "has_volume": true,
+          "material_type": "Прочие строительные",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 266,
+          "source_table_index": 0,
+          "row_index_in_table": 16
+        },
+        {
+          "code": "218-101-0403",
+          "name": "Фиксатор арматуры для защитного слоя бетона вертикальных поверхностей",
+          "unit": "шт",
+          "volume": 3350.20564,
+          "has_volume": true,
+          "material_type": "Прочие строительные",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 34,
+          "source_table_index": 0,
+          "row_index_in_table": 20
+        },
+        {
+          "code": "218-101-0404",
+          "name": "Фиксатор арматуры для защитного слоя бетона горизонтальных поверхностей",
+          "unit": "шт",
+          "volume": 3186.31845,
+          "has_volume": true,
+          "material_type": "Прочие строительные",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 80,
+          "source_table_index": 0,
+          "row_index_in_table": 28
+        },
+        {
+          "code": "218-101-0404",
+          "name": "Фиксатор арматуры для защитного слоя бетона горизонтальных поверхностей",
+          "unit": "шт",
+          "volume": 3085.32595,
+          "has_volume": true,
+          "material_type": "Прочие строительные",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 104,
+          "source_table_index": 0,
+          "row_index_in_table": 15
+        },
+        {
+          "code": "218-101-0404",
+          "name": "Фиксатор арматуры для защитного слоя бетона горизонтальных поверхностей",
+          "unit": "шт",
+          "volume": 3059.1462,
+          "has_volume": true,
+          "material_type": "Прочие строительные",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 136,
+          "source_table_index": 0,
+          "row_index_in_table": 2
+        }
+      ]
+    },
+    {
+      "material_type": "Электромонтажные материалы",
+      "items_count": 596,
+      "volume_by_unit": {
+        "м": 108138.0,
+        "шт": 15748.0,
+        "- м": 10809.0,
+        "компл": 1193.0,
+        "100 шт.": 349.531,
+        "кг": 191.115,
+        "1000 шт.": 12.227
+      },
+      "qa": {
+        "ok": 596,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "243-304-0140",
+          "name": "Кабель для структурированных кабельных систем U/UTP кат.6A 4х2х23AWG\nLSZH",
+          "unit": "м",
+          "volume": 12575.0,
+          "has_volume": true,
+          "material_type": "Электромонтажные материалы",
+          "supply_phase": "Электроснабжение",
+          "qa_status": "ok",
+          "page": 940,
+          "source_table_index": 0,
+          "row_index_in_table": 31
+        },
+        {
+          "code": "243-304-0140",
+          "name": "Кабель для структурированных кабельных систем U/UTP кат.6A 4х2х23AWG LSZH",
+          "unit": "м",
+          "volume": 12575.0,
+          "has_volume": true,
+          "material_type": "Электромонтажные материалы",
+          "supply_phase": "Электроснабжение",
+          "qa_status": "ok",
+          "page": 947,
+          "source_table_index": 1,
+          "row_index_in_table": 2
+        },
+        {
+          "code": "243-304-0135",
+          "name": "Кабель для структурированных кабельных систем марки ParLan U/UTP Cat5e\nPVCLS нг(A)-FRLS 4х2х0,52",
+          "unit": "м",
+          "volume": 10759.0,
+          "has_volume": true,
+          "material_type": "Электромонтажные материалы",
+          "supply_phase": "Электроснабжение",
+          "qa_status": "ok",
+          "page": 983,
+          "source_table_index": 0,
+          "row_index_in_table": 14
+        },
+        {
+          "code": "243-304-0135",
+          "name": "Кабель для структурированных кабельных систем марки ParLan U/UTP Cat5e PVCLS нг(A)\nFRLS 4х2х0,52",
+          "unit": "- м",
+          "volume": 10759.0,
+          "has_volume": true,
+          "material_type": "Электромонтажные материалы",
+          "supply_phase": "Электроснабжение",
+          "qa_status": "ok",
+          "page": 986,
+          "source_table_index": 1,
+          "row_index_in_table": 3
+        },
+        {
+          "code": "243-107-0501",
+          "name": "Кабель силовой не распространяющий горение, с низким дымо- и\nгазовыделением, число жил 3, напряжение",
+          "unit": "м",
+          "volume": 7320.0,
+          "has_volume": true,
+          "material_type": "Электромонтажные материалы",
+          "supply_phase": "Электроснабжение",
+          "qa_status": "ok",
+          "page": 880,
+          "source_table_index": 0,
+          "row_index_in_table": 28
+        }
+      ]
+    },
+    {
+      "material_type": "Трубы и трубопроводы",
+      "items_count": 486,
+      "volume_by_unit": {
+        "м": 76652.842,
+        "шт": 67578.54,
+        "кг": 729.713,
+        "1000 шт.": 0.024
+      },
+      "qa": {
+        "ok": 486,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "241-221-0101",
+          "name": "Опора полипропиленовая PP-R одинарная (клипса) диаметром 16 мм",
+          "unit": "шт",
+          "volume": 10056.0,
+          "has_volume": true,
+          "material_type": "Трубы и трубопроводы",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 940,
+          "source_table_index": 0,
+          "row_index_in_table": 11
+        },
+        {
+          "code": "241-221-0101",
+          "name": "Опора полипропиленовая PP-R одинарная (клипса) диаметром 16 мм",
+          "unit": "шт",
+          "volume": 10056.0,
+          "has_volume": true,
+          "material_type": "Трубы и трубопроводы",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 948,
+          "source_table_index": 0,
+          "row_index_in_table": 12
+        },
+        {
+          "code": "241-207-0302",
+          "name": "Труба из поливинилхлорида ПВХ гибкая со структурированной стенкой диаметром 20 мм",
+          "unit": "м",
+          "volume": 5845.0,
+          "has_volume": true,
+          "material_type": "Трубы и трубопроводы",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 919,
+          "source_table_index": 0,
+          "row_index_in_table": 7
+        },
+        {
+          "code": "241-207-0302",
+          "name": "Труба из поливинилхлорида ПВХ гибкая со структурированной стенкой\nдиаметром 20 мм",
+          "unit": "м",
+          "volume": 5630.0,
+          "has_volume": true,
+          "material_type": "Трубы и трубопроводы",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 911,
+          "source_table_index": 0,
+          "row_index_in_table": 16
+        },
+        {
+          "code": "241-221-0101",
+          "name": "Опора полипропиленовая PP-R одинарная (клипса) диаметром 16 мм",
+          "unit": "шт",
+          "volume": 4678.8,
+          "has_volume": true,
+          "material_type": "Трубы и трубопроводы",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 956,
+          "source_table_index": 0,
+          "row_index_in_table": 24
+        }
+      ]
+    },
+    {
+      "material_type": "Химия и растворители",
+      "items_count": 456,
+      "volume_by_unit": {
+        "кг": 19252.4,
+        "т": 26.395
+      },
+      "qa": {
+        "ok": 354,
+        "suspicious": 102,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "236-101-0116",
+          "name": "Грунтовка водно-дисперсионная акриловая глубокого проникновения для внутренних и\nнаружных работ СТ Р",
+          "unit": "кг",
+          "volume": 4112.497202,
+          "has_volume": true,
+          "material_type": "Химия и растворители",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 563,
+          "source_table_index": 0,
+          "row_index_in_table": 10
+        },
+        {
+          "code": "236-202-1010",
+          "name": "Краска огнезащитная ГОСТ Р 53295-2009",
+          "unit": "кг",
+          "volume": 3610.376,
+          "has_volume": true,
+          "material_type": "Химия и растворители",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 337,
+          "source_table_index": 1,
+          "row_index_in_table": 2
+        },
+        {
+          "code": "236-202-1010",
+          "name": "Краска огнезащитная ГОСТ Р 53295-2009",
+          "unit": "кг",
+          "volume": 3507.0,
+          "has_volume": true,
+          "material_type": "Химия и растворители",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 329,
+          "source_table_index": 0,
+          "row_index_in_table": 33
+        },
+        {
+          "code": "236-104-0105",
+          "name": "Растворитель для разбавления лакокрасочных материалов и для промывки оборудования",
+          "unit": "кг",
+          "volume": 877.6632,
+          "has_volume": true,
+          "material_type": "Химия и растворители",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 563,
+          "source_table_index": 0,
+          "row_index_in_table": 17
+        },
+        {
+          "code": "236-104-0501",
+          "name": "Клей под покрытия водно-дисперсионный для линолеума",
+          "unit": "кг",
+          "volume": 629.2011,
+          "has_volume": true,
+          "material_type": "Химия и растворители",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 565,
+          "source_table_index": 0,
+          "row_index_in_table": 12
+        }
+      ]
+    },
+    {
+      "material_type": "Бетон и растворы",
+      "items_count": 445,
+      "volume_by_unit": {
+        "кг": 29292.9,
+        "м3": 16925.991,
+        "т": 1827.707,
+        "1000 шт.": 949.295
+      },
+      "qa": {
+        "ok": 443,
+        "suspicious": 2,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "212-601-0101",
+          "name": "Смесь сухая - кладочный клей для газо- и пеноблоков СТ РК 1168-2006",
+          "unit": "кг",
+          "volume": 14646.45,
+          "has_volume": true,
+          "material_type": "Бетон и растворы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 345,
+          "source_table_index": 0,
+          "row_index_in_table": 27
+        },
+        {
+          "code": "212-601-0101",
+          "name": "Смесь сухая - кладочный клей для газо- и пеноблоков СТ РК 1168-2006",
+          "unit": "кг",
+          "volume": 14646.45,
+          "has_volume": true,
+          "material_type": "Бетон и растворы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 564,
+          "source_table_index": 0,
+          "row_index_in_table": 7
+        },
+        {
+          "code": "212-101-0901",
+          "name": "Бетон тяжелый класса В25 ГОСТ 7473-2010 без добавок",
+          "unit": "м3",
+          "volume": 3332.8134,
+          "has_volume": true,
+          "material_type": "Бетон и растворы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 265,
+          "source_table_index": 1,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "212-101-2301",
+          "name": "Бетон тяжелый класса В25, сульфатостойкий ГОСТ 7473-2010 без добавок",
+          "unit": "м3",
+          "volume": 1954.41295,
+          "has_volume": true,
+          "material_type": "Бетон и растворы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 23,
+          "source_table_index": 1,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "213-301-0201",
+          "name": "Блок стеновой из ячеистого бетона неавтоклавного твердения ГОСТ 21520-89\nВ2,0, D600",
+          "unit": "м3",
+          "volume": 746.025,
+          "has_volume": true,
+          "material_type": "Бетон и растворы",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 345,
+          "source_table_index": 0,
+          "row_index_in_table": 28
+        }
+      ]
+    },
+    {
+      "material_type": "Пиломатериалы",
+      "items_count": 371,
+      "volume_by_unit": {
+        "м2": 1876.431,
+        "м3": 60.514,
+        "100 м2": 11.239
+      },
+      "qa": {
+        "ok": 319,
+        "suspicious": 52,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "215-301-0902",
+          "name": "Фанера ламинированная толщиной 21 мм",
+          "unit": "м2",
+          "volume": 825.8978474,
+          "has_volume": true,
+          "material_type": "Пиломатериалы",
+          "supply_phase": "Деревянные конструкции",
+          "qa_status": "ok",
+          "page": 265,
+          "source_table_index": 1,
+          "row_index_in_table": 7
+        },
+        {
+          "code": "215-301-0406",
+          "name": "Фанера из лиственных пород ФСФ, шлифованная ГОСТ 3916.1-96 толщиной 12 мм",
+          "unit": "м2",
+          "volume": 74.87857,
+          "has_volume": true,
+          "material_type": "Пиломатериалы",
+          "supply_phase": "Деревянные конструкции",
+          "qa_status": "ok",
+          "page": 565,
+          "source_table_index": 0,
+          "row_index_in_table": 13
+        },
+        {
+          "code": "215-301-0902",
+          "name": "Фанера ламинированная толщиной 21 мм",
+          "unit": "м2",
+          "volume": 50.76181,
+          "has_volume": true,
+          "material_type": "Пиломатериалы",
+          "supply_phase": "Деревянные конструкции",
+          "qa_status": "ok",
+          "page": 80,
+          "source_table_index": 0,
+          "row_index_in_table": 7
+        },
+        {
+          "code": "215-301-0902",
+          "name": "Фанера ламинированная толщиной 21 мм",
+          "unit": "м2",
+          "volume": 50.76181,
+          "has_volume": true,
+          "material_type": "Пиломатериалы",
+          "supply_phase": "Деревянные конструкции",
+          "qa_status": "ok",
+          "page": 103,
+          "source_table_index": 0,
+          "row_index_in_table": 25
+        },
+        {
+          "code": "215-301-0902",
+          "name": "Фанера ламинированная толщиной 21 мм",
+          "unit": "м2",
+          "volume": 50.76181,
+          "has_volume": true,
+          "material_type": "Пиломатериалы",
+          "supply_phase": "Деревянные конструкции",
+          "qa_status": "ok",
+          "page": 135,
+          "source_table_index": 0,
+          "row_index_in_table": 15
+        }
+      ]
+    },
+    {
+      "material_type": "Кровельные материалы",
+      "items_count": 255,
+      "volume_by_unit": {
+        "м2": 13145.602,
+        "кг": 8391.602,
+        "шт": 2753.072,
+        "1000 м2": 18.514
+      },
+      "qa": {
+        "ok": 240,
+        "suspicious": 15,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "235-103-0412",
+          "name": "Рулонный наплавляемый битумно-полимерный материал\nмодифицированный СБС-полимером, гибкость на брусе ",
+          "unit": "м2",
+          "volume": 3059.0,
+          "has_volume": true,
+          "material_type": "Кровельные материалы",
+          "supply_phase": "Кровля наружная",
+          "qa_status": "ok",
+          "page": 353,
+          "source_table_index": 0,
+          "row_index_in_table": 32
+        },
+        {
+          "code": "235-103-0404",
+          "name": "Рулонный наплавляемый битумно-полимерный материал\nмодифицированный СБС-полимером, гибкость на брусе ",
+          "unit": "м2",
+          "volume": 3005.8,
+          "has_volume": true,
+          "material_type": "Кровельные материалы",
+          "supply_phase": "Кровля наружная",
+          "qa_status": "ok",
+          "page": 354,
+          "source_table_index": 0,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "235-103-0404",
+          "name": "Рулонный наплавляемый битумно-полимерный материал модифицированный СБС-\nполимером, гибкость на брусе",
+          "unit": "м2",
+          "volume": 3005.8,
+          "has_volume": true,
+          "material_type": "Кровельные материалы",
+          "supply_phase": "Кровля наружная",
+          "qa_status": "ok",
+          "page": 561,
+          "source_table_index": 0,
+          "row_index_in_table": 12
+        },
+        {
+          "code": "235-201-0601",
+          "name": "Мастика битумная кровельная для горячего применения ГОСТ 2889-80 марки МБК-Г",
+          "unit": "кг",
+          "volume": 1435.25,
+          "has_volume": true,
+          "material_type": "Кровельные материалы",
+          "supply_phase": "Кровля наружная",
+          "qa_status": "ok",
+          "page": 350,
+          "source_table_index": 0,
+          "row_index_in_table": 3
+        },
+        {
+          "code": "235-201-0601",
+          "name": "Мастика битумная кровельная для горячего применения ГОСТ 2889-80 марки МБК-Г",
+          "unit": "кг",
+          "volume": 1435.25,
+          "has_volume": true,
+          "material_type": "Кровельные материалы",
+          "supply_phase": "Кровля наружная",
+          "qa_status": "ok",
+          "page": 565,
+          "source_table_index": 0,
+          "row_index_in_table": 20
+        }
+      ]
+    },
+    {
+      "material_type": "Отделочные материалы",
+      "items_count": 231,
+      "volume_by_unit": {
+        "кг": 484414.73,
+        "м2": 36663.278,
+        "м": 2767.481,
+        "шт": 20.0,
+        "м3": 0.346
+      },
+      "qa": {
+        "ok": 229,
+        "suspicious": 1,
+        "no_volume": 1
+      },
+      "top_items": [
+        {
+          "code": "233-401-0301",
+          "name": "Смесь сухая - цементная, наливной пол для первоначального выравнивания СТ РК 1168-\n2006 М150",
+          "unit": "кг",
+          "volume": 149918.55,
+          "has_volume": true,
+          "material_type": "Отделочные материалы",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 561,
+          "source_table_index": 0,
+          "row_index_in_table": 3
+        },
+        {
+          "code": "233-401-0301",
+          "name": "Смесь сухая - цементная, наливной пол для первоначального выравнивания СТ РК 1168-2006\nМ150",
+          "unit": "кг",
+          "volume": 47054.925,
+          "has_volume": true,
+          "material_type": "Отделочные материалы",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 418,
+          "source_table_index": 0,
+          "row_index_in_table": 15
+        },
+        {
+          "code": "233-401-0301",
+          "name": "Смесь сухая - цементная, наливной пол для первоначального выравнивания СТ РК 1168-2006\nМ150",
+          "unit": "кг",
+          "volume": 38760.0,
+          "has_volume": true,
+          "material_type": "Отделочные материалы",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 372,
+          "source_table_index": 0,
+          "row_index_in_table": 31
+        },
+        {
+          "code": "232-502-0102",
+          "name": "Смесь сухая клеевая СТ РК 1168-2006 усиленная для плитки",
+          "unit": "кг",
+          "volume": 24829.6935,
+          "has_volume": true,
+          "material_type": "Отделочные материалы",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 562,
+          "source_table_index": 0,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "233-401-0301",
+          "name": "Смесь сухая - цементная, наливной пол для первоначального выравнивания СТ РК 1168-2006\nМ150",
+          "unit": "кг",
+          "volume": 19958.55,
+          "has_volume": true,
+          "material_type": "Отделочные материалы",
+          "supply_phase": "Отделочные работы",
+          "qa_status": "ok",
+          "page": 368,
+          "source_table_index": 0,
+          "row_index_in_table": 30
+        }
+      ]
+    },
+    {
+      "material_type": "Вентиляционные изделия",
+      "items_count": 224,
+      "volume_by_unit": {
+        "м2": 5089.258,
+        "кг": 2516.0,
+        "шт": 848.0
+      },
+      "qa": {
+        "ok": 224,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "246-301-0502",
+          "name": "Средство для крепления воздуховодов: подвески СТД6208, СТД6209, СТД6210",
+          "unit": "кг",
+          "volume": 1288.0,
+          "has_volume": true,
+          "material_type": "Вентиляционные изделия",
+          "supply_phase": "Вентиляция и кондиционирование",
+          "qa_status": "ok",
+          "page": 841,
+          "source_table_index": 1,
+          "row_index_in_table": 5
+        },
+        {
+          "code": "246-103-0106",
+          "name": "Воздуховод класса Н из тонколистовой оцинкованной с непрерывных линий стали\nтолщиной 0,5 мм прямоуго",
+          "unit": "м2",
+          "volume": 1242.2,
+          "has_volume": true,
+          "material_type": "Вентиляционные изделия",
+          "supply_phase": "Вентиляция и кондиционирование",
+          "qa_status": "ok",
+          "page": 841,
+          "source_table_index": 1,
+          "row_index_in_table": 2
+        },
+        {
+          "code": "246-103-0107",
+          "name": "Воздуховод класса Н из тонколистовой оцинкованной с непрерывных линий стали\nтолщиной 0,7 мм прямоуго",
+          "unit": "м2",
+          "volume": 1004.3,
+          "has_volume": true,
+          "material_type": "Вентиляционные изделия",
+          "supply_phase": "Вентиляция и кондиционирование",
+          "qa_status": "ok",
+          "page": 841,
+          "source_table_index": 1,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "246-103-0106",
+          "name": "Воздуховод класса Н из тонколистовой оцинкованной с непрерывных линий стали толщиной\n0,5 мм прямоуго",
+          "unit": "м2",
+          "volume": 492.0,
+          "has_volume": true,
+          "material_type": "Вентиляционные изделия",
+          "supply_phase": "Вентиляция и кондиционирование",
+          "qa_status": "ok",
+          "page": 824,
+          "source_table_index": 0,
+          "row_index_in_table": 34
+        },
+        {
+          "code": "246-103-0108",
+          "name": "Воздуховод класса Н из тонколистовой оцинкованной с непрерывных линий стали\nтолщиной 0,9 мм прямоуго",
+          "unit": "м2",
+          "volume": 260.1,
+          "has_volume": true,
+          "material_type": "Вентиляционные изделия",
+          "supply_phase": "Вентиляция и кондиционирование",
+          "qa_status": "ok",
+          "page": 841,
+          "source_table_index": 1,
+          "row_index_in_table": 3
+        }
+      ]
+    },
+    {
+      "material_type": "Прочие материалы",
+      "items_count": 193,
+      "volume_by_unit": {
+        "м2": 15502.113,
+        "м": 12046.382,
+        "шт": 6726.52,
+        "кг": 488.013,
+        "м3": 148.64,
+        "компл": 54.0,
+        "пара": 46.0
+      },
+      "qa": {
+        "ok": 193,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "224-102-0909",
+          "name": "Профилированный настил оцинкованный высотой профиля 57 мм СТ РК EN\n508-1-2012 толщиной стали 1 мм",
+          "unit": "м2",
+          "volume": 2660.0,
+          "has_volume": true,
+          "material_type": "Прочие материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 352,
+          "source_table_index": 0,
+          "row_index_in_table": 4
+        },
+        {
+          "code": "224-102-0909",
+          "name": "Профилированный настил оцинкованный высотой профиля 57 мм СТ РК EN 508-1-2012\nтолщиной стали 1 мм",
+          "unit": "м2",
+          "volume": 2660.0,
+          "has_volume": true,
+          "material_type": "Прочие материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 561,
+          "source_table_index": 0,
+          "row_index_in_table": 5
+        },
+        {
+          "code": "223-503-0504",
+          "name": "Лента бутиловая",
+          "unit": "м",
+          "volume": 2638.4553,
+          "has_volume": true,
+          "material_type": "Прочие материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 566,
+          "source_table_index": 0,
+          "row_index_in_table": 17
+        },
+        {
+          "code": "255-102-0605",
+          "name": "Плита бетонная фигурная толщиной 60 мм серая ГОСТ 17608-2017",
+          "unit": "м2",
+          "volume": 2606.14368,
+          "has_volume": true,
+          "material_type": "Прочие материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 1271,
+          "source_table_index": 0,
+          "row_index_in_table": 34
+        },
+        {
+          "code": "255-102-0605",
+          "name": "Плита бетонная фигурная толщиной 60 мм серая ГОСТ 17608-2017",
+          "unit": "м2",
+          "volume": 2606.14368,
+          "has_volume": true,
+          "material_type": "Прочие материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 1285,
+          "source_table_index": 1,
+          "row_index_in_table": 5
+        }
+      ]
+    },
+    {
+      "material_type": "Трубопроводная арматура",
+      "items_count": 168,
+      "volume_by_unit": {
+        "шт": 2809.0
+      },
+      "qa": {
+        "ok": 168,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "242-303-0402",
+          "name": "Клапан (вентиль) запорный латунный с резьбовой муфтой, радиаторный, угловой, Т до\n+120°С, РN 10 ГОСТ",
+          "unit": "шт",
+          "volume": 600.0,
+          "has_volume": true,
+          "material_type": "Трубопроводная арматура",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 727,
+          "source_table_index": 1,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "242-303-0402",
+          "name": "Клапан (вентиль) запорный латунный с резьбовой муфтой, радиаторный,\nугловой, Т до +120°С, РN 10 ГОСТ",
+          "unit": "шт",
+          "volume": 300.0,
+          "has_volume": true,
+          "material_type": "Трубопроводная арматура",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 716,
+          "source_table_index": 0,
+          "row_index_in_table": 20
+        },
+        {
+          "code": "242-303-0402",
+          "name": "Клапан (вентиль) запорный латунный с резьбовой муфтой, радиаторный,\nугловой, Т до +120°С, РN 10 ГОСТ",
+          "unit": "шт",
+          "volume": 300.0,
+          "has_volume": true,
+          "material_type": "Трубопроводная арматура",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 717,
+          "source_table_index": 0,
+          "row_index_in_table": 2
+        },
+        {
+          "code": "242-207-3701",
+          "name": "Кран шаровый латунный муфтовый (В-В), для воды,пара,Т до +150 PN 16, марки 11Б27п1\nГОСТ 21345-2005 D",
+          "unit": "шт",
+          "volume": 294.0,
+          "has_volume": true,
+          "material_type": "Трубопроводная арматура",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 648,
+          "source_table_index": 1,
+          "row_index_in_table": 5
+        },
+        {
+          "code": "242-207-3702",
+          "name": "Кран шаровый латунный муфтовый (В-В), для воды,пара,Т до +150 PN 16, марки 11Б27п1\nГОСТ 21345-2005 D",
+          "unit": "шт",
+          "volume": 170.0,
+          "has_volume": true,
+          "material_type": "Трубопроводная арматура",
+          "supply_phase": "Водоснабжение и канализация",
+          "qa_status": "ok",
+          "page": 648,
+          "source_table_index": 1,
+          "row_index_in_table": 6
+        }
+      ]
+    },
+    {
+      "material_type": "Изоляционные материалы",
+      "items_count": 166,
+      "volume_by_unit": {
+        "м": 14896.7,
+        "м3": 2751.477,
+        "рулон": 2065.3,
+        "м2": 797.98
+      },
+      "qa": {
+        "ok": 166,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "234-303-0207",
+          "name": "Гибкая трубчатая изоляция из вспененного каучука, t от -200°С до +105°С, Лст\n0,038 Вт/(м·К) при +20°",
+          "unit": "м",
+          "volume": 2035.0,
+          "has_volume": true,
+          "material_type": "Изоляционные материалы",
+          "supply_phase": "Гидро- и пароизоляция",
+          "qa_status": "ok",
+          "page": 725,
+          "source_table_index": 0,
+          "row_index_in_table": 22
+        },
+        {
+          "code": "234-303-0207",
+          "name": "Гибкая трубчатая изоляция из вспененного каучука, t от -200°С до +105°С, Лст 0,038\nВт/(м·К) при +20°",
+          "unit": "м",
+          "volume": 2035.0,
+          "has_volume": true,
+          "material_type": "Изоляционные материалы",
+          "supply_phase": "Гидро- и пароизоляция",
+          "qa_status": "ok",
+          "page": 728,
+          "source_table_index": 0,
+          "row_index_in_table": 11
+        },
+        {
+          "code": "234-303-0209",
+          "name": "Гибкая трубчатая изоляция из вспененного каучука, t от -200°С до +105°С, Лст\n0,038 Вт/(м·К) при +20°",
+          "unit": "м",
+          "volume": 1430.0,
+          "has_volume": true,
+          "material_type": "Изоляционные материалы",
+          "supply_phase": "Гидро- и пароизоляция",
+          "qa_status": "ok",
+          "page": 725,
+          "source_table_index": 0,
+          "row_index_in_table": 23
+        },
+        {
+          "code": "234-303-0209",
+          "name": "Гибкая трубчатая изоляция из вспененного каучука, t от -200°С до +105°С, Лст 0,038\nВт/(м·К) при +20°",
+          "unit": "м",
+          "volume": 1430.0,
+          "has_volume": true,
+          "material_type": "Изоляционные материалы",
+          "supply_phase": "Гидро- и пароизоляция",
+          "qa_status": "ok",
+          "page": 729,
+          "source_table_index": 0,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "234-303-0212",
+          "name": "Гибкая трубчатая изоляция из вспененного каучука, t от -200°С до +105°С, Лст\n0,038 Вт/(м·К) при +20°",
+          "unit": "м",
+          "volume": 990.0,
+          "has_volume": true,
+          "material_type": "Изоляционные материалы",
+          "supply_phase": "Гидро- и пароизоляция",
+          "qa_status": "ok",
+          "page": 725,
+          "source_table_index": 0,
+          "row_index_in_table": 24
+        }
+      ]
+    },
+    {
+      "material_type": "Вяжущие и сыпучие",
+      "items_count": 152,
+      "volume_by_unit": {
+        "т": 28.028
+      },
+      "qa": {
+        "ok": 121,
+        "suspicious": 31,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "216-201-0203",
+          "name": "Битум нефтяной дорожный вязкий СТ РК 1373-2013 марки БНД 100/130",
+          "unit": "т",
+          "volume": 4.3919023,
+          "has_volume": true,
+          "material_type": "Вяжущие и сыпучие",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 1286,
+          "source_table_index": 0,
+          "row_index_in_table": 13
+        },
+        {
+          "code": "216-201-0203",
+          "name": "Битум нефтяной дорожный вязкий СТ РК 1373-2013 марки БНД 100/130",
+          "unit": "т",
+          "volume": 3.1192273,
+          "has_volume": true,
+          "material_type": "Вяжущие и сыпучие",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 1268,
+          "source_table_index": 0,
+          "row_index_in_table": 13
+        },
+        {
+          "code": "216-201-0602",
+          "name": "Битум нефтяной кровельный ГОСТ 9548-74 марки БНК 45/180",
+          "unit": "т",
+          "volume": 3.0031622,
+          "has_volume": true,
+          "material_type": "Вяжущие и сыпучие",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 564,
+          "source_table_index": 0,
+          "row_index_in_table": 3
+        },
+        {
+          "code": "216-201-0501",
+          "name": "Битум нефтяной строительный изоляционный ГОСТ 9812-74 марки БНИ IV",
+          "unit": "т",
+          "volume": 2.52688,
+          "has_volume": true,
+          "material_type": "Вяжущие и сыпучие",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 1241,
+          "source_table_index": 0,
+          "row_index_in_table": 22
+        },
+        {
+          "code": "216-201-0501",
+          "name": "Битум нефтяной строительный изоляционный ГОСТ 9812-74 марки БНИ IV",
+          "unit": "т",
+          "volume": 2.52688,
+          "has_volume": true,
+          "material_type": "Вяжущие и сыпучие",
+          "supply_phase": "Монолитный каркас",
+          "qa_status": "ok",
+          "page": 1255,
+          "source_table_index": 1,
+          "row_index_in_table": 3
+        }
+      ]
+    },
+    {
+      "material_type": "Противопожарные материалы",
+      "items_count": 129,
+      "volume_by_unit": {
+        "шт": 3444.0
+      },
+      "qa": {
+        "ok": 129,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "248-302-0216",
+          "name": "Извещатель пожарный дымовой Модели ИП 212-64 исп.02 прот. R3, оптико-\nэлектронный",
+          "unit": "шт",
+          "volume": 433.0,
+          "has_volume": true,
+          "material_type": "Противопожарные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 954,
+          "source_table_index": 0,
+          "row_index_in_table": 27
+        },
+        {
+          "code": "248-302-0216",
+          "name": "Извещатель пожарный дымовой Модели ИП 212-64 исп.02 прот. R3, оптико-электронный",
+          "unit": "шт",
+          "volume": 433.0,
+          "has_volume": true,
+          "material_type": "Противопожарные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 960,
+          "source_table_index": 1,
+          "row_index_in_table": 1
+        },
+        {
+          "code": "248-306-0101",
+          "name": "Разветвительная коробка типа УК-2П",
+          "unit": "шт",
+          "volume": 154.0,
+          "has_volume": true,
+          "material_type": "Противопожарные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 966,
+          "source_table_index": 0,
+          "row_index_in_table": 4
+        },
+        {
+          "code": "248-306-0101",
+          "name": "Разветвительная коробка типа УК-2П",
+          "unit": "шт",
+          "volume": 154.0,
+          "has_volume": true,
+          "material_type": "Противопожарные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 970,
+          "source_table_index": 1,
+          "row_index_in_table": 12
+        },
+        {
+          "code": "248-202-0502",
+          "name": "Громкоговоритель настенный 3/1,5 Вт Sonar SW-03W",
+          "unit": "шт",
+          "volume": 135.0,
+          "has_volume": true,
+          "material_type": "Противопожарные материалы",
+          "supply_phase": "Прочие работы",
+          "qa_status": "ok",
+          "page": 966,
+          "source_table_index": 0,
+          "row_index_in_table": 3
+        }
+      ]
+    },
+    {
+      "material_type": "Нерудные материалы",
+      "items_count": 97,
+      "volume_by_unit": {
+        "м3": 13479.323
+      },
+      "qa": {
+        "ok": 97,
+        "suspicious": 0,
+        "no_volume": 0
+      },
+      "top_items": [
+        {
+          "code": "211-201-0607",
+          "name": "Щебень из плотных горных пород для строительных работ М1000 СТ РК 1284-2004 фракция\n40-80 (70) мм",
+          "unit": "м3",
+          "volume": 2415.0,
+          "has_volume": true,
+          "material_type": "Нерудные материалы",
+          "supply_phase": "Земляные работы",
+          "qa_status": "ok",
+          "page": 3,
+          "source_table_index": 0,
+          "row_index_in_table": 13
+        },
+        {
+          "code": "211-201-0607",
+          "name": "Щебень из плотных горных пород для строительных работ М1000 СТ РК 1284-2004\nфракция 40-80 (70) мм",
+          "unit": "м3",
+          "volume": 2415.0,
+          "has_volume": true,
+          "material_type": "Нерудные материалы",
+          "supply_phase": "Земляные работы",
+          "qa_status": "ok",
+          "page": 23,
+          "source_table_index": 1,
+          "row_index_in_table": 3
+        },
+        {
+          "code": "211-401-0101",
+          "name": "Песок ГОСТ 8736-2014 природный",
+          "unit": "м3",
+          "volume": 1629.9474,
+          "has_volume": true,
+          "material_type": "Нерудные материалы",
+          "supply_phase": "Земляные работы",
+          "qa_status": "ok",
+          "page": 1285,
+          "source_table_index": 1,
+          "row_index_in_table": 10
+        },
+        {
+          "code": "211-401-0101",
+          "name": "Песок ГОСТ 8736-2014 природный",
+          "unit": "м3",
+          "volume": 832.8034,
+          "has_volume": true,
+          "material_type": "Нерудные материалы",
+          "supply_phase": "Земляные работы",
+          "qa_status": "ok",
+          "page": 1267,
+          "source_table_index": 0,
+          "row_index_in_table": 17
+        },
+        {
+          "code": "211-201-0507",
+          "name": "Щебень из плотных горных пород для строительных работ М800 СТ РК 1284-2004 фракция 40-\n80 (70) мм",
+          "unit": "м3",
+          "volume": 715.45383,
+          "has_volume": true,
+          "material_type": "Нерудные материалы",
+          "supply_phase": "Земляные работы",
+          "qa_status": "ok",
+          "page": 1268,
+          "source_table_index": 0,
+          "row_index_in_table": 4
+        }
+      ]
+    }
+  ],
+  "phases_plan": [
+    {
+      "supply_phase": "Монолитный каркас",
+      "items_count": 3541,
+      "with_volume": 3540,
+      "material_types": [
+        "Бетон и растворы",
+        "Вяжущие и сыпучие",
+        "Металлы и метизы",
+        "Прочие строительные"
+      ]
+    },
+    {
+      "supply_phase": "Прочие работы",
+      "items_count": 1891,
+      "with_volume": 1889,
+      "material_types": [
+        "Противопожарные материалы",
+        "Прочие материалы",
+        "Прочие строительные",
+        "Расходные материалы"
+      ]
+    },
+    {
+      "supply_phase": "Отделочные работы",
+      "items_count": 687,
+      "with_volume": 686,
+      "material_types": [
+        "Отделочные материалы",
+        "Химия и растворители"
+      ]
+    },
+    {
+      "supply_phase": "Водоснабжение и канализация",
+      "items_count": 654,
+      "with_volume": 654,
+      "material_types": [
+        "Трубопроводная арматура",
+        "Трубы и трубопроводы"
+      ]
+    },
+    {
+      "supply_phase": "Электроснабжение",
+      "items_count": 596,
+      "with_volume": 596,
+      "material_types": [
+        "Электромонтажные материалы"
+      ]
+    },
+    {
+      "supply_phase": "Деревянные конструкции",
+      "items_count": 371,
+      "with_volume": 371,
+      "material_types": [
+        "Пиломатериалы"
+      ]
+    },
+    {
+      "supply_phase": "Кровля наружная",
+      "items_count": 255,
+      "with_volume": 255,
+      "material_types": [
+        "Кровельные материалы"
+      ]
+    },
+    {
+      "supply_phase": "Вентиляция и кондиционирование",
+      "items_count": 224,
+      "with_volume": 224,
+      "material_types": [
+        "Вентиляционные изделия"
+      ]
+    },
+    {
+      "supply_phase": "Гидро- и пароизоляция",
+      "items_count": 166,
+      "with_volume": 166,
+      "material_types": [
+        "Изоляционные материалы"
+      ]
+    },
+    {
+      "supply_phase": "Металлические конструкции",
+      "items_count": 143,
+      "with_volume": 143,
+      "material_types": [
+        "Металлы и метизы"
+      ]
+    },
+    {
+      "supply_phase": "Земляные работы",
+      "items_count": 97,
+      "with_volume": 97,
+      "material_types": [
+        "Нерудные материалы"
+      ]
+    }
+  ]
+}

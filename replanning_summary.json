@@ -1,0 +1,19 @@
+{
+  "engine_version": "2.0",
+  "project": "Школа №65, Уральск",
+  "date": "2025-07-15",
+  "replanning_trigger": true,
+  "trigger_types": [
+    "critical_cash_gap"
+  ],
+  "baseline_finish": "2027-02-02",
+  "live_finish": "2027-02-02",
+  "recommended_scenario": "SHIFT",
+  "recommended_finish": "2025-07-31",
+  "improvement_days": 551,
+  "why": "Консервативный сценарий — реалистичный прогноз без дополнительных затрат",
+  "tradeoffs": [
+    "Финиш уходит вправо",
+    "Кассовый разрыв не устраняется"
+  ]
+}

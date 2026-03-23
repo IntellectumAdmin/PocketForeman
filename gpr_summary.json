@@ -1,196 +1,179 @@
 {
-  "project": "8._локальные",
-  "version": "1.0",
+  "project": "smeta_works_v2",
+  "version": "2.0",
   "schedule": {
     "start_date": "2025-01-01",
-    "finish_date": "2032-09-29",
-    "total_days": 2828,
-    "total_months": 94.3,
-    "total_years": 7.7
+    "finish_date": "2030-03-24",
+    "total_days": 1908,
+    "total_months": 63.6,
+    "total_years": 5.2
   },
   "critical_path": {
-    "length": 6,
+    "length": 8,
     "phases": [
       "Земляные работы",
-      "Фундаменты",
       "Монолитный каркас",
-      "Плиты перекрытия и балки",
-      "Стены и перегородки",
-      "Электроснабжение и электрооборудование"
+      "Кровля",
+      "Кровля наружная",
+      "Окна и двери",
+      "Электроснабжение",
+      "Отделочные работы",
+      "Полы"
     ]
   },
   "phases": [
     {
       "phase": "Земляные работы",
       "start_date": "2025-01-01",
-      "finish_date": "2025-01-10",
-      "duration_days": 9,
-      "is_critical": true,
-      "float_days": 0,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Фундаменты",
-      "start_date": "2025-01-10",
-      "finish_date": "2025-08-12",
-      "duration_days": 214,
+      "finish_date": "2027-05-26",
+      "duration_days": 875,
       "is_critical": true,
       "float_days": 0,
       "data_quality": "ok"
     },
     {
       "phase": "Монолитный каркас",
-      "start_date": "2025-08-12",
-      "finish_date": "2026-01-09",
-      "duration_days": 150,
+      "start_date": "2027-05-26",
+      "finish_date": "2027-11-17",
+      "duration_days": 175,
       "is_critical": true,
       "float_days": 0,
       "data_quality": "ok"
     },
     {
-      "phase": "Металлоконструкции",
-      "start_date": "2025-08-12",
-      "finish_date": "2026-06-04",
-      "duration_days": 296,
+      "phase": "Наружные сети водоснабжения",
+      "start_date": "2027-05-26",
+      "finish_date": "2027-06-13",
+      "duration_days": 18,
       "is_critical": false,
-      "float_days": 2309,
-      "data_quality": "auto_corrected"
+      "float_days": 970,
+      "data_quality": "ok"
     },
     {
-      "phase": "Плиты перекрытия и балки",
-      "start_date": "2026-01-09",
-      "finish_date": "2028-06-01",
-      "duration_days": 874,
+      "phase": "Наружная канализация",
+      "start_date": "2027-05-26",
+      "finish_date": "2027-05-30",
+      "duration_days": 4,
+      "is_critical": false,
+      "float_days": 984,
+      "data_quality": "ok"
+    },
+    {
+      "phase": "Металлические конструкции",
+      "start_date": "2027-11-17",
+      "finish_date": "2027-11-18",
+      "duration_days": 1,
+      "is_critical": false,
+      "float_days": 857,
+      "data_quality": "ok"
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "start_date": "2027-11-17",
+      "finish_date": "2027-12-01",
+      "duration_days": 14,
+      "is_critical": false,
+      "float_days": 844,
+      "data_quality": "ok"
+    },
+    {
+      "phase": "Кровля",
+      "start_date": "2027-11-17",
+      "finish_date": "2027-11-24",
+      "duration_days": 7,
       "is_critical": true,
       "float_days": 0,
       "data_quality": "ok"
     },
     {
-      "phase": "Лестницы",
-      "start_date": "2026-01-09",
-      "finish_date": "2026-01-11",
+      "phase": "Гидро- и пароизоляция",
+      "start_date": "2027-11-17",
+      "finish_date": "2028-06-30",
+      "duration_days": 226,
+      "is_critical": false,
+      "float_days": 632,
+      "data_quality": "ok"
+    },
+    {
+      "phase": "Кровля наружная",
+      "start_date": "2027-11-24",
+      "finish_date": "2028-01-08",
+      "duration_days": 45,
+      "is_critical": true,
+      "float_days": 0,
+      "data_quality": "ok"
+    },
+    {
+      "phase": "Окна и двери",
+      "start_date": "2028-01-08",
+      "finish_date": "2028-01-10",
       "duration_days": 2,
-      "is_critical": false,
-      "float_days": 2453,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Стены и перегородки",
-      "start_date": "2028-06-01",
-      "finish_date": "2029-04-11",
-      "duration_days": 314,
       "is_critical": true,
       "float_days": 0,
       "data_quality": "ok"
     },
     {
-      "phase": "Кровля и парапеты",
-      "start_date": "2029-04-11",
-      "finish_date": "2029-07-29",
-      "duration_days": 109,
+      "phase": "Благоустройство",
+      "start_date": "2028-01-08",
+      "finish_date": "2028-02-22",
+      "duration_days": 45,
       "is_critical": false,
-      "float_days": 1152,
+      "float_days": 761,
       "data_quality": "ok"
     },
     {
       "phase": "Водоснабжение и канализация",
-      "start_date": "2029-04-11",
-      "finish_date": "2030-03-19",
-      "duration_days": 342,
+      "start_date": "2028-01-10",
+      "finish_date": "2028-08-25",
+      "duration_days": 228,
       "is_critical": false,
-      "float_days": 653,
+      "float_days": 113,
       "data_quality": "ok"
     },
     {
-      "phase": "Отопление и теплоснабжение",
-      "start_date": "2029-04-11",
-      "finish_date": "2029-07-14",
-      "duration_days": 94,
-      "is_critical": false,
-      "float_days": 1173,
+      "phase": "Электроснабжение",
+      "start_date": "2028-01-10",
+      "finish_date": "2028-12-16",
+      "duration_days": 341,
+      "is_critical": true,
+      "float_days": 0,
       "data_quality": "ok"
     },
     {
-      "phase": "Вентиляция и кондиционирование",
-      "start_date": "2029-04-11",
-      "finish_date": "2030-03-03",
-      "duration_days": 326,
-      "is_critical": false,
-      "float_days": 941,
+      "phase": "Отделочные работы",
+      "start_date": "2028-12-16",
+      "finish_date": "2029-10-21",
+      "duration_days": 309,
+      "is_critical": true,
+      "float_days": 0,
       "data_quality": "ok"
     },
     {
-      "phase": "Электроснабжение и электрооборудование",
-      "start_date": "2029-04-11",
-      "finish_date": "2032-09-29",
-      "duration_days": 1267,
+      "phase": "Полы",
+      "start_date": "2029-10-21",
+      "finish_date": "2030-03-24",
+      "duration_days": 154,
       "is_critical": true,
       "float_days": 0,
       "data_quality": "ok"
     },
     {
       "phase": "Лифтовое оборудование",
-      "start_date": "2029-04-11",
-      "finish_date": "2029-05-11",
+      "start_date": "2029-10-21",
+      "finish_date": "2029-11-20",
       "duration_days": 30,
       "is_critical": false,
-      "float_days": 1237,
+      "float_days": 124,
       "data_quality": "ok"
     },
     {
-      "phase": "Благоустройство территории",
-      "start_date": "2029-07-29",
-      "finish_date": "2029-08-04",
-      "duration_days": 6,
+      "phase": "Слаботочные системы",
+      "start_date": "2029-10-21",
+      "finish_date": "2029-12-26",
+      "duration_days": 66,
       "is_critical": false,
-      "float_days": 1152,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Полы",
-      "start_date": "2030-03-19",
-      "finish_date": "2030-12-08",
-      "duration_days": 264,
-      "is_critical": false,
-      "float_days": 653,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Внутренняя отделка",
-      "start_date": "2030-03-19",
-      "finish_date": "2030-10-07",
-      "duration_days": 202,
-      "is_critical": false,
-      "float_days": 709,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Санитарные помещения",
-      "start_date": "2030-10-07",
-      "finish_date": "2030-10-21",
-      "duration_days": 14,
-      "is_critical": false,
-      "float_days": 709,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Прочее оборудование и мебель",
-      "start_date": "2030-10-07",
-      "finish_date": "2030-10-14",
-      "duration_days": 7,
-      "is_critical": false,
-      "float_days": 716,
-      "data_quality": "ok"
-    },
-    {
-      "phase": "Спортивные и актовые залы",
-      "start_date": "2030-12-08",
-      "finish_date": "2030-12-16",
-      "duration_days": 8,
-      "is_critical": false,
-      "float_days": 653,
+      "float_days": 88,
       "data_quality": "ok"
     }
-  ],
-  "note": "ГПР построен методом Critical Path Method (CPM). Для уточнения: откалибруй production_rates.json по реальным объектам."
+  ]
 }

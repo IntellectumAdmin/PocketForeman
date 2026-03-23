@@ -1,0 +1,73 @@
+{
+  "project": "Школа №65, Уральск",
+  "report_date": "2025-07-15",
+  "updates": [
+    {
+      "task_id": "земляные_работы",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-01-01",
+      "actual_finish": "2025-01-20"
+    },
+    {
+      "task_id": "монолитный_каркас",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-01-20",
+      "actual_finish": "2025-06-02"
+    },
+    {
+      "task_id": "благоустройство_некритичное",
+      "status": "in_progress",
+      "progress_pct": 82.0,
+      "actual_start": "2025-01-20",
+      "actual_finish": null,
+      "actual_workers": 26,
+      "planned_workers": 20
+    },
+    {
+      "task_id": "каменные_работы",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-06-02",
+      "actual_finish": "2025-06-12"
+    },
+    {
+      "task_id": "металлические_конструкции",
+      "status": "in_progress",
+      "progress_pct": 22.0,
+      "actual_start": "2025-06-02",
+      "actual_finish": null,
+      "actual_workers": 26,
+      "planned_workers": 20
+    },
+    {
+      "task_id": "деревянные_конструкции",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-06-02",
+      "actual_finish": "2025-06-20"
+    },
+    {
+      "task_id": "гидро-_и_пароизоляция",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-06-02",
+      "actual_finish": "2025-06-16"
+    },
+    {
+      "task_id": "фасадные_работы",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-06-02",
+      "actual_finish": "2025-06-06"
+    },
+    {
+      "task_id": "лестницы_и_площадки",
+      "status": "completed",
+      "progress_pct": 100,
+      "actual_start": "2025-06-02",
+      "actual_finish": "2025-06-05"
+    }
+  ]
+}

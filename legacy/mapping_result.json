@@ -1,0 +1,3860 @@
+{
+  "project": "smeta_works_v2",
+  "version": "6.2",
+  "mapped_count": 130,
+  "mapped_items": [
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Разработка грунта экскаватором (котлованы)",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м3": 36041.62
+      },
+      "matched_profile": "earthworks_excavation",
+      "profile_label": "Разработка грунта",
+      "profile_unit": "м3",
+      "rate_per_day": 200,
+      "selected_unit": "м3",
+      "selected_volume": 36041.62,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 36041.62,
+      "duration_status": "ok",
+      "mapping_confidence": 0.94,
+      "duration_days": 181,
+      "calculation_trace": {
+        "formula": "ceil(36041.62 / 200)",
+        "raw_result": 180.2081,
+        "min_duration": 1,
+        "final_days": 181,
+        "unit": "м3",
+        "volume": 36041.62,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Засыпка траншей и котлованов",
+      "work_items_count": 8,
+      "all_volumes": {
+        "м3": 14751.12085
+      },
+      "matched_profile": "earthworks_excavation",
+      "profile_label": "Разработка грунта",
+      "profile_unit": "м3",
+      "rate_per_day": 200,
+      "selected_unit": "м3",
+      "selected_volume": 14751.121,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 14751.121,
+      "duration_status": "ok",
+      "mapping_confidence": 0.87,
+      "duration_days": 74,
+      "calculation_trace": {
+        "formula": "ceil(14751.121 / 200)",
+        "raw_result": 73.7556,
+        "min_duration": 1,
+        "final_days": 74,
+        "unit": "м3",
+        "volume": 14751.121,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Уплотнение грунта",
+      "work_items_count": 11,
+      "all_volumes": {
+        "м3": 68951.12084999999
+      },
+      "matched_profile": "earthworks_backfill",
+      "profile_label": "Обратная засыпка",
+      "profile_unit": "м3",
+      "rate_per_day": 250,
+      "selected_unit": "м3",
+      "selected_volume": 68951.121,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 68951.121,
+      "duration_status": "ok",
+      "mapping_confidence": 1.0,
+      "duration_days": 276,
+      "calculation_trace": {
+        "formula": "ceil(68951.121 / 250)",
+        "raw_result": 275.8045,
+        "min_duration": 1,
+        "final_days": 276,
+        "unit": "м3",
+        "volume": 68951.121,
+        "rate_per_day": 250
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Засыпка вручную",
+      "work_items_count": 4,
+      "all_volumes": {
+        "м3": 261.90853250000004
+      },
+      "matched_profile": "earthworks_backfill",
+      "profile_label": "Обратная засыпка",
+      "profile_unit": "м3",
+      "rate_per_day": 250,
+      "selected_unit": "м3",
+      "selected_volume": 261.909,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 261.909,
+      "duration_status": "ok",
+      "mapping_confidence": 0.98,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(261.909 / 250)",
+        "raw_result": 1.0476,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "м3",
+        "volume": 261.909,
+        "rate_per_day": 250
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Разработка грунта экскаватором (траншеи)",
+      "work_items_count": 5,
+      "all_volumes": {
+        "м3": 1067.47649
+      },
+      "matched_profile": "earthworks_excavation",
+      "profile_label": "Разработка грунта",
+      "profile_unit": "м3",
+      "rate_per_day": 200,
+      "selected_unit": "м3",
+      "selected_volume": 1067.476,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 1067.476,
+      "duration_status": "ok",
+      "mapping_confidence": 0.95,
+      "duration_days": 6,
+      "calculation_trace": {
+        "formula": "ceil(1067.476 / 200)",
+        "raw_result": 5.3374,
+        "min_duration": 1,
+        "final_days": 6,
+        "unit": "м3",
+        "volume": 1067.476,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Разработка грунта вручную (траншеи)",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м3": 16.62401
+      },
+      "matched_profile": "earthworks_excavation",
+      "profile_label": "Разработка грунта",
+      "profile_unit": "м3",
+      "rate_per_day": 200,
+      "selected_unit": "м3",
+      "selected_volume": 16.624,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 16.624,
+      "duration_status": "ok",
+      "mapping_confidence": 0.99,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(16.624 / 200)",
+        "raw_result": 0.0831,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м3",
+        "volume": 16.624,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Разработка грунта бульдозерами",
+      "work_items_count": 4,
+      "all_volumes": {
+        "м3": 60176.0
+      },
+      "matched_profile": "earthworks_excavation",
+      "profile_label": "Разработка грунта",
+      "profile_unit": "м3",
+      "rate_per_day": 200,
+      "selected_unit": "м3",
+      "selected_volume": 60176.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 60176.0,
+      "duration_status": "ok",
+      "mapping_confidence": 1.0,
+      "duration_days": 301,
+      "calculation_trace": {
+        "formula": "ceil(60176.0 / 200)",
+        "raw_result": 300.88,
+        "min_duration": 1,
+        "final_days": 301,
+        "unit": "м3",
+        "volume": 60176.0,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Разработка грунта в карьерах",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м3": 6739.0
+      },
+      "matched_profile": "earthworks_excavation",
+      "profile_label": "Разработка грунта",
+      "profile_unit": "м3",
+      "rate_per_day": 200,
+      "selected_unit": "м3",
+      "selected_volume": 6739.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 6739.0,
+      "duration_status": "ok",
+      "mapping_confidence": 1.0,
+      "duration_days": 34,
+      "calculation_trace": {
+        "formula": "ceil(6739.0 / 200)",
+        "raw_result": 33.695,
+        "min_duration": 1,
+        "final_days": 34,
+        "unit": "м3",
+        "volume": 6739.0,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Бетонная подготовка",
+      "work_items_count": 37,
+      "all_volumes": {
+        "м3": 345.18000000000006,
+        "т": 27.350780499999992,
+        "м2": 5320.0
+      },
+      "matched_profile": "base_preparation",
+      "profile_label": "Подготовка основания",
+      "profile_unit": "м3",
+      "rate_per_day": 80,
+      "selected_unit": "м3",
+      "selected_volume": 345.18,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 345.18,
+      "duration_status": "ok",
+      "mapping_confidence": 1.0,
+      "duration_days": 5,
+      "calculation_trace": {
+        "formula": "ceil(345.18 / 80)",
+        "raw_result": 4.3148,
+        "min_duration": 1,
+        "final_days": 5,
+        "unit": "м3",
+        "volume": 345.18,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Фундаментные плиты",
+      "work_items_count": 33,
+      "all_volumes": {
+        "м3": 2433.0369999999994
+      },
+      "matched_profile": "concreting_structural",
+      "profile_label": "Бетонирование монолитных конструкций",
+      "profile_unit": "м3",
+      "rate_per_day": 35,
+      "selected_unit": "м3",
+      "selected_volume": 2433.037,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 2433.037,
+      "duration_status": "ok",
+      "mapping_confidence": 0.93,
+      "duration_days": 70,
+      "calculation_trace": {
+        "formula": "ceil(2433.037 / 35)",
+        "raw_result": 69.5153,
+        "min_duration": 1,
+        "final_days": 70,
+        "unit": "м3",
+        "volume": 2433.037,
+        "rate_per_day": 35
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Опалубка и бетонирование колонн",
+      "work_items_count": 64,
+      "all_volumes": {
+        "м2": 6528.880000000001,
+        "т": 66.22524000000001,
+        "м3": 334.98
+      },
+      "matched_profile": "concreting_structural",
+      "profile_label": "Бетонирование монолитных конструкций",
+      "profile_unit": "м3",
+      "rate_per_day": 35,
+      "selected_unit": "м3",
+      "selected_volume": 334.98,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 334.98,
+      "duration_status": "ok",
+      "mapping_confidence": 0.95,
+      "duration_days": 10,
+      "calculation_trace": {
+        "formula": "ceil(334.98 / 35)",
+        "raw_result": 9.5709,
+        "min_duration": 1,
+        "final_days": 10,
+        "unit": "м3",
+        "volume": 334.98,
+        "rate_per_day": 35
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Опалубка и бетонирование стен",
+      "work_items_count": 48,
+      "all_volumes": {
+        "м2": 4799.3,
+        "т": 44.879070000000006,
+        "м3": 479.9300000000001
+      },
+      "matched_profile": "concreting_structural",
+      "profile_label": "Бетонирование монолитных конструкций",
+      "profile_unit": "м3",
+      "rate_per_day": 35,
+      "selected_unit": "м3",
+      "selected_volume": 479.93,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 479.93,
+      "duration_status": "ok",
+      "mapping_confidence": 0.97,
+      "duration_days": 14,
+      "calculation_trace": {
+        "formula": "ceil(479.93 / 35)",
+        "raw_result": 13.7123,
+        "min_duration": 1,
+        "final_days": 14,
+        "unit": "м3",
+        "volume": 479.93,
+        "rate_per_day": 35
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Опалубка и бетонирование перекрытий",
+      "work_items_count": 155,
+      "all_volumes": {
+        "м2": 19470.350000000028,
+        "т": 249.07133899999994,
+        "м3": 2154.23
+      },
+      "matched_profile": "concreting_structural",
+      "profile_label": "Бетонирование монолитных конструкций",
+      "profile_unit": "м3",
+      "rate_per_day": 35,
+      "selected_unit": "м3",
+      "selected_volume": 2154.23,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 2154.23,
+      "duration_status": "ok",
+      "mapping_confidence": 0.92,
+      "duration_days": 62,
+      "calculation_trace": {
+        "formula": "ceil(2154.23 / 35)",
+        "raw_result": 61.5494,
+        "min_duration": 1,
+        "final_days": 62,
+        "unit": "м3",
+        "volume": 2154.23,
+        "rate_per_day": 35
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Опалубка и бетонирование балок",
+      "work_items_count": 83,
+      "all_volumes": {
+        "м2": 2720.016,
+        "т": 59.43771,
+        "м3": 240.8
+      },
+      "matched_profile": "concreting_structural",
+      "profile_label": "Бетонирование монолитных конструкций",
+      "profile_unit": "м3",
+      "rate_per_day": 35,
+      "selected_unit": "м3",
+      "selected_volume": 240.8,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 240.8,
+      "duration_status": "ok",
+      "mapping_confidence": 0.96,
+      "duration_days": 7,
+      "calculation_trace": {
+        "formula": "ceil(240.8 / 35)",
+        "raw_result": 6.88,
+        "min_duration": 1,
+        "final_days": 7,
+        "unit": "м3",
+        "volume": 240.8,
+        "rate_per_day": 35
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Лестничные площадки и марши",
+      "work_items_count": 105,
+      "all_volumes": {
+        "м3": 183.39000000000001
+      },
+      "matched_profile": "concreting_structural",
+      "profile_label": "Бетонирование монолитных конструкций",
+      "profile_unit": "м3",
+      "rate_per_day": 35,
+      "selected_unit": "м3",
+      "selected_volume": 183.39,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 183.39,
+      "duration_status": "ok",
+      "mapping_confidence": 0.86,
+      "duration_days": 6,
+      "calculation_trace": {
+        "formula": "ceil(183.39 / 35)",
+        "raw_result": 5.2397,
+        "min_duration": 1,
+        "final_days": 6,
+        "unit": "м3",
+        "volume": 183.39,
+        "rate_per_day": 35
+      }
+    },
+    {
+      "phase": "Монолитный каркас",
+      "subsection_name": "Изготовление арматурных каркасов",
+      "work_items_count": 1,
+      "all_volumes": {
+        "т": 0.981757
+      },
+      "matched_profile": "reinforcement",
+      "profile_label": "Армирование",
+      "profile_unit": "т",
+      "rate_per_day": 5,
+      "selected_unit": "т",
+      "selected_volume": 0.982,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "т",
+        "target_unit": "т"
+      },
+      "final_unit": "т",
+      "final_volume": 0.982,
+      "duration_status": "ok",
+      "mapping_confidence": 0.83,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(0.982 / 5)",
+        "raw_result": 0.1964,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "т",
+        "volume": 0.982,
+        "rate_per_day": 5
+      }
+    },
+    {
+      "phase": "Металлические конструкции",
+      "subsection_name": "Кладка стен примыкания и каналов",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м3": 17.8,
+        "м2": 7.5
+      },
+      "matched_profile": "masonry_block",
+      "profile_label": "Кладка блоков",
+      "profile_unit": "м3",
+      "rate_per_day": 18,
+      "selected_unit": "м3",
+      "selected_volume": 17.8,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м3",
+        "target_unit": "м3"
+      },
+      "final_unit": "м3",
+      "final_volume": 17.8,
+      "duration_status": "ok",
+      "mapping_confidence": 0.91,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(17.8 / 18)",
+        "raw_result": 0.9889,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м3",
+        "volume": 17.8,
+        "rate_per_day": 18
+      }
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "subsection_name": "Монтаж лестниц прямолинейных и пожарных",
+      "work_items_count": 17,
+      "all_volumes": {
+        "т": 7.7807900000000005,
+        "м": 18.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": "м",
+      "selected_volume": 18.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 18.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.79,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(18.0 / 120)",
+        "raw_result": 0.15,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м",
+        "volume": 18.0,
+        "rate_per_day": 120
+      }
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "subsection_name": "Монтаж покрытия кровельного из профлиста",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м2": 2660.0
+      },
+      "matched_profile": "roofing_sheet",
+      "profile_label": "Кровля из листовых материалов",
+      "profile_unit": "м2",
+      "rate_per_day": 220,
+      "selected_unit": "м2",
+      "selected_volume": 2660.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 2660.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.82,
+      "duration_days": 13,
+      "calculation_trace": {
+        "formula": "ceil(2660.0 / 220)",
+        "raw_result": 12.0909,
+        "min_duration": 1,
+        "final_days": 13,
+        "unit": "м2",
+        "volume": 2660.0,
+        "rate_per_day": 220
+      }
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "subsection_name": "Монтаж перегородки стальной консольной",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м2": 3.15
+      },
+      "matched_profile": "masonry_block",
+      "profile_label": "Кладка блоков",
+      "profile_unit": "м3",
+      "rate_per_day": 18,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.57,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Кровля",
+      "subsection_name": "Обшивка плитами древесно-стружечными",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м2": 548.2239999999999,
+        "м3": 3.91365
+      },
+      "matched_profile": "roofing_soft",
+      "profile_label": "Мягкая кровля",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 548.224,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 548.224,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 4,
+      "calculation_trace": {
+        "formula": "ceil(548.224 / 180)",
+        "raw_result": 3.0457,
+        "min_duration": 1,
+        "final_days": 4,
+        "unit": "м2",
+        "volume": 548.224,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Кровля",
+      "subsection_name": "Устройство остеклённой перегородки",
+      "work_items_count": 7,
+      "all_volumes": {
+        "м2": 1088.51
+      },
+      "matched_profile": "masonry_block",
+      "profile_label": "Кладка блоков",
+      "profile_unit": "м3",
+      "rate_per_day": 18,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.59,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Кровля",
+      "subsection_name": "Устройство деревянных конструкций перегородок",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м2": 401.115
+      },
+      "matched_profile": "roofing_soft",
+      "profile_label": "Мягкая кровля",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 401.115,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 401.115,
+      "duration_status": "ok",
+      "mapping_confidence": 0.78,
+      "duration_days": 3,
+      "calculation_trace": {
+        "formula": "ceil(401.115 / 180)",
+        "raw_result": 2.2284,
+        "min_duration": 1,
+        "final_days": 3,
+        "unit": "м2",
+        "volume": 401.115,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Окна и двери",
+      "subsection_name": "Установка блоков оконных из ПВХ профилей",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м2": 1032.39
+      },
+      "matched_profile": "doors_windows",
+      "profile_label": "Двери и окна",
+      "profile_unit": "шт",
+      "rate_per_day": 25,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.48,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Окна и двери",
+      "subsection_name": "Установка доски подоконной из ПВХ",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м": 536.6
+      },
+      "matched_profile": "doors_windows",
+      "profile_label": "Двери и окна",
+      "profile_unit": "шт",
+      "rate_per_day": 25,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.49,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Окна и двери",
+      "subsection_name": "Установка блока дверного металлического",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м2": 47.769999999999996,
+        "шт": 27.0
+      },
+      "matched_profile": "doors_windows",
+      "profile_label": "Двери и окна",
+      "profile_unit": "шт",
+      "rate_per_day": 25,
+      "selected_unit": "шт",
+      "selected_volume": 27.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 27.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.78,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(27.0 / 25)",
+        "raw_result": 1.08,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "шт",
+        "volume": 27.0,
+        "rate_per_day": 25
+      }
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство стяжки цементной",
+      "work_items_count": 74,
+      "all_volumes": {
+        "м2": 19016.23
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 19016.23,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 19016.23,
+      "duration_status": "ok",
+      "mapping_confidence": 0.79,
+      "duration_days": 106,
+      "calculation_trace": {
+        "formula": "ceil(19016.23 / 180)",
+        "raw_result": 105.6457,
+        "min_duration": 1,
+        "final_days": 106,
+        "unit": "м2",
+        "volume": 19016.23,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство покрытий из плиток керамических",
+      "work_items_count": 28,
+      "all_volumes": {
+        "м2": 4451.350000000001
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 4451.35,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 4451.35,
+      "duration_status": "ok",
+      "mapping_confidence": 0.76,
+      "duration_days": 25,
+      "calculation_trace": {
+        "formula": "ceil(4451.35 / 180)",
+        "raw_result": 24.7297,
+        "min_duration": 1,
+        "final_days": 25,
+        "unit": "м2",
+        "volume": 4451.35,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство покрытий из линолеума на клее",
+      "work_items_count": 12,
+      "all_volumes": {
+        "м2": 3295.46,
+        "м": 34.38
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 3295.46,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 3295.46,
+      "duration_status": "ok",
+      "mapping_confidence": 0.82,
+      "duration_days": 19,
+      "calculation_trace": {
+        "formula": "ceil(3295.46 / 180)",
+        "raw_result": 18.3081,
+        "min_duration": 1,
+        "final_days": 19,
+        "unit": "м2",
+        "volume": 3295.46,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство подстилающих слоёв",
+      "work_items_count": 4,
+      "all_volumes": {
+        "м3": 240.955
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.48,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство полов полимерных наливных",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м2": 355.36
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 355.36,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 355.36,
+      "duration_status": "ok",
+      "mapping_confidence": 0.77,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(355.36 / 180)",
+        "raw_result": 1.9742,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "м2",
+        "volume": 355.36,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство покрытий из плит древесноволокнистых",
+      "work_items_count": 4,
+      "all_volumes": {
+        "м2": 145.82
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 145.82,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 145.82,
+      "duration_status": "ok",
+      "mapping_confidence": 0.75,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(145.82 / 180)",
+        "raw_result": 0.8101,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м2",
+        "volume": 145.82,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Устройство плинтуса из плиток керамических",
+      "work_items_count": 6,
+      "all_volumes": {
+        "м": 2635.41
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.46,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Уплотнение грунта щебнем",
+      "work_items_count": 13,
+      "all_volumes": {
+        "м2": 526.9200002
+      },
+      "matched_profile": "earthworks_backfill",
+      "profile_label": "Обратная засыпка",
+      "profile_unit": "м3",
+      "rate_per_day": 250,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.7,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Полы",
+      "subsection_name": "Железнение покрытий цементных",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м2": 0.79
+      },
+      "matched_profile": "floor_finish",
+      "profile_label": "Чистые полы",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 0.79,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 0.79,
+      "duration_status": "ok",
+      "mapping_confidence": 0.78,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(0.79 / 180)",
+        "raw_result": 0.0044,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м2",
+        "volume": 0.79,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Кровля наружная",
+      "subsection_name": "Устройство покрытий мелких (парапеты, свесы)",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м2": 236.8
+      },
+      "matched_profile": "roofing_soft",
+      "profile_label": "Мягкая кровля",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 236.8,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 236.8,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(236.8 / 180)",
+        "raw_result": 1.3156,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "м2",
+        "volume": 236.8,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Кровля наружная",
+      "subsection_name": "Устройство кровли скатной из наплавляемых материалов",
+      "work_items_count": 8,
+      "all_volumes": {
+        "м2": 3155.8100000000004
+      },
+      "matched_profile": "roofing_soft",
+      "profile_label": "Мягкая кровля",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 3155.81,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 3155.81,
+      "duration_status": "ok",
+      "mapping_confidence": 0.77,
+      "duration_days": 18,
+      "calculation_trace": {
+        "formula": "ceil(3155.81 / 180)",
+        "raw_result": 17.5323,
+        "min_duration": 1,
+        "final_days": 18,
+        "unit": "м2",
+        "volume": 3155.81,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Кровля наружная",
+      "subsection_name": "Устройство аэраторов",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 96.0
+      },
+      "matched_profile": "roofing_soft",
+      "profile_label": "Мягкая кровля",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.58,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Кровля наружная",
+      "subsection_name": "Устройство выравнивающих стяжек цементно-песчаных",
+      "work_items_count": 34,
+      "all_volumes": {
+        "м2": 4456.000000799999
+      },
+      "matched_profile": "roofing_soft",
+      "profile_label": "Мягкая кровля",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 4456.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 4456.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.77,
+      "duration_days": 25,
+      "calculation_trace": {
+        "formula": "ceil(4456.0 / 180)",
+        "raw_result": 24.7556,
+        "min_duration": 1,
+        "final_days": 25,
+        "unit": "м2",
+        "volume": 4456.0,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Гидроизоляция боковых стен и фундаментов обмазочная",
+      "work_items_count": 16,
+      "all_volumes": {
+        "м2": 1346.394
+      },
+      "matched_profile": "waterproofing_general",
+      "profile_label": "Гидроизоляция",
+      "profile_unit": "м2",
+      "rate_per_day": 200,
+      "selected_unit": "м2",
+      "selected_volume": 1346.394,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 1346.394,
+      "duration_status": "ok",
+      "mapping_confidence": 0.83,
+      "duration_days": 7,
+      "calculation_trace": {
+        "formula": "ceil(1346.394 / 200)",
+        "raw_result": 6.732,
+        "min_duration": 1,
+        "final_days": 7,
+        "unit": "м2",
+        "volume": 1346.394,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Огрунтовка поверхности бетонной и оштукатуренной",
+      "work_items_count": 36,
+      "all_volumes": {
+        "м2": 7589.293160000002
+      },
+      "matched_profile": "plastering",
+      "profile_label": "Штукатурка",
+      "profile_unit": "м2",
+      "rate_per_day": 140,
+      "selected_unit": "м2",
+      "selected_volume": 7589.293,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 7589.293,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 55,
+      "calculation_trace": {
+        "formula": "ceil(7589.293 / 140)",
+        "raw_result": 54.2092,
+        "min_duration": 1,
+        "final_days": 55,
+        "unit": "м2",
+        "volume": 7589.293,
+        "rate_per_day": 140
+      }
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Устройство гидроизоляции из полиэтиленовой плёнки",
+      "work_items_count": 36,
+      "all_volumes": {
+        "м2": 14826.979999999998
+      },
+      "matched_profile": "waterproofing_general",
+      "profile_label": "Гидроизоляция",
+      "profile_unit": "м2",
+      "rate_per_day": 200,
+      "selected_unit": "м2",
+      "selected_volume": 14826.98,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 14826.98,
+      "duration_status": "ok",
+      "mapping_confidence": 0.83,
+      "duration_days": 75,
+      "calculation_trace": {
+        "formula": "ceil(14826.98 / 200)",
+        "raw_result": 74.1349,
+        "min_duration": 1,
+        "final_days": 75,
+        "unit": "м2",
+        "volume": 14826.98,
+        "rate_per_day": 200
+      }
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Установка плиты теплоизоляционного покрытия",
+      "work_items_count": 7,
+      "all_volumes": {
+        "м2": 498.69000000000005
+      },
+      "matched_profile": "thermal_insulation",
+      "profile_label": "Теплоизоляция",
+      "profile_unit": "м2",
+      "rate_per_day": 180,
+      "selected_unit": "м2",
+      "selected_volume": 498.69,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 498.69,
+      "duration_status": "ok",
+      "mapping_confidence": 0.85,
+      "duration_days": 3,
+      "calculation_trace": {
+        "formula": "ceil(498.69 / 180)",
+        "raw_result": 2.7705,
+        "min_duration": 1,
+        "final_days": 3,
+        "unit": "м2",
+        "volume": 498.69,
+        "rate_per_day": 180
+      }
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Изоляция трубопровода изделиями из вспененного каучука",
+      "work_items_count": 17,
+      "all_volumes": {
+        "м": 6807.0,
+        "м3": 14.2
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 6807.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 6807.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.82,
+      "duration_days": 86,
+      "calculation_trace": {
+        "formula": "ceil(6807.0 / 80)",
+        "raw_result": 85.0875,
+        "min_duration": 1,
+        "final_days": 86,
+        "unit": "м",
+        "volume": 6807.0,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Облицовка фасада металлосайдингом",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м2": 4960.36
+      },
+      "matched_profile": "facade_system",
+      "profile_label": "Фасадные работы",
+      "profile_unit": "м2",
+      "rate_per_day": 120,
+      "selected_unit": "м2",
+      "selected_volume": 4960.36,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 4960.36,
+      "duration_status": "ok",
+      "mapping_confidence": 0.99,
+      "duration_days": 42,
+      "calculation_trace": {
+        "formula": "ceil(4960.36 / 120)",
+        "raw_result": 41.3363,
+        "min_duration": 1,
+        "final_days": 42,
+        "unit": "м2",
+        "volume": 4960.36,
+        "rate_per_day": 120
+      }
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Штукатурка поверхности фасадов декоративная из сухих смесей",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м2": 434.33
+      },
+      "matched_profile": "plastering",
+      "profile_label": "Штукатурка",
+      "profile_unit": "м2",
+      "rate_per_day": 140,
+      "selected_unit": "м2",
+      "selected_volume": 434.33,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 434.33,
+      "duration_status": "ok",
+      "mapping_confidence": 0.78,
+      "duration_days": 4,
+      "calculation_trace": {
+        "formula": "ceil(434.33 / 140)",
+        "raw_result": 3.1024,
+        "min_duration": 1,
+        "final_days": 4,
+        "unit": "м2",
+        "volume": 434.33,
+        "rate_per_day": 140
+      }
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Покраска улучшенная масляным составом по бетону",
+      "work_items_count": 20,
+      "all_volumes": {
+        "м2": 32568.665999999997
+      },
+      "matched_profile": "painting",
+      "profile_label": "Малярные работы",
+      "profile_unit": "м2",
+      "rate_per_day": 250,
+      "selected_unit": "м2",
+      "selected_volume": 32568.666,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 32568.666,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 131,
+      "calculation_trace": {
+        "formula": "ceil(32568.666 / 250)",
+        "raw_result": 130.2747,
+        "min_duration": 1,
+        "final_days": 131,
+        "unit": "м2",
+        "volume": 32568.666,
+        "rate_per_day": 250
+      }
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Штукатурка поверхности внутри зданий цементными растворами",
+      "work_items_count": 13,
+      "all_volumes": {
+        "м2": 14370.696
+      },
+      "matched_profile": "plastering",
+      "profile_label": "Штукатурка",
+      "profile_unit": "м2",
+      "rate_per_day": 140,
+      "selected_unit": "м2",
+      "selected_volume": 14370.696,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 14370.696,
+      "duration_status": "ok",
+      "mapping_confidence": 0.78,
+      "duration_days": 103,
+      "calculation_trace": {
+        "formula": "ceil(14370.696 / 140)",
+        "raw_result": 102.6478,
+        "min_duration": 1,
+        "final_days": 103,
+        "unit": "м2",
+        "volume": 14370.696,
+        "rate_per_day": 140
+      }
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Облицовка поверхности плитками на клее из сухих смесей",
+      "work_items_count": 5,
+      "all_volumes": {
+        "м2": 1659.087
+      },
+      "matched_profile": "tile_work",
+      "profile_label": "Облицовка плиткой",
+      "profile_unit": "м2",
+      "rate_per_day": 60,
+      "selected_unit": "м2",
+      "selected_volume": 1659.087,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 1659.087,
+      "duration_status": "ok",
+      "mapping_confidence": 0.77,
+      "duration_days": 28,
+      "calculation_trace": {
+        "formula": "ceil(1659.087 / 60)",
+        "raw_result": 27.6515,
+        "min_duration": 1,
+        "final_days": 28,
+        "unit": "м2",
+        "volume": 1659.087,
+        "rate_per_day": 60
+      }
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Облицовка потолка плитами из минерального волокна",
+      "work_items_count": 12,
+      "all_volumes": {
+        "м2": 3813.6000000000004
+      },
+      "matched_profile": "doors_windows",
+      "profile_label": "Двери и окна",
+      "profile_unit": "шт",
+      "rate_per_day": 25,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.45,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Покраска поверхности фасада с лесов",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м2": 105.01
+      },
+      "matched_profile": "painting",
+      "profile_label": "Малярные работы",
+      "profile_unit": "м2",
+      "rate_per_day": 250,
+      "selected_unit": "м2",
+      "selected_volume": 105.01,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 105.01,
+      "duration_status": "ok",
+      "mapping_confidence": 0.84,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(105.01 / 250)",
+        "raw_result": 0.42,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м2",
+        "volume": 105.01,
+        "rate_per_day": 250
+      }
+    },
+    {
+      "phase": "Благоустройство",
+      "subsection_name": "Устройство покрытия дорожек и тротуаров асфальтобетонных",
+      "work_items_count": 4,
+      "all_volumes": {
+        "м2": 2733.7311
+      },
+      "matched_profile": "asphalt_paving",
+      "profile_label": "Асфальтирование",
+      "profile_unit": "м2",
+      "rate_per_day": 500,
+      "selected_unit": "м2",
+      "selected_volume": 2733.731,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 2733.731,
+      "duration_status": "ok",
+      "mapping_confidence": 0.84,
+      "duration_days": 6,
+      "calculation_trace": {
+        "formula": "ceil(2733.731 / 500)",
+        "raw_result": 5.4675,
+        "min_duration": 1,
+        "final_days": 6,
+        "unit": "м2",
+        "volume": 2733.731,
+        "rate_per_day": 500
+      }
+    },
+    {
+      "phase": "Благоустройство",
+      "subsection_name": "Устройство спортивных покрытий на бетонное основание",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м2": 1938.46
+      },
+      "matched_profile": "interior_finishing_general",
+      "profile_label": "Внутренняя отделка помещений",
+      "profile_unit": "м2",
+      "rate_per_day": 120,
+      "selected_unit": "м2",
+      "selected_volume": 1938.46,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м2",
+        "target_unit": "м2"
+      },
+      "final_unit": "м2",
+      "final_volume": 1938.46,
+      "duration_status": "ok",
+      "mapping_confidence": 0.79,
+      "duration_days": 17,
+      "calculation_trace": {
+        "formula": "ceil(1938.46 / 120)",
+        "raw_result": 16.1538,
+        "min_duration": 1,
+        "final_days": 17,
+        "unit": "м2",
+        "volume": 1938.46,
+        "rate_per_day": 120
+      }
+    },
+    {
+      "phase": "Благоустройство",
+      "subsection_name": "Подготовка почвы для газона партерного",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м2": 13943.22
+      },
+      "matched_profile": "landscaping",
+      "profile_label": "Озеленение и малые формы",
+      "profile_unit": "шт",
+      "rate_per_day": 20,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.48,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Благоустройство",
+      "subsection_name": "Посадка дерева и кустарника с комом земли",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 425.0
+      },
+      "matched_profile": "landscaping",
+      "profile_label": "Озеленение и малые формы",
+      "profile_unit": "шт",
+      "rate_per_day": 20,
+      "selected_unit": "шт",
+      "selected_volume": 425.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 425.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.83,
+      "duration_days": 22,
+      "calculation_trace": {
+        "formula": "ceil(425.0 / 20)",
+        "raw_result": 21.25,
+        "min_duration": 1,
+        "final_days": 22,
+        "unit": "шт",
+        "volume": 425.0,
+        "rate_per_day": 20
+      }
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка вентилей, задвижек, затворов, клапанов обратных",
+      "work_items_count": 19,
+      "all_volumes": {
+        "шт": 84.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.54,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка кранов поливочных",
+      "work_items_count": 4,
+      "all_volumes": {
+        "кран": 36.0,
+        "шт": 22.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.69,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Монтаж гибких подводок к водоразборной арматуре",
+      "work_items_count": 34,
+      "all_volumes": {
+        "м": 6563.5
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 6563.5,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 6563.5,
+      "duration_status": "ok",
+      "mapping_confidence": 0.87,
+      "duration_days": 83,
+      "calculation_trace": {
+        "formula": "ceil(6563.5 / 80)",
+        "raw_result": 82.0438,
+        "min_duration": 1,
+        "final_days": 83,
+        "unit": "м",
+        "volume": 6563.5,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Прокладка трубопроводов водоснабжения из стальных водогазопроводных",
+      "work_items_count": 24,
+      "all_volumes": {
+        "м": 3214.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 3214.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 3214.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.82,
+      "duration_days": 41,
+      "calculation_trace": {
+        "formula": "ceil(3214.0 / 80)",
+        "raw_result": 40.175,
+        "min_duration": 1,
+        "final_days": 41,
+        "unit": "м",
+        "volume": 3214.0,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Гидравлическое испытание трубопроводов систем отопления",
+      "work_items_count": 9,
+      "all_volumes": {
+        "м": 8141.7
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 8141.7,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 8141.7,
+      "duration_status": "ok",
+      "mapping_confidence": 0.84,
+      "duration_days": 102,
+      "calculation_trace": {
+        "formula": "ceil(8141.7 / 80)",
+        "raw_result": 101.7712,
+        "min_duration": 1,
+        "final_days": 102,
+        "unit": "м",
+        "volume": 8141.7,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка счётчиков (водомеров)",
+      "work_items_count": 5,
+      "all_volumes": {
+        "шт": 4.0,
+        "компл": 1.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.65,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Прокладка по стенам зданий трубопроводов из чугуна",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м": 130.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 130.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 130.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.86,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(130.0 / 80)",
+        "raw_result": 1.625,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "м",
+        "volume": 130.0,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка водосточных воронок чугунных",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 22.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.61,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка клапанов балансировочных",
+      "work_items_count": 8,
+      "all_volumes": {
+        "шт": 667.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.63,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка арматуры запорной муфтовой на трубопроводах",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 9.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.55,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Заделка сальников при проходе труб через фундаменты",
+      "work_items_count": 2,
+      "all_volumes": {
+        "сальник": 40.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.55,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "subsection_name": "Установка чугунных напорных фасонных частей",
+      "work_items_count": 1,
+      "all_volumes": {
+        "т": 0.375
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.58,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "subsection_name": "Установка баков расширительных круглых и прямоугольных",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 5.0
+      },
+      "matched_profile": "heating_system",
+      "profile_label": "Отопление",
+      "profile_unit": "м",
+      "rate_per_day": 70,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.56,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "subsection_name": "Установка фильтров для очистки воды в трубопроводах",
+      "work_items_count": 11,
+      "all_volumes": {
+        "шт": 20.0
+      },
+      "matched_profile": "heating_system",
+      "profile_label": "Отопление",
+      "profile_unit": "м",
+      "rate_per_day": 70,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.56,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "subsection_name": "Установка манометров с трёхходовым краном",
+      "work_items_count": 13,
+      "all_volumes": {
+        "шт": 82.0
+      },
+      "matched_profile": "heating_system",
+      "profile_label": "Отопление",
+      "profile_unit": "м",
+      "rate_per_day": 70,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.6,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "subsection_name": "Установка насосов центробежных с электродвигателем",
+      "work_items_count": 4,
+      "all_volumes": {
+        "шт": 18.0
+      },
+      "matched_profile": "heating_system",
+      "profile_label": "Отопление",
+      "profile_unit": "м",
+      "rate_per_day": 70,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.57,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "subsection_name": "Установка теплообменников пластинчатых в тепловом пункте",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 2.0
+      },
+      "matched_profile": "heating_system",
+      "profile_label": "Отопление",
+      "profile_unit": "м",
+      "rate_per_day": 70,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.55,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "subsection_name": "Установка грязевиков наружный",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 26.0
+      },
+      "matched_profile": "heating_system",
+      "profile_label": "Отопление",
+      "profile_unit": "м",
+      "rate_per_day": 70,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.69,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка над шахтами зонтов из листовой стали",
+      "work_items_count": 11,
+      "all_volumes": {
+        "шт": 49.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.62,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка камер приточных типовых без секции орошения",
+      "work_items_count": 7,
+      "all_volumes": {
+        "шт": 7.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.59,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка решёток вентиляционных пластиковых (алюминиевых)",
+      "work_items_count": 20,
+      "all_volumes": {
+        "шт": 273.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.58,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Прокладка воздуховодов класса Н из оцинкованной стали",
+      "work_items_count": 62,
+      "all_volumes": {
+        "м2": 2444.3289999999997
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.59,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка клапанов огнезадерживающих",
+      "work_items_count": 31,
+      "all_volumes": {
+        "шт": 106.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.68,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка блока присоединительного БП-1",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 3.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.66,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка вентиляторов радиальных масса до 0.05 т",
+      "work_items_count": 15,
+      "all_volumes": {
+        "шт": 16.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.61,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка узлов прохода вытяжных вентиляционных шахт",
+      "work_items_count": 4,
+      "all_volumes": {
+        "шт": 8.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.6,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "subsection_name": "Установка внутреннего блока системы мультизональной",
+      "work_items_count": 6,
+      "all_volumes": {
+        "шт": 10.0
+      },
+      "matched_profile": "ventilation_system",
+      "profile_label": "Вентиляция",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.6,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Установка щитка группового осветительного",
+      "work_items_count": 27,
+      "all_volumes": {
+        "шт": 27.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.63,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Установка прибора или аппарата",
+      "work_items_count": 36,
+      "all_volumes": {
+        "шт": 349.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.7,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Монтаж светильника с лампами светодиодными",
+      "work_items_count": 5,
+      "all_volumes": {
+        "шт": 1566.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.63,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Монтаж прожектора мощностью до 3 кВт",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 12.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.67,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Установка выключателя одноклавишного или двухклавишного",
+      "work_items_count": 6,
+      "all_volumes": {
+        "шт": 632.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.57,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка установочного провода под штукатурку по стене",
+      "work_items_count": 9,
+      "all_volumes": {
+        "м": 39969.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 39969.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 39969.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.87,
+      "duration_days": 267,
+      "calculation_trace": {
+        "formula": "ceil(39969.0 / 150)",
+        "raw_result": 266.46,
+        "min_duration": 1,
+        "final_days": 267,
+        "unit": "м",
+        "volume": 39969.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка короба (кабель-канала) полимерного",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м": 1791.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 1791.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 1791.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.92,
+      "duration_days": 12,
+      "calculation_trace": {
+        "formula": "ceil(1791.0 / 150)",
+        "raw_result": 11.94,
+        "min_duration": 1,
+        "final_days": 12,
+        "unit": "м",
+        "volume": 1791.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Монтаж устройства вводно-распределительного",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 7.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.62,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Монтаж установки (шкафа) комплектной конденсаторной на установленной",
+      "work_items_count": 2,
+      "all_volumes": {
+        "шт": 39.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.54,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Монтаж заземлителей горизонтальных из стали полосовой",
+      "work_items_count": 7,
+      "all_volumes": {
+        "м": 2985.0,
+        "шт": 8.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 2985.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 2985.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.88,
+      "duration_days": 20,
+      "calculation_trace": {
+        "formula": "ceil(2985.0 / 150)",
+        "raw_result": 19.9,
+        "min_duration": 1,
+        "final_days": 20,
+        "unit": "м",
+        "volume": 2985.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка линейная саморегулирующегося (нагревательного) греющего кабеля",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м": 290.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 290.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 290.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.83,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(290.0 / 150)",
+        "raw_result": 1.9333,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "м",
+        "volume": 290.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка в проложенных трубах, блоках или коробах кабеля до 35 кВ",
+      "work_items_count": 8,
+      "all_volumes": {
+        "м": 1307.0,
+        "шт": 12.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 1307.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 1307.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.85,
+      "duration_days": 9,
+      "calculation_trace": {
+        "formula": "ceil(1307.0 / 150)",
+        "raw_result": 8.7133,
+        "min_duration": 1,
+        "final_days": 9,
+        "unit": "м",
+        "volume": 1307.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка в готовой борозде по основанию пола трубы полимерной",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м": 271.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 271.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 271.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.85,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(271.0 / 150)",
+        "raw_result": 1.8067,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "м",
+        "volume": 271.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка по стене на кронштейнах лотка металлического оцинкованного",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м": 111.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 111.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 111.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.84,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(111.0 / 150)",
+        "raw_result": 0.74,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м",
+        "volume": 111.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Прокладка в проложенном лотке провода",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м": 4195.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 4195.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 4195.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.96,
+      "duration_days": 28,
+      "calculation_trace": {
+        "formula": "ceil(4195.0 / 150)",
+        "raw_result": 27.9667,
+        "min_duration": 1,
+        "final_days": 28,
+        "unit": "м",
+        "volume": 4195.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Электроснабжение",
+      "subsection_name": "Установка электрополотенцесушителя",
+      "work_items_count": 4,
+      "all_volumes": {
+        "шт": 24.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.68,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Лифтовое оборудование",
+      "subsection_name": "Монтаж лифта грузопассажирского",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 2.0,
+        "м": 30.8
+      },
+      "matched_profile": "elevator_installation",
+      "profile_label": "Монтаж лифтов",
+      "profile_unit": "шт",
+      "rate_per_day": 1,
+      "selected_unit": "шт",
+      "selected_volume": 2.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 2.0,
+      "duration_status": "ok",
+      "mapping_confidence": 1.0,
+      "duration_days": 30,
+      "calculation_trace": {
+        "formula": "ceil(2.0 / 1)",
+        "raw_result": 2.0,
+        "min_duration": 30,
+        "final_days": 30,
+        "unit": "шт",
+        "volume": 2.0,
+        "rate_per_day": 1
+      }
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Промывка трубопроводов с дезинфекцией",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м": 488.0,
+        "км трубопровода": 0.448
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": "м",
+      "selected_volume": 488.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 488.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.91,
+      "duration_days": 9,
+      "calculation_trace": {
+        "formula": "ceil(488.0 / 60)",
+        "raw_result": 8.1333,
+        "min_duration": 1,
+        "final_days": 9,
+        "unit": "м",
+        "volume": 488.0,
+        "rate_per_day": 60
+      }
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Укладка трубопроводов из стальных водопроводных труб с гидравлическим",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м": 60.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": "м",
+      "selected_volume": 60.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 60.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.81,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(60.0 / 60)",
+        "raw_result": 1.0,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м",
+        "volume": 60.0,
+        "rate_per_day": 60
+      }
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Укладка трубопроводов в траншею из полимерных труб",
+      "work_items_count": 3,
+      "all_volumes": {
+        "м": 448.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": "м",
+      "selected_volume": 448.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 448.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.86,
+      "duration_days": 8,
+      "calculation_trace": {
+        "formula": "ceil(448.0 / 60)",
+        "raw_result": 7.4667,
+        "min_duration": 1,
+        "final_days": 8,
+        "unit": "м",
+        "volume": 448.0,
+        "rate_per_day": 60
+      }
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Задвижки или клапаны обратные чугунные диаметром 100 мм",
+      "work_items_count": 4,
+      "all_volumes": {
+        "задвижка или\nклапан": 7.0,
+        "шт": 9.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.54,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Установка фасонных частей стальных сварных",
+      "work_items_count": 2,
+      "all_volumes": {
+        "т": 0.06869
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.59,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Приварка фланцев к стальным трубопроводам",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 2.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.59,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Установка гидрантов пожарных",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 3.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.68,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Установка вантузов одинарных",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 1.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.68,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "subsection_name": "Устройство круглых колодцев из сборного железобетона в грунте",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м3": 14.925
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.53,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружная канализация",
+      "subsection_name": "Устройство под трубопроводы основания бетонного",
+      "work_items_count": 4,
+      "all_volumes": {
+        "м3": 69.78
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.54,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружная канализация",
+      "subsection_name": "Укладка трубопроводов из полипропиленовых двухслойных гофрированных",
+      "work_items_count": 1,
+      "all_volumes": {
+        "м": 265.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 265.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 265.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 4,
+      "calculation_trace": {
+        "formula": "ceil(265.0 / 80)",
+        "raw_result": 3.3125,
+        "min_duration": 1,
+        "final_days": 4,
+        "unit": "м",
+        "volume": 265.0,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Наружная канализация",
+      "subsection_name": "Устройство канализационных круглых сборных железобетонных колодцев",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м3": 14.35
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.58,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружная канализация",
+      "subsection_name": "Установка люка",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 2.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.7,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Наружная канализация",
+      "subsection_name": "Установка (песко)уловителя вертикального",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 1.0
+      },
+      "matched_profile": "external_networks",
+      "profile_label": "Наружные сети",
+      "profile_unit": "м",
+      "rate_per_day": 60,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.7,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Установка приборов на резьбовых соединениях масса до 1.5 кг",
+      "work_items_count": 4,
+      "all_volumes": {
+        "шт": 4.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.48,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Установка дополнительная на пультах и панелях: реле",
+      "work_items_count": 3,
+      "all_volumes": {
+        "шт": 34.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.49,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж в подпольном люке коробки подключения аппаратуры",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 164.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.49,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж оборудования часов первичных электрических показывающих",
+      "work_items_count": 2,
+      "all_volumes": {
+        "шт": 29.0
+      },
+      "matched_profile": "equipment_installation",
+      "profile_label": "Монтаж оборудования",
+      "profile_unit": "шт",
+      "rate_per_day": 10,
+      "selected_unit": "шт",
+      "selected_volume": 29.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 29.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.88,
+      "duration_days": 3,
+      "calculation_trace": {
+        "formula": "ceil(29.0 / 10)",
+        "raw_result": 2.9,
+        "min_duration": 1,
+        "final_days": 3,
+        "unit": "шт",
+        "volume": 29.0,
+        "rate_per_day": 10
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Прокладка на провододержателях кабеля и провода питания",
+      "work_items_count": 6,
+      "all_volumes": {
+        "м": 7811.0
+      },
+      "matched_profile": "electrical_cable",
+      "profile_label": "Кабельные линии",
+      "profile_unit": "м",
+      "rate_per_day": 150,
+      "selected_unit": "м",
+      "selected_volume": 7811.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 7811.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.77,
+      "duration_days": 53,
+      "calculation_trace": {
+        "formula": "ceil(7811.0 / 150)",
+        "raw_result": 52.0733,
+        "min_duration": 1,
+        "final_days": 53,
+        "unit": "м",
+        "volume": 7811.0,
+        "rate_per_day": 150
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж блоков съёмных и выдвижных (модули, ячейки, ТЭЗ)",
+      "work_items_count": 8,
+      "all_volumes": {
+        "шт": 82.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.49,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж оборудования (щит, пульт) масса до 50 кг",
+      "work_items_count": 2,
+      "all_volumes": {
+        "шт": 2.0
+      },
+      "matched_profile": "equipment_installation",
+      "profile_label": "Монтаж оборудования",
+      "profile_unit": "шт",
+      "rate_per_day": 10,
+      "selected_unit": "шт",
+      "selected_volume": 2.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 2.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.94,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(2.0 / 10)",
+        "raw_result": 0.2,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "шт",
+        "volume": 2.0,
+        "rate_per_day": 10
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж оборудования аппаратов телефонной системы ЦБ или АТС",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 12.0
+      },
+      "matched_profile": "equipment_installation",
+      "profile_label": "Монтаж оборудования",
+      "profile_unit": "шт",
+      "rate_per_day": 10,
+      "selected_unit": "шт",
+      "selected_volume": 12.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 12.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.89,
+      "duration_days": 2,
+      "calculation_trace": {
+        "formula": "ceil(12.0 / 10)",
+        "raw_result": 1.2,
+        "min_duration": 1,
+        "final_days": 2,
+        "unit": "шт",
+        "volume": 12.0,
+        "rate_per_day": 10
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Установка на готовом месте стойки платы дополнительной",
+      "work_items_count": 8,
+      "all_volumes": {
+        "шт": 72.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.49,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж прибора приёмно-контрольного охранно-пожарного приёмника",
+      "work_items_count": 9,
+      "all_volumes": {
+        "шт": 706.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.48,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж в помещении громкоговорителя или звуковой колонки",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 135.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.49,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж оборудования отдельно устанавливаемого преобразователя",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 9.0
+      },
+      "matched_profile": "equipment_installation",
+      "profile_label": "Монтаж оборудования",
+      "profile_unit": "шт",
+      "rate_per_day": 10,
+      "selected_unit": "шт",
+      "selected_volume": 9.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 9.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.89,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(9.0 / 10)",
+        "raw_result": 0.9,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "шт",
+        "volume": 9.0,
+        "rate_per_day": 10
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Система управления доступом с автоматическим запирающим устройством",
+      "work_items_count": 6,
+      "all_volumes": {
+        "шт": 122.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.47,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Монтаж оборудования: устройство цифровой регистрации",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 1.0
+      },
+      "matched_profile": "equipment_installation",
+      "profile_label": "Монтаж оборудования",
+      "profile_unit": "шт",
+      "rate_per_day": 10,
+      "selected_unit": "шт",
+      "selected_volume": 1.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "шт",
+        "target_unit": "шт"
+      },
+      "final_unit": "шт",
+      "final_volume": 1.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.92,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(1.0 / 10)",
+        "raw_result": 0.1,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "шт",
+        "volume": 1.0,
+        "rate_per_day": 10
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Установка маркера электронного с функцией самовыравнивания",
+      "work_items_count": 1,
+      "all_volumes": {
+        "шт": 7.0
+      },
+      "matched_profile": "fire_alarm_low_current",
+      "profile_label": "Слаботочные системы",
+      "profile_unit": "м",
+      "rate_per_day": 120,
+      "selected_unit": null,
+      "selected_volume": null,
+      "volume_resolved": false,
+      "unit_direct_match": false,
+      "conversion_info": null,
+      "final_unit": null,
+      "final_volume": null,
+      "duration_status": "no_volume",
+      "mapping_confidence": 0.48,
+      "duration_days": null,
+      "calculation_trace": null
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Прокладка трубопроводов в непроходном канале при условном давлении",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м": 312.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 312.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 312.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 4,
+      "calculation_trace": {
+        "formula": "ceil(312.0 / 80)",
+        "raw_result": 3.9,
+        "min_duration": 1,
+        "final_days": 4,
+        "unit": "м",
+        "volume": 312.0,
+        "rate_per_day": 80
+      }
+    },
+    {
+      "phase": "Слаботочные системы",
+      "subsection_name": "Прокладка бесканальная трубопроводов из стальных труб предварительно",
+      "work_items_count": 2,
+      "all_volumes": {
+        "м": 6.0
+      },
+      "matched_profile": "water_supply_pipes",
+      "profile_label": "Водоснабжение и водоотведение",
+      "profile_unit": "м",
+      "rate_per_day": 80,
+      "selected_unit": "м",
+      "selected_volume": 6.0,
+      "volume_resolved": true,
+      "unit_direct_match": true,
+      "conversion_info": {
+        "converted": false,
+        "source_unit": "м",
+        "target_unit": "м"
+      },
+      "final_unit": "м",
+      "final_volume": 6.0,
+      "duration_status": "ok",
+      "mapping_confidence": 0.8,
+      "duration_days": 1,
+      "calculation_trace": {
+        "formula": "ceil(6.0 / 80)",
+        "raw_result": 0.075,
+        "min_duration": 1,
+        "final_days": 1,
+        "unit": "м",
+        "volume": 6.0,
+        "rate_per_day": 80
+      }
+    }
+  ]
+}

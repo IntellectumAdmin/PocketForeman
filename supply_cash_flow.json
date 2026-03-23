@@ -1,0 +1,137 @@
+{
+  "finance_version": "1.1",
+  "project": "Школа №65, Уральск",
+  "supply_lead_days": 15,
+  "total_material_cost": 3140085330,
+  "total_material_cost_mln": 3140.09,
+  "peak_month": "2026-11",
+  "peak_cost": 313387383,
+  "months": [
+    {
+      "period": "2024-12",
+      "supply_cost": 14014358,
+      "supply_cost_mln": 14.014,
+      "work_cost": 0,
+      "total_cost": 14014358
+    },
+    {
+      "period": "2025-01",
+      "supply_cost": 287174347,
+      "supply_cost_mln": 287.174,
+      "work_cost": 726092563,
+      "total_cost": 1013266910
+    },
+    {
+      "period": "2025-02",
+      "supply_cost": 234580589,
+      "supply_cost_mln": 234.581,
+      "work_cost": 107073495,
+      "total_cost": 341654084
+    },
+    {
+      "period": "2025-03",
+      "supply_cost": 234580589,
+      "supply_cost_mln": 234.581,
+      "work_cost": 107073495,
+      "total_cost": 341654084
+    },
+    {
+      "period": "2025-04",
+      "supply_cost": 234580589,
+      "supply_cost_mln": 234.581,
+      "work_cost": 107073495,
+      "total_cost": 341654084
+    },
+    {
+      "period": "2025-05",
+      "supply_cost": 291751063,
+      "supply_cost_mln": 291.751,
+      "work_cost": 107073495,
+      "total_cost": 398824558
+    },
+    {
+      "period": "2025-06",
+      "supply_cost": 291751063,
+      "supply_cost_mln": 291.751,
+      "work_cost": 312481409,
+      "total_cost": 604232472
+    },
+    {
+      "period": "2026-01",
+      "supply_cost": 19404288,
+      "supply_cost_mln": 19.404,
+      "work_cost": 8853759,
+      "total_cost": 28258046
+    },
+    {
+      "period": "2026-02",
+      "supply_cost": 19404288,
+      "supply_cost_mln": 19.404,
+      "work_cost": 31187487,
+      "total_cost": 50591774
+    },
+    {
+      "period": "2026-03",
+      "supply_cost": 19404288,
+      "supply_cost_mln": 19.404,
+      "work_cost": 22333728,
+      "total_cost": 41738016
+    },
+    {
+      "period": "2026-04",
+      "supply_cost": 19404288,
+      "supply_cost_mln": 19.404,
+      "work_cost": 52883528,
+      "total_cost": 72287816
+    },
+    {
+      "period": "2026-05",
+      "supply_cost": 52038500,
+      "supply_cost_mln": 52.038,
+      "work_cost": 94512355,
+      "total_cost": 146550855
+    },
+    {
+      "period": "2026-06",
+      "supply_cost": 52038500,
+      "supply_cost_mln": 52.038,
+      "work_cost": 63962555,
+      "total_cost": 116001055
+    },
+    {
+      "period": "2026-07",
+      "supply_cost": 293048925,
+      "supply_cost_mln": 293.049,
+      "work_cost": 109388750,
+      "total_cost": 402437675
+    },
+    {
+      "period": "2026-08",
+      "supply_cost": 254507425,
+      "supply_cost_mln": 254.507,
+      "work_cost": 95267296,
+      "total_cost": 349774721
+    },
+    {
+      "period": "2026-09",
+      "supply_cost": 254507425,
+      "supply_cost_mln": 254.507,
+      "work_cost": 95267296,
+      "total_cost": 349774721
+    },
+    {
+      "period": "2026-10",
+      "supply_cost": 254507425,
+      "supply_cost_mln": 254.507,
+      "work_cost": 95267296,
+      "total_cost": 349774721
+    },
+    {
+      "period": "2026-11",
+      "supply_cost": 313387383,
+      "supply_cost_mln": 313.387,
+      "work_cost": 147475828,
+      "total_cost": 460863211
+    }
+  ]
+}

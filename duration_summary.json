@@ -1,156 +1,173 @@
 {
-  "project": "8._локальные",
-  "version": "6.2",
-  "stats": {
-    "total_subsections": 141,
-    "mapped_subsections": 137,
-    "unmapped_subsections": 4,
-    "coverage_pct": 97.2,
-    "auto_corrected_units": 1,
-    "suspicious_units": 0
-  },
+  "engine_version": "7.0",
   "duration": {
-    "total_sequential_days": 4528,
-    "total_sequential_months": 150.9,
-    "critical_path_rough_days": 1267,
-    "parallel_rough_days": 1584,
-    "parallel_rough_months": 52.8,
-    "note": "Параллельный расчёт ~35% от последовательного. Уточнит GPR Builder."
+    "sequential_days": 6494,
+    "sequential_months": 216.5,
+    "parallel_days": 1129,
+    "parallel_months": 37.6,
+    "critical_path_days": 279,
+    "note": "parallel_days = сумма max() по каждой фазе"
   },
   "phases": [
     {
-      "phase": "Электроснабжение и электрооборудование",
-      "duration_days": 1267,
-      "duration_months": 42.2,
-      "subsections": 7,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Плиты перекрытия и балки",
-      "duration_days": 874,
-      "duration_months": 29.1,
-      "subsections": 3,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Водоснабжение и канализация",
-      "duration_days": 342,
-      "duration_months": 11.4,
-      "subsections": 7,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Вентиляция и кондиционирование",
-      "duration_days": 326,
-      "duration_months": 10.9,
-      "subsections": 5,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Стены и перегородки",
-      "duration_days": 314,
-      "duration_months": 10.5,
-      "subsections": 11,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Металлоконструкции",
-      "duration_days": 296,
-      "duration_months": 9.9,
-      "subsections": 3,
-      "auto_corrected": 1
-    },
-    {
-      "phase": "Полы",
-      "duration_days": 264,
-      "duration_months": 8.8,
-      "subsections": 2,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Фундаменты",
-      "duration_days": 214,
-      "duration_months": 7.1,
-      "subsections": 9,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Внутренняя отделка",
-      "duration_days": 202,
-      "duration_months": 6.7,
-      "subsections": 4,
-      "auto_corrected": 0
+      "phase": "Земляные работы",
+      "phase_order": 1,
+      "work_count": 43,
+      "duration_days": 19,
+      "duration_months": 0.6,
+      "sum_if_sequential": 192,
+      "parallel_saving_days": 173,
+      "note": "parallel_in_phase=True → max(durations)"
     },
     {
       "phase": "Монолитный каркас",
-      "duration_days": 150,
-      "duration_months": 5.0,
-      "subsections": 14,
-      "auto_corrected": 0
+      "phase_order": 3,
+      "work_count": 526,
+      "duration_days": 133,
+      "duration_months": 4.4,
+      "sum_if_sequential": 2006,
+      "parallel_saving_days": 1873,
+      "note": "parallel_in_phase=True → max(durations)"
     },
     {
-      "phase": "Кровля и парапеты",
-      "duration_days": 109,
-      "duration_months": 3.6,
-      "subsections": 4,
-      "auto_corrected": 0
+      "phase": "Каменные работы",
+      "phase_order": 4,
+      "work_count": 12,
+      "duration_days": 10,
+      "duration_months": 0.3,
+      "sum_if_sequential": 27,
+      "parallel_saving_days": 17,
+      "note": "parallel_in_phase=True → max(durations)"
     },
     {
-      "phase": "Отопление и теплоснабжение",
-      "duration_days": 94,
-      "duration_months": 3.1,
-      "subsections": 7,
-      "auto_corrected": 0
+      "phase": "Металлические конструкции",
+      "phase_order": 5,
+      "work_count": 7,
+      "duration_days": 254,
+      "duration_months": 8.5,
+      "sum_if_sequential": 342,
+      "parallel_saving_days": 88,
+      "note": "parallel_in_phase=True → max(durations)"
     },
     {
-      "phase": "Лифтовое оборудование",
-      "duration_days": 30,
-      "duration_months": 1.0,
-      "subsections": 1,
-      "auto_corrected": 0
+      "phase": "Деревянные конструкции",
+      "phase_order": 6,
+      "work_count": 24,
+      "duration_days": 18,
+      "duration_months": 0.6,
+      "sum_if_sequential": 41,
+      "parallel_saving_days": 23,
+      "note": "parallel_in_phase=True → max(durations)"
     },
     {
-      "phase": "Санитарные помещения",
+      "phase": "Окна и двери",
+      "phase_order": 7,
+      "work_count": 11,
+      "duration_days": 21,
+      "duration_months": 0.7,
+      "sum_if_sequential": 99,
+      "parallel_saving_days": 78,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Отделочные работы",
+      "phase_order": 8,
+      "work_count": 90,
+      "duration_days": 124,
+      "duration_months": 4.1,
+      "sum_if_sequential": 876,
+      "parallel_saving_days": 752,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Полы",
+      "phase_order": 9,
+      "work_count": 144,
+      "duration_days": 75,
+      "duration_months": 2.5,
+      "sum_if_sequential": 990,
+      "parallel_saving_days": 915,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Кровля наружная",
+      "phase_order": 10,
+      "work_count": 45,
+      "duration_days": 77,
+      "duration_months": 2.6,
+      "sum_if_sequential": 178,
+      "parallel_saving_days": 101,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "phase_order": 11,
+      "work_count": 137,
       "duration_days": 14,
       "duration_months": 0.5,
-      "subsections": 1,
-      "auto_corrected": 0
+      "sum_if_sequential": 229,
+      "parallel_saving_days": 215,
+      "note": "parallel_in_phase=True → max(durations)"
     },
     {
-      "phase": "Земляные работы",
-      "duration_days": 9,
-      "duration_months": 0.3,
-      "subsections": 3,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Спортивные и актовые залы",
-      "duration_days": 8,
-      "duration_months": 0.3,
-      "subsections": 5,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Прочее оборудование и мебель",
-      "duration_days": 7,
-      "duration_months": 0.2,
-      "subsections": 6,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Благоустройство территории",
-      "duration_days": 6,
-      "duration_months": 0.2,
-      "subsections": 8,
-      "auto_corrected": 0
-    },
-    {
-      "phase": "Лестницы",
-      "duration_days": 2,
+      "phase": "Фасадные работы",
+      "phase_order": 14,
+      "work_count": 14,
+      "duration_days": 4,
       "duration_months": 0.1,
-      "subsections": 4,
-      "auto_corrected": 0
+      "sum_if_sequential": 18,
+      "parallel_saving_days": 14,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Благоустройство некритичное",
+      "phase_order": 14,
+      "work_count": 13,
+      "duration_days": 279,
+      "duration_months": 9.3,
+      "sum_if_sequential": 689,
+      "parallel_saving_days": 410,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Лестницы и площадки",
+      "phase_order": 15,
+      "work_count": 35,
+      "duration_days": 3,
+      "duration_months": 0.1,
+      "sum_if_sequential": 38,
+      "parallel_saving_days": 35,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Прочие работы",
+      "phase_order": 17,
+      "work_count": 159,
+      "duration_days": 10,
+      "duration_months": 0.3,
+      "sum_if_sequential": 191,
+      "parallel_saving_days": 181,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Электроснабжение",
+      "phase_order": 18,
+      "work_count": 61,
+      "duration_days": 29,
+      "duration_months": 1.0,
+      "sum_if_sequential": 178,
+      "parallel_saving_days": 149,
+      "note": "parallel_in_phase=True → max(durations)"
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "phase_order": 21,
+      "work_count": 111,
+      "duration_days": 59,
+      "duration_months": 2.0,
+      "sum_if_sequential": 400,
+      "parallel_saving_days": 341,
+      "note": "parallel_in_phase=True → max(durations)"
     }
-  ],
-  "note": "Читаемый итог для инженера. Основа для GPR Builder."
+  ]
 }

@@ -1,0 +1,63 @@
+{
+  "engine_version": "1.0",
+  "report_date": "2025-07-15",
+  "risks_count": 7,
+  "risks": [
+    {
+      "month": "2025-07",
+      "gap_mln": -584.21,
+      "cumulative_gap_mln": -584.21,
+      "severity": "critical",
+      "type": "cash_deficit",
+      "recommendation": "Срочно: критический кассовый разрыв — требуется решение"
+    },
+    {
+      "month": "2025-06",
+      "gap_mln": -580.67,
+      "cumulative_gap_mln": -580.67,
+      "severity": "critical",
+      "type": "cash_deficit",
+      "recommendation": "Срочно: критический кассовый разрыв — требуется решение"
+    },
+    {
+      "month": "2025-05",
+      "gap_mln": -338.98,
+      "cumulative_gap_mln": -338.98,
+      "severity": "critical",
+      "type": "cash_deficit",
+      "recommendation": "Срочно: критический кассовый разрыв — требуется решение"
+    },
+    {
+      "month": "2025-04",
+      "gap_mln": -239.27,
+      "cumulative_gap_mln": -239.27,
+      "severity": "risk",
+      "type": "cash_deficit",
+      "recommendation": "Ускорить финансирование или скорректировать план закупок"
+    },
+    {
+      "month": "2025-03",
+      "gap_mln": -153.86,
+      "cumulative_gap_mln": -153.86,
+      "severity": "risk",
+      "type": "cash_deficit",
+      "recommendation": "Ускорить финансирование или скорректировать план закупок"
+    },
+    {
+      "month": "2025-01",
+      "gap_mln": -51.36,
+      "cumulative_gap_mln": -51.36,
+      "severity": "warning",
+      "type": "cash_deficit",
+      "recommendation": "Проверить финансирование — небольшое отставание"
+    },
+    {
+      "month": "2024-12",
+      "gap_mln": -0.7,
+      "cumulative_gap_mln": -0.7,
+      "severity": "warning",
+      "type": "cash_deficit",
+      "recommendation": "Проверить финансирование — небольшое отставание"
+    }
+  ]
+}

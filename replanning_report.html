@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8">
+<title>Replanning Report — AINTELLECTUM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,sans-serif;background:#fafafa;color:#1a1a1a;padding:24px}
+h1{font-size:18px;font-weight:500;margin-bottom:4px}
+.sub{font-size:13px;color:#888;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.card{background:#fff;border:0.5px solid #e0e0e0;border-radius:8px;padding:12px 16px}
+.cl{font-size:11px;color:#999;margin-bottom:4px}
+.cv{font-size:18px;font-weight:500}
+h2{font-size:15px;font-weight:500;margin:20px 0 12px}
+table{width:100%;border-collapse:collapse;background:#fff;
+       border:0.5px solid #e0e0e0;border-radius:8px;overflow:hidden;margin-bottom:24px}
+thead tr{background:#f5f5f5}
+th{padding:8px 10px;font-size:12px;font-weight:500;text-align:left;
+    border-bottom:0.5px solid #e0e0e0}
+tr:hover{background:#fafafa}
+.rec-box{background:#fff;border:2px solid #1D9E75;border-radius:10px;
+          padding:16px 20px;margin-bottom:24px}
+.footer{font-size:11px;color:#bbb;text-align:right;margin-top:16px}
+</style></head><body>
+<h1>Replanning Report — Школа №65, Уральск</h1>
+<div class="sub">AINTELLECTUM · Decision Engine v2.0 · Assisted Replanning · 2025-07-15</div>
+
+<div class="cards">
+  <div class="card"><div class="cl">Baseline финиш</div><div class="cv">2027-02-02</div></div>
+  <div class="card"><div class="cl">Live финиш</div><div class="cv" style="color:#E24B4A">2027-02-02</div></div>
+  <div class="card"><div class="cl">Рекомендованный финиш</div>
+    <div class="cv" style="color:#1D9E75">2025-07-31</div></div>
+  <div class="card"><div class="cl">Улучшение</div>
+    <div class="cv" style="color:#1D9E75">+551 дн. улучшение</div></div>
+</div>
+
+<h2>Триггеры перепланирования</h2>
+<div style="margin-bottom:6px;padding:8px 12px;background:#fff;border:0.5px solid #e0e0e0;border-radius:6px;font-size:13px;"><b>critical_cash_gap</b> → -584.21 млн тг</div>
+
+<h2>Сравнение сценариев</h2>
+<table>
+  <thead><tr><th>Сценарий</th><th>Описание</th><th>Новый финиш</th>
+    <th>Δ vs live</th><th>Пик разрыва</th><th>Затронуто</th><th>Score</th></tr></thead>
+  <tbody>
+      <tr style="background:#f0f9f4;">
+        <td style="padding:8px 10px;font-size:13px;border-bottom:0.5px solid #eee;">
+          <span style="background:#378ADD;color:#fff;padding:3px 8px;border-radius:4px;
+                       font-size:12px">→ SHIFT</span>
+          <span style="background:#1D9E75;color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-left:4px">★ РЕК.</span></td>
+        <td style="padding:8px 10px;font-size:12px;border-bottom:0.5px solid #eee;">
+          Сдвиг downstream задач без изменения ресурсов</td>
+        <td style="padding:8px 10px;font-size:13px;font-weight:500;
+                   border-bottom:0.5px solid #eee;">2025-07-31</td>
+        <td style="padding:8px 10px;font-size:13px;color:#1D9E75;
+                   border-bottom:0.5px solid #eee;">-551 дн.</td>
+        <td style="padding:8px 10px;font-size:12px;color:#E24B4A;
+                   border-bottom:0.5px solid #eee;">-584.2 млн</td>
+        <td style="padding:8px 10px;font-size:12px;border-bottom:0.5px solid #eee;">
+          0</td>
+        <td style="padding:8px 10px;font-size:14px;font-weight:500;
+                   border-bottom:0.5px solid #eee;color:#378ADD">70.0</td>
+      </tr>
+      <tr style="">
+        <td style="padding:8px 10px;font-size:13px;border-bottom:0.5px solid #eee;">
+          <span style="background:#1D9E75;color:#fff;padding:3px 8px;border-radius:4px;
+                       font-size:12px">⚡ ACCELERATE</span>
+          </td>
+        <td style="padding:8px 10px;font-size:12px;border-bottom:0.5px solid #eee;">
+          Ускорение критичных фаз за счёт увеличения ресурсов</td>
+        <td style="padding:8px 10px;font-size:13px;font-weight:500;
+                   border-bottom:0.5px solid #eee;">2025-07-31</td>
+        <td style="padding:8px 10px;font-size:13px;color:#1D9E75;
+                   border-bottom:0.5px solid #eee;">-551 дн.</td>
+        <td style="padding:8px 10px;font-size:12px;color:#E24B4A;
+                   border-bottom:0.5px solid #eee;">-642.6 млн</td>
+        <td style="padding:8px 10px;font-size:12px;border-bottom:0.5px solid #eee;">
+          0</td>
+        <td style="padding:8px 10px;font-size:14px;font-weight:500;
+                   border-bottom:0.5px solid #eee;color:#1D9E75">70.0</td>
+      </tr>
+      <tr style="">
+        <td style="padding:8px 10px;font-size:13px;border-bottom:0.5px solid #eee;">
+          <span style="background:#EF9F27;color:#fff;padding:3px 8px;border-radius:4px;
+                       font-size:12px">⏸ DEFER</span>
+          </td>
+        <td style="padding:8px 10px;font-size:12px;border-bottom:0.5px solid #eee;">
+          Перенос некритичных фаз для снижения кассового давления</td>
+        <td style="padding:8px 10px;font-size:13px;font-weight:500;
+                   border-bottom:0.5px solid #eee;">2025-07-31</td>
+        <td style="padding:8px 10px;font-size:13px;color:#1D9E75;
+                   border-bottom:0.5px solid #eee;">-551 дн.</td>
+        <td style="padding:8px 10px;font-size:12px;color:#E24B4A;
+                   border-bottom:0.5px solid #eee;">-438.2 млн</td>
+        <td style="padding:8px 10px;font-size:12px;border-bottom:0.5px solid #eee;">
+          15</td>
+        <td style="padding:8px 10px;font-size:14px;font-weight:500;
+                   border-bottom:0.5px solid #eee;color:#EF9F27">64.3</td>
+      </tr></tbody>
+</table>
+
+<div class="rec-box">
+  <div style="font-size:15px;font-weight:500;color:#1D9E75;margin-bottom:8px">
+    ★ Рекомендованный сценарий: SHIFT</div>
+  <div style="font-size:13px;color:#444;margin-bottom:8px">
+    Консервативный сценарий — реалистичный прогноз без дополнительных затрат</div>
+  <div style="font-size:12px;color:#888">
+    Компромиссы: Финиш уходит вправо · Кассовый разрыв не устраняется</div>
+</div>
+
+<h2>Что изменится (SHIFT)</h2>
+<div style="background:#fff;border:0.5px solid #e0e0e0;border-radius:8px;overflow:hidden;margin-bottom:24px">
+<p style="padding:10px;color:#888;font-size:13px">Сдвиг downstream задач согласно зависимостям</p>
+</div>
+
+<div style="background:#fff;border:0.5px solid #e0e0e0;border-radius:8px;padding:14px 16px;
+            font-size:13px;color:#666;margin-bottom:24px">
+  ⚠️ Этот план <b>не применяется автоматически</b>. Ереке или ПТО должны утвердить сценарий.
+</div>
+
+<div class="footer">AINTELLECTUM Decision Engine v2.0 · Ереке · Аян · Claude</div>
+</body></html>

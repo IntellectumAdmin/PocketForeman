@@ -1,0 +1,270 @@
+{
+  "finance_version": "1.0",
+  "project": "Школа №65, Уральск",
+  "total_cost": 2493015981,
+  "total_cost_mln": 2493.02,
+  "peak_month": "2025-01",
+  "peak_cost_mln": 726.093,
+  "phases": [
+    {
+      "phase": "Монолитный каркас",
+      "total_cost": 642440971,
+      "start_date": "2025-01-20",
+      "finish_date": "2025-06-02",
+      "duration_days": 133,
+      "months_count": 6,
+      "per_month": 107073495,
+      "months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ]
+    },
+    {
+      "phase": "Отделочные работы",
+      "total_cost": 476336478,
+      "start_date": "2026-07-18",
+      "finish_date": "2026-11-19",
+      "duration_days": 124,
+      "months_count": 5,
+      "per_month": 95267296,
+      "months": [
+        "2026-07",
+        "2026-08",
+        "2026-09",
+        "2026-10",
+        "2026-11"
+      ]
+    },
+    {
+      "phase": "Земляные работы",
+      "total_cost": 470397608,
+      "start_date": "2025-01-01",
+      "finish_date": "2025-01-20",
+      "duration_days": 19,
+      "months_count": 1,
+      "per_month": 470397608,
+      "months": [
+        "2025-01"
+      ]
+    },
+    {
+      "phase": "Полы",
+      "total_cost": 208834131,
+      "start_date": "2026-11-19",
+      "finish_date": "2027-02-02",
+      "duration_days": 75,
+      "months_count": 4,
+      "per_month": 52208533,
+      "months": [
+        "2026-11",
+        "2026-12",
+        "2027-01",
+        "2027-02"
+      ]
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "total_cost": 160203216,
+      "start_date": "2025-06-02",
+      "finish_date": "2025-06-16",
+      "duration_days": 14,
+      "months_count": 1,
+      "per_month": 160203216,
+      "months": [
+        "2025-06"
+      ]
+    },
+    {
+      "phase": "Электроснабжение",
+      "total_cost": 99682200,
+      "start_date": "2026-05-20",
+      "finish_date": "2026-06-18",
+      "duration_days": 29,
+      "months_count": 2,
+      "per_month": 49841100,
+      "months": [
+        "2026-05",
+        "2026-06"
+      ]
+    },
+    {
+      "phase": "Металлические конструкции",
+      "total_cost": 79683828,
+      "start_date": "2025-06-02",
+      "finish_date": "2026-02-11",
+      "duration_days": 254,
+      "months_count": 9,
+      "per_month": 8853759,
+      "months": [
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12",
+        "2026-01",
+        "2026-02"
+      ]
+    },
+    {
+      "phase": "Благоустройство",
+      "total_cost": 73288562,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Кровля наружная",
+      "total_cost": 67001185,
+      "start_date": "2026-02-11",
+      "finish_date": "2026-04-29",
+      "duration_days": 77,
+      "months_count": 3,
+      "per_month": 22333728,
+      "months": [
+        "2026-02",
+        "2026-03",
+        "2026-04"
+      ]
+    },
+    {
+      "phase": "Окна и двери",
+      "total_cost": 61099600,
+      "start_date": "2026-04-29",
+      "finish_date": "2026-05-20",
+      "duration_days": 21,
+      "months_count": 2,
+      "per_month": 30549800,
+      "months": [
+        "2026-04",
+        "2026-05"
+      ]
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "total_cost": 42364365,
+      "start_date": "2026-05-20",
+      "finish_date": "2026-07-18",
+      "duration_days": 59,
+      "months_count": 3,
+      "per_month": 14121455,
+      "months": [
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ]
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "total_cost": 32256179,
+      "start_date": "2025-06-02",
+      "finish_date": "2025-06-20",
+      "duration_days": 18,
+      "months_count": 1,
+      "per_month": 32256179,
+      "months": [
+        "2025-06"
+      ]
+    },
+    {
+      "phase": "Слаботочные системы",
+      "total_cost": 28524000,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "total_cost": 24637126,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Кровля",
+      "total_cost": 17333457,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Каменные работы",
+      "total_cost": 4094760,
+      "start_date": "2025-06-02",
+      "finish_date": "2025-06-12",
+      "duration_days": 10,
+      "months_count": 1,
+      "per_month": 4094760,
+      "months": [
+        "2025-06"
+      ]
+    },
+    {
+      "phase": "Наружные сети водоснабжения",
+      "total_cost": 2303525,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Наружная канализация",
+      "total_cost": 1056390,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Сантехника (санузлы)",
+      "total_cost": 921000,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Отопление и теплоснабжение",
+      "total_cost": 459000,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    },
+    {
+      "phase": "Лифтовое оборудование",
+      "total_cost": 98400,
+      "start_date": null,
+      "finish_date": null,
+      "months": [
+        "2025-01"
+      ],
+      "note": "нет в ГПР — отнесено к старту"
+    }
+  ]
+}

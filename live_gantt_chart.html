@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8">
+<title>Live ГПР — AINTELLECTUM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,sans-serif;background:#fafafa;color:#1a1a1a;padding:24px}
+h1{font-size:18px;font-weight:500;margin-bottom:4px}
+.sub{font-size:13px;color:#888;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.card{background:#fff;border:0.5px solid #e0e0e0;border-radius:8px;padding:12px 16px}
+.cl{font-size:11px;color:#999;margin-bottom:4px}
+.cv{font-size:18px;font-weight:500}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px;align-items:center}
+table{width:100%;border-collapse:collapse;background:#fff;
+       border:0.5px solid #e0e0e0;border-radius:8px;overflow:hidden;margin-bottom:20px}
+thead tr{background:#f5f5f5}
+th{padding:8px 10px;font-size:12px;font-weight:500;text-align:left;
+    border-bottom:0.5px solid #e0e0e0}
+tr:hover{background:#fafafa}
+.recs{background:#fff;border:0.5px solid #e0e0e0;border-radius:8px;
+       padding:14px 16px;margin-bottom:16px}
+.recs h3{font-size:14px;font-weight:500;margin-bottom:10px}
+.footer{font-size:11px;color:#bbb;text-align:right}
+.bl-label{font-size:10px;color:#aaa}
+</style></head><body>
+<h1>Live ГПР — Школа №65, Уральск</h1>
+<div class="sub">AINTELLECTUM · Live Construction Engine v1.1 · Дата: 2025-07-15</div>
+<div class="cards">
+  <div class="card"><div class="cl">Baseline финиш</div><div class="cv">2027-02-02</div></div>
+  <div class="card"><div class="cl">Live финиш</div>
+    <div class="cv" style="color:#1D9E75">2027-02-02</div></div>
+  <div class="card"><div class="cl">Сдвиг графика</div>
+    <div class="cv" style="color:#1D9E75">по плану</div></div>
+  <div class="card"><div class="cl">Задач</div>
+    <div class="cv">16 (7 завершено)</div></div>
+</div>
+<div class="recs"><h3>Рекомендации</h3><ul style="padding-left:18px"><li style="font-size:13px;margin-bottom:4px">Проект идёт по плану — продолжать мониторинг</li></ul></div>
+<div class="legend"><span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:#378ADD"></span><span style="font-size:12px;color:var(--color-text-secondary,#666)">on_track</span></span><span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:#BA7517"></span><span style="font-size:12px;color:var(--color-text-secondary,#666)">delayed</span></span><span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:#2C2C2A"></span><span style="font-size:12px;color:var(--color-text-secondary,#666)">blocked</span></span><span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:#1D9E75"></span><span style="font-size:12px;color:var(--color-text-secondary,#666)">completed</span></span><span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:#639922"></span><span style="font-size:12px;color:var(--color-text-secondary,#666)">ahead</span></span>
+  <span style="font-size:12px;color:#999;margin-left:8px">
+    ▪ верхняя полоса = baseline &nbsp; ▪ нижняя = live
+  </span>
+</div>
+<table>
+  <thead><tr><th>Фаза</th><th>Статус</th><th>Прогресс</th><th>Диаграмма (baseline / live)</th></tr></thead>
+  <tbody>
+      <tr title="Фаза: Земляные работы&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-01-01 → 2025-01-20&#10;Live:     2025-01-01 → 2025-01-20&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Земляные работы</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:0.0%;width:2.49%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:0.0%;width:2.49%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:0.0%;height:28px;
+                        width:2.49%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Монолитный каркас&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-01-20 → 2025-06-02&#10;Live:     2025-01-20 → 2025-06-02&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Монолитный каркас</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:2.49%;width:17.45%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:2.49%;width:17.45%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:2.49%;height:28px;
+                        width:17.45%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Благоустройство некритичное&#10;Статус: ahead&#10;План: 63.1%  Факт: 82.0%&#10;Baseline: 2025-01-20 → 2025-10-26&#10;Live:     2025-01-20 → 2025-04-09&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Благоустройство некритичное</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">ahead</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">82.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:2.49%;width:36.61%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:2.49%;width:10.37%;
+                        height:12px;background:#639922;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:2.49%;height:28px;
+                        width:36.61%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:82.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Каменные работы&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-06-02 → 2025-06-12&#10;Live:     2025-06-02 → 2025-06-12&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Каменные работы</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:19.95%;width:1.31%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:19.95%;width:1.31%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:19.95%;height:28px;
+                        width:1.31%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Металлические конструкции&#10;Статус: on_track&#10;План: 16.9%  Факт: 22.0%&#10;Baseline: 2025-06-02 → 2026-02-11&#10;Live:     2025-06-02 → 2025-12-30&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Металлические конструкции<span style="background:#E24B4A;color:#fff;font-size:10px;padding:1px 4px;border-radius:3px;margin-left:3px">КП</span></td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">on_track</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">22.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:19.95%;width:33.33%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:19.95%;width:27.69%;
+                        height:12px;background:#378ADD;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:19.95%;height:28px;
+                        width:33.33%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:22.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Деревянные конструкции&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-06-02 → 2025-06-20&#10;Live:     2025-06-02 → 2025-06-20&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Деревянные конструкции</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:19.95%;width:2.36%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:19.95%;width:2.36%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:19.95%;height:28px;
+                        width:2.36%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Гидро- и пароизоляция&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-06-02 → 2025-06-16&#10;Live:     2025-06-02 → 2025-06-16&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Гидро- и пароизоляция</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:19.95%;width:1.84%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:19.95%;width:1.84%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:19.95%;height:28px;
+                        width:1.84%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Фасадные работы&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-06-02 → 2025-06-06&#10;Live:     2025-06-02 → 2025-06-06&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Фасадные работы</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:19.95%;width:0.52%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:19.95%;width:0.52%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:19.95%;height:28px;
+                        width:0.52%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Лестницы и площадки&#10;Статус: completed&#10;План: 100.0%  Факт: 100.0%&#10;Baseline: 2025-06-02 → 2025-06-05&#10;Live:     2025-06-02 → 2025-06-05&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Лестницы и площадки</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">completed</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">100.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:19.95%;width:0.39%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:19.95%;width:0.39%;
+                        height:12px;background:#1D9E75;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:19.95%;height:28px;
+                        width:0.39%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:100.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Кровля наружная&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-02-11 → 2026-04-29&#10;Live:     2026-02-11 → 2026-04-29&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Кровля наружная</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:53.28%;width:10.1%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:53.28%;width:10.1%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:53.28%;height:28px;
+                        width:10.1%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Окна и двери&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-04-29 → 2026-05-20&#10;Live:     2026-04-29 → 2026-05-20&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Окна и двери</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:63.39%;width:2.76%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:63.39%;width:2.76%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:63.39%;height:28px;
+                        width:2.76%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Электроснабжение&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-05-20 → 2026-06-18&#10;Live:     2026-05-20 → 2026-06-18&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Электроснабжение</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:66.14%;width:3.81%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:66.14%;width:3.81%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:66.14%;height:28px;
+                        width:3.81%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Водоснабжение и канализация&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-05-20 → 2026-07-18&#10;Live:     2026-05-20 → 2026-07-18&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Водоснабжение и канализация</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:66.14%;width:7.74%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:66.14%;width:7.74%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:66.14%;height:28px;
+                        width:7.74%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Отделочные работы&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-07-18 → 2026-11-19&#10;Live:     2026-07-18 → 2026-11-19&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Отделочные работы</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:73.88%;width:16.27%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:73.88%;width:16.27%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:73.88%;height:28px;
+                        width:16.27%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Полы&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-11-19 → 2027-02-02&#10;Live:     2026-11-19 → 2027-02-02&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Полы</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:90.16%;width:9.84%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:90.16%;width:9.84%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:90.16%;height:28px;
+                        width:9.84%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr title="Фаза: Прочие работы&#10;Статус: not_started&#10;План: 0.0%  Факт: 0.0%&#10;Baseline: 2026-11-19 → 2026-11-29&#10;Live:     2026-11-19 → 2026-11-29&#10;Задержка: +0 дн.">
+        <td style="padding:5px 10px;font-size:12px;white-space:nowrap;
+                   border-bottom:0.5px solid #eee;max-width:200px;">
+          Прочие работы</td>
+        <td style="padding:5px 8px;font-size:11px;color:#777;
+                   border-bottom:0.5px solid #eee;">not_started</td>
+        <td style="padding:5px 8px;font-size:11px;text-align:right;
+                   border-bottom:0.5px solid #eee;">0.0%</td>
+        <td style="padding:4px 8px;border-bottom:0.5px solid #eee;min-width:400px;">
+          <div style="position:relative;height:32px;">
+            <div style="position:absolute;top:2px;left:90.16%;width:1.31%;
+                        height:12px;background:#D3D1C7;border-radius:2px;
+                        min-width:2px;" title="Baseline"></div>
+            <div style="position:absolute;top:16px;left:90.16%;width:1.31%;
+                        height:12px;background:#B4B2A9;border-radius:2px;
+                        min-width:2px;" title="Live"></div>
+            <div style="position:absolute;top:2px;left:90.16%;height:28px;
+                        width:1.31%;overflow:hidden;">
+              <div style="position:absolute;top:0;left:0;width:0.0%;
+                          height:12px;background:rgba(255,255,255,0.35);
+                          border-radius:2px;"></div>
+            </div>
+          </div>
+        </td>
+      </tr></tbody>
+</table>
+<div class="footer">AINTELLECTUM Live Construction Engine v1.1 · Ереке · Аян · Claude</div>
+</body></html>

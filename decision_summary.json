@@ -1,0 +1,30 @@
+{
+  "engine_version": "1.0",
+  "project": "Школа №65, Уральск",
+  "date": "2025-07-15",
+  "overall_status": "CRITICAL",
+  "critical_issues": 4,
+  "high_issues": 2,
+  "medium_issues": 1,
+  "total_risks": 7,
+  "total_actions": 6,
+  "top_problem": {
+    "type": "finance",
+    "phase": "",
+    "month": "2025-07",
+    "value": -584.21,
+    "impact": "CRITICAL",
+    "reason": ""
+  },
+  "schedule_impact": {
+    "baseline_finish": "2027-02-02",
+    "live_finish": "2027-02-02",
+    "delay_days": 0
+  },
+  "finance_impact": {
+    "delta_mln": -584.21,
+    "peak_gap_mln": -584.21,
+    "peak_gap_month": "2025-07",
+    "finance_status": "risk"
+  }
+}

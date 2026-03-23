@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "source_files_count": 1,
+    "source_files": [
+      "smeta_works_clean.json"
+    ],
+    "total_rows_processed": 1574,
+    "full_codes_found": 350,
+    "group_codes_found": 150,
+    "type_codes_found": 23
+  },
+  "quality": {
+    "stable_codes": 350,
+    "stable_pct": 100.0,
+    "codes_with_unit_conflicts": 0,
+    "codes_with_phase_conflicts": 0,
+    "single_occurrence_codes": 166
+  },
+  "top_unit_conflicts": [],
+  "top_phase_conflicts": []
+}

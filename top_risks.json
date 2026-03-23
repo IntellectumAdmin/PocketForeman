@@ -1,0 +1,70 @@
+{
+  "engine_version": "1.0",
+  "report_date": "2025-07-15",
+  "risks_count": 7,
+  "risks": [
+    {
+      "id": "risk_001",
+      "type": "finance",
+      "month": "2025-07",
+      "gap": -584.21,
+      "impact": "CRITICAL",
+      "severity": "critical",
+      "source": "cash_gap_risks"
+    },
+    {
+      "id": "risk_002",
+      "type": "finance",
+      "month": "2025-06",
+      "gap": -580.67,
+      "impact": "CRITICAL",
+      "severity": "critical",
+      "source": "cash_gap_risks"
+    },
+    {
+      "id": "risk_003",
+      "type": "finance",
+      "month": "2025-05",
+      "gap": -338.98,
+      "impact": "CRITICAL",
+      "severity": "critical",
+      "source": "cash_gap_risks"
+    },
+    {
+      "id": "risk_004",
+      "type": "finance",
+      "month": "2025-04",
+      "gap": -239.27,
+      "impact": "CRITICAL",
+      "severity": "risk",
+      "source": "cash_gap_risks"
+    },
+    {
+      "id": "risk_005",
+      "type": "finance",
+      "month": "2025-03",
+      "gap": -153.86,
+      "impact": "HIGH",
+      "severity": "risk",
+      "source": "cash_gap_risks"
+    },
+    {
+      "id": "risk_006",
+      "type": "finance",
+      "month": "2025-01",
+      "gap": -51.36,
+      "impact": "HIGH",
+      "severity": "warning",
+      "source": "cash_gap_risks"
+    },
+    {
+      "id": "risk_007",
+      "type": "finance",
+      "month": "2024-12",
+      "gap": -0.7,
+      "impact": "MEDIUM",
+      "severity": "warning",
+      "source": "cash_gap_risks"
+    }
+  ]
+}

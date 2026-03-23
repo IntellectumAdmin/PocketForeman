@@ -1,0 +1,251 @@
+{
+  "project": "smeta_works_v2",
+  "unmapped_count": 20,
+  "note": "Добавь keywords в production_rates.json для этих подразделов",
+  "unmapped_items": [
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Устройство оснований под фундаменты",
+      "normalized_name": "устройство оснований под фундаменты",
+      "available_units": [
+        "м3"
+      ],
+      "all_volumes": {
+        "м3": 154.1424
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Земляные работы",
+      "subsection_name": "Копание ям вручную",
+      "normalized_name": "копание ям вручную",
+      "available_units": [
+        "м3"
+      ],
+      "all_volumes": {
+        "м3": 0.03
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Каменные работы",
+      "subsection_name": "Кладка перемычек",
+      "normalized_name": "кладка перемычек",
+      "available_units": [
+        "шт"
+      ],
+      "all_volumes": {
+        "шт": 194.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Каменные работы",
+      "subsection_name": "Установка опор из плит и колец",
+      "normalized_name": "установка опор из плит и колец",
+      "available_units": [
+        "м3"
+      ],
+      "all_volumes": {
+        "м3": 1.712
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Каменные работы",
+      "subsection_name": "Устройство непроходных каналов",
+      "normalized_name": "устройство непроходных каналов",
+      "available_units": [
+        "м3"
+      ],
+      "all_volumes": {
+        "м3": 74.32
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Каменные работы",
+      "subsection_name": "Устройство прослоек из раствора",
+      "normalized_name": "устройство прослоек из раствора",
+      "available_units": [
+        "м2"
+      ],
+      "all_volumes": {
+        "м2": 4.44
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Каменные работы",
+      "subsection_name": "Установка блоков стен подвалов",
+      "normalized_name": "установка блоков стен подвалов",
+      "available_units": [
+        "шт"
+      ],
+      "all_volumes": {
+        "шт": 26.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Металлические конструкции",
+      "subsection_name": "Заполнение стен блоками из ячеистого бетона",
+      "normalized_name": "заполнение стен блоками из ячеистого бетона",
+      "available_units": [
+        "м3"
+      ],
+      "all_volumes": {
+        "м3": 761.25
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Металлические конструкции",
+      "subsection_name": "Установка и разборка лесов наружных",
+      "normalized_name": "установка и разборка лесов наружных",
+      "available_units": [
+        "м2",
+        "т"
+      ],
+      "all_volumes": {
+        "м2": 4945.25,
+        "т": 6.78984
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "subsection_name": "Монтаж опорной стойки для пролётов",
+      "normalized_name": "монтаж опорной стойки для пролётов",
+      "available_units": [
+        "т"
+      ],
+      "all_volumes": {
+        "т": 70.87901240000001
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "subsection_name": "Монтаж конструкции стационарной сцены",
+      "normalized_name": "монтаж конструкции стационарной сцены",
+      "available_units": [
+        "т"
+      ],
+      "all_volumes": {
+        "т": 2.8
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Устройство пароизоляции прокладной в один слой",
+      "normalized_name": "устройство пароизоляции прокладной в один слой",
+      "available_units": [
+        "м2",
+        "м3"
+      ],
+      "all_volumes": {
+        "м2": 8652.080000000002,
+        "м3": 158.06
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "subsection_name": "Устройство изоляции поверхности рулонными материалами",
+      "normalized_name": "устройство изоляции поверхности рулонными материалами",
+      "available_units": [
+        "м2"
+      ],
+      "all_volumes": {
+        "м2": 245.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Подготовка внутренней поверхности раствором из сухих смесей",
+      "normalized_name": "подготовка внутренней поверхности раствором из сухих смесей",
+      "available_units": [
+        "м2"
+      ],
+      "all_volumes": {
+        "м2": 15251.886
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Отделочные работы",
+      "subsection_name": "Облицовка стены плитами гранитными полированными",
+      "normalized_name": "облицовка стены плитами гранитными полированными",
+      "available_units": [
+        "м2"
+      ],
+      "all_volumes": {
+        "м2": 118.9
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Благоустройство",
+      "subsection_name": "Подготовка стандартного посадочного места для дерева",
+      "normalized_name": "подготовка стандартного посадочного места для дерева",
+      "available_units": [
+        "яма"
+      ],
+      "all_volumes": {
+        "яма": 425.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Сантехника (санузлы)",
+      "subsection_name": "Установка фонтанчика питьевого напольного с педальным пуском",
+      "normalized_name": "установка фонтанчика питьевого напольного с педальным пуском",
+      "available_units": [
+        "компл"
+      ],
+      "all_volumes": {
+        "компл": 146.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Сантехника (санузлы)",
+      "subsection_name": "Установка смесителей",
+      "normalized_name": "установка смесителей",
+      "available_units": [
+        "шт"
+      ],
+      "all_volumes": {
+        "шт": 47.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Сантехника (санузлы)",
+      "subsection_name": "Установка унитаза с бачком непосредственно присоединённым",
+      "normalized_name": "установка унитаза с бачком непосредственно присоединённым",
+      "available_units": [
+        "компл"
+      ],
+      "all_volumes": {
+        "компл": 78.0
+      },
+      "reason": "no_matching_profile"
+    },
+    {
+      "phase": "Сантехника (санузлы)",
+      "subsection_name": "Установка душевых поддонов глубоких",
+      "normalized_name": "установка душевых поддонов глубоких",
+      "available_units": [
+        "компл"
+      ],
+      "all_volumes": {
+        "компл": 36.0
+      },
+      "reason": "no_matching_profile"
+    }
+  ]
+}

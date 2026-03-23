@@ -1,0 +1,141 @@
+{
+  "finance_version": "1.0",
+  "project": "Школа №65, Уральск",
+  "total_cost": 2493015981,
+  "total_cost_mln": 2493.02,
+  "peak_month": "2025-01",
+  "peak_cost": 726092563,
+  "months_count": 26,
+  "months": [
+    {
+      "period": "2025-01",
+      "planned_cost": 726092563,
+      "planned_cost_mln": 726.093
+    },
+    {
+      "period": "2025-02",
+      "planned_cost": 107073495,
+      "planned_cost_mln": 107.073
+    },
+    {
+      "period": "2025-03",
+      "planned_cost": 107073495,
+      "planned_cost_mln": 107.073
+    },
+    {
+      "period": "2025-04",
+      "planned_cost": 107073495,
+      "planned_cost_mln": 107.073
+    },
+    {
+      "period": "2025-05",
+      "planned_cost": 107073495,
+      "planned_cost_mln": 107.073
+    },
+    {
+      "period": "2025-06",
+      "planned_cost": 312481409,
+      "planned_cost_mln": 312.481
+    },
+    {
+      "period": "2025-07",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2025-08",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2025-09",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2025-10",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2025-11",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2025-12",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2026-01",
+      "planned_cost": 8853759,
+      "planned_cost_mln": 8.854
+    },
+    {
+      "period": "2026-02",
+      "planned_cost": 31187487,
+      "planned_cost_mln": 31.187
+    },
+    {
+      "period": "2026-03",
+      "planned_cost": 22333728,
+      "planned_cost_mln": 22.334
+    },
+    {
+      "period": "2026-04",
+      "planned_cost": 52883528,
+      "planned_cost_mln": 52.884
+    },
+    {
+      "period": "2026-05",
+      "planned_cost": 94512355,
+      "planned_cost_mln": 94.512
+    },
+    {
+      "period": "2026-06",
+      "planned_cost": 63962555,
+      "planned_cost_mln": 63.963
+    },
+    {
+      "period": "2026-07",
+      "planned_cost": 109388750,
+      "planned_cost_mln": 109.389
+    },
+    {
+      "period": "2026-08",
+      "planned_cost": 95267296,
+      "planned_cost_mln": 95.267
+    },
+    {
+      "period": "2026-09",
+      "planned_cost": 95267296,
+      "planned_cost_mln": 95.267
+    },
+    {
+      "period": "2026-10",
+      "planned_cost": 95267296,
+      "planned_cost_mln": 95.267
+    },
+    {
+      "period": "2026-11",
+      "planned_cost": 147475828,
+      "planned_cost_mln": 147.476
+    },
+    {
+      "period": "2026-12",
+      "planned_cost": 52208533,
+      "planned_cost_mln": 52.209
+    },
+    {
+      "period": "2027-01",
+      "planned_cost": 52208533,
+      "planned_cost_mln": 52.209
+    },
+    {
+      "period": "2027-02",
+      "planned_cost": 52208533,
+      "planned_cost_mln": 52.209
+    }
+  ]
+}

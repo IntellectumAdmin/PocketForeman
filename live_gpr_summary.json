@@ -1,0 +1,25 @@
+{
+  "engine_version": "1.1",
+  "project": "Школа №65, Уральск",
+  "report_date": "2025-07-15",
+  "summary": {
+    "total_tasks": 16,
+    "on_track": 1,
+    "completed": 7,
+    "not_started": 7,
+    "ahead": 1
+  },
+  "schedule_impact": {
+    "baseline_finish": "2027-02-02",
+    "live_finish": "2027-02-02",
+    "delay_days": 0
+  },
+  "critical_path_changed": true,
+  "live_critical_path": [
+    "металлические_конструкции"
+  ],
+  "top_risks": [],
+  "recommended_actions": [
+    "Проект идёт по плану — продолжать мониторинг"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "project": "Школа №65, Уральск",
+  "date": "2025-07-15",
+  "updates": [
+    {
+      "task_id": "земляные_работы",
+      "status": "completed",
+      "progress_pct": 100
+    },
+    {
+      "task_id": "монолитный_каркас",
+      "status": "completed",
+      "progress_pct": 100
+    },
+    {
+      "task_id": "благоустройство_некритичное",
+      "status": "blocked",
+      "progress_pct": 56.8,
+      "block_reason": "Задержка поставки материалов"
+    },
+    {
+      "task_id": "каменные_работы",
+      "status": "completed",
+      "progress_pct": 100
+    },
+    {
+      "task_id": "металлические_конструкции",
+      "status": "in_progress",
+      "progress_pct": 15.2
+    },
+    {
+      "task_id": "деревянные_конструкции",
+      "status": "completed",
+      "progress_pct": 100
+    },
+    {
+      "task_id": "гидро-_и_пароизоляция",
+      "status": "completed",
+      "progress_pct": 100
+    },
+    {
+      "task_id": "фасадные_работы",
+      "status": "completed",
+      "progress_pct": 100
+    }
+  ]
+}

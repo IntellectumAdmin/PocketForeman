@@ -1,0 +1,77 @@
+{
+  "finance_version": "1.1",
+  "total_material_cost_mln": 3140.09,
+  "total_work_cost_mln": 2493.02,
+  "total_project_cost_mln": 5633.1,
+  "supply_lead_days": 15,
+  "peak_supply_month": "2026-11",
+  "peak_supply_cost_mln": 313.387,
+  "top_categories": [
+    {
+      "category": "Отделочные материалы",
+      "cost_mln": 1262.35
+    },
+    {
+      "category": "Бетон и растворы",
+      "cost_mln": 1236.42
+    },
+    {
+      "category": "Металлы и метизы",
+      "cost_mln": 170.68
+    },
+    {
+      "category": "Трубы и трубопроводы",
+      "cost_mln": 90.66
+    },
+    {
+      "category": "Пиломатериалы",
+      "cost_mln": 84.24
+    },
+    {
+      "category": "Кровельные материалы",
+      "cost_mln": 77.62
+    },
+    {
+      "category": "Вентиляционные изделия",
+      "cost_mln": 38.58
+    },
+    {
+      "category": "Изоляционные материалы",
+      "cost_mln": 30.1
+    }
+  ],
+  "top_phases": [
+    {
+      "phase": "Монолитный каркас",
+      "cost_mln": 1407.48
+    },
+    {
+      "phase": "Отделочные работы",
+      "cost_mln": 1272.54
+    },
+    {
+      "phase": "Водоснабжение и канализация",
+      "cost_mln": 115.62
+    },
+    {
+      "phase": "Деревянные конструкции",
+      "cost_mln": 84.24
+    },
+    {
+      "phase": "Кровля наружная",
+      "cost_mln": 77.62
+    },
+    {
+      "phase": "Прочие работы",
+      "cost_mln": 58.88
+    },
+    {
+      "phase": "Вентиляция и кондиционирование",
+      "cost_mln": 38.58
+    },
+    {
+      "phase": "Гидро- и пароизоляция",
+      "cost_mln": 30.1
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "engine_version": "2.0",
+  "report_date": "2025-07-15",
+  "scenarios": [
+    {
+      "scenario_id": "SHIFT",
+      "scenario_type": "conservative",
+      "description": "Сдвиг downstream задач без изменения ресурсов",
+      "new_finish": "2025-07-31",
+      "finish_delta_vs_live_days": -551,
+      "finish_delta_vs_baseline_days": -551,
+      "peak_cash_gap_mln": -584.21,
+      "affected_tasks": 0,
+      "new_critical_path": [
+        "Металлические конструкции"
+      ],
+      "pros": [
+        "Реалистичный прогноз",
+        "Нет дополнительных затрат"
+      ],
+      "cons": [
+        "Финиш уходит вправо",
+        "Кассовый разрыв не устраняется"
+      ],
+      "score": 70.0,
+      "accelerated_tasks": [],
+      "deferred_tasks": []
+    },
+    {
+      "scenario_id": "ACCELERATE",
+      "scenario_type": "resource_boost",
+      "description": "Ускорение критичных фаз за счёт увеличения ресурсов",
+      "new_finish": "2025-07-31",
+      "finish_delta_vs_live_days": -551,
+      "finish_delta_vs_baseline_days": -551,
+      "peak_cash_gap_mln": -642.63,
+      "affected_tasks": 0,
+      "new_critical_path": [
+        "Металлические конструкции"
+      ],
+      "acceleration_factor": 0.8,
+      "pros": [
+        "Улучшает срок финиша",
+        "Снижает риск критического пути"
+      ],
+      "cons": [
+        "Требует больше ресурсов и бюджета",
+        "Небольшой рост кассового давления"
+      ],
+      "score": 70.0,
+      "accelerated_tasks": [],
+      "deferred_tasks": []
+    },
+    {
+      "scenario_id": "DEFER",
+      "scenario_type": "finance_relief",
+      "description": "Перенос некритичных фаз для снижения кассового давления",
+      "new_finish": "2025-07-31",
+      "finish_delta_vs_live_days": -551,
+      "finish_delta_vs_baseline_days": -551,
+      "peak_cash_gap_mln": -438.16,
+      "affected_tasks": 15,
+      "new_critical_path": [
+        "Металлические конструкции"
+      ],
+      "pros": [
+        "Снижает пиковую финансовую нагрузку",
+        "Не требует дополнительных ресурсов"
+      ],
+      "cons": [
+        "Некоторые второстепенные работы откладываются",
+        "Финиш не улучшается"
+      ],
+      "score": 64.3,
+      "accelerated_tasks": [],
+      "deferred_tasks": [
+        {
+          "task_id": "земляные_работы",
+          "phase": "Земляные работы",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "монолитный_каркас",
+          "phase": "Монолитный каркас",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "благоустройство_некритичное",
+          "phase": "Благоустройство некритичное",
+          "float_days": 132,
+          "defer_days": 66
+        },
+        {
+          "task_id": "каменные_работы",
+          "phase": "Каменные работы",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "деревянные_конструкции",
+          "phase": "Деревянные конструкции",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "гидро-_и_пароизоляция",
+          "phase": "Гидро- и пароизоляция",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "фасадные_работы",
+          "phase": "Фасадные работы",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "лестницы_и_площадки",
+          "phase": "Лестницы и площадки",
+          "float_days": 211,
+          "defer_days": 105
+        },
+        {
+          "task_id": "кровля_наружная",
+          "phase": "Кровля наружная",
+          "float_days": 134,
+          "defer_days": 67
+        },
+        {
+          "task_id": "окна_и_двери",
+          "phase": "Окна и двери",
+          "float_days": 190,
+          "defer_days": 95
+        }
+      ]
+    }
+  ]
+}
